@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "> installing proto tools"
-apt install -y protobuf-compiler
+sudo apt install -y protobuf-compiler
 
 echo "> removing old directories"
 rm -rf src
