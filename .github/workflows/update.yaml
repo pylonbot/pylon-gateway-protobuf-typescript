@@ -1,0 +1,32 @@
+name: Update Code
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version (example: 0.1.0)"
+        required: true
+jobs:
+  update:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Use Node.js 14.16.1
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.16.1"
+      - name: Run Update Script
+        run: ./.github/update.sh
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Update Generated Code
+          branch-suffix: random
+          title: "[update] Update generated code"
+          body: |
+            New code has been generated, please review and merge.
+
+            Action Run: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+          labels: |
+            update
+          reviewers: spencersharkey
