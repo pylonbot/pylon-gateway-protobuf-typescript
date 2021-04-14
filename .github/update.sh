@@ -4,7 +4,7 @@ echo "> installing proto tools"
 sudo apt install -y protobuf-compiler
 
 echo "> removing old directories"
-rm -rf src
+rm -rf src dist
 mkdir -p src
 
 echo "> cloning fresh protos..."

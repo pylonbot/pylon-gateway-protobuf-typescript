@@ -7,6 +7,9 @@
   "scripts": {
     "tsc": "tsc"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@grpc/grpc-js": "^1.2.12",
     "protobufjs": "^6.8.8"
