@@ -1,372 +1,379 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TypingStartEvent_PayloadData = exports.TypingStartEvent = exports.MessageReactionRemoveEmojiEvent_PayloadData = exports.MessageReactionRemoveEmojiEvent = exports.MessageReactionRemoveAllEvent_PayloadData = exports.MessageReactionRemoveAllEvent = exports.MessageReactionRemoveEvent_PayloadData = exports.MessageReactionRemoveEvent = exports.MessageReactionAddEvent_PayloadData = exports.MessageReactionAddEvent = exports.MessageDeleteBulkEvent_PayloadData = exports.MessageDeleteBulkEvent = exports.MessageDeleteEvent_PayloadData = exports.MessageDeleteEvent = exports.MessageUpdateEvent_PayloadData_MessageMemberValue = exports.MessageUpdateEvent_PayloadData_MessageAuthorValue = exports.MessageUpdateEvent_PayloadData_MessageReferenceValue = exports.MessageUpdateEvent_PayloadData_MessageApplicationValue = exports.MessageUpdateEvent_PayloadData_MessageActivityValue = exports.MessageUpdateEvent_PayloadData_MessageMentionChannelListValue = exports.MessageUpdateEvent_PayloadData_MessageTypeValue = exports.MessageUpdateEvent_PayloadData_MessageReactionListValue = exports.MessageUpdateEvent_PayloadData_MessageMentionListValue = exports.MessageUpdateEvent_PayloadData_MessageEmbedListValue = exports.MessageUpdateEvent_PayloadData_MessageAttachmentListValue = exports.MessageUpdateEvent_PayloadData = exports.MessageUpdateEvent = exports.MessageCreateEvent = exports.GuildRoleDeleteEvent = exports.GuildRoleUpdateEvent = exports.GuildRoleCreateEvent = exports.ChannelPinsUpdateEvent_PayloadData = exports.ChannelPinsUpdateEvent = exports.ChannelDeleteEvent = exports.ChannelUpdateEvent = exports.ChannelCreateEvent = exports.GuildMemberRemoveEvent = exports.GuildMemberUpdateEvent = exports.GuildMemberAddEvent = exports.PresenceUpdateEvent = exports.GuildDeleteEvent = exports.GuildUpdateEvent = exports.GuildCreateEvent = exports.ResumeEvent = exports.ReadyEvent = exports.EventScope = exports.EventEnvelopeAck = exports.EventEnvelope_HeaderData = exports.EventEnvelope = exports.protobufPackage = void 0;
+exports.InteractionResponse = exports.EventResponse = exports.InteractionCreateEvent_PayloadData = exports.InteractionCreateEvent = exports.IntegrationDeleteEvent_PayloadData = exports.IntegrationDeleteEvent = exports.IntegrationUpdateEvent_PayloadData = exports.IntegrationUpdateEvent = exports.IntegrationCreateEvent_PayloadData = exports.IntegrationCreateEvent = exports.WebhooksUpdateEvent_PayloadData = exports.WebhooksUpdateEvent = exports.GuildIntegrationsUpdateEvent_PayloadData = exports.GuildIntegrationsUpdateEvent = exports.GuildEmojisUpdateEvent_PayloadData = exports.GuildEmojisUpdateEvent = exports.GuildBanRemoveEvent_PayloadData = exports.GuildBanRemoveEvent = exports.GuildBanAddEvent_PayloadData = exports.GuildBanAddEvent = exports.InviteDeleteEvent_PayloadData = exports.InviteDeleteEvent = exports.InviteCreateEvent_PayloadData = exports.InviteCreateEvent = exports.VoiceServerUpdateEvent_PayloadData = exports.VoiceServerUpdateEvent = exports.VoiceStateUpdateEvent = void 0;
 /* eslint-disable */
-import { messageTypeRegistry } from "../../typeRegistry";
-import Long from "long";
-import _m0 from "protobufjs/minimal";
-import { GuildData, PresenceData, MemberData, ChannelData, RoleData, MessageData, SnowflakeValue, SnowflakeListValue, MessageData_MessageAttachmentData, MessageData_MessageEmbedData, MessageData_MessageMentionData, MessageData_MessageReactionData, MessageData_MessageMentionChannelData, MessageData_MessageActivityData, MessageData_MessageApplicationData, MessageData_MessageReferenceData, UserData, MessageData_MessageReactionEmojiData, VoiceStateData, EmojiData, messageData_MessageTypeFromJSON, messageData_MessageTypeToJSON, inviteData_InviteTargetUserTypeFromJSON, inviteData_InviteTargetUserTypeToJSON, } from "../../discord/v1/model";
-import { Timestamp } from "../../google/protobuf/timestamp";
-import { StringValue, BoolValue, UInt32Value, } from "../../google/protobuf/wrappers";
-export const protobufPackage = "pylon.discord.v1.event";
+const typeRegistry_1 = require("../../typeRegistry");
+const long_1 = __importDefault(require("long"));
+const minimal_1 = __importDefault(require("protobufjs/minimal"));
+const model_1 = require("../../discord/v1/model");
+const timestamp_1 = require("../../google/protobuf/timestamp");
+const wrappers_1 = require("../../google/protobuf/wrappers");
+exports.protobufPackage = "pylon.discord.v1.event";
 const baseEventEnvelope = {
     $type: "pylon.discord.v1.event.EventEnvelope",
 };
-export const EventEnvelope = {
+exports.EventEnvelope = {
     $type: "pylon.discord.v1.event.EventEnvelope",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.header !== undefined) {
-            EventEnvelope_HeaderData.encode(message.header, writer.uint32(10).fork()).ldelim();
+            exports.EventEnvelope_HeaderData.encode(message.header, writer.uint32(10).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildCreateEvent") {
-            GuildCreateEvent.encode(message.eventData.guildCreateEvent, writer.uint32(18).fork()).ldelim();
+            exports.GuildCreateEvent.encode(message.eventData.guildCreateEvent, writer.uint32(18).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildUpdateEvent") {
-            GuildUpdateEvent.encode(message.eventData.guildUpdateEvent, writer.uint32(26).fork()).ldelim();
+            exports.GuildUpdateEvent.encode(message.eventData.guildUpdateEvent, writer.uint32(26).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildDeleteEvent") {
-            GuildDeleteEvent.encode(message.eventData.guildDeleteEvent, writer.uint32(34).fork()).ldelim();
+            exports.GuildDeleteEvent.encode(message.eventData.guildDeleteEvent, writer.uint32(34).fork()).ldelim();
         }
         if (message.eventData?.$case === "presenceUpdateEvent") {
-            PresenceUpdateEvent.encode(message.eventData.presenceUpdateEvent, writer.uint32(42).fork()).ldelim();
+            exports.PresenceUpdateEvent.encode(message.eventData.presenceUpdateEvent, writer.uint32(42).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildMemberAddEvent") {
-            GuildMemberAddEvent.encode(message.eventData.guildMemberAddEvent, writer.uint32(50).fork()).ldelim();
+            exports.GuildMemberAddEvent.encode(message.eventData.guildMemberAddEvent, writer.uint32(50).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildMemberUpdateEvent") {
-            GuildMemberUpdateEvent.encode(message.eventData.guildMemberUpdateEvent, writer.uint32(58).fork()).ldelim();
+            exports.GuildMemberUpdateEvent.encode(message.eventData.guildMemberUpdateEvent, writer.uint32(58).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildMemberRemoveEvent") {
-            GuildMemberRemoveEvent.encode(message.eventData.guildMemberRemoveEvent, writer.uint32(66).fork()).ldelim();
+            exports.GuildMemberRemoveEvent.encode(message.eventData.guildMemberRemoveEvent, writer.uint32(66).fork()).ldelim();
         }
         if (message.eventData?.$case === "channelCreateEvent") {
-            ChannelCreateEvent.encode(message.eventData.channelCreateEvent, writer.uint32(74).fork()).ldelim();
+            exports.ChannelCreateEvent.encode(message.eventData.channelCreateEvent, writer.uint32(74).fork()).ldelim();
         }
         if (message.eventData?.$case === "channelUpdateEvent") {
-            ChannelUpdateEvent.encode(message.eventData.channelUpdateEvent, writer.uint32(82).fork()).ldelim();
+            exports.ChannelUpdateEvent.encode(message.eventData.channelUpdateEvent, writer.uint32(82).fork()).ldelim();
         }
         if (message.eventData?.$case === "channelDeleteEvent") {
-            ChannelDeleteEvent.encode(message.eventData.channelDeleteEvent, writer.uint32(90).fork()).ldelim();
+            exports.ChannelDeleteEvent.encode(message.eventData.channelDeleteEvent, writer.uint32(90).fork()).ldelim();
         }
         if (message.eventData?.$case === "channelPinsUpdateEvent") {
-            ChannelPinsUpdateEvent.encode(message.eventData.channelPinsUpdateEvent, writer.uint32(98).fork()).ldelim();
+            exports.ChannelPinsUpdateEvent.encode(message.eventData.channelPinsUpdateEvent, writer.uint32(98).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildRoleCreateEvent") {
-            GuildRoleCreateEvent.encode(message.eventData.guildRoleCreateEvent, writer.uint32(106).fork()).ldelim();
+            exports.GuildRoleCreateEvent.encode(message.eventData.guildRoleCreateEvent, writer.uint32(106).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildRoleUpdateEvent") {
-            GuildRoleUpdateEvent.encode(message.eventData.guildRoleUpdateEvent, writer.uint32(114).fork()).ldelim();
+            exports.GuildRoleUpdateEvent.encode(message.eventData.guildRoleUpdateEvent, writer.uint32(114).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildRoleDeleteEvent") {
-            GuildRoleDeleteEvent.encode(message.eventData.guildRoleDeleteEvent, writer.uint32(122).fork()).ldelim();
+            exports.GuildRoleDeleteEvent.encode(message.eventData.guildRoleDeleteEvent, writer.uint32(122).fork()).ldelim();
         }
         if (message.eventData?.$case === "messageCreateEvent") {
-            MessageCreateEvent.encode(message.eventData.messageCreateEvent, writer.uint32(130).fork()).ldelim();
+            exports.MessageCreateEvent.encode(message.eventData.messageCreateEvent, writer.uint32(130).fork()).ldelim();
         }
         if (message.eventData?.$case === "messageUpdateEvent") {
-            MessageUpdateEvent.encode(message.eventData.messageUpdateEvent, writer.uint32(138).fork()).ldelim();
+            exports.MessageUpdateEvent.encode(message.eventData.messageUpdateEvent, writer.uint32(138).fork()).ldelim();
         }
         if (message.eventData?.$case === "messageDeleteEvent") {
-            MessageDeleteEvent.encode(message.eventData.messageDeleteEvent, writer.uint32(146).fork()).ldelim();
+            exports.MessageDeleteEvent.encode(message.eventData.messageDeleteEvent, writer.uint32(146).fork()).ldelim();
         }
         if (message.eventData?.$case === "messageDeleteBulkEvent") {
-            MessageDeleteBulkEvent.encode(message.eventData.messageDeleteBulkEvent, writer.uint32(154).fork()).ldelim();
+            exports.MessageDeleteBulkEvent.encode(message.eventData.messageDeleteBulkEvent, writer.uint32(154).fork()).ldelim();
         }
         if (message.eventData?.$case === "messageReactionAddEvent") {
-            MessageReactionAddEvent.encode(message.eventData.messageReactionAddEvent, writer.uint32(162).fork()).ldelim();
+            exports.MessageReactionAddEvent.encode(message.eventData.messageReactionAddEvent, writer.uint32(162).fork()).ldelim();
         }
         if (message.eventData?.$case === "messageReactionRemoveEvent") {
-            MessageReactionRemoveEvent.encode(message.eventData.messageReactionRemoveEvent, writer.uint32(170).fork()).ldelim();
+            exports.MessageReactionRemoveEvent.encode(message.eventData.messageReactionRemoveEvent, writer.uint32(170).fork()).ldelim();
         }
         if (message.eventData?.$case === "messageReactionRemoveAllEvent") {
-            MessageReactionRemoveAllEvent.encode(message.eventData.messageReactionRemoveAllEvent, writer.uint32(178).fork()).ldelim();
+            exports.MessageReactionRemoveAllEvent.encode(message.eventData.messageReactionRemoveAllEvent, writer.uint32(178).fork()).ldelim();
         }
         if (message.eventData?.$case === "messageReactionRemoveEmojiEvent") {
-            MessageReactionRemoveEmojiEvent.encode(message.eventData.messageReactionRemoveEmojiEvent, writer.uint32(186).fork()).ldelim();
+            exports.MessageReactionRemoveEmojiEvent.encode(message.eventData.messageReactionRemoveEmojiEvent, writer.uint32(186).fork()).ldelim();
         }
         if (message.eventData?.$case === "typingStartEvent") {
-            TypingStartEvent.encode(message.eventData.typingStartEvent, writer.uint32(194).fork()).ldelim();
+            exports.TypingStartEvent.encode(message.eventData.typingStartEvent, writer.uint32(194).fork()).ldelim();
         }
         if (message.eventData?.$case === "voiceStateUpdateEvent") {
-            VoiceStateUpdateEvent.encode(message.eventData.voiceStateUpdateEvent, writer.uint32(202).fork()).ldelim();
+            exports.VoiceStateUpdateEvent.encode(message.eventData.voiceStateUpdateEvent, writer.uint32(202).fork()).ldelim();
         }
         if (message.eventData?.$case === "voiceServerUpdateEvent") {
-            VoiceServerUpdateEvent.encode(message.eventData.voiceServerUpdateEvent, writer.uint32(210).fork()).ldelim();
+            exports.VoiceServerUpdateEvent.encode(message.eventData.voiceServerUpdateEvent, writer.uint32(210).fork()).ldelim();
         }
         if (message.eventData?.$case === "inviteCreateEvent") {
-            InviteCreateEvent.encode(message.eventData.inviteCreateEvent, writer.uint32(218).fork()).ldelim();
+            exports.InviteCreateEvent.encode(message.eventData.inviteCreateEvent, writer.uint32(218).fork()).ldelim();
         }
         if (message.eventData?.$case === "inviteDeleteEvent") {
-            InviteDeleteEvent.encode(message.eventData.inviteDeleteEvent, writer.uint32(226).fork()).ldelim();
+            exports.InviteDeleteEvent.encode(message.eventData.inviteDeleteEvent, writer.uint32(226).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildBanAddEvent") {
-            GuildBanAddEvent.encode(message.eventData.guildBanAddEvent, writer.uint32(234).fork()).ldelim();
+            exports.GuildBanAddEvent.encode(message.eventData.guildBanAddEvent, writer.uint32(234).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildBanRemoveEvent") {
-            GuildBanRemoveEvent.encode(message.eventData.guildBanRemoveEvent, writer.uint32(242).fork()).ldelim();
+            exports.GuildBanRemoveEvent.encode(message.eventData.guildBanRemoveEvent, writer.uint32(242).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildEmojisUpdateEvent") {
-            GuildEmojisUpdateEvent.encode(message.eventData.guildEmojisUpdateEvent, writer.uint32(250).fork()).ldelim();
+            exports.GuildEmojisUpdateEvent.encode(message.eventData.guildEmojisUpdateEvent, writer.uint32(250).fork()).ldelim();
         }
         if (message.eventData?.$case === "guildIntegrationsUpdateEvent") {
-            GuildIntegrationsUpdateEvent.encode(message.eventData.guildIntegrationsUpdateEvent, writer.uint32(258).fork()).ldelim();
+            exports.GuildIntegrationsUpdateEvent.encode(message.eventData.guildIntegrationsUpdateEvent, writer.uint32(258).fork()).ldelim();
         }
         if (message.eventData?.$case === "webhooksUpdateEvent") {
-            WebhooksUpdateEvent.encode(message.eventData.webhooksUpdateEvent, writer.uint32(266).fork()).ldelim();
+            exports.WebhooksUpdateEvent.encode(message.eventData.webhooksUpdateEvent, writer.uint32(266).fork()).ldelim();
         }
         if (message.eventData?.$case === "integrationCreateEvent") {
-            IntegrationCreateEvent.encode(message.eventData.integrationCreateEvent, writer.uint32(274).fork()).ldelim();
+            exports.IntegrationCreateEvent.encode(message.eventData.integrationCreateEvent, writer.uint32(274).fork()).ldelim();
         }
         if (message.eventData?.$case === "integrationUpdateEvent") {
-            IntegrationUpdateEvent.encode(message.eventData.integrationUpdateEvent, writer.uint32(282).fork()).ldelim();
+            exports.IntegrationUpdateEvent.encode(message.eventData.integrationUpdateEvent, writer.uint32(282).fork()).ldelim();
         }
         if (message.eventData?.$case === "integrationDeleteEvent") {
-            IntegrationDeleteEvent.encode(message.eventData.integrationDeleteEvent, writer.uint32(290).fork()).ldelim();
+            exports.IntegrationDeleteEvent.encode(message.eventData.integrationDeleteEvent, writer.uint32(290).fork()).ldelim();
         }
         if (message.eventData?.$case === "interactionCreateEvent") {
-            InteractionCreateEvent.encode(message.eventData.interactionCreateEvent, writer.uint32(298).fork()).ldelim();
+            exports.InteractionCreateEvent.encode(message.eventData.interactionCreateEvent, writer.uint32(298).fork()).ldelim();
         }
         if (message.eventData?.$case === "readyEvent") {
-            ReadyEvent.encode(message.eventData.readyEvent, writer.uint32(306).fork()).ldelim();
+            exports.ReadyEvent.encode(message.eventData.readyEvent, writer.uint32(306).fork()).ldelim();
         }
         if (message.eventData?.$case === "resumeEvent") {
-            ResumeEvent.encode(message.eventData.resumeEvent, writer.uint32(314).fork()).ldelim();
+            exports.ResumeEvent.encode(message.eventData.resumeEvent, writer.uint32(314).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseEventEnvelope };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.header = EventEnvelope_HeaderData.decode(reader, reader.uint32());
+                    message.header = exports.EventEnvelope_HeaderData.decode(reader, reader.uint32());
                     break;
                 case 2:
                     message.eventData = {
                         $case: "guildCreateEvent",
-                        guildCreateEvent: GuildCreateEvent.decode(reader, reader.uint32()),
+                        guildCreateEvent: exports.GuildCreateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 3:
                     message.eventData = {
                         $case: "guildUpdateEvent",
-                        guildUpdateEvent: GuildUpdateEvent.decode(reader, reader.uint32()),
+                        guildUpdateEvent: exports.GuildUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 4:
                     message.eventData = {
                         $case: "guildDeleteEvent",
-                        guildDeleteEvent: GuildDeleteEvent.decode(reader, reader.uint32()),
+                        guildDeleteEvent: exports.GuildDeleteEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 5:
                     message.eventData = {
                         $case: "presenceUpdateEvent",
-                        presenceUpdateEvent: PresenceUpdateEvent.decode(reader, reader.uint32()),
+                        presenceUpdateEvent: exports.PresenceUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 6:
                     message.eventData = {
                         $case: "guildMemberAddEvent",
-                        guildMemberAddEvent: GuildMemberAddEvent.decode(reader, reader.uint32()),
+                        guildMemberAddEvent: exports.GuildMemberAddEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 7:
                     message.eventData = {
                         $case: "guildMemberUpdateEvent",
-                        guildMemberUpdateEvent: GuildMemberUpdateEvent.decode(reader, reader.uint32()),
+                        guildMemberUpdateEvent: exports.GuildMemberUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 8:
                     message.eventData = {
                         $case: "guildMemberRemoveEvent",
-                        guildMemberRemoveEvent: GuildMemberRemoveEvent.decode(reader, reader.uint32()),
+                        guildMemberRemoveEvent: exports.GuildMemberRemoveEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 9:
                     message.eventData = {
                         $case: "channelCreateEvent",
-                        channelCreateEvent: ChannelCreateEvent.decode(reader, reader.uint32()),
+                        channelCreateEvent: exports.ChannelCreateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 10:
                     message.eventData = {
                         $case: "channelUpdateEvent",
-                        channelUpdateEvent: ChannelUpdateEvent.decode(reader, reader.uint32()),
+                        channelUpdateEvent: exports.ChannelUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 11:
                     message.eventData = {
                         $case: "channelDeleteEvent",
-                        channelDeleteEvent: ChannelDeleteEvent.decode(reader, reader.uint32()),
+                        channelDeleteEvent: exports.ChannelDeleteEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 12:
                     message.eventData = {
                         $case: "channelPinsUpdateEvent",
-                        channelPinsUpdateEvent: ChannelPinsUpdateEvent.decode(reader, reader.uint32()),
+                        channelPinsUpdateEvent: exports.ChannelPinsUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 13:
                     message.eventData = {
                         $case: "guildRoleCreateEvent",
-                        guildRoleCreateEvent: GuildRoleCreateEvent.decode(reader, reader.uint32()),
+                        guildRoleCreateEvent: exports.GuildRoleCreateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 14:
                     message.eventData = {
                         $case: "guildRoleUpdateEvent",
-                        guildRoleUpdateEvent: GuildRoleUpdateEvent.decode(reader, reader.uint32()),
+                        guildRoleUpdateEvent: exports.GuildRoleUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 15:
                     message.eventData = {
                         $case: "guildRoleDeleteEvent",
-                        guildRoleDeleteEvent: GuildRoleDeleteEvent.decode(reader, reader.uint32()),
+                        guildRoleDeleteEvent: exports.GuildRoleDeleteEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 16:
                     message.eventData = {
                         $case: "messageCreateEvent",
-                        messageCreateEvent: MessageCreateEvent.decode(reader, reader.uint32()),
+                        messageCreateEvent: exports.MessageCreateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 17:
                     message.eventData = {
                         $case: "messageUpdateEvent",
-                        messageUpdateEvent: MessageUpdateEvent.decode(reader, reader.uint32()),
+                        messageUpdateEvent: exports.MessageUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 18:
                     message.eventData = {
                         $case: "messageDeleteEvent",
-                        messageDeleteEvent: MessageDeleteEvent.decode(reader, reader.uint32()),
+                        messageDeleteEvent: exports.MessageDeleteEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 19:
                     message.eventData = {
                         $case: "messageDeleteBulkEvent",
-                        messageDeleteBulkEvent: MessageDeleteBulkEvent.decode(reader, reader.uint32()),
+                        messageDeleteBulkEvent: exports.MessageDeleteBulkEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 20:
                     message.eventData = {
                         $case: "messageReactionAddEvent",
-                        messageReactionAddEvent: MessageReactionAddEvent.decode(reader, reader.uint32()),
+                        messageReactionAddEvent: exports.MessageReactionAddEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 21:
                     message.eventData = {
                         $case: "messageReactionRemoveEvent",
-                        messageReactionRemoveEvent: MessageReactionRemoveEvent.decode(reader, reader.uint32()),
+                        messageReactionRemoveEvent: exports.MessageReactionRemoveEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 22:
                     message.eventData = {
                         $case: "messageReactionRemoveAllEvent",
-                        messageReactionRemoveAllEvent: MessageReactionRemoveAllEvent.decode(reader, reader.uint32()),
+                        messageReactionRemoveAllEvent: exports.MessageReactionRemoveAllEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 23:
                     message.eventData = {
                         $case: "messageReactionRemoveEmojiEvent",
-                        messageReactionRemoveEmojiEvent: MessageReactionRemoveEmojiEvent.decode(reader, reader.uint32()),
+                        messageReactionRemoveEmojiEvent: exports.MessageReactionRemoveEmojiEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 24:
                     message.eventData = {
                         $case: "typingStartEvent",
-                        typingStartEvent: TypingStartEvent.decode(reader, reader.uint32()),
+                        typingStartEvent: exports.TypingStartEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 25:
                     message.eventData = {
                         $case: "voiceStateUpdateEvent",
-                        voiceStateUpdateEvent: VoiceStateUpdateEvent.decode(reader, reader.uint32()),
+                        voiceStateUpdateEvent: exports.VoiceStateUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 26:
                     message.eventData = {
                         $case: "voiceServerUpdateEvent",
-                        voiceServerUpdateEvent: VoiceServerUpdateEvent.decode(reader, reader.uint32()),
+                        voiceServerUpdateEvent: exports.VoiceServerUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 27:
                     message.eventData = {
                         $case: "inviteCreateEvent",
-                        inviteCreateEvent: InviteCreateEvent.decode(reader, reader.uint32()),
+                        inviteCreateEvent: exports.InviteCreateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 28:
                     message.eventData = {
                         $case: "inviteDeleteEvent",
-                        inviteDeleteEvent: InviteDeleteEvent.decode(reader, reader.uint32()),
+                        inviteDeleteEvent: exports.InviteDeleteEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 29:
                     message.eventData = {
                         $case: "guildBanAddEvent",
-                        guildBanAddEvent: GuildBanAddEvent.decode(reader, reader.uint32()),
+                        guildBanAddEvent: exports.GuildBanAddEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 30:
                     message.eventData = {
                         $case: "guildBanRemoveEvent",
-                        guildBanRemoveEvent: GuildBanRemoveEvent.decode(reader, reader.uint32()),
+                        guildBanRemoveEvent: exports.GuildBanRemoveEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 31:
                     message.eventData = {
                         $case: "guildEmojisUpdateEvent",
-                        guildEmojisUpdateEvent: GuildEmojisUpdateEvent.decode(reader, reader.uint32()),
+                        guildEmojisUpdateEvent: exports.GuildEmojisUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 32:
                     message.eventData = {
                         $case: "guildIntegrationsUpdateEvent",
-                        guildIntegrationsUpdateEvent: GuildIntegrationsUpdateEvent.decode(reader, reader.uint32()),
+                        guildIntegrationsUpdateEvent: exports.GuildIntegrationsUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 33:
                     message.eventData = {
                         $case: "webhooksUpdateEvent",
-                        webhooksUpdateEvent: WebhooksUpdateEvent.decode(reader, reader.uint32()),
+                        webhooksUpdateEvent: exports.WebhooksUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 34:
                     message.eventData = {
                         $case: "integrationCreateEvent",
-                        integrationCreateEvent: IntegrationCreateEvent.decode(reader, reader.uint32()),
+                        integrationCreateEvent: exports.IntegrationCreateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 35:
                     message.eventData = {
                         $case: "integrationUpdateEvent",
-                        integrationUpdateEvent: IntegrationUpdateEvent.decode(reader, reader.uint32()),
+                        integrationUpdateEvent: exports.IntegrationUpdateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 36:
                     message.eventData = {
                         $case: "integrationDeleteEvent",
-                        integrationDeleteEvent: IntegrationDeleteEvent.decode(reader, reader.uint32()),
+                        integrationDeleteEvent: exports.IntegrationDeleteEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 37:
                     message.eventData = {
                         $case: "interactionCreateEvent",
-                        interactionCreateEvent: InteractionCreateEvent.decode(reader, reader.uint32()),
+                        interactionCreateEvent: exports.InteractionCreateEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 38:
                     message.eventData = {
                         $case: "readyEvent",
-                        readyEvent: ReadyEvent.decode(reader, reader.uint32()),
+                        readyEvent: exports.ReadyEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 case 39:
                     message.eventData = {
                         $case: "resumeEvent",
-                        resumeEvent: ResumeEvent.decode(reader, reader.uint32()),
+                        resumeEvent: exports.ResumeEvent.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -379,270 +386,270 @@ export const EventEnvelope = {
     fromJSON(object) {
         const message = { ...baseEventEnvelope };
         if (object.header !== undefined && object.header !== null) {
-            message.header = EventEnvelope_HeaderData.fromJSON(object.header);
+            message.header = exports.EventEnvelope_HeaderData.fromJSON(object.header);
         }
         if (object.guildCreateEvent !== undefined &&
             object.guildCreateEvent !== null) {
             message.eventData = {
                 $case: "guildCreateEvent",
-                guildCreateEvent: GuildCreateEvent.fromJSON(object.guildCreateEvent),
+                guildCreateEvent: exports.GuildCreateEvent.fromJSON(object.guildCreateEvent),
             };
         }
         if (object.guildUpdateEvent !== undefined &&
             object.guildUpdateEvent !== null) {
             message.eventData = {
                 $case: "guildUpdateEvent",
-                guildUpdateEvent: GuildUpdateEvent.fromJSON(object.guildUpdateEvent),
+                guildUpdateEvent: exports.GuildUpdateEvent.fromJSON(object.guildUpdateEvent),
             };
         }
         if (object.guildDeleteEvent !== undefined &&
             object.guildDeleteEvent !== null) {
             message.eventData = {
                 $case: "guildDeleteEvent",
-                guildDeleteEvent: GuildDeleteEvent.fromJSON(object.guildDeleteEvent),
+                guildDeleteEvent: exports.GuildDeleteEvent.fromJSON(object.guildDeleteEvent),
             };
         }
         if (object.presenceUpdateEvent !== undefined &&
             object.presenceUpdateEvent !== null) {
             message.eventData = {
                 $case: "presenceUpdateEvent",
-                presenceUpdateEvent: PresenceUpdateEvent.fromJSON(object.presenceUpdateEvent),
+                presenceUpdateEvent: exports.PresenceUpdateEvent.fromJSON(object.presenceUpdateEvent),
             };
         }
         if (object.guildMemberAddEvent !== undefined &&
             object.guildMemberAddEvent !== null) {
             message.eventData = {
                 $case: "guildMemberAddEvent",
-                guildMemberAddEvent: GuildMemberAddEvent.fromJSON(object.guildMemberAddEvent),
+                guildMemberAddEvent: exports.GuildMemberAddEvent.fromJSON(object.guildMemberAddEvent),
             };
         }
         if (object.guildMemberUpdateEvent !== undefined &&
             object.guildMemberUpdateEvent !== null) {
             message.eventData = {
                 $case: "guildMemberUpdateEvent",
-                guildMemberUpdateEvent: GuildMemberUpdateEvent.fromJSON(object.guildMemberUpdateEvent),
+                guildMemberUpdateEvent: exports.GuildMemberUpdateEvent.fromJSON(object.guildMemberUpdateEvent),
             };
         }
         if (object.guildMemberRemoveEvent !== undefined &&
             object.guildMemberRemoveEvent !== null) {
             message.eventData = {
                 $case: "guildMemberRemoveEvent",
-                guildMemberRemoveEvent: GuildMemberRemoveEvent.fromJSON(object.guildMemberRemoveEvent),
+                guildMemberRemoveEvent: exports.GuildMemberRemoveEvent.fromJSON(object.guildMemberRemoveEvent),
             };
         }
         if (object.channelCreateEvent !== undefined &&
             object.channelCreateEvent !== null) {
             message.eventData = {
                 $case: "channelCreateEvent",
-                channelCreateEvent: ChannelCreateEvent.fromJSON(object.channelCreateEvent),
+                channelCreateEvent: exports.ChannelCreateEvent.fromJSON(object.channelCreateEvent),
             };
         }
         if (object.channelUpdateEvent !== undefined &&
             object.channelUpdateEvent !== null) {
             message.eventData = {
                 $case: "channelUpdateEvent",
-                channelUpdateEvent: ChannelUpdateEvent.fromJSON(object.channelUpdateEvent),
+                channelUpdateEvent: exports.ChannelUpdateEvent.fromJSON(object.channelUpdateEvent),
             };
         }
         if (object.channelDeleteEvent !== undefined &&
             object.channelDeleteEvent !== null) {
             message.eventData = {
                 $case: "channelDeleteEvent",
-                channelDeleteEvent: ChannelDeleteEvent.fromJSON(object.channelDeleteEvent),
+                channelDeleteEvent: exports.ChannelDeleteEvent.fromJSON(object.channelDeleteEvent),
             };
         }
         if (object.channelPinsUpdateEvent !== undefined &&
             object.channelPinsUpdateEvent !== null) {
             message.eventData = {
                 $case: "channelPinsUpdateEvent",
-                channelPinsUpdateEvent: ChannelPinsUpdateEvent.fromJSON(object.channelPinsUpdateEvent),
+                channelPinsUpdateEvent: exports.ChannelPinsUpdateEvent.fromJSON(object.channelPinsUpdateEvent),
             };
         }
         if (object.guildRoleCreateEvent !== undefined &&
             object.guildRoleCreateEvent !== null) {
             message.eventData = {
                 $case: "guildRoleCreateEvent",
-                guildRoleCreateEvent: GuildRoleCreateEvent.fromJSON(object.guildRoleCreateEvent),
+                guildRoleCreateEvent: exports.GuildRoleCreateEvent.fromJSON(object.guildRoleCreateEvent),
             };
         }
         if (object.guildRoleUpdateEvent !== undefined &&
             object.guildRoleUpdateEvent !== null) {
             message.eventData = {
                 $case: "guildRoleUpdateEvent",
-                guildRoleUpdateEvent: GuildRoleUpdateEvent.fromJSON(object.guildRoleUpdateEvent),
+                guildRoleUpdateEvent: exports.GuildRoleUpdateEvent.fromJSON(object.guildRoleUpdateEvent),
             };
         }
         if (object.guildRoleDeleteEvent !== undefined &&
             object.guildRoleDeleteEvent !== null) {
             message.eventData = {
                 $case: "guildRoleDeleteEvent",
-                guildRoleDeleteEvent: GuildRoleDeleteEvent.fromJSON(object.guildRoleDeleteEvent),
+                guildRoleDeleteEvent: exports.GuildRoleDeleteEvent.fromJSON(object.guildRoleDeleteEvent),
             };
         }
         if (object.messageCreateEvent !== undefined &&
             object.messageCreateEvent !== null) {
             message.eventData = {
                 $case: "messageCreateEvent",
-                messageCreateEvent: MessageCreateEvent.fromJSON(object.messageCreateEvent),
+                messageCreateEvent: exports.MessageCreateEvent.fromJSON(object.messageCreateEvent),
             };
         }
         if (object.messageUpdateEvent !== undefined &&
             object.messageUpdateEvent !== null) {
             message.eventData = {
                 $case: "messageUpdateEvent",
-                messageUpdateEvent: MessageUpdateEvent.fromJSON(object.messageUpdateEvent),
+                messageUpdateEvent: exports.MessageUpdateEvent.fromJSON(object.messageUpdateEvent),
             };
         }
         if (object.messageDeleteEvent !== undefined &&
             object.messageDeleteEvent !== null) {
             message.eventData = {
                 $case: "messageDeleteEvent",
-                messageDeleteEvent: MessageDeleteEvent.fromJSON(object.messageDeleteEvent),
+                messageDeleteEvent: exports.MessageDeleteEvent.fromJSON(object.messageDeleteEvent),
             };
         }
         if (object.messageDeleteBulkEvent !== undefined &&
             object.messageDeleteBulkEvent !== null) {
             message.eventData = {
                 $case: "messageDeleteBulkEvent",
-                messageDeleteBulkEvent: MessageDeleteBulkEvent.fromJSON(object.messageDeleteBulkEvent),
+                messageDeleteBulkEvent: exports.MessageDeleteBulkEvent.fromJSON(object.messageDeleteBulkEvent),
             };
         }
         if (object.messageReactionAddEvent !== undefined &&
             object.messageReactionAddEvent !== null) {
             message.eventData = {
                 $case: "messageReactionAddEvent",
-                messageReactionAddEvent: MessageReactionAddEvent.fromJSON(object.messageReactionAddEvent),
+                messageReactionAddEvent: exports.MessageReactionAddEvent.fromJSON(object.messageReactionAddEvent),
             };
         }
         if (object.messageReactionRemoveEvent !== undefined &&
             object.messageReactionRemoveEvent !== null) {
             message.eventData = {
                 $case: "messageReactionRemoveEvent",
-                messageReactionRemoveEvent: MessageReactionRemoveEvent.fromJSON(object.messageReactionRemoveEvent),
+                messageReactionRemoveEvent: exports.MessageReactionRemoveEvent.fromJSON(object.messageReactionRemoveEvent),
             };
         }
         if (object.messageReactionRemoveAllEvent !== undefined &&
             object.messageReactionRemoveAllEvent !== null) {
             message.eventData = {
                 $case: "messageReactionRemoveAllEvent",
-                messageReactionRemoveAllEvent: MessageReactionRemoveAllEvent.fromJSON(object.messageReactionRemoveAllEvent),
+                messageReactionRemoveAllEvent: exports.MessageReactionRemoveAllEvent.fromJSON(object.messageReactionRemoveAllEvent),
             };
         }
         if (object.messageReactionRemoveEmojiEvent !== undefined &&
             object.messageReactionRemoveEmojiEvent !== null) {
             message.eventData = {
                 $case: "messageReactionRemoveEmojiEvent",
-                messageReactionRemoveEmojiEvent: MessageReactionRemoveEmojiEvent.fromJSON(object.messageReactionRemoveEmojiEvent),
+                messageReactionRemoveEmojiEvent: exports.MessageReactionRemoveEmojiEvent.fromJSON(object.messageReactionRemoveEmojiEvent),
             };
         }
         if (object.typingStartEvent !== undefined &&
             object.typingStartEvent !== null) {
             message.eventData = {
                 $case: "typingStartEvent",
-                typingStartEvent: TypingStartEvent.fromJSON(object.typingStartEvent),
+                typingStartEvent: exports.TypingStartEvent.fromJSON(object.typingStartEvent),
             };
         }
         if (object.voiceStateUpdateEvent !== undefined &&
             object.voiceStateUpdateEvent !== null) {
             message.eventData = {
                 $case: "voiceStateUpdateEvent",
-                voiceStateUpdateEvent: VoiceStateUpdateEvent.fromJSON(object.voiceStateUpdateEvent),
+                voiceStateUpdateEvent: exports.VoiceStateUpdateEvent.fromJSON(object.voiceStateUpdateEvent),
             };
         }
         if (object.voiceServerUpdateEvent !== undefined &&
             object.voiceServerUpdateEvent !== null) {
             message.eventData = {
                 $case: "voiceServerUpdateEvent",
-                voiceServerUpdateEvent: VoiceServerUpdateEvent.fromJSON(object.voiceServerUpdateEvent),
+                voiceServerUpdateEvent: exports.VoiceServerUpdateEvent.fromJSON(object.voiceServerUpdateEvent),
             };
         }
         if (object.inviteCreateEvent !== undefined &&
             object.inviteCreateEvent !== null) {
             message.eventData = {
                 $case: "inviteCreateEvent",
-                inviteCreateEvent: InviteCreateEvent.fromJSON(object.inviteCreateEvent),
+                inviteCreateEvent: exports.InviteCreateEvent.fromJSON(object.inviteCreateEvent),
             };
         }
         if (object.inviteDeleteEvent !== undefined &&
             object.inviteDeleteEvent !== null) {
             message.eventData = {
                 $case: "inviteDeleteEvent",
-                inviteDeleteEvent: InviteDeleteEvent.fromJSON(object.inviteDeleteEvent),
+                inviteDeleteEvent: exports.InviteDeleteEvent.fromJSON(object.inviteDeleteEvent),
             };
         }
         if (object.guildBanAddEvent !== undefined &&
             object.guildBanAddEvent !== null) {
             message.eventData = {
                 $case: "guildBanAddEvent",
-                guildBanAddEvent: GuildBanAddEvent.fromJSON(object.guildBanAddEvent),
+                guildBanAddEvent: exports.GuildBanAddEvent.fromJSON(object.guildBanAddEvent),
             };
         }
         if (object.guildBanRemoveEvent !== undefined &&
             object.guildBanRemoveEvent !== null) {
             message.eventData = {
                 $case: "guildBanRemoveEvent",
-                guildBanRemoveEvent: GuildBanRemoveEvent.fromJSON(object.guildBanRemoveEvent),
+                guildBanRemoveEvent: exports.GuildBanRemoveEvent.fromJSON(object.guildBanRemoveEvent),
             };
         }
         if (object.guildEmojisUpdateEvent !== undefined &&
             object.guildEmojisUpdateEvent !== null) {
             message.eventData = {
                 $case: "guildEmojisUpdateEvent",
-                guildEmojisUpdateEvent: GuildEmojisUpdateEvent.fromJSON(object.guildEmojisUpdateEvent),
+                guildEmojisUpdateEvent: exports.GuildEmojisUpdateEvent.fromJSON(object.guildEmojisUpdateEvent),
             };
         }
         if (object.guildIntegrationsUpdateEvent !== undefined &&
             object.guildIntegrationsUpdateEvent !== null) {
             message.eventData = {
                 $case: "guildIntegrationsUpdateEvent",
-                guildIntegrationsUpdateEvent: GuildIntegrationsUpdateEvent.fromJSON(object.guildIntegrationsUpdateEvent),
+                guildIntegrationsUpdateEvent: exports.GuildIntegrationsUpdateEvent.fromJSON(object.guildIntegrationsUpdateEvent),
             };
         }
         if (object.webhooksUpdateEvent !== undefined &&
             object.webhooksUpdateEvent !== null) {
             message.eventData = {
                 $case: "webhooksUpdateEvent",
-                webhooksUpdateEvent: WebhooksUpdateEvent.fromJSON(object.webhooksUpdateEvent),
+                webhooksUpdateEvent: exports.WebhooksUpdateEvent.fromJSON(object.webhooksUpdateEvent),
             };
         }
         if (object.integrationCreateEvent !== undefined &&
             object.integrationCreateEvent !== null) {
             message.eventData = {
                 $case: "integrationCreateEvent",
-                integrationCreateEvent: IntegrationCreateEvent.fromJSON(object.integrationCreateEvent),
+                integrationCreateEvent: exports.IntegrationCreateEvent.fromJSON(object.integrationCreateEvent),
             };
         }
         if (object.integrationUpdateEvent !== undefined &&
             object.integrationUpdateEvent !== null) {
             message.eventData = {
                 $case: "integrationUpdateEvent",
-                integrationUpdateEvent: IntegrationUpdateEvent.fromJSON(object.integrationUpdateEvent),
+                integrationUpdateEvent: exports.IntegrationUpdateEvent.fromJSON(object.integrationUpdateEvent),
             };
         }
         if (object.integrationDeleteEvent !== undefined &&
             object.integrationDeleteEvent !== null) {
             message.eventData = {
                 $case: "integrationDeleteEvent",
-                integrationDeleteEvent: IntegrationDeleteEvent.fromJSON(object.integrationDeleteEvent),
+                integrationDeleteEvent: exports.IntegrationDeleteEvent.fromJSON(object.integrationDeleteEvent),
             };
         }
         if (object.interactionCreateEvent !== undefined &&
             object.interactionCreateEvent !== null) {
             message.eventData = {
                 $case: "interactionCreateEvent",
-                interactionCreateEvent: InteractionCreateEvent.fromJSON(object.interactionCreateEvent),
+                interactionCreateEvent: exports.InteractionCreateEvent.fromJSON(object.interactionCreateEvent),
             };
         }
         if (object.readyEvent !== undefined && object.readyEvent !== null) {
             message.eventData = {
                 $case: "readyEvent",
-                readyEvent: ReadyEvent.fromJSON(object.readyEvent),
+                readyEvent: exports.ReadyEvent.fromJSON(object.readyEvent),
             };
         }
         if (object.resumeEvent !== undefined && object.resumeEvent !== null) {
             message.eventData = {
                 $case: "resumeEvent",
-                resumeEvent: ResumeEvent.fromJSON(object.resumeEvent),
+                resumeEvent: exports.ResumeEvent.fromJSON(object.resumeEvent),
             };
         }
         return message;
@@ -651,177 +658,177 @@ export const EventEnvelope = {
         const obj = {};
         message.header !== undefined &&
             (obj.header = message.header
-                ? EventEnvelope_HeaderData.toJSON(message.header)
+                ? exports.EventEnvelope_HeaderData.toJSON(message.header)
                 : undefined);
         message.eventData?.$case === "guildCreateEvent" &&
             (obj.guildCreateEvent = message.eventData?.guildCreateEvent
-                ? GuildCreateEvent.toJSON(message.eventData?.guildCreateEvent)
+                ? exports.GuildCreateEvent.toJSON(message.eventData?.guildCreateEvent)
                 : undefined);
         message.eventData?.$case === "guildUpdateEvent" &&
             (obj.guildUpdateEvent = message.eventData?.guildUpdateEvent
-                ? GuildUpdateEvent.toJSON(message.eventData?.guildUpdateEvent)
+                ? exports.GuildUpdateEvent.toJSON(message.eventData?.guildUpdateEvent)
                 : undefined);
         message.eventData?.$case === "guildDeleteEvent" &&
             (obj.guildDeleteEvent = message.eventData?.guildDeleteEvent
-                ? GuildDeleteEvent.toJSON(message.eventData?.guildDeleteEvent)
+                ? exports.GuildDeleteEvent.toJSON(message.eventData?.guildDeleteEvent)
                 : undefined);
         message.eventData?.$case === "presenceUpdateEvent" &&
             (obj.presenceUpdateEvent = message.eventData?.presenceUpdateEvent
-                ? PresenceUpdateEvent.toJSON(message.eventData?.presenceUpdateEvent)
+                ? exports.PresenceUpdateEvent.toJSON(message.eventData?.presenceUpdateEvent)
                 : undefined);
         message.eventData?.$case === "guildMemberAddEvent" &&
             (obj.guildMemberAddEvent = message.eventData?.guildMemberAddEvent
-                ? GuildMemberAddEvent.toJSON(message.eventData?.guildMemberAddEvent)
+                ? exports.GuildMemberAddEvent.toJSON(message.eventData?.guildMemberAddEvent)
                 : undefined);
         message.eventData?.$case === "guildMemberUpdateEvent" &&
             (obj.guildMemberUpdateEvent = message.eventData?.guildMemberUpdateEvent
-                ? GuildMemberUpdateEvent.toJSON(message.eventData?.guildMemberUpdateEvent)
+                ? exports.GuildMemberUpdateEvent.toJSON(message.eventData?.guildMemberUpdateEvent)
                 : undefined);
         message.eventData?.$case === "guildMemberRemoveEvent" &&
             (obj.guildMemberRemoveEvent = message.eventData?.guildMemberRemoveEvent
-                ? GuildMemberRemoveEvent.toJSON(message.eventData?.guildMemberRemoveEvent)
+                ? exports.GuildMemberRemoveEvent.toJSON(message.eventData?.guildMemberRemoveEvent)
                 : undefined);
         message.eventData?.$case === "channelCreateEvent" &&
             (obj.channelCreateEvent = message.eventData?.channelCreateEvent
-                ? ChannelCreateEvent.toJSON(message.eventData?.channelCreateEvent)
+                ? exports.ChannelCreateEvent.toJSON(message.eventData?.channelCreateEvent)
                 : undefined);
         message.eventData?.$case === "channelUpdateEvent" &&
             (obj.channelUpdateEvent = message.eventData?.channelUpdateEvent
-                ? ChannelUpdateEvent.toJSON(message.eventData?.channelUpdateEvent)
+                ? exports.ChannelUpdateEvent.toJSON(message.eventData?.channelUpdateEvent)
                 : undefined);
         message.eventData?.$case === "channelDeleteEvent" &&
             (obj.channelDeleteEvent = message.eventData?.channelDeleteEvent
-                ? ChannelDeleteEvent.toJSON(message.eventData?.channelDeleteEvent)
+                ? exports.ChannelDeleteEvent.toJSON(message.eventData?.channelDeleteEvent)
                 : undefined);
         message.eventData?.$case === "channelPinsUpdateEvent" &&
             (obj.channelPinsUpdateEvent = message.eventData?.channelPinsUpdateEvent
-                ? ChannelPinsUpdateEvent.toJSON(message.eventData?.channelPinsUpdateEvent)
+                ? exports.ChannelPinsUpdateEvent.toJSON(message.eventData?.channelPinsUpdateEvent)
                 : undefined);
         message.eventData?.$case === "guildRoleCreateEvent" &&
             (obj.guildRoleCreateEvent = message.eventData?.guildRoleCreateEvent
-                ? GuildRoleCreateEvent.toJSON(message.eventData?.guildRoleCreateEvent)
+                ? exports.GuildRoleCreateEvent.toJSON(message.eventData?.guildRoleCreateEvent)
                 : undefined);
         message.eventData?.$case === "guildRoleUpdateEvent" &&
             (obj.guildRoleUpdateEvent = message.eventData?.guildRoleUpdateEvent
-                ? GuildRoleUpdateEvent.toJSON(message.eventData?.guildRoleUpdateEvent)
+                ? exports.GuildRoleUpdateEvent.toJSON(message.eventData?.guildRoleUpdateEvent)
                 : undefined);
         message.eventData?.$case === "guildRoleDeleteEvent" &&
             (obj.guildRoleDeleteEvent = message.eventData?.guildRoleDeleteEvent
-                ? GuildRoleDeleteEvent.toJSON(message.eventData?.guildRoleDeleteEvent)
+                ? exports.GuildRoleDeleteEvent.toJSON(message.eventData?.guildRoleDeleteEvent)
                 : undefined);
         message.eventData?.$case === "messageCreateEvent" &&
             (obj.messageCreateEvent = message.eventData?.messageCreateEvent
-                ? MessageCreateEvent.toJSON(message.eventData?.messageCreateEvent)
+                ? exports.MessageCreateEvent.toJSON(message.eventData?.messageCreateEvent)
                 : undefined);
         message.eventData?.$case === "messageUpdateEvent" &&
             (obj.messageUpdateEvent = message.eventData?.messageUpdateEvent
-                ? MessageUpdateEvent.toJSON(message.eventData?.messageUpdateEvent)
+                ? exports.MessageUpdateEvent.toJSON(message.eventData?.messageUpdateEvent)
                 : undefined);
         message.eventData?.$case === "messageDeleteEvent" &&
             (obj.messageDeleteEvent = message.eventData?.messageDeleteEvent
-                ? MessageDeleteEvent.toJSON(message.eventData?.messageDeleteEvent)
+                ? exports.MessageDeleteEvent.toJSON(message.eventData?.messageDeleteEvent)
                 : undefined);
         message.eventData?.$case === "messageDeleteBulkEvent" &&
             (obj.messageDeleteBulkEvent = message.eventData?.messageDeleteBulkEvent
-                ? MessageDeleteBulkEvent.toJSON(message.eventData?.messageDeleteBulkEvent)
+                ? exports.MessageDeleteBulkEvent.toJSON(message.eventData?.messageDeleteBulkEvent)
                 : undefined);
         message.eventData?.$case === "messageReactionAddEvent" &&
             (obj.messageReactionAddEvent = message.eventData?.messageReactionAddEvent
-                ? MessageReactionAddEvent.toJSON(message.eventData?.messageReactionAddEvent)
+                ? exports.MessageReactionAddEvent.toJSON(message.eventData?.messageReactionAddEvent)
                 : undefined);
         message.eventData?.$case === "messageReactionRemoveEvent" &&
             (obj.messageReactionRemoveEvent = message.eventData
                 ?.messageReactionRemoveEvent
-                ? MessageReactionRemoveEvent.toJSON(message.eventData?.messageReactionRemoveEvent)
+                ? exports.MessageReactionRemoveEvent.toJSON(message.eventData?.messageReactionRemoveEvent)
                 : undefined);
         message.eventData?.$case === "messageReactionRemoveAllEvent" &&
             (obj.messageReactionRemoveAllEvent = message.eventData
                 ?.messageReactionRemoveAllEvent
-                ? MessageReactionRemoveAllEvent.toJSON(message.eventData?.messageReactionRemoveAllEvent)
+                ? exports.MessageReactionRemoveAllEvent.toJSON(message.eventData?.messageReactionRemoveAllEvent)
                 : undefined);
         message.eventData?.$case === "messageReactionRemoveEmojiEvent" &&
             (obj.messageReactionRemoveEmojiEvent = message.eventData
                 ?.messageReactionRemoveEmojiEvent
-                ? MessageReactionRemoveEmojiEvent.toJSON(message.eventData?.messageReactionRemoveEmojiEvent)
+                ? exports.MessageReactionRemoveEmojiEvent.toJSON(message.eventData?.messageReactionRemoveEmojiEvent)
                 : undefined);
         message.eventData?.$case === "typingStartEvent" &&
             (obj.typingStartEvent = message.eventData?.typingStartEvent
-                ? TypingStartEvent.toJSON(message.eventData?.typingStartEvent)
+                ? exports.TypingStartEvent.toJSON(message.eventData?.typingStartEvent)
                 : undefined);
         message.eventData?.$case === "voiceStateUpdateEvent" &&
             (obj.voiceStateUpdateEvent = message.eventData?.voiceStateUpdateEvent
-                ? VoiceStateUpdateEvent.toJSON(message.eventData?.voiceStateUpdateEvent)
+                ? exports.VoiceStateUpdateEvent.toJSON(message.eventData?.voiceStateUpdateEvent)
                 : undefined);
         message.eventData?.$case === "voiceServerUpdateEvent" &&
             (obj.voiceServerUpdateEvent = message.eventData?.voiceServerUpdateEvent
-                ? VoiceServerUpdateEvent.toJSON(message.eventData?.voiceServerUpdateEvent)
+                ? exports.VoiceServerUpdateEvent.toJSON(message.eventData?.voiceServerUpdateEvent)
                 : undefined);
         message.eventData?.$case === "inviteCreateEvent" &&
             (obj.inviteCreateEvent = message.eventData?.inviteCreateEvent
-                ? InviteCreateEvent.toJSON(message.eventData?.inviteCreateEvent)
+                ? exports.InviteCreateEvent.toJSON(message.eventData?.inviteCreateEvent)
                 : undefined);
         message.eventData?.$case === "inviteDeleteEvent" &&
             (obj.inviteDeleteEvent = message.eventData?.inviteDeleteEvent
-                ? InviteDeleteEvent.toJSON(message.eventData?.inviteDeleteEvent)
+                ? exports.InviteDeleteEvent.toJSON(message.eventData?.inviteDeleteEvent)
                 : undefined);
         message.eventData?.$case === "guildBanAddEvent" &&
             (obj.guildBanAddEvent = message.eventData?.guildBanAddEvent
-                ? GuildBanAddEvent.toJSON(message.eventData?.guildBanAddEvent)
+                ? exports.GuildBanAddEvent.toJSON(message.eventData?.guildBanAddEvent)
                 : undefined);
         message.eventData?.$case === "guildBanRemoveEvent" &&
             (obj.guildBanRemoveEvent = message.eventData?.guildBanRemoveEvent
-                ? GuildBanRemoveEvent.toJSON(message.eventData?.guildBanRemoveEvent)
+                ? exports.GuildBanRemoveEvent.toJSON(message.eventData?.guildBanRemoveEvent)
                 : undefined);
         message.eventData?.$case === "guildEmojisUpdateEvent" &&
             (obj.guildEmojisUpdateEvent = message.eventData?.guildEmojisUpdateEvent
-                ? GuildEmojisUpdateEvent.toJSON(message.eventData?.guildEmojisUpdateEvent)
+                ? exports.GuildEmojisUpdateEvent.toJSON(message.eventData?.guildEmojisUpdateEvent)
                 : undefined);
         message.eventData?.$case === "guildIntegrationsUpdateEvent" &&
             (obj.guildIntegrationsUpdateEvent = message.eventData
                 ?.guildIntegrationsUpdateEvent
-                ? GuildIntegrationsUpdateEvent.toJSON(message.eventData?.guildIntegrationsUpdateEvent)
+                ? exports.GuildIntegrationsUpdateEvent.toJSON(message.eventData?.guildIntegrationsUpdateEvent)
                 : undefined);
         message.eventData?.$case === "webhooksUpdateEvent" &&
             (obj.webhooksUpdateEvent = message.eventData?.webhooksUpdateEvent
-                ? WebhooksUpdateEvent.toJSON(message.eventData?.webhooksUpdateEvent)
+                ? exports.WebhooksUpdateEvent.toJSON(message.eventData?.webhooksUpdateEvent)
                 : undefined);
         message.eventData?.$case === "integrationCreateEvent" &&
             (obj.integrationCreateEvent = message.eventData?.integrationCreateEvent
-                ? IntegrationCreateEvent.toJSON(message.eventData?.integrationCreateEvent)
+                ? exports.IntegrationCreateEvent.toJSON(message.eventData?.integrationCreateEvent)
                 : undefined);
         message.eventData?.$case === "integrationUpdateEvent" &&
             (obj.integrationUpdateEvent = message.eventData?.integrationUpdateEvent
-                ? IntegrationUpdateEvent.toJSON(message.eventData?.integrationUpdateEvent)
+                ? exports.IntegrationUpdateEvent.toJSON(message.eventData?.integrationUpdateEvent)
                 : undefined);
         message.eventData?.$case === "integrationDeleteEvent" &&
             (obj.integrationDeleteEvent = message.eventData?.integrationDeleteEvent
-                ? IntegrationDeleteEvent.toJSON(message.eventData?.integrationDeleteEvent)
+                ? exports.IntegrationDeleteEvent.toJSON(message.eventData?.integrationDeleteEvent)
                 : undefined);
         message.eventData?.$case === "interactionCreateEvent" &&
             (obj.interactionCreateEvent = message.eventData?.interactionCreateEvent
-                ? InteractionCreateEvent.toJSON(message.eventData?.interactionCreateEvent)
+                ? exports.InteractionCreateEvent.toJSON(message.eventData?.interactionCreateEvent)
                 : undefined);
         message.eventData?.$case === "readyEvent" &&
             (obj.readyEvent = message.eventData?.readyEvent
-                ? ReadyEvent.toJSON(message.eventData?.readyEvent)
+                ? exports.ReadyEvent.toJSON(message.eventData?.readyEvent)
                 : undefined);
         message.eventData?.$case === "resumeEvent" &&
             (obj.resumeEvent = message.eventData?.resumeEvent
-                ? ResumeEvent.toJSON(message.eventData?.resumeEvent)
+                ? exports.ResumeEvent.toJSON(message.eventData?.resumeEvent)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseEventEnvelope };
         if (object.header !== undefined && object.header !== null) {
-            message.header = EventEnvelope_HeaderData.fromPartial(object.header);
+            message.header = exports.EventEnvelope_HeaderData.fromPartial(object.header);
         }
         if (object.eventData?.$case === "guildCreateEvent" &&
             object.eventData?.guildCreateEvent !== undefined &&
             object.eventData?.guildCreateEvent !== null) {
             message.eventData = {
                 $case: "guildCreateEvent",
-                guildCreateEvent: GuildCreateEvent.fromPartial(object.eventData.guildCreateEvent),
+                guildCreateEvent: exports.GuildCreateEvent.fromPartial(object.eventData.guildCreateEvent),
             };
         }
         if (object.eventData?.$case === "guildUpdateEvent" &&
@@ -829,7 +836,7 @@ export const EventEnvelope = {
             object.eventData?.guildUpdateEvent !== null) {
             message.eventData = {
                 $case: "guildUpdateEvent",
-                guildUpdateEvent: GuildUpdateEvent.fromPartial(object.eventData.guildUpdateEvent),
+                guildUpdateEvent: exports.GuildUpdateEvent.fromPartial(object.eventData.guildUpdateEvent),
             };
         }
         if (object.eventData?.$case === "guildDeleteEvent" &&
@@ -837,7 +844,7 @@ export const EventEnvelope = {
             object.eventData?.guildDeleteEvent !== null) {
             message.eventData = {
                 $case: "guildDeleteEvent",
-                guildDeleteEvent: GuildDeleteEvent.fromPartial(object.eventData.guildDeleteEvent),
+                guildDeleteEvent: exports.GuildDeleteEvent.fromPartial(object.eventData.guildDeleteEvent),
             };
         }
         if (object.eventData?.$case === "presenceUpdateEvent" &&
@@ -845,7 +852,7 @@ export const EventEnvelope = {
             object.eventData?.presenceUpdateEvent !== null) {
             message.eventData = {
                 $case: "presenceUpdateEvent",
-                presenceUpdateEvent: PresenceUpdateEvent.fromPartial(object.eventData.presenceUpdateEvent),
+                presenceUpdateEvent: exports.PresenceUpdateEvent.fromPartial(object.eventData.presenceUpdateEvent),
             };
         }
         if (object.eventData?.$case === "guildMemberAddEvent" &&
@@ -853,7 +860,7 @@ export const EventEnvelope = {
             object.eventData?.guildMemberAddEvent !== null) {
             message.eventData = {
                 $case: "guildMemberAddEvent",
-                guildMemberAddEvent: GuildMemberAddEvent.fromPartial(object.eventData.guildMemberAddEvent),
+                guildMemberAddEvent: exports.GuildMemberAddEvent.fromPartial(object.eventData.guildMemberAddEvent),
             };
         }
         if (object.eventData?.$case === "guildMemberUpdateEvent" &&
@@ -861,7 +868,7 @@ export const EventEnvelope = {
             object.eventData?.guildMemberUpdateEvent !== null) {
             message.eventData = {
                 $case: "guildMemberUpdateEvent",
-                guildMemberUpdateEvent: GuildMemberUpdateEvent.fromPartial(object.eventData.guildMemberUpdateEvent),
+                guildMemberUpdateEvent: exports.GuildMemberUpdateEvent.fromPartial(object.eventData.guildMemberUpdateEvent),
             };
         }
         if (object.eventData?.$case === "guildMemberRemoveEvent" &&
@@ -869,7 +876,7 @@ export const EventEnvelope = {
             object.eventData?.guildMemberRemoveEvent !== null) {
             message.eventData = {
                 $case: "guildMemberRemoveEvent",
-                guildMemberRemoveEvent: GuildMemberRemoveEvent.fromPartial(object.eventData.guildMemberRemoveEvent),
+                guildMemberRemoveEvent: exports.GuildMemberRemoveEvent.fromPartial(object.eventData.guildMemberRemoveEvent),
             };
         }
         if (object.eventData?.$case === "channelCreateEvent" &&
@@ -877,7 +884,7 @@ export const EventEnvelope = {
             object.eventData?.channelCreateEvent !== null) {
             message.eventData = {
                 $case: "channelCreateEvent",
-                channelCreateEvent: ChannelCreateEvent.fromPartial(object.eventData.channelCreateEvent),
+                channelCreateEvent: exports.ChannelCreateEvent.fromPartial(object.eventData.channelCreateEvent),
             };
         }
         if (object.eventData?.$case === "channelUpdateEvent" &&
@@ -885,7 +892,7 @@ export const EventEnvelope = {
             object.eventData?.channelUpdateEvent !== null) {
             message.eventData = {
                 $case: "channelUpdateEvent",
-                channelUpdateEvent: ChannelUpdateEvent.fromPartial(object.eventData.channelUpdateEvent),
+                channelUpdateEvent: exports.ChannelUpdateEvent.fromPartial(object.eventData.channelUpdateEvent),
             };
         }
         if (object.eventData?.$case === "channelDeleteEvent" &&
@@ -893,7 +900,7 @@ export const EventEnvelope = {
             object.eventData?.channelDeleteEvent !== null) {
             message.eventData = {
                 $case: "channelDeleteEvent",
-                channelDeleteEvent: ChannelDeleteEvent.fromPartial(object.eventData.channelDeleteEvent),
+                channelDeleteEvent: exports.ChannelDeleteEvent.fromPartial(object.eventData.channelDeleteEvent),
             };
         }
         if (object.eventData?.$case === "channelPinsUpdateEvent" &&
@@ -901,7 +908,7 @@ export const EventEnvelope = {
             object.eventData?.channelPinsUpdateEvent !== null) {
             message.eventData = {
                 $case: "channelPinsUpdateEvent",
-                channelPinsUpdateEvent: ChannelPinsUpdateEvent.fromPartial(object.eventData.channelPinsUpdateEvent),
+                channelPinsUpdateEvent: exports.ChannelPinsUpdateEvent.fromPartial(object.eventData.channelPinsUpdateEvent),
             };
         }
         if (object.eventData?.$case === "guildRoleCreateEvent" &&
@@ -909,7 +916,7 @@ export const EventEnvelope = {
             object.eventData?.guildRoleCreateEvent !== null) {
             message.eventData = {
                 $case: "guildRoleCreateEvent",
-                guildRoleCreateEvent: GuildRoleCreateEvent.fromPartial(object.eventData.guildRoleCreateEvent),
+                guildRoleCreateEvent: exports.GuildRoleCreateEvent.fromPartial(object.eventData.guildRoleCreateEvent),
             };
         }
         if (object.eventData?.$case === "guildRoleUpdateEvent" &&
@@ -917,7 +924,7 @@ export const EventEnvelope = {
             object.eventData?.guildRoleUpdateEvent !== null) {
             message.eventData = {
                 $case: "guildRoleUpdateEvent",
-                guildRoleUpdateEvent: GuildRoleUpdateEvent.fromPartial(object.eventData.guildRoleUpdateEvent),
+                guildRoleUpdateEvent: exports.GuildRoleUpdateEvent.fromPartial(object.eventData.guildRoleUpdateEvent),
             };
         }
         if (object.eventData?.$case === "guildRoleDeleteEvent" &&
@@ -925,7 +932,7 @@ export const EventEnvelope = {
             object.eventData?.guildRoleDeleteEvent !== null) {
             message.eventData = {
                 $case: "guildRoleDeleteEvent",
-                guildRoleDeleteEvent: GuildRoleDeleteEvent.fromPartial(object.eventData.guildRoleDeleteEvent),
+                guildRoleDeleteEvent: exports.GuildRoleDeleteEvent.fromPartial(object.eventData.guildRoleDeleteEvent),
             };
         }
         if (object.eventData?.$case === "messageCreateEvent" &&
@@ -933,7 +940,7 @@ export const EventEnvelope = {
             object.eventData?.messageCreateEvent !== null) {
             message.eventData = {
                 $case: "messageCreateEvent",
-                messageCreateEvent: MessageCreateEvent.fromPartial(object.eventData.messageCreateEvent),
+                messageCreateEvent: exports.MessageCreateEvent.fromPartial(object.eventData.messageCreateEvent),
             };
         }
         if (object.eventData?.$case === "messageUpdateEvent" &&
@@ -941,7 +948,7 @@ export const EventEnvelope = {
             object.eventData?.messageUpdateEvent !== null) {
             message.eventData = {
                 $case: "messageUpdateEvent",
-                messageUpdateEvent: MessageUpdateEvent.fromPartial(object.eventData.messageUpdateEvent),
+                messageUpdateEvent: exports.MessageUpdateEvent.fromPartial(object.eventData.messageUpdateEvent),
             };
         }
         if (object.eventData?.$case === "messageDeleteEvent" &&
@@ -949,7 +956,7 @@ export const EventEnvelope = {
             object.eventData?.messageDeleteEvent !== null) {
             message.eventData = {
                 $case: "messageDeleteEvent",
-                messageDeleteEvent: MessageDeleteEvent.fromPartial(object.eventData.messageDeleteEvent),
+                messageDeleteEvent: exports.MessageDeleteEvent.fromPartial(object.eventData.messageDeleteEvent),
             };
         }
         if (object.eventData?.$case === "messageDeleteBulkEvent" &&
@@ -957,7 +964,7 @@ export const EventEnvelope = {
             object.eventData?.messageDeleteBulkEvent !== null) {
             message.eventData = {
                 $case: "messageDeleteBulkEvent",
-                messageDeleteBulkEvent: MessageDeleteBulkEvent.fromPartial(object.eventData.messageDeleteBulkEvent),
+                messageDeleteBulkEvent: exports.MessageDeleteBulkEvent.fromPartial(object.eventData.messageDeleteBulkEvent),
             };
         }
         if (object.eventData?.$case === "messageReactionAddEvent" &&
@@ -965,7 +972,7 @@ export const EventEnvelope = {
             object.eventData?.messageReactionAddEvent !== null) {
             message.eventData = {
                 $case: "messageReactionAddEvent",
-                messageReactionAddEvent: MessageReactionAddEvent.fromPartial(object.eventData.messageReactionAddEvent),
+                messageReactionAddEvent: exports.MessageReactionAddEvent.fromPartial(object.eventData.messageReactionAddEvent),
             };
         }
         if (object.eventData?.$case === "messageReactionRemoveEvent" &&
@@ -973,7 +980,7 @@ export const EventEnvelope = {
             object.eventData?.messageReactionRemoveEvent !== null) {
             message.eventData = {
                 $case: "messageReactionRemoveEvent",
-                messageReactionRemoveEvent: MessageReactionRemoveEvent.fromPartial(object.eventData.messageReactionRemoveEvent),
+                messageReactionRemoveEvent: exports.MessageReactionRemoveEvent.fromPartial(object.eventData.messageReactionRemoveEvent),
             };
         }
         if (object.eventData?.$case === "messageReactionRemoveAllEvent" &&
@@ -981,7 +988,7 @@ export const EventEnvelope = {
             object.eventData?.messageReactionRemoveAllEvent !== null) {
             message.eventData = {
                 $case: "messageReactionRemoveAllEvent",
-                messageReactionRemoveAllEvent: MessageReactionRemoveAllEvent.fromPartial(object.eventData.messageReactionRemoveAllEvent),
+                messageReactionRemoveAllEvent: exports.MessageReactionRemoveAllEvent.fromPartial(object.eventData.messageReactionRemoveAllEvent),
             };
         }
         if (object.eventData?.$case === "messageReactionRemoveEmojiEvent" &&
@@ -989,7 +996,7 @@ export const EventEnvelope = {
             object.eventData?.messageReactionRemoveEmojiEvent !== null) {
             message.eventData = {
                 $case: "messageReactionRemoveEmojiEvent",
-                messageReactionRemoveEmojiEvent: MessageReactionRemoveEmojiEvent.fromPartial(object.eventData.messageReactionRemoveEmojiEvent),
+                messageReactionRemoveEmojiEvent: exports.MessageReactionRemoveEmojiEvent.fromPartial(object.eventData.messageReactionRemoveEmojiEvent),
             };
         }
         if (object.eventData?.$case === "typingStartEvent" &&
@@ -997,7 +1004,7 @@ export const EventEnvelope = {
             object.eventData?.typingStartEvent !== null) {
             message.eventData = {
                 $case: "typingStartEvent",
-                typingStartEvent: TypingStartEvent.fromPartial(object.eventData.typingStartEvent),
+                typingStartEvent: exports.TypingStartEvent.fromPartial(object.eventData.typingStartEvent),
             };
         }
         if (object.eventData?.$case === "voiceStateUpdateEvent" &&
@@ -1005,7 +1012,7 @@ export const EventEnvelope = {
             object.eventData?.voiceStateUpdateEvent !== null) {
             message.eventData = {
                 $case: "voiceStateUpdateEvent",
-                voiceStateUpdateEvent: VoiceStateUpdateEvent.fromPartial(object.eventData.voiceStateUpdateEvent),
+                voiceStateUpdateEvent: exports.VoiceStateUpdateEvent.fromPartial(object.eventData.voiceStateUpdateEvent),
             };
         }
         if (object.eventData?.$case === "voiceServerUpdateEvent" &&
@@ -1013,7 +1020,7 @@ export const EventEnvelope = {
             object.eventData?.voiceServerUpdateEvent !== null) {
             message.eventData = {
                 $case: "voiceServerUpdateEvent",
-                voiceServerUpdateEvent: VoiceServerUpdateEvent.fromPartial(object.eventData.voiceServerUpdateEvent),
+                voiceServerUpdateEvent: exports.VoiceServerUpdateEvent.fromPartial(object.eventData.voiceServerUpdateEvent),
             };
         }
         if (object.eventData?.$case === "inviteCreateEvent" &&
@@ -1021,7 +1028,7 @@ export const EventEnvelope = {
             object.eventData?.inviteCreateEvent !== null) {
             message.eventData = {
                 $case: "inviteCreateEvent",
-                inviteCreateEvent: InviteCreateEvent.fromPartial(object.eventData.inviteCreateEvent),
+                inviteCreateEvent: exports.InviteCreateEvent.fromPartial(object.eventData.inviteCreateEvent),
             };
         }
         if (object.eventData?.$case === "inviteDeleteEvent" &&
@@ -1029,7 +1036,7 @@ export const EventEnvelope = {
             object.eventData?.inviteDeleteEvent !== null) {
             message.eventData = {
                 $case: "inviteDeleteEvent",
-                inviteDeleteEvent: InviteDeleteEvent.fromPartial(object.eventData.inviteDeleteEvent),
+                inviteDeleteEvent: exports.InviteDeleteEvent.fromPartial(object.eventData.inviteDeleteEvent),
             };
         }
         if (object.eventData?.$case === "guildBanAddEvent" &&
@@ -1037,7 +1044,7 @@ export const EventEnvelope = {
             object.eventData?.guildBanAddEvent !== null) {
             message.eventData = {
                 $case: "guildBanAddEvent",
-                guildBanAddEvent: GuildBanAddEvent.fromPartial(object.eventData.guildBanAddEvent),
+                guildBanAddEvent: exports.GuildBanAddEvent.fromPartial(object.eventData.guildBanAddEvent),
             };
         }
         if (object.eventData?.$case === "guildBanRemoveEvent" &&
@@ -1045,7 +1052,7 @@ export const EventEnvelope = {
             object.eventData?.guildBanRemoveEvent !== null) {
             message.eventData = {
                 $case: "guildBanRemoveEvent",
-                guildBanRemoveEvent: GuildBanRemoveEvent.fromPartial(object.eventData.guildBanRemoveEvent),
+                guildBanRemoveEvent: exports.GuildBanRemoveEvent.fromPartial(object.eventData.guildBanRemoveEvent),
             };
         }
         if (object.eventData?.$case === "guildEmojisUpdateEvent" &&
@@ -1053,7 +1060,7 @@ export const EventEnvelope = {
             object.eventData?.guildEmojisUpdateEvent !== null) {
             message.eventData = {
                 $case: "guildEmojisUpdateEvent",
-                guildEmojisUpdateEvent: GuildEmojisUpdateEvent.fromPartial(object.eventData.guildEmojisUpdateEvent),
+                guildEmojisUpdateEvent: exports.GuildEmojisUpdateEvent.fromPartial(object.eventData.guildEmojisUpdateEvent),
             };
         }
         if (object.eventData?.$case === "guildIntegrationsUpdateEvent" &&
@@ -1061,7 +1068,7 @@ export const EventEnvelope = {
             object.eventData?.guildIntegrationsUpdateEvent !== null) {
             message.eventData = {
                 $case: "guildIntegrationsUpdateEvent",
-                guildIntegrationsUpdateEvent: GuildIntegrationsUpdateEvent.fromPartial(object.eventData.guildIntegrationsUpdateEvent),
+                guildIntegrationsUpdateEvent: exports.GuildIntegrationsUpdateEvent.fromPartial(object.eventData.guildIntegrationsUpdateEvent),
             };
         }
         if (object.eventData?.$case === "webhooksUpdateEvent" &&
@@ -1069,7 +1076,7 @@ export const EventEnvelope = {
             object.eventData?.webhooksUpdateEvent !== null) {
             message.eventData = {
                 $case: "webhooksUpdateEvent",
-                webhooksUpdateEvent: WebhooksUpdateEvent.fromPartial(object.eventData.webhooksUpdateEvent),
+                webhooksUpdateEvent: exports.WebhooksUpdateEvent.fromPartial(object.eventData.webhooksUpdateEvent),
             };
         }
         if (object.eventData?.$case === "integrationCreateEvent" &&
@@ -1077,7 +1084,7 @@ export const EventEnvelope = {
             object.eventData?.integrationCreateEvent !== null) {
             message.eventData = {
                 $case: "integrationCreateEvent",
-                integrationCreateEvent: IntegrationCreateEvent.fromPartial(object.eventData.integrationCreateEvent),
+                integrationCreateEvent: exports.IntegrationCreateEvent.fromPartial(object.eventData.integrationCreateEvent),
             };
         }
         if (object.eventData?.$case === "integrationUpdateEvent" &&
@@ -1085,7 +1092,7 @@ export const EventEnvelope = {
             object.eventData?.integrationUpdateEvent !== null) {
             message.eventData = {
                 $case: "integrationUpdateEvent",
-                integrationUpdateEvent: IntegrationUpdateEvent.fromPartial(object.eventData.integrationUpdateEvent),
+                integrationUpdateEvent: exports.IntegrationUpdateEvent.fromPartial(object.eventData.integrationUpdateEvent),
             };
         }
         if (object.eventData?.$case === "integrationDeleteEvent" &&
@@ -1093,7 +1100,7 @@ export const EventEnvelope = {
             object.eventData?.integrationDeleteEvent !== null) {
             message.eventData = {
                 $case: "integrationDeleteEvent",
-                integrationDeleteEvent: IntegrationDeleteEvent.fromPartial(object.eventData.integrationDeleteEvent),
+                integrationDeleteEvent: exports.IntegrationDeleteEvent.fromPartial(object.eventData.integrationDeleteEvent),
             };
         }
         if (object.eventData?.$case === "interactionCreateEvent" &&
@@ -1101,7 +1108,7 @@ export const EventEnvelope = {
             object.eventData?.interactionCreateEvent !== null) {
             message.eventData = {
                 $case: "interactionCreateEvent",
-                interactionCreateEvent: InteractionCreateEvent.fromPartial(object.eventData.interactionCreateEvent),
+                interactionCreateEvent: exports.InteractionCreateEvent.fromPartial(object.eventData.interactionCreateEvent),
             };
         }
         if (object.eventData?.$case === "readyEvent" &&
@@ -1109,7 +1116,7 @@ export const EventEnvelope = {
             object.eventData?.readyEvent !== null) {
             message.eventData = {
                 $case: "readyEvent",
-                readyEvent: ReadyEvent.fromPartial(object.eventData.readyEvent),
+                readyEvent: exports.ReadyEvent.fromPartial(object.eventData.readyEvent),
             };
         }
         if (object.eventData?.$case === "resumeEvent" &&
@@ -1117,30 +1124,30 @@ export const EventEnvelope = {
             object.eventData?.resumeEvent !== null) {
             message.eventData = {
                 $case: "resumeEvent",
-                resumeEvent: ResumeEvent.fromPartial(object.eventData.resumeEvent),
+                resumeEvent: exports.ResumeEvent.fromPartial(object.eventData.resumeEvent),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(EventEnvelope.$type, EventEnvelope);
+typeRegistry_1.messageTypeRegistry.set(exports.EventEnvelope.$type, exports.EventEnvelope);
 const baseEventEnvelope_HeaderData = {
     $type: "pylon.discord.v1.event.EventEnvelope.HeaderData",
     seq: "0",
 };
-export const EventEnvelope_HeaderData = {
+exports.EventEnvelope_HeaderData = {
     $type: "pylon.discord.v1.event.EventEnvelope.HeaderData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.seq !== "0") {
             writer.uint32(8).uint64(message.seq);
         }
         if (message.receivedAt !== undefined) {
-            Timestamp.encode(toTimestamp(message.receivedAt), writer.uint32(18).fork()).ldelim();
+            timestamp_1.Timestamp.encode(toTimestamp(message.receivedAt), writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseEventEnvelope_HeaderData,
@@ -1152,7 +1159,7 @@ export const EventEnvelope_HeaderData = {
                     message.seq = longToString(reader.uint64());
                     break;
                 case 2:
-                    message.receivedAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+                    message.receivedAt = fromTimestamp(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1193,21 +1200,21 @@ export const EventEnvelope_HeaderData = {
         return message;
     },
 };
-messageTypeRegistry.set(EventEnvelope_HeaderData.$type, EventEnvelope_HeaderData);
+typeRegistry_1.messageTypeRegistry.set(exports.EventEnvelope_HeaderData.$type, exports.EventEnvelope_HeaderData);
 const baseEventEnvelopeAck = {
     $type: "pylon.discord.v1.event.EventEnvelopeAck",
     seq: "0",
 };
-export const EventEnvelopeAck = {
+exports.EventEnvelopeAck = {
     $type: "pylon.discord.v1.event.EventEnvelopeAck",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.seq !== "0") {
             writer.uint32(8).uint64(message.seq);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseEventEnvelopeAck };
         while (reader.pos < end) {
@@ -1243,15 +1250,15 @@ export const EventEnvelopeAck = {
         return message;
     },
 };
-messageTypeRegistry.set(EventEnvelopeAck.$type, EventEnvelopeAck);
+typeRegistry_1.messageTypeRegistry.set(exports.EventEnvelopeAck.$type, exports.EventEnvelopeAck);
 const baseEventScope = {
     $type: "pylon.discord.v1.event.EventScope",
     botId: "0",
     guildId: "0",
 };
-export const EventScope = {
+exports.EventScope = {
     $type: "pylon.discord.v1.event.EventScope",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.botId !== "0") {
             writer.uint32(9).fixed64(message.botId);
         }
@@ -1261,7 +1268,7 @@ export const EventScope = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseEventScope };
         while (reader.pos < end) {
@@ -1307,25 +1314,25 @@ export const EventScope = {
         return message;
     },
 };
-messageTypeRegistry.set(EventScope.$type, EventScope);
+typeRegistry_1.messageTypeRegistry.set(exports.EventScope.$type, exports.EventScope);
 const baseReadyEvent = { $type: "pylon.discord.v1.event.ReadyEvent" };
-export const ReadyEvent = {
+exports.ReadyEvent = {
     $type: "pylon.discord.v1.event.ReadyEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseReadyEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1337,7 +1344,7 @@ export const ReadyEvent = {
     fromJSON(object) {
         const message = { ...baseReadyEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         return message;
     },
@@ -1345,37 +1352,37 @@ export const ReadyEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseReadyEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         return message;
     },
 };
-messageTypeRegistry.set(ReadyEvent.$type, ReadyEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.ReadyEvent.$type, exports.ReadyEvent);
 const baseResumeEvent = { $type: "pylon.discord.v1.event.ResumeEvent" };
-export const ResumeEvent = {
+exports.ResumeEvent = {
     $type: "pylon.discord.v1.event.ResumeEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseResumeEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1387,7 +1394,7 @@ export const ResumeEvent = {
     fromJSON(object) {
         const message = { ...baseResumeEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         return message;
     },
@@ -1395,45 +1402,45 @@ export const ResumeEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseResumeEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         return message;
     },
 };
-messageTypeRegistry.set(ResumeEvent.$type, ResumeEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.ResumeEvent.$type, exports.ResumeEvent);
 const baseGuildCreateEvent = {
     $type: "pylon.discord.v1.event.GuildCreateEvent",
 };
-export const GuildCreateEvent = {
+exports.GuildCreateEvent = {
     $type: "pylon.discord.v1.event.GuildCreateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            GuildData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.GuildData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildCreateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = GuildData.decode(reader, reader.uint32());
+                    message.payload = model_1.GuildData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1445,10 +1452,10 @@ export const GuildCreateEvent = {
     fromJSON(object) {
         const message = { ...baseGuildCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildData.fromJSON(object.payload);
+            message.payload = model_1.GuildData.fromJSON(object.payload);
         }
         return message;
     },
@@ -1456,58 +1463,58 @@ export const GuildCreateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? GuildData.toJSON(message.payload)
+                ? model_1.GuildData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildData.fromPartial(object.payload);
+            message.payload = model_1.GuildData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildCreateEvent.$type, GuildCreateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildCreateEvent.$type, exports.GuildCreateEvent);
 const baseGuildUpdateEvent = {
     $type: "pylon.discord.v1.event.GuildUpdateEvent",
 };
-export const GuildUpdateEvent = {
+exports.GuildUpdateEvent = {
     $type: "pylon.discord.v1.event.GuildUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            GuildData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.GuildData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         if (message.previouslyCached !== undefined) {
-            GuildData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
+            model_1.GuildData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = GuildData.decode(reader, reader.uint32());
+                    message.payload = model_1.GuildData.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.previouslyCached = GuildData.decode(reader, reader.uint32());
+                    message.previouslyCached = model_1.GuildData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1519,14 +1526,14 @@ export const GuildUpdateEvent = {
     fromJSON(object) {
         const message = { ...baseGuildUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildData.fromJSON(object.payload);
+            message.payload = model_1.GuildData.fromJSON(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = GuildData.fromJSON(object.previouslyCached);
+            message.previouslyCached = model_1.GuildData.fromJSON(object.previouslyCached);
         }
         return message;
     },
@@ -1534,60 +1541,60 @@ export const GuildUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? GuildData.toJSON(message.payload)
+                ? model_1.GuildData.toJSON(message.payload)
                 : undefined);
         message.previouslyCached !== undefined &&
             (obj.previouslyCached = message.previouslyCached
-                ? GuildData.toJSON(message.previouslyCached)
+                ? model_1.GuildData.toJSON(message.previouslyCached)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildData.fromPartial(object.payload);
+            message.payload = model_1.GuildData.fromPartial(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = GuildData.fromPartial(object.previouslyCached);
+            message.previouslyCached = model_1.GuildData.fromPartial(object.previouslyCached);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildUpdateEvent.$type, GuildUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildUpdateEvent.$type, exports.GuildUpdateEvent);
 const baseGuildDeleteEvent = {
     $type: "pylon.discord.v1.event.GuildDeleteEvent",
 };
-export const GuildDeleteEvent = {
+exports.GuildDeleteEvent = {
     $type: "pylon.discord.v1.event.GuildDeleteEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            GuildData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.GuildData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildDeleteEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = GuildData.decode(reader, reader.uint32());
+                    message.payload = model_1.GuildData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1599,10 +1606,10 @@ export const GuildDeleteEvent = {
     fromJSON(object) {
         const message = { ...baseGuildDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildData.fromJSON(object.payload);
+            message.payload = model_1.GuildData.fromJSON(object.payload);
         }
         return message;
     },
@@ -1610,58 +1617,58 @@ export const GuildDeleteEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? GuildData.toJSON(message.payload)
+                ? model_1.GuildData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildData.fromPartial(object.payload);
+            message.payload = model_1.GuildData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildDeleteEvent.$type, GuildDeleteEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildDeleteEvent.$type, exports.GuildDeleteEvent);
 const basePresenceUpdateEvent = {
     $type: "pylon.discord.v1.event.PresenceUpdateEvent",
 };
-export const PresenceUpdateEvent = {
+exports.PresenceUpdateEvent = {
     $type: "pylon.discord.v1.event.PresenceUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            PresenceData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.PresenceData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         if (message.previouslyCached !== undefined) {
-            PresenceData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
+            model_1.PresenceData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...basePresenceUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = PresenceData.decode(reader, reader.uint32());
+                    message.payload = model_1.PresenceData.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.previouslyCached = PresenceData.decode(reader, reader.uint32());
+                    message.previouslyCached = model_1.PresenceData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1673,14 +1680,14 @@ export const PresenceUpdateEvent = {
     fromJSON(object) {
         const message = { ...basePresenceUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = PresenceData.fromJSON(object.payload);
+            message.payload = model_1.PresenceData.fromJSON(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = PresenceData.fromJSON(object.previouslyCached);
+            message.previouslyCached = model_1.PresenceData.fromJSON(object.previouslyCached);
         }
         return message;
     },
@@ -1688,60 +1695,60 @@ export const PresenceUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? PresenceData.toJSON(message.payload)
+                ? model_1.PresenceData.toJSON(message.payload)
                 : undefined);
         message.previouslyCached !== undefined &&
             (obj.previouslyCached = message.previouslyCached
-                ? PresenceData.toJSON(message.previouslyCached)
+                ? model_1.PresenceData.toJSON(message.previouslyCached)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...basePresenceUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = PresenceData.fromPartial(object.payload);
+            message.payload = model_1.PresenceData.fromPartial(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = PresenceData.fromPartial(object.previouslyCached);
+            message.previouslyCached = model_1.PresenceData.fromPartial(object.previouslyCached);
         }
         return message;
     },
 };
-messageTypeRegistry.set(PresenceUpdateEvent.$type, PresenceUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.PresenceUpdateEvent.$type, exports.PresenceUpdateEvent);
 const baseGuildMemberAddEvent = {
     $type: "pylon.discord.v1.event.GuildMemberAddEvent",
 };
-export const GuildMemberAddEvent = {
+exports.GuildMemberAddEvent = {
     $type: "pylon.discord.v1.event.GuildMemberAddEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            MemberData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.MemberData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildMemberAddEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = MemberData.decode(reader, reader.uint32());
+                    message.payload = model_1.MemberData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1753,10 +1760,10 @@ export const GuildMemberAddEvent = {
     fromJSON(object) {
         const message = { ...baseGuildMemberAddEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MemberData.fromJSON(object.payload);
+            message.payload = model_1.MemberData.fromJSON(object.payload);
         }
         return message;
     },
@@ -1764,58 +1771,58 @@ export const GuildMemberAddEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? MemberData.toJSON(message.payload)
+                ? model_1.MemberData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildMemberAddEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MemberData.fromPartial(object.payload);
+            message.payload = model_1.MemberData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildMemberAddEvent.$type, GuildMemberAddEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildMemberAddEvent.$type, exports.GuildMemberAddEvent);
 const baseGuildMemberUpdateEvent = {
     $type: "pylon.discord.v1.event.GuildMemberUpdateEvent",
 };
-export const GuildMemberUpdateEvent = {
+exports.GuildMemberUpdateEvent = {
     $type: "pylon.discord.v1.event.GuildMemberUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            MemberData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.MemberData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         if (message.previouslyCached !== undefined) {
-            MemberData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
+            model_1.MemberData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildMemberUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = MemberData.decode(reader, reader.uint32());
+                    message.payload = model_1.MemberData.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.previouslyCached = MemberData.decode(reader, reader.uint32());
+                    message.previouslyCached = model_1.MemberData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1827,14 +1834,14 @@ export const GuildMemberUpdateEvent = {
     fromJSON(object) {
         const message = { ...baseGuildMemberUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MemberData.fromJSON(object.payload);
+            message.payload = model_1.MemberData.fromJSON(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = MemberData.fromJSON(object.previouslyCached);
+            message.previouslyCached = model_1.MemberData.fromJSON(object.previouslyCached);
         }
         return message;
     },
@@ -1842,60 +1849,60 @@ export const GuildMemberUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? MemberData.toJSON(message.payload)
+                ? model_1.MemberData.toJSON(message.payload)
                 : undefined);
         message.previouslyCached !== undefined &&
             (obj.previouslyCached = message.previouslyCached
-                ? MemberData.toJSON(message.previouslyCached)
+                ? model_1.MemberData.toJSON(message.previouslyCached)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildMemberUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MemberData.fromPartial(object.payload);
+            message.payload = model_1.MemberData.fromPartial(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = MemberData.fromPartial(object.previouslyCached);
+            message.previouslyCached = model_1.MemberData.fromPartial(object.previouslyCached);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildMemberUpdateEvent.$type, GuildMemberUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildMemberUpdateEvent.$type, exports.GuildMemberUpdateEvent);
 const baseGuildMemberRemoveEvent = {
     $type: "pylon.discord.v1.event.GuildMemberRemoveEvent",
 };
-export const GuildMemberRemoveEvent = {
+exports.GuildMemberRemoveEvent = {
     $type: "pylon.discord.v1.event.GuildMemberRemoveEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            MemberData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.MemberData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildMemberRemoveEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = MemberData.decode(reader, reader.uint32());
+                    message.payload = model_1.MemberData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1907,10 +1914,10 @@ export const GuildMemberRemoveEvent = {
     fromJSON(object) {
         const message = { ...baseGuildMemberRemoveEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MemberData.fromJSON(object.payload);
+            message.payload = model_1.MemberData.fromJSON(object.payload);
         }
         return message;
     },
@@ -1918,52 +1925,52 @@ export const GuildMemberRemoveEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? MemberData.toJSON(message.payload)
+                ? model_1.MemberData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildMemberRemoveEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MemberData.fromPartial(object.payload);
+            message.payload = model_1.MemberData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildMemberRemoveEvent.$type, GuildMemberRemoveEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildMemberRemoveEvent.$type, exports.GuildMemberRemoveEvent);
 const baseChannelCreateEvent = {
     $type: "pylon.discord.v1.event.ChannelCreateEvent",
 };
-export const ChannelCreateEvent = {
+exports.ChannelCreateEvent = {
     $type: "pylon.discord.v1.event.ChannelCreateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            ChannelData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.ChannelData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseChannelCreateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = ChannelData.decode(reader, reader.uint32());
+                    message.payload = model_1.ChannelData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1975,10 +1982,10 @@ export const ChannelCreateEvent = {
     fromJSON(object) {
         const message = { ...baseChannelCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = ChannelData.fromJSON(object.payload);
+            message.payload = model_1.ChannelData.fromJSON(object.payload);
         }
         return message;
     },
@@ -1986,58 +1993,58 @@ export const ChannelCreateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? ChannelData.toJSON(message.payload)
+                ? model_1.ChannelData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseChannelCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = ChannelData.fromPartial(object.payload);
+            message.payload = model_1.ChannelData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(ChannelCreateEvent.$type, ChannelCreateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.ChannelCreateEvent.$type, exports.ChannelCreateEvent);
 const baseChannelUpdateEvent = {
     $type: "pylon.discord.v1.event.ChannelUpdateEvent",
 };
-export const ChannelUpdateEvent = {
+exports.ChannelUpdateEvent = {
     $type: "pylon.discord.v1.event.ChannelUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            ChannelData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.ChannelData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         if (message.previouslyCached !== undefined) {
-            ChannelData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
+            model_1.ChannelData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseChannelUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = ChannelData.decode(reader, reader.uint32());
+                    message.payload = model_1.ChannelData.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.previouslyCached = ChannelData.decode(reader, reader.uint32());
+                    message.previouslyCached = model_1.ChannelData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2049,14 +2056,14 @@ export const ChannelUpdateEvent = {
     fromJSON(object) {
         const message = { ...baseChannelUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = ChannelData.fromJSON(object.payload);
+            message.payload = model_1.ChannelData.fromJSON(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = ChannelData.fromJSON(object.previouslyCached);
+            message.previouslyCached = model_1.ChannelData.fromJSON(object.previouslyCached);
         }
         return message;
     },
@@ -2064,60 +2071,60 @@ export const ChannelUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? ChannelData.toJSON(message.payload)
+                ? model_1.ChannelData.toJSON(message.payload)
                 : undefined);
         message.previouslyCached !== undefined &&
             (obj.previouslyCached = message.previouslyCached
-                ? ChannelData.toJSON(message.previouslyCached)
+                ? model_1.ChannelData.toJSON(message.previouslyCached)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseChannelUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = ChannelData.fromPartial(object.payload);
+            message.payload = model_1.ChannelData.fromPartial(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = ChannelData.fromPartial(object.previouslyCached);
+            message.previouslyCached = model_1.ChannelData.fromPartial(object.previouslyCached);
         }
         return message;
     },
 };
-messageTypeRegistry.set(ChannelUpdateEvent.$type, ChannelUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.ChannelUpdateEvent.$type, exports.ChannelUpdateEvent);
 const baseChannelDeleteEvent = {
     $type: "pylon.discord.v1.event.ChannelDeleteEvent",
 };
-export const ChannelDeleteEvent = {
+exports.ChannelDeleteEvent = {
     $type: "pylon.discord.v1.event.ChannelDeleteEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            ChannelData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.ChannelData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseChannelDeleteEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = ChannelData.decode(reader, reader.uint32());
+                    message.payload = model_1.ChannelData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2129,10 +2136,10 @@ export const ChannelDeleteEvent = {
     fromJSON(object) {
         const message = { ...baseChannelDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = ChannelData.fromJSON(object.payload);
+            message.payload = model_1.ChannelData.fromJSON(object.payload);
         }
         return message;
     },
@@ -2140,52 +2147,52 @@ export const ChannelDeleteEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? ChannelData.toJSON(message.payload)
+                ? model_1.ChannelData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseChannelDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = ChannelData.fromPartial(object.payload);
+            message.payload = model_1.ChannelData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(ChannelDeleteEvent.$type, ChannelDeleteEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.ChannelDeleteEvent.$type, exports.ChannelDeleteEvent);
 const baseChannelPinsUpdateEvent = {
     $type: "pylon.discord.v1.event.ChannelPinsUpdateEvent",
 };
-export const ChannelPinsUpdateEvent = {
+exports.ChannelPinsUpdateEvent = {
     $type: "pylon.discord.v1.event.ChannelPinsUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            ChannelPinsUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.ChannelPinsUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseChannelPinsUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = ChannelPinsUpdateEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.ChannelPinsUpdateEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2197,10 +2204,10 @@ export const ChannelPinsUpdateEvent = {
     fromJSON(object) {
         const message = { ...baseChannelPinsUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = ChannelPinsUpdateEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.ChannelPinsUpdateEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -2208,34 +2215,34 @@ export const ChannelPinsUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? ChannelPinsUpdateEvent_PayloadData.toJSON(message.payload)
+                ? exports.ChannelPinsUpdateEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseChannelPinsUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = ChannelPinsUpdateEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.ChannelPinsUpdateEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(ChannelPinsUpdateEvent.$type, ChannelPinsUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.ChannelPinsUpdateEvent.$type, exports.ChannelPinsUpdateEvent);
 const baseChannelPinsUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.ChannelPinsUpdateEvent.PayloadData",
     channelId: "0",
     guildId: "0",
 };
-export const ChannelPinsUpdateEvent_PayloadData = {
+exports.ChannelPinsUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.ChannelPinsUpdateEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -2243,12 +2250,12 @@ export const ChannelPinsUpdateEvent_PayloadData = {
             writer.uint32(17).fixed64(message.guildId);
         }
         if (message.lastPinTimestamp !== undefined) {
-            Timestamp.encode(toTimestamp(message.lastPinTimestamp), writer.uint32(26).fork()).ldelim();
+            timestamp_1.Timestamp.encode(toTimestamp(message.lastPinTimestamp), writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseChannelPinsUpdateEvent_PayloadData,
@@ -2263,7 +2270,7 @@ export const ChannelPinsUpdateEvent_PayloadData = {
                     message.guildId = longToString(reader.fixed64());
                     break;
                 case 3:
-                    message.lastPinTimestamp = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+                    message.lastPinTimestamp = fromTimestamp(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2313,33 +2320,33 @@ export const ChannelPinsUpdateEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(ChannelPinsUpdateEvent_PayloadData.$type, ChannelPinsUpdateEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.ChannelPinsUpdateEvent_PayloadData.$type, exports.ChannelPinsUpdateEvent_PayloadData);
 const baseGuildRoleCreateEvent = {
     $type: "pylon.discord.v1.event.GuildRoleCreateEvent",
 };
-export const GuildRoleCreateEvent = {
+exports.GuildRoleCreateEvent = {
     $type: "pylon.discord.v1.event.GuildRoleCreateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            RoleData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.RoleData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildRoleCreateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = RoleData.decode(reader, reader.uint32());
+                    message.payload = model_1.RoleData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2351,10 +2358,10 @@ export const GuildRoleCreateEvent = {
     fromJSON(object) {
         const message = { ...baseGuildRoleCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = RoleData.fromJSON(object.payload);
+            message.payload = model_1.RoleData.fromJSON(object.payload);
         }
         return message;
     },
@@ -2362,58 +2369,58 @@ export const GuildRoleCreateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? RoleData.toJSON(message.payload)
+                ? model_1.RoleData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildRoleCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = RoleData.fromPartial(object.payload);
+            message.payload = model_1.RoleData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildRoleCreateEvent.$type, GuildRoleCreateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildRoleCreateEvent.$type, exports.GuildRoleCreateEvent);
 const baseGuildRoleUpdateEvent = {
     $type: "pylon.discord.v1.event.GuildRoleUpdateEvent",
 };
-export const GuildRoleUpdateEvent = {
+exports.GuildRoleUpdateEvent = {
     $type: "pylon.discord.v1.event.GuildRoleUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            RoleData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.RoleData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         if (message.previouslyCached !== undefined) {
-            RoleData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
+            model_1.RoleData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildRoleUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = RoleData.decode(reader, reader.uint32());
+                    message.payload = model_1.RoleData.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.previouslyCached = RoleData.decode(reader, reader.uint32());
+                    message.previouslyCached = model_1.RoleData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2425,14 +2432,14 @@ export const GuildRoleUpdateEvent = {
     fromJSON(object) {
         const message = { ...baseGuildRoleUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = RoleData.fromJSON(object.payload);
+            message.payload = model_1.RoleData.fromJSON(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = RoleData.fromJSON(object.previouslyCached);
+            message.previouslyCached = model_1.RoleData.fromJSON(object.previouslyCached);
         }
         return message;
     },
@@ -2440,60 +2447,60 @@ export const GuildRoleUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? RoleData.toJSON(message.payload)
+                ? model_1.RoleData.toJSON(message.payload)
                 : undefined);
         message.previouslyCached !== undefined &&
             (obj.previouslyCached = message.previouslyCached
-                ? RoleData.toJSON(message.previouslyCached)
+                ? model_1.RoleData.toJSON(message.previouslyCached)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildRoleUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = RoleData.fromPartial(object.payload);
+            message.payload = model_1.RoleData.fromPartial(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = RoleData.fromPartial(object.previouslyCached);
+            message.previouslyCached = model_1.RoleData.fromPartial(object.previouslyCached);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildRoleUpdateEvent.$type, GuildRoleUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildRoleUpdateEvent.$type, exports.GuildRoleUpdateEvent);
 const baseGuildRoleDeleteEvent = {
     $type: "pylon.discord.v1.event.GuildRoleDeleteEvent",
 };
-export const GuildRoleDeleteEvent = {
+exports.GuildRoleDeleteEvent = {
     $type: "pylon.discord.v1.event.GuildRoleDeleteEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            RoleData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.RoleData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildRoleDeleteEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = RoleData.decode(reader, reader.uint32());
+                    message.payload = model_1.RoleData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2505,10 +2512,10 @@ export const GuildRoleDeleteEvent = {
     fromJSON(object) {
         const message = { ...baseGuildRoleDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = RoleData.fromJSON(object.payload);
+            message.payload = model_1.RoleData.fromJSON(object.payload);
         }
         return message;
     },
@@ -2516,52 +2523,52 @@ export const GuildRoleDeleteEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? RoleData.toJSON(message.payload)
+                ? model_1.RoleData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildRoleDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = RoleData.fromPartial(object.payload);
+            message.payload = model_1.RoleData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildRoleDeleteEvent.$type, GuildRoleDeleteEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildRoleDeleteEvent.$type, exports.GuildRoleDeleteEvent);
 const baseMessageCreateEvent = {
     $type: "pylon.discord.v1.event.MessageCreateEvent",
 };
-export const MessageCreateEvent = {
+exports.MessageCreateEvent = {
     $type: "pylon.discord.v1.event.MessageCreateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.messageData !== undefined) {
-            MessageData.encode(message.messageData, writer.uint32(18).fork()).ldelim();
+            model_1.MessageData.encode(message.messageData, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseMessageCreateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.messageData = MessageData.decode(reader, reader.uint32());
+                    message.messageData = model_1.MessageData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2573,10 +2580,10 @@ export const MessageCreateEvent = {
     fromJSON(object) {
         const message = { ...baseMessageCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.messageData !== undefined && object.messageData !== null) {
-            message.messageData = MessageData.fromJSON(object.messageData);
+            message.messageData = model_1.MessageData.fromJSON(object.messageData);
         }
         return message;
     },
@@ -2584,70 +2591,70 @@ export const MessageCreateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.messageData !== undefined &&
             (obj.messageData = message.messageData
-                ? MessageData.toJSON(message.messageData)
+                ? model_1.MessageData.toJSON(message.messageData)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseMessageCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.messageData !== undefined && object.messageData !== null) {
-            message.messageData = MessageData.fromPartial(object.messageData);
+            message.messageData = model_1.MessageData.fromPartial(object.messageData);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageCreateEvent.$type, MessageCreateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageCreateEvent.$type, exports.MessageCreateEvent);
 const baseMessageUpdateEvent = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent",
 };
-export const MessageUpdateEvent = {
+exports.MessageUpdateEvent = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload?.$case === "cached") {
-            MessageData.encode(message.payload.cached, writer.uint32(18).fork()).ldelim();
+            model_1.MessageData.encode(message.payload.cached, writer.uint32(18).fork()).ldelim();
         }
         if (message.payload?.$case === "raw") {
-            MessageUpdateEvent_PayloadData.encode(message.payload.raw, writer.uint32(34).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData.encode(message.payload.raw, writer.uint32(34).fork()).ldelim();
         }
         if (message.previouslyCached !== undefined) {
-            MessageData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
+            model_1.MessageData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseMessageUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
                     message.payload = {
                         $case: "cached",
-                        cached: MessageData.decode(reader, reader.uint32()),
+                        cached: model_1.MessageData.decode(reader, reader.uint32()),
                     };
                     break;
                 case 4:
                     message.payload = {
                         $case: "raw",
-                        raw: MessageUpdateEvent_PayloadData.decode(reader, reader.uint32()),
+                        raw: exports.MessageUpdateEvent_PayloadData.decode(reader, reader.uint32()),
                     };
                     break;
                 case 3:
-                    message.previouslyCached = MessageData.decode(reader, reader.uint32());
+                    message.previouslyCached = model_1.MessageData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2659,23 +2666,23 @@ export const MessageUpdateEvent = {
     fromJSON(object) {
         const message = { ...baseMessageUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.cached !== undefined && object.cached !== null) {
             message.payload = {
                 $case: "cached",
-                cached: MessageData.fromJSON(object.cached),
+                cached: model_1.MessageData.fromJSON(object.cached),
             };
         }
         if (object.raw !== undefined && object.raw !== null) {
             message.payload = {
                 $case: "raw",
-                raw: MessageUpdateEvent_PayloadData.fromJSON(object.raw),
+                raw: exports.MessageUpdateEvent_PayloadData.fromJSON(object.raw),
             };
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = MessageData.fromJSON(object.previouslyCached);
+            message.previouslyCached = model_1.MessageData.fromJSON(object.previouslyCached);
         }
         return message;
     },
@@ -2683,33 +2690,33 @@ export const MessageUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload?.$case === "cached" &&
             (obj.cached = message.payload?.cached
-                ? MessageData.toJSON(message.payload?.cached)
+                ? model_1.MessageData.toJSON(message.payload?.cached)
                 : undefined);
         message.payload?.$case === "raw" &&
             (obj.raw = message.payload?.raw
-                ? MessageUpdateEvent_PayloadData.toJSON(message.payload?.raw)
+                ? exports.MessageUpdateEvent_PayloadData.toJSON(message.payload?.raw)
                 : undefined);
         message.previouslyCached !== undefined &&
             (obj.previouslyCached = message.previouslyCached
-                ? MessageData.toJSON(message.previouslyCached)
+                ? model_1.MessageData.toJSON(message.previouslyCached)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseMessageUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload?.$case === "cached" &&
             object.payload?.cached !== undefined &&
             object.payload?.cached !== null) {
             message.payload = {
                 $case: "cached",
-                cached: MessageData.fromPartial(object.payload.cached),
+                cached: model_1.MessageData.fromPartial(object.payload.cached),
             };
         }
         if (object.payload?.$case === "raw" &&
@@ -2717,25 +2724,25 @@ export const MessageUpdateEvent = {
             object.payload?.raw !== null) {
             message.payload = {
                 $case: "raw",
-                raw: MessageUpdateEvent_PayloadData.fromPartial(object.payload.raw),
+                raw: exports.MessageUpdateEvent_PayloadData.fromPartial(object.payload.raw),
             };
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = MessageData.fromPartial(object.previouslyCached);
+            message.previouslyCached = model_1.MessageData.fromPartial(object.previouslyCached);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent.$type, MessageUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent.$type, exports.MessageUpdateEvent);
 const baseMessageUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData",
     id: "0",
     channelId: "0",
 };
-export const MessageUpdateEvent_PayloadData = {
+exports.MessageUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.id !== "0") {
             writer.uint32(9).fixed64(message.id);
         }
@@ -2743,69 +2750,69 @@ export const MessageUpdateEvent_PayloadData = {
             writer.uint32(17).fixed64(message.channelId);
         }
         if (message.guildId !== undefined) {
-            SnowflakeValue.encode(message.guildId, writer.uint32(26).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.guildId, writer.uint32(26).fork()).ldelim();
         }
         if (message.content !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.content }, writer.uint32(34).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.content }, writer.uint32(34).fork()).ldelim();
         }
         if (message.editedTimestamp !== undefined) {
-            Timestamp.encode(toTimestamp(message.editedTimestamp), writer.uint32(42).fork()).ldelim();
+            timestamp_1.Timestamp.encode(toTimestamp(message.editedTimestamp), writer.uint32(42).fork()).ldelim();
         }
         if (message.mentionRoles !== undefined) {
-            SnowflakeListValue.encode(message.mentionRoles, writer.uint32(50).fork()).ldelim();
+            model_1.SnowflakeListValue.encode(message.mentionRoles, writer.uint32(50).fork()).ldelim();
         }
         if (message.tts !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.tts }, writer.uint32(58).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.tts }, writer.uint32(58).fork()).ldelim();
         }
         if (message.mentionEveryone !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.mentionEveryone }, writer.uint32(66).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.mentionEveryone }, writer.uint32(66).fork()).ldelim();
         }
         if (message.attachments !== undefined) {
-            MessageUpdateEvent_PayloadData_MessageAttachmentListValue.encode(message.attachments, writer.uint32(74).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData_MessageAttachmentListValue.encode(message.attachments, writer.uint32(74).fork()).ldelim();
         }
         if (message.embeds !== undefined) {
-            MessageUpdateEvent_PayloadData_MessageEmbedListValue.encode(message.embeds, writer.uint32(82).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData_MessageEmbedListValue.encode(message.embeds, writer.uint32(82).fork()).ldelim();
         }
         if (message.mentions !== undefined) {
-            MessageUpdateEvent_PayloadData_MessageMentionListValue.encode(message.mentions, writer.uint32(90).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData_MessageMentionListValue.encode(message.mentions, writer.uint32(90).fork()).ldelim();
         }
         if (message.reactions !== undefined) {
-            MessageUpdateEvent_PayloadData_MessageReactionListValue.encode(message.reactions, writer.uint32(98).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData_MessageReactionListValue.encode(message.reactions, writer.uint32(98).fork()).ldelim();
         }
         if (message.pinned !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.pinned }, writer.uint32(106).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.pinned }, writer.uint32(106).fork()).ldelim();
         }
         if (message.type !== undefined) {
-            MessageUpdateEvent_PayloadData_MessageTypeValue.encode(message.type, writer.uint32(114).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData_MessageTypeValue.encode(message.type, writer.uint32(114).fork()).ldelim();
         }
         if (message.mentionChannels !== undefined) {
-            MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.encode(message.mentionChannels, writer.uint32(122).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.encode(message.mentionChannels, writer.uint32(122).fork()).ldelim();
         }
         if (message.flags !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.flags }, writer.uint32(130).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.flags }, writer.uint32(130).fork()).ldelim();
         }
         if (message.activity !== undefined) {
-            MessageUpdateEvent_PayloadData_MessageActivityValue.encode(message.activity, writer.uint32(138).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData_MessageActivityValue.encode(message.activity, writer.uint32(138).fork()).ldelim();
         }
         if (message.application !== undefined) {
-            MessageUpdateEvent_PayloadData_MessageApplicationValue.encode(message.application, writer.uint32(146).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData_MessageApplicationValue.encode(message.application, writer.uint32(146).fork()).ldelim();
         }
         if (message.messageReference !== undefined) {
-            MessageUpdateEvent_PayloadData_MessageReferenceValue.encode(message.messageReference, writer.uint32(154).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData_MessageReferenceValue.encode(message.messageReference, writer.uint32(154).fork()).ldelim();
         }
         if (message.author !== undefined) {
-            MessageUpdateEvent_PayloadData_MessageAuthorValue.encode(message.author, writer.uint32(162).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData_MessageAuthorValue.encode(message.author, writer.uint32(162).fork()).ldelim();
         }
         if (message.member !== undefined) {
-            MessageUpdateEvent_PayloadData_MessageMemberValue.encode(message.member, writer.uint32(170).fork()).ldelim();
+            exports.MessageUpdateEvent_PayloadData_MessageMemberValue.encode(message.member, writer.uint32(170).fork()).ldelim();
         }
         if (message.webhookId !== undefined) {
-            SnowflakeValue.encode(message.webhookId, writer.uint32(178).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.webhookId, writer.uint32(178).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData,
@@ -2820,64 +2827,64 @@ export const MessageUpdateEvent_PayloadData = {
                     message.channelId = longToString(reader.fixed64());
                     break;
                 case 3:
-                    message.guildId = SnowflakeValue.decode(reader, reader.uint32());
+                    message.guildId = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 4:
-                    message.content = StringValue.decode(reader, reader.uint32()).value;
+                    message.content = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 5:
-                    message.editedTimestamp = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+                    message.editedTimestamp = fromTimestamp(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 case 6:
-                    message.mentionRoles = SnowflakeListValue.decode(reader, reader.uint32());
+                    message.mentionRoles = model_1.SnowflakeListValue.decode(reader, reader.uint32());
                     break;
                 case 7:
-                    message.tts = BoolValue.decode(reader, reader.uint32()).value;
+                    message.tts = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 8:
-                    message.mentionEveryone = BoolValue.decode(reader, reader.uint32()).value;
+                    message.mentionEveryone = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 9:
-                    message.attachments = MessageUpdateEvent_PayloadData_MessageAttachmentListValue.decode(reader, reader.uint32());
+                    message.attachments = exports.MessageUpdateEvent_PayloadData_MessageAttachmentListValue.decode(reader, reader.uint32());
                     break;
                 case 10:
-                    message.embeds = MessageUpdateEvent_PayloadData_MessageEmbedListValue.decode(reader, reader.uint32());
+                    message.embeds = exports.MessageUpdateEvent_PayloadData_MessageEmbedListValue.decode(reader, reader.uint32());
                     break;
                 case 11:
-                    message.mentions = MessageUpdateEvent_PayloadData_MessageMentionListValue.decode(reader, reader.uint32());
+                    message.mentions = exports.MessageUpdateEvent_PayloadData_MessageMentionListValue.decode(reader, reader.uint32());
                     break;
                 case 12:
-                    message.reactions = MessageUpdateEvent_PayloadData_MessageReactionListValue.decode(reader, reader.uint32());
+                    message.reactions = exports.MessageUpdateEvent_PayloadData_MessageReactionListValue.decode(reader, reader.uint32());
                     break;
                 case 13:
-                    message.pinned = BoolValue.decode(reader, reader.uint32()).value;
+                    message.pinned = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 14:
-                    message.type = MessageUpdateEvent_PayloadData_MessageTypeValue.decode(reader, reader.uint32());
+                    message.type = exports.MessageUpdateEvent_PayloadData_MessageTypeValue.decode(reader, reader.uint32());
                     break;
                 case 15:
-                    message.mentionChannels = MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.decode(reader, reader.uint32());
+                    message.mentionChannels = exports.MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.decode(reader, reader.uint32());
                     break;
                 case 16:
-                    message.flags = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.flags = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 17:
-                    message.activity = MessageUpdateEvent_PayloadData_MessageActivityValue.decode(reader, reader.uint32());
+                    message.activity = exports.MessageUpdateEvent_PayloadData_MessageActivityValue.decode(reader, reader.uint32());
                     break;
                 case 18:
-                    message.application = MessageUpdateEvent_PayloadData_MessageApplicationValue.decode(reader, reader.uint32());
+                    message.application = exports.MessageUpdateEvent_PayloadData_MessageApplicationValue.decode(reader, reader.uint32());
                     break;
                 case 19:
-                    message.messageReference = MessageUpdateEvent_PayloadData_MessageReferenceValue.decode(reader, reader.uint32());
+                    message.messageReference = exports.MessageUpdateEvent_PayloadData_MessageReferenceValue.decode(reader, reader.uint32());
                     break;
                 case 20:
-                    message.author = MessageUpdateEvent_PayloadData_MessageAuthorValue.decode(reader, reader.uint32());
+                    message.author = exports.MessageUpdateEvent_PayloadData_MessageAuthorValue.decode(reader, reader.uint32());
                     break;
                 case 21:
-                    message.member = MessageUpdateEvent_PayloadData_MessageMemberValue.decode(reader, reader.uint32());
+                    message.member = exports.MessageUpdateEvent_PayloadData_MessageMemberValue.decode(reader, reader.uint32());
                     break;
                 case 22:
-                    message.webhookId = SnowflakeValue.decode(reader, reader.uint32());
+                    message.webhookId = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2897,7 +2904,7 @@ export const MessageUpdateEvent_PayloadData = {
             message.channelId = String(object.channelId);
         }
         if (object.guildId !== undefined && object.guildId !== null) {
-            message.guildId = SnowflakeValue.fromJSON(object.guildId);
+            message.guildId = model_1.SnowflakeValue.fromJSON(object.guildId);
         }
         if (object.content !== undefined && object.content !== null) {
             message.content = String(object.content);
@@ -2907,7 +2914,7 @@ export const MessageUpdateEvent_PayloadData = {
             message.editedTimestamp = fromJsonTimestamp(object.editedTimestamp);
         }
         if (object.mentionRoles !== undefined && object.mentionRoles !== null) {
-            message.mentionRoles = SnowflakeListValue.fromJSON(object.mentionRoles);
+            message.mentionRoles = model_1.SnowflakeListValue.fromJSON(object.mentionRoles);
         }
         if (object.tts !== undefined && object.tts !== null) {
             message.tts = Boolean(object.tts);
@@ -2917,48 +2924,48 @@ export const MessageUpdateEvent_PayloadData = {
             message.mentionEveryone = Boolean(object.mentionEveryone);
         }
         if (object.attachments !== undefined && object.attachments !== null) {
-            message.attachments = MessageUpdateEvent_PayloadData_MessageAttachmentListValue.fromJSON(object.attachments);
+            message.attachments = exports.MessageUpdateEvent_PayloadData_MessageAttachmentListValue.fromJSON(object.attachments);
         }
         if (object.embeds !== undefined && object.embeds !== null) {
-            message.embeds = MessageUpdateEvent_PayloadData_MessageEmbedListValue.fromJSON(object.embeds);
+            message.embeds = exports.MessageUpdateEvent_PayloadData_MessageEmbedListValue.fromJSON(object.embeds);
         }
         if (object.mentions !== undefined && object.mentions !== null) {
-            message.mentions = MessageUpdateEvent_PayloadData_MessageMentionListValue.fromJSON(object.mentions);
+            message.mentions = exports.MessageUpdateEvent_PayloadData_MessageMentionListValue.fromJSON(object.mentions);
         }
         if (object.reactions !== undefined && object.reactions !== null) {
-            message.reactions = MessageUpdateEvent_PayloadData_MessageReactionListValue.fromJSON(object.reactions);
+            message.reactions = exports.MessageUpdateEvent_PayloadData_MessageReactionListValue.fromJSON(object.reactions);
         }
         if (object.pinned !== undefined && object.pinned !== null) {
             message.pinned = Boolean(object.pinned);
         }
         if (object.type !== undefined && object.type !== null) {
-            message.type = MessageUpdateEvent_PayloadData_MessageTypeValue.fromJSON(object.type);
+            message.type = exports.MessageUpdateEvent_PayloadData_MessageTypeValue.fromJSON(object.type);
         }
         if (object.mentionChannels !== undefined &&
             object.mentionChannels !== null) {
-            message.mentionChannels = MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.fromJSON(object.mentionChannels);
+            message.mentionChannels = exports.MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.fromJSON(object.mentionChannels);
         }
         if (object.flags !== undefined && object.flags !== null) {
             message.flags = Number(object.flags);
         }
         if (object.activity !== undefined && object.activity !== null) {
-            message.activity = MessageUpdateEvent_PayloadData_MessageActivityValue.fromJSON(object.activity);
+            message.activity = exports.MessageUpdateEvent_PayloadData_MessageActivityValue.fromJSON(object.activity);
         }
         if (object.application !== undefined && object.application !== null) {
-            message.application = MessageUpdateEvent_PayloadData_MessageApplicationValue.fromJSON(object.application);
+            message.application = exports.MessageUpdateEvent_PayloadData_MessageApplicationValue.fromJSON(object.application);
         }
         if (object.messageReference !== undefined &&
             object.messageReference !== null) {
-            message.messageReference = MessageUpdateEvent_PayloadData_MessageReferenceValue.fromJSON(object.messageReference);
+            message.messageReference = exports.MessageUpdateEvent_PayloadData_MessageReferenceValue.fromJSON(object.messageReference);
         }
         if (object.author !== undefined && object.author !== null) {
-            message.author = MessageUpdateEvent_PayloadData_MessageAuthorValue.fromJSON(object.author);
+            message.author = exports.MessageUpdateEvent_PayloadData_MessageAuthorValue.fromJSON(object.author);
         }
         if (object.member !== undefined && object.member !== null) {
-            message.member = MessageUpdateEvent_PayloadData_MessageMemberValue.fromJSON(object.member);
+            message.member = exports.MessageUpdateEvent_PayloadData_MessageMemberValue.fromJSON(object.member);
         }
         if (object.webhookId !== undefined && object.webhookId !== null) {
-            message.webhookId = SnowflakeValue.fromJSON(object.webhookId);
+            message.webhookId = model_1.SnowflakeValue.fromJSON(object.webhookId);
         }
         return message;
     },
@@ -2968,67 +2975,67 @@ export const MessageUpdateEvent_PayloadData = {
         message.channelId !== undefined && (obj.channelId = message.channelId);
         message.guildId !== undefined &&
             (obj.guildId = message.guildId
-                ? SnowflakeValue.toJSON(message.guildId)
+                ? model_1.SnowflakeValue.toJSON(message.guildId)
                 : undefined);
         message.content !== undefined && (obj.content = message.content);
         message.editedTimestamp !== undefined &&
             (obj.editedTimestamp = message.editedTimestamp.toISOString());
         message.mentionRoles !== undefined &&
             (obj.mentionRoles = message.mentionRoles
-                ? SnowflakeListValue.toJSON(message.mentionRoles)
+                ? model_1.SnowflakeListValue.toJSON(message.mentionRoles)
                 : undefined);
         message.tts !== undefined && (obj.tts = message.tts);
         message.mentionEveryone !== undefined &&
             (obj.mentionEveryone = message.mentionEveryone);
         message.attachments !== undefined &&
             (obj.attachments = message.attachments
-                ? MessageUpdateEvent_PayloadData_MessageAttachmentListValue.toJSON(message.attachments)
+                ? exports.MessageUpdateEvent_PayloadData_MessageAttachmentListValue.toJSON(message.attachments)
                 : undefined);
         message.embeds !== undefined &&
             (obj.embeds = message.embeds
-                ? MessageUpdateEvent_PayloadData_MessageEmbedListValue.toJSON(message.embeds)
+                ? exports.MessageUpdateEvent_PayloadData_MessageEmbedListValue.toJSON(message.embeds)
                 : undefined);
         message.mentions !== undefined &&
             (obj.mentions = message.mentions
-                ? MessageUpdateEvent_PayloadData_MessageMentionListValue.toJSON(message.mentions)
+                ? exports.MessageUpdateEvent_PayloadData_MessageMentionListValue.toJSON(message.mentions)
                 : undefined);
         message.reactions !== undefined &&
             (obj.reactions = message.reactions
-                ? MessageUpdateEvent_PayloadData_MessageReactionListValue.toJSON(message.reactions)
+                ? exports.MessageUpdateEvent_PayloadData_MessageReactionListValue.toJSON(message.reactions)
                 : undefined);
         message.pinned !== undefined && (obj.pinned = message.pinned);
         message.type !== undefined &&
             (obj.type = message.type
-                ? MessageUpdateEvent_PayloadData_MessageTypeValue.toJSON(message.type)
+                ? exports.MessageUpdateEvent_PayloadData_MessageTypeValue.toJSON(message.type)
                 : undefined);
         message.mentionChannels !== undefined &&
             (obj.mentionChannels = message.mentionChannels
-                ? MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.toJSON(message.mentionChannels)
+                ? exports.MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.toJSON(message.mentionChannels)
                 : undefined);
         message.flags !== undefined && (obj.flags = message.flags);
         message.activity !== undefined &&
             (obj.activity = message.activity
-                ? MessageUpdateEvent_PayloadData_MessageActivityValue.toJSON(message.activity)
+                ? exports.MessageUpdateEvent_PayloadData_MessageActivityValue.toJSON(message.activity)
                 : undefined);
         message.application !== undefined &&
             (obj.application = message.application
-                ? MessageUpdateEvent_PayloadData_MessageApplicationValue.toJSON(message.application)
+                ? exports.MessageUpdateEvent_PayloadData_MessageApplicationValue.toJSON(message.application)
                 : undefined);
         message.messageReference !== undefined &&
             (obj.messageReference = message.messageReference
-                ? MessageUpdateEvent_PayloadData_MessageReferenceValue.toJSON(message.messageReference)
+                ? exports.MessageUpdateEvent_PayloadData_MessageReferenceValue.toJSON(message.messageReference)
                 : undefined);
         message.author !== undefined &&
             (obj.author = message.author
-                ? MessageUpdateEvent_PayloadData_MessageAuthorValue.toJSON(message.author)
+                ? exports.MessageUpdateEvent_PayloadData_MessageAuthorValue.toJSON(message.author)
                 : undefined);
         message.member !== undefined &&
             (obj.member = message.member
-                ? MessageUpdateEvent_PayloadData_MessageMemberValue.toJSON(message.member)
+                ? exports.MessageUpdateEvent_PayloadData_MessageMemberValue.toJSON(message.member)
                 : undefined);
         message.webhookId !== undefined &&
             (obj.webhookId = message.webhookId
-                ? SnowflakeValue.toJSON(message.webhookId)
+                ? model_1.SnowflakeValue.toJSON(message.webhookId)
                 : undefined);
         return obj;
     },
@@ -3043,7 +3050,7 @@ export const MessageUpdateEvent_PayloadData = {
             message.channelId = object.channelId;
         }
         if (object.guildId !== undefined && object.guildId !== null) {
-            message.guildId = SnowflakeValue.fromPartial(object.guildId);
+            message.guildId = model_1.SnowflakeValue.fromPartial(object.guildId);
         }
         if (object.content !== undefined && object.content !== null) {
             message.content = object.content;
@@ -3053,7 +3060,7 @@ export const MessageUpdateEvent_PayloadData = {
             message.editedTimestamp = object.editedTimestamp;
         }
         if (object.mentionRoles !== undefined && object.mentionRoles !== null) {
-            message.mentionRoles = SnowflakeListValue.fromPartial(object.mentionRoles);
+            message.mentionRoles = model_1.SnowflakeListValue.fromPartial(object.mentionRoles);
         }
         if (object.tts !== undefined && object.tts !== null) {
             message.tts = object.tts;
@@ -3063,66 +3070,66 @@ export const MessageUpdateEvent_PayloadData = {
             message.mentionEveryone = object.mentionEveryone;
         }
         if (object.attachments !== undefined && object.attachments !== null) {
-            message.attachments = MessageUpdateEvent_PayloadData_MessageAttachmentListValue.fromPartial(object.attachments);
+            message.attachments = exports.MessageUpdateEvent_PayloadData_MessageAttachmentListValue.fromPartial(object.attachments);
         }
         if (object.embeds !== undefined && object.embeds !== null) {
-            message.embeds = MessageUpdateEvent_PayloadData_MessageEmbedListValue.fromPartial(object.embeds);
+            message.embeds = exports.MessageUpdateEvent_PayloadData_MessageEmbedListValue.fromPartial(object.embeds);
         }
         if (object.mentions !== undefined && object.mentions !== null) {
-            message.mentions = MessageUpdateEvent_PayloadData_MessageMentionListValue.fromPartial(object.mentions);
+            message.mentions = exports.MessageUpdateEvent_PayloadData_MessageMentionListValue.fromPartial(object.mentions);
         }
         if (object.reactions !== undefined && object.reactions !== null) {
-            message.reactions = MessageUpdateEvent_PayloadData_MessageReactionListValue.fromPartial(object.reactions);
+            message.reactions = exports.MessageUpdateEvent_PayloadData_MessageReactionListValue.fromPartial(object.reactions);
         }
         if (object.pinned !== undefined && object.pinned !== null) {
             message.pinned = object.pinned;
         }
         if (object.type !== undefined && object.type !== null) {
-            message.type = MessageUpdateEvent_PayloadData_MessageTypeValue.fromPartial(object.type);
+            message.type = exports.MessageUpdateEvent_PayloadData_MessageTypeValue.fromPartial(object.type);
         }
         if (object.mentionChannels !== undefined &&
             object.mentionChannels !== null) {
-            message.mentionChannels = MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.fromPartial(object.mentionChannels);
+            message.mentionChannels = exports.MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.fromPartial(object.mentionChannels);
         }
         if (object.flags !== undefined && object.flags !== null) {
             message.flags = object.flags;
         }
         if (object.activity !== undefined && object.activity !== null) {
-            message.activity = MessageUpdateEvent_PayloadData_MessageActivityValue.fromPartial(object.activity);
+            message.activity = exports.MessageUpdateEvent_PayloadData_MessageActivityValue.fromPartial(object.activity);
         }
         if (object.application !== undefined && object.application !== null) {
-            message.application = MessageUpdateEvent_PayloadData_MessageApplicationValue.fromPartial(object.application);
+            message.application = exports.MessageUpdateEvent_PayloadData_MessageApplicationValue.fromPartial(object.application);
         }
         if (object.messageReference !== undefined &&
             object.messageReference !== null) {
-            message.messageReference = MessageUpdateEvent_PayloadData_MessageReferenceValue.fromPartial(object.messageReference);
+            message.messageReference = exports.MessageUpdateEvent_PayloadData_MessageReferenceValue.fromPartial(object.messageReference);
         }
         if (object.author !== undefined && object.author !== null) {
-            message.author = MessageUpdateEvent_PayloadData_MessageAuthorValue.fromPartial(object.author);
+            message.author = exports.MessageUpdateEvent_PayloadData_MessageAuthorValue.fromPartial(object.author);
         }
         if (object.member !== undefined && object.member !== null) {
-            message.member = MessageUpdateEvent_PayloadData_MessageMemberValue.fromPartial(object.member);
+            message.member = exports.MessageUpdateEvent_PayloadData_MessageMemberValue.fromPartial(object.member);
         }
         if (object.webhookId !== undefined && object.webhookId !== null) {
-            message.webhookId = SnowflakeValue.fromPartial(object.webhookId);
+            message.webhookId = model_1.SnowflakeValue.fromPartial(object.webhookId);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData.$type, MessageUpdateEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData.$type, exports.MessageUpdateEvent_PayloadData);
 const baseMessageUpdateEvent_PayloadData_MessageAttachmentListValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageAttachmentListValue",
 };
-export const MessageUpdateEvent_PayloadData_MessageAttachmentListValue = {
+exports.MessageUpdateEvent_PayloadData_MessageAttachmentListValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageAttachmentListValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.values) {
-            MessageData_MessageAttachmentData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData_MessageAttachmentData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData_MessageAttachmentListValue,
@@ -3132,7 +3139,7 @@ export const MessageUpdateEvent_PayloadData_MessageAttachmentListValue = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.values.push(MessageData_MessageAttachmentData.decode(reader, reader.uint32()));
+                    message.values.push(model_1.MessageData_MessageAttachmentData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3148,7 +3155,7 @@ export const MessageUpdateEvent_PayloadData_MessageAttachmentListValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(MessageData_MessageAttachmentData.fromJSON(e));
+                message.values.push(model_1.MessageData_MessageAttachmentData.fromJSON(e));
             }
         }
         return message;
@@ -3156,7 +3163,7 @@ export const MessageUpdateEvent_PayloadData_MessageAttachmentListValue = {
     toJSON(message) {
         const obj = {};
         if (message.values) {
-            obj.values = message.values.map((e) => e ? MessageData_MessageAttachmentData.toJSON(e) : undefined);
+            obj.values = message.values.map((e) => e ? model_1.MessageData_MessageAttachmentData.toJSON(e) : undefined);
         }
         else {
             obj.values = [];
@@ -3170,26 +3177,26 @@ export const MessageUpdateEvent_PayloadData_MessageAttachmentListValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(MessageData_MessageAttachmentData.fromPartial(e));
+                message.values.push(model_1.MessageData_MessageAttachmentData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData_MessageAttachmentListValue.$type, MessageUpdateEvent_PayloadData_MessageAttachmentListValue);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData_MessageAttachmentListValue.$type, exports.MessageUpdateEvent_PayloadData_MessageAttachmentListValue);
 const baseMessageUpdateEvent_PayloadData_MessageEmbedListValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageEmbedListValue",
 };
-export const MessageUpdateEvent_PayloadData_MessageEmbedListValue = {
+exports.MessageUpdateEvent_PayloadData_MessageEmbedListValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageEmbedListValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.values) {
-            MessageData_MessageEmbedData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData_MessageEmbedData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData_MessageEmbedListValue,
@@ -3199,7 +3206,7 @@ export const MessageUpdateEvent_PayloadData_MessageEmbedListValue = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.values.push(MessageData_MessageEmbedData.decode(reader, reader.uint32()));
+                    message.values.push(model_1.MessageData_MessageEmbedData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3215,7 +3222,7 @@ export const MessageUpdateEvent_PayloadData_MessageEmbedListValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(MessageData_MessageEmbedData.fromJSON(e));
+                message.values.push(model_1.MessageData_MessageEmbedData.fromJSON(e));
             }
         }
         return message;
@@ -3223,7 +3230,7 @@ export const MessageUpdateEvent_PayloadData_MessageEmbedListValue = {
     toJSON(message) {
         const obj = {};
         if (message.values) {
-            obj.values = message.values.map((e) => e ? MessageData_MessageEmbedData.toJSON(e) : undefined);
+            obj.values = message.values.map((e) => e ? model_1.MessageData_MessageEmbedData.toJSON(e) : undefined);
         }
         else {
             obj.values = [];
@@ -3237,26 +3244,26 @@ export const MessageUpdateEvent_PayloadData_MessageEmbedListValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(MessageData_MessageEmbedData.fromPartial(e));
+                message.values.push(model_1.MessageData_MessageEmbedData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData_MessageEmbedListValue.$type, MessageUpdateEvent_PayloadData_MessageEmbedListValue);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData_MessageEmbedListValue.$type, exports.MessageUpdateEvent_PayloadData_MessageEmbedListValue);
 const baseMessageUpdateEvent_PayloadData_MessageMentionListValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageMentionListValue",
 };
-export const MessageUpdateEvent_PayloadData_MessageMentionListValue = {
+exports.MessageUpdateEvent_PayloadData_MessageMentionListValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageMentionListValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.values) {
-            MessageData_MessageMentionData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData_MessageMentionData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData_MessageMentionListValue,
@@ -3266,7 +3273,7 @@ export const MessageUpdateEvent_PayloadData_MessageMentionListValue = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.values.push(MessageData_MessageMentionData.decode(reader, reader.uint32()));
+                    message.values.push(model_1.MessageData_MessageMentionData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3282,7 +3289,7 @@ export const MessageUpdateEvent_PayloadData_MessageMentionListValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(MessageData_MessageMentionData.fromJSON(e));
+                message.values.push(model_1.MessageData_MessageMentionData.fromJSON(e));
             }
         }
         return message;
@@ -3290,7 +3297,7 @@ export const MessageUpdateEvent_PayloadData_MessageMentionListValue = {
     toJSON(message) {
         const obj = {};
         if (message.values) {
-            obj.values = message.values.map((e) => e ? MessageData_MessageMentionData.toJSON(e) : undefined);
+            obj.values = message.values.map((e) => e ? model_1.MessageData_MessageMentionData.toJSON(e) : undefined);
         }
         else {
             obj.values = [];
@@ -3304,26 +3311,26 @@ export const MessageUpdateEvent_PayloadData_MessageMentionListValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(MessageData_MessageMentionData.fromPartial(e));
+                message.values.push(model_1.MessageData_MessageMentionData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData_MessageMentionListValue.$type, MessageUpdateEvent_PayloadData_MessageMentionListValue);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData_MessageMentionListValue.$type, exports.MessageUpdateEvent_PayloadData_MessageMentionListValue);
 const baseMessageUpdateEvent_PayloadData_MessageReactionListValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageReactionListValue",
 };
-export const MessageUpdateEvent_PayloadData_MessageReactionListValue = {
+exports.MessageUpdateEvent_PayloadData_MessageReactionListValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageReactionListValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.values) {
-            MessageData_MessageReactionData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData_MessageReactionData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData_MessageReactionListValue,
@@ -3333,7 +3340,7 @@ export const MessageUpdateEvent_PayloadData_MessageReactionListValue = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.values.push(MessageData_MessageReactionData.decode(reader, reader.uint32()));
+                    message.values.push(model_1.MessageData_MessageReactionData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3349,7 +3356,7 @@ export const MessageUpdateEvent_PayloadData_MessageReactionListValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(MessageData_MessageReactionData.fromJSON(e));
+                message.values.push(model_1.MessageData_MessageReactionData.fromJSON(e));
             }
         }
         return message;
@@ -3357,7 +3364,7 @@ export const MessageUpdateEvent_PayloadData_MessageReactionListValue = {
     toJSON(message) {
         const obj = {};
         if (message.values) {
-            obj.values = message.values.map((e) => e ? MessageData_MessageReactionData.toJSON(e) : undefined);
+            obj.values = message.values.map((e) => e ? model_1.MessageData_MessageReactionData.toJSON(e) : undefined);
         }
         else {
             obj.values = [];
@@ -3371,27 +3378,27 @@ export const MessageUpdateEvent_PayloadData_MessageReactionListValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(MessageData_MessageReactionData.fromPartial(e));
+                message.values.push(model_1.MessageData_MessageReactionData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData_MessageReactionListValue.$type, MessageUpdateEvent_PayloadData_MessageReactionListValue);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData_MessageReactionListValue.$type, exports.MessageUpdateEvent_PayloadData_MessageReactionListValue);
 const baseMessageUpdateEvent_PayloadData_MessageTypeValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageTypeValue",
     value: 0,
 };
-export const MessageUpdateEvent_PayloadData_MessageTypeValue = {
+exports.MessageUpdateEvent_PayloadData_MessageTypeValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageTypeValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== 0) {
             writer.uint32(8).int32(message.value);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData_MessageTypeValue,
@@ -3414,14 +3421,14 @@ export const MessageUpdateEvent_PayloadData_MessageTypeValue = {
             ...baseMessageUpdateEvent_PayloadData_MessageTypeValue,
         };
         if (object.value !== undefined && object.value !== null) {
-            message.value = messageData_MessageTypeFromJSON(object.value);
+            message.value = model_1.messageData_MessageTypeFromJSON(object.value);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.value !== undefined &&
-            (obj.value = messageData_MessageTypeToJSON(message.value));
+            (obj.value = model_1.messageData_MessageTypeToJSON(message.value));
         return obj;
     },
     fromPartial(object) {
@@ -3434,20 +3441,20 @@ export const MessageUpdateEvent_PayloadData_MessageTypeValue = {
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData_MessageTypeValue.$type, MessageUpdateEvent_PayloadData_MessageTypeValue);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData_MessageTypeValue.$type, exports.MessageUpdateEvent_PayloadData_MessageTypeValue);
 const baseMessageUpdateEvent_PayloadData_MessageMentionChannelListValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageMentionChannelListValue",
 };
-export const MessageUpdateEvent_PayloadData_MessageMentionChannelListValue = {
+exports.MessageUpdateEvent_PayloadData_MessageMentionChannelListValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageMentionChannelListValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.values) {
-            MessageData_MessageMentionChannelData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData_MessageMentionChannelData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData_MessageMentionChannelListValue,
@@ -3457,7 +3464,7 @@ export const MessageUpdateEvent_PayloadData_MessageMentionChannelListValue = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.values.push(MessageData_MessageMentionChannelData.decode(reader, reader.uint32()));
+                    message.values.push(model_1.MessageData_MessageMentionChannelData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3473,7 +3480,7 @@ export const MessageUpdateEvent_PayloadData_MessageMentionChannelListValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(MessageData_MessageMentionChannelData.fromJSON(e));
+                message.values.push(model_1.MessageData_MessageMentionChannelData.fromJSON(e));
             }
         }
         return message;
@@ -3481,7 +3488,7 @@ export const MessageUpdateEvent_PayloadData_MessageMentionChannelListValue = {
     toJSON(message) {
         const obj = {};
         if (message.values) {
-            obj.values = message.values.map((e) => e ? MessageData_MessageMentionChannelData.toJSON(e) : undefined);
+            obj.values = message.values.map((e) => e ? model_1.MessageData_MessageMentionChannelData.toJSON(e) : undefined);
         }
         else {
             obj.values = [];
@@ -3495,26 +3502,26 @@ export const MessageUpdateEvent_PayloadData_MessageMentionChannelListValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(MessageData_MessageMentionChannelData.fromPartial(e));
+                message.values.push(model_1.MessageData_MessageMentionChannelData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.$type, MessageUpdateEvent_PayloadData_MessageMentionChannelListValue);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData_MessageMentionChannelListValue.$type, exports.MessageUpdateEvent_PayloadData_MessageMentionChannelListValue);
 const baseMessageUpdateEvent_PayloadData_MessageActivityValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageActivityValue",
 };
-export const MessageUpdateEvent_PayloadData_MessageActivityValue = {
+exports.MessageUpdateEvent_PayloadData_MessageActivityValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageActivityValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== undefined) {
-            MessageData_MessageActivityData.encode(message.value, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData_MessageActivityData.encode(message.value, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData_MessageActivityValue,
@@ -3523,7 +3530,7 @@ export const MessageUpdateEvent_PayloadData_MessageActivityValue = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.value = MessageData_MessageActivityData.decode(reader, reader.uint32());
+                    message.value = model_1.MessageData_MessageActivityData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3537,7 +3544,7 @@ export const MessageUpdateEvent_PayloadData_MessageActivityValue = {
             ...baseMessageUpdateEvent_PayloadData_MessageActivityValue,
         };
         if (object.value !== undefined && object.value !== null) {
-            message.value = MessageData_MessageActivityData.fromJSON(object.value);
+            message.value = model_1.MessageData_MessageActivityData.fromJSON(object.value);
         }
         return message;
     },
@@ -3545,7 +3552,7 @@ export const MessageUpdateEvent_PayloadData_MessageActivityValue = {
         const obj = {};
         message.value !== undefined &&
             (obj.value = message.value
-                ? MessageData_MessageActivityData.toJSON(message.value)
+                ? model_1.MessageData_MessageActivityData.toJSON(message.value)
                 : undefined);
         return obj;
     },
@@ -3554,25 +3561,25 @@ export const MessageUpdateEvent_PayloadData_MessageActivityValue = {
             ...baseMessageUpdateEvent_PayloadData_MessageActivityValue,
         };
         if (object.value !== undefined && object.value !== null) {
-            message.value = MessageData_MessageActivityData.fromPartial(object.value);
+            message.value = model_1.MessageData_MessageActivityData.fromPartial(object.value);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData_MessageActivityValue.$type, MessageUpdateEvent_PayloadData_MessageActivityValue);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData_MessageActivityValue.$type, exports.MessageUpdateEvent_PayloadData_MessageActivityValue);
 const baseMessageUpdateEvent_PayloadData_MessageApplicationValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageApplicationValue",
 };
-export const MessageUpdateEvent_PayloadData_MessageApplicationValue = {
+exports.MessageUpdateEvent_PayloadData_MessageApplicationValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageApplicationValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== undefined) {
-            MessageData_MessageApplicationData.encode(message.value, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData_MessageApplicationData.encode(message.value, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData_MessageApplicationValue,
@@ -3581,7 +3588,7 @@ export const MessageUpdateEvent_PayloadData_MessageApplicationValue = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.value = MessageData_MessageApplicationData.decode(reader, reader.uint32());
+                    message.value = model_1.MessageData_MessageApplicationData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3595,7 +3602,7 @@ export const MessageUpdateEvent_PayloadData_MessageApplicationValue = {
             ...baseMessageUpdateEvent_PayloadData_MessageApplicationValue,
         };
         if (object.value !== undefined && object.value !== null) {
-            message.value = MessageData_MessageApplicationData.fromJSON(object.value);
+            message.value = model_1.MessageData_MessageApplicationData.fromJSON(object.value);
         }
         return message;
     },
@@ -3603,7 +3610,7 @@ export const MessageUpdateEvent_PayloadData_MessageApplicationValue = {
         const obj = {};
         message.value !== undefined &&
             (obj.value = message.value
-                ? MessageData_MessageApplicationData.toJSON(message.value)
+                ? model_1.MessageData_MessageApplicationData.toJSON(message.value)
                 : undefined);
         return obj;
     },
@@ -3612,25 +3619,25 @@ export const MessageUpdateEvent_PayloadData_MessageApplicationValue = {
             ...baseMessageUpdateEvent_PayloadData_MessageApplicationValue,
         };
         if (object.value !== undefined && object.value !== null) {
-            message.value = MessageData_MessageApplicationData.fromPartial(object.value);
+            message.value = model_1.MessageData_MessageApplicationData.fromPartial(object.value);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData_MessageApplicationValue.$type, MessageUpdateEvent_PayloadData_MessageApplicationValue);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData_MessageApplicationValue.$type, exports.MessageUpdateEvent_PayloadData_MessageApplicationValue);
 const baseMessageUpdateEvent_PayloadData_MessageReferenceValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageReferenceValue",
 };
-export const MessageUpdateEvent_PayloadData_MessageReferenceValue = {
+exports.MessageUpdateEvent_PayloadData_MessageReferenceValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageReferenceValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== undefined) {
-            MessageData_MessageReferenceData.encode(message.value, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData_MessageReferenceData.encode(message.value, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData_MessageReferenceValue,
@@ -3639,7 +3646,7 @@ export const MessageUpdateEvent_PayloadData_MessageReferenceValue = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.value = MessageData_MessageReferenceData.decode(reader, reader.uint32());
+                    message.value = model_1.MessageData_MessageReferenceData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3653,7 +3660,7 @@ export const MessageUpdateEvent_PayloadData_MessageReferenceValue = {
             ...baseMessageUpdateEvent_PayloadData_MessageReferenceValue,
         };
         if (object.value !== undefined && object.value !== null) {
-            message.value = MessageData_MessageReferenceData.fromJSON(object.value);
+            message.value = model_1.MessageData_MessageReferenceData.fromJSON(object.value);
         }
         return message;
     },
@@ -3661,7 +3668,7 @@ export const MessageUpdateEvent_PayloadData_MessageReferenceValue = {
         const obj = {};
         message.value !== undefined &&
             (obj.value = message.value
-                ? MessageData_MessageReferenceData.toJSON(message.value)
+                ? model_1.MessageData_MessageReferenceData.toJSON(message.value)
                 : undefined);
         return obj;
     },
@@ -3670,25 +3677,25 @@ export const MessageUpdateEvent_PayloadData_MessageReferenceValue = {
             ...baseMessageUpdateEvent_PayloadData_MessageReferenceValue,
         };
         if (object.value !== undefined && object.value !== null) {
-            message.value = MessageData_MessageReferenceData.fromPartial(object.value);
+            message.value = model_1.MessageData_MessageReferenceData.fromPartial(object.value);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData_MessageReferenceValue.$type, MessageUpdateEvent_PayloadData_MessageReferenceValue);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData_MessageReferenceValue.$type, exports.MessageUpdateEvent_PayloadData_MessageReferenceValue);
 const baseMessageUpdateEvent_PayloadData_MessageAuthorValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageAuthorValue",
 };
-export const MessageUpdateEvent_PayloadData_MessageAuthorValue = {
+exports.MessageUpdateEvent_PayloadData_MessageAuthorValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageAuthorValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== undefined) {
-            UserData.encode(message.value, writer.uint32(10).fork()).ldelim();
+            model_1.UserData.encode(message.value, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData_MessageAuthorValue,
@@ -3697,7 +3704,7 @@ export const MessageUpdateEvent_PayloadData_MessageAuthorValue = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.value = UserData.decode(reader, reader.uint32());
+                    message.value = model_1.UserData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3711,14 +3718,14 @@ export const MessageUpdateEvent_PayloadData_MessageAuthorValue = {
             ...baseMessageUpdateEvent_PayloadData_MessageAuthorValue,
         };
         if (object.value !== undefined && object.value !== null) {
-            message.value = UserData.fromJSON(object.value);
+            message.value = model_1.UserData.fromJSON(object.value);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.value !== undefined &&
-            (obj.value = message.value ? UserData.toJSON(message.value) : undefined);
+            (obj.value = message.value ? model_1.UserData.toJSON(message.value) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -3726,25 +3733,25 @@ export const MessageUpdateEvent_PayloadData_MessageAuthorValue = {
             ...baseMessageUpdateEvent_PayloadData_MessageAuthorValue,
         };
         if (object.value !== undefined && object.value !== null) {
-            message.value = UserData.fromPartial(object.value);
+            message.value = model_1.UserData.fromPartial(object.value);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData_MessageAuthorValue.$type, MessageUpdateEvent_PayloadData_MessageAuthorValue);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData_MessageAuthorValue.$type, exports.MessageUpdateEvent_PayloadData_MessageAuthorValue);
 const baseMessageUpdateEvent_PayloadData_MessageMemberValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageMemberValue",
 };
-export const MessageUpdateEvent_PayloadData_MessageMemberValue = {
+exports.MessageUpdateEvent_PayloadData_MessageMemberValue = {
     $type: "pylon.discord.v1.event.MessageUpdateEvent.PayloadData.MessageMemberValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== undefined) {
-            MemberData.encode(message.value, writer.uint32(10).fork()).ldelim();
+            model_1.MemberData.encode(message.value, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageUpdateEvent_PayloadData_MessageMemberValue,
@@ -3753,7 +3760,7 @@ export const MessageUpdateEvent_PayloadData_MessageMemberValue = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.value = MemberData.decode(reader, reader.uint32());
+                    message.value = model_1.MemberData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3767,7 +3774,7 @@ export const MessageUpdateEvent_PayloadData_MessageMemberValue = {
             ...baseMessageUpdateEvent_PayloadData_MessageMemberValue,
         };
         if (object.value !== undefined && object.value !== null) {
-            message.value = MemberData.fromJSON(object.value);
+            message.value = model_1.MemberData.fromJSON(object.value);
         }
         return message;
     },
@@ -3775,7 +3782,7 @@ export const MessageUpdateEvent_PayloadData_MessageMemberValue = {
         const obj = {};
         message.value !== undefined &&
             (obj.value = message.value
-                ? MemberData.toJSON(message.value)
+                ? model_1.MemberData.toJSON(message.value)
                 : undefined);
         return obj;
     },
@@ -3784,44 +3791,44 @@ export const MessageUpdateEvent_PayloadData_MessageMemberValue = {
             ...baseMessageUpdateEvent_PayloadData_MessageMemberValue,
         };
         if (object.value !== undefined && object.value !== null) {
-            message.value = MemberData.fromPartial(object.value);
+            message.value = model_1.MemberData.fromPartial(object.value);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageUpdateEvent_PayloadData_MessageMemberValue.$type, MessageUpdateEvent_PayloadData_MessageMemberValue);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageUpdateEvent_PayloadData_MessageMemberValue.$type, exports.MessageUpdateEvent_PayloadData_MessageMemberValue);
 const baseMessageDeleteEvent = {
     $type: "pylon.discord.v1.event.MessageDeleteEvent",
 };
-export const MessageDeleteEvent = {
+exports.MessageDeleteEvent = {
     $type: "pylon.discord.v1.event.MessageDeleteEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            MessageDeleteEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.MessageDeleteEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         if (message.previouslyCached !== undefined) {
-            MessageData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
+            model_1.MessageData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseMessageDeleteEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = MessageDeleteEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.MessageDeleteEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.previouslyCached = MessageData.decode(reader, reader.uint32());
+                    message.previouslyCached = model_1.MessageData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3833,14 +3840,14 @@ export const MessageDeleteEvent = {
     fromJSON(object) {
         const message = { ...baseMessageDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageDeleteEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.MessageDeleteEvent_PayloadData.fromJSON(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = MessageData.fromJSON(object.previouslyCached);
+            message.previouslyCached = model_1.MessageData.fromJSON(object.previouslyCached);
         }
         return message;
     },
@@ -3848,43 +3855,43 @@ export const MessageDeleteEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? MessageDeleteEvent_PayloadData.toJSON(message.payload)
+                ? exports.MessageDeleteEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         message.previouslyCached !== undefined &&
             (obj.previouslyCached = message.previouslyCached
-                ? MessageData.toJSON(message.previouslyCached)
+                ? model_1.MessageData.toJSON(message.previouslyCached)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseMessageDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageDeleteEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.MessageDeleteEvent_PayloadData.fromPartial(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = MessageData.fromPartial(object.previouslyCached);
+            message.previouslyCached = model_1.MessageData.fromPartial(object.previouslyCached);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageDeleteEvent.$type, MessageDeleteEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageDeleteEvent.$type, exports.MessageDeleteEvent);
 const baseMessageDeleteEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageDeleteEvent.PayloadData",
     id: "0",
     channelId: "0",
     guildId: "0",
 };
-export const MessageDeleteEvent_PayloadData = {
+exports.MessageDeleteEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageDeleteEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.id !== "0") {
             writer.uint32(9).fixed64(message.id);
         }
@@ -3897,7 +3904,7 @@ export const MessageDeleteEvent_PayloadData = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageDeleteEvent_PayloadData,
@@ -3959,33 +3966,33 @@ export const MessageDeleteEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(MessageDeleteEvent_PayloadData.$type, MessageDeleteEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageDeleteEvent_PayloadData.$type, exports.MessageDeleteEvent_PayloadData);
 const baseMessageDeleteBulkEvent = {
     $type: "pylon.discord.v1.event.MessageDeleteBulkEvent",
 };
-export const MessageDeleteBulkEvent = {
+exports.MessageDeleteBulkEvent = {
     $type: "pylon.discord.v1.event.MessageDeleteBulkEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            MessageDeleteBulkEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.MessageDeleteBulkEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseMessageDeleteBulkEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = MessageDeleteBulkEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.MessageDeleteBulkEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3997,10 +4004,10 @@ export const MessageDeleteBulkEvent = {
     fromJSON(object) {
         const message = { ...baseMessageDeleteBulkEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageDeleteBulkEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.MessageDeleteBulkEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -4008,35 +4015,35 @@ export const MessageDeleteBulkEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? MessageDeleteBulkEvent_PayloadData.toJSON(message.payload)
+                ? exports.MessageDeleteBulkEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseMessageDeleteBulkEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageDeleteBulkEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.MessageDeleteBulkEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageDeleteBulkEvent.$type, MessageDeleteBulkEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageDeleteBulkEvent.$type, exports.MessageDeleteBulkEvent);
 const baseMessageDeleteBulkEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageDeleteBulkEvent.PayloadData",
     ids: "0",
     channelId: "0",
     guildId: "0",
 };
-export const MessageDeleteBulkEvent_PayloadData = {
+exports.MessageDeleteBulkEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageDeleteBulkEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         writer.uint32(10).fork();
         for (const v of message.ids) {
             writer.fixed64(v);
@@ -4051,7 +4058,7 @@ export const MessageDeleteBulkEvent_PayloadData = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageDeleteBulkEvent_PayloadData,
@@ -4133,23 +4140,23 @@ export const MessageDeleteBulkEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(MessageDeleteBulkEvent_PayloadData.$type, MessageDeleteBulkEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageDeleteBulkEvent_PayloadData.$type, exports.MessageDeleteBulkEvent_PayloadData);
 const baseMessageReactionAddEvent = {
     $type: "pylon.discord.v1.event.MessageReactionAddEvent",
 };
-export const MessageReactionAddEvent = {
+exports.MessageReactionAddEvent = {
     $type: "pylon.discord.v1.event.MessageReactionAddEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            MessageReactionAddEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.MessageReactionAddEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageReactionAddEvent,
@@ -4158,10 +4165,10 @@ export const MessageReactionAddEvent = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = MessageReactionAddEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.MessageReactionAddEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4175,10 +4182,10 @@ export const MessageReactionAddEvent = {
             ...baseMessageReactionAddEvent,
         };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageReactionAddEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.MessageReactionAddEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -4186,11 +4193,11 @@ export const MessageReactionAddEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? MessageReactionAddEvent_PayloadData.toJSON(message.payload)
+                ? exports.MessageReactionAddEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
@@ -4199,15 +4206,15 @@ export const MessageReactionAddEvent = {
             ...baseMessageReactionAddEvent,
         };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageReactionAddEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.MessageReactionAddEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageReactionAddEvent.$type, MessageReactionAddEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageReactionAddEvent.$type, exports.MessageReactionAddEvent);
 const baseMessageReactionAddEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageReactionAddEvent.PayloadData",
     userId: "0",
@@ -4215,9 +4222,9 @@ const baseMessageReactionAddEvent_PayloadData = {
     messageId: "0",
     guildId: "0",
 };
-export const MessageReactionAddEvent_PayloadData = {
+exports.MessageReactionAddEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageReactionAddEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
@@ -4231,12 +4238,12 @@ export const MessageReactionAddEvent_PayloadData = {
             writer.uint32(33).fixed64(message.guildId);
         }
         if (message.emoji !== undefined) {
-            MessageData_MessageReactionEmojiData.encode(message.emoji, writer.uint32(50).fork()).ldelim();
+            model_1.MessageData_MessageReactionEmojiData.encode(message.emoji, writer.uint32(50).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageReactionAddEvent_PayloadData,
@@ -4257,7 +4264,7 @@ export const MessageReactionAddEvent_PayloadData = {
                     message.guildId = longToString(reader.fixed64());
                     break;
                 case 6:
-                    message.emoji = MessageData_MessageReactionEmojiData.decode(reader, reader.uint32());
+                    message.emoji = model_1.MessageData_MessageReactionEmojiData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4283,7 +4290,7 @@ export const MessageReactionAddEvent_PayloadData = {
             message.guildId = String(object.guildId);
         }
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = MessageData_MessageReactionEmojiData.fromJSON(object.emoji);
+            message.emoji = model_1.MessageData_MessageReactionEmojiData.fromJSON(object.emoji);
         }
         return message;
     },
@@ -4295,7 +4302,7 @@ export const MessageReactionAddEvent_PayloadData = {
         message.guildId !== undefined && (obj.guildId = message.guildId);
         message.emoji !== undefined &&
             (obj.emoji = message.emoji
-                ? MessageData_MessageReactionEmojiData.toJSON(message.emoji)
+                ? model_1.MessageData_MessageReactionEmojiData.toJSON(message.emoji)
                 : undefined);
         return obj;
     },
@@ -4316,28 +4323,28 @@ export const MessageReactionAddEvent_PayloadData = {
             message.guildId = object.guildId;
         }
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = MessageData_MessageReactionEmojiData.fromPartial(object.emoji);
+            message.emoji = model_1.MessageData_MessageReactionEmojiData.fromPartial(object.emoji);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageReactionAddEvent_PayloadData.$type, MessageReactionAddEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageReactionAddEvent_PayloadData.$type, exports.MessageReactionAddEvent_PayloadData);
 const baseMessageReactionRemoveEvent = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveEvent",
 };
-export const MessageReactionRemoveEvent = {
+exports.MessageReactionRemoveEvent = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            MessageReactionRemoveEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.MessageReactionRemoveEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageReactionRemoveEvent,
@@ -4346,10 +4353,10 @@ export const MessageReactionRemoveEvent = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = MessageReactionRemoveEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.MessageReactionRemoveEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4363,10 +4370,10 @@ export const MessageReactionRemoveEvent = {
             ...baseMessageReactionRemoveEvent,
         };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageReactionRemoveEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.MessageReactionRemoveEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -4374,11 +4381,11 @@ export const MessageReactionRemoveEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? MessageReactionRemoveEvent_PayloadData.toJSON(message.payload)
+                ? exports.MessageReactionRemoveEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
@@ -4387,15 +4394,15 @@ export const MessageReactionRemoveEvent = {
             ...baseMessageReactionRemoveEvent,
         };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageReactionRemoveEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.MessageReactionRemoveEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageReactionRemoveEvent.$type, MessageReactionRemoveEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageReactionRemoveEvent.$type, exports.MessageReactionRemoveEvent);
 const baseMessageReactionRemoveEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveEvent.PayloadData",
     userId: "0",
@@ -4403,9 +4410,9 @@ const baseMessageReactionRemoveEvent_PayloadData = {
     messageId: "0",
     guildId: "0",
 };
-export const MessageReactionRemoveEvent_PayloadData = {
+exports.MessageReactionRemoveEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
@@ -4419,12 +4426,12 @@ export const MessageReactionRemoveEvent_PayloadData = {
             writer.uint32(33).fixed64(message.guildId);
         }
         if (message.emoji !== undefined) {
-            MessageData_MessageReactionEmojiData.encode(message.emoji, writer.uint32(42).fork()).ldelim();
+            model_1.MessageData_MessageReactionEmojiData.encode(message.emoji, writer.uint32(42).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageReactionRemoveEvent_PayloadData,
@@ -4445,7 +4452,7 @@ export const MessageReactionRemoveEvent_PayloadData = {
                     message.guildId = longToString(reader.fixed64());
                     break;
                 case 5:
-                    message.emoji = MessageData_MessageReactionEmojiData.decode(reader, reader.uint32());
+                    message.emoji = model_1.MessageData_MessageReactionEmojiData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4471,7 +4478,7 @@ export const MessageReactionRemoveEvent_PayloadData = {
             message.guildId = String(object.guildId);
         }
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = MessageData_MessageReactionEmojiData.fromJSON(object.emoji);
+            message.emoji = model_1.MessageData_MessageReactionEmojiData.fromJSON(object.emoji);
         }
         return message;
     },
@@ -4483,7 +4490,7 @@ export const MessageReactionRemoveEvent_PayloadData = {
         message.guildId !== undefined && (obj.guildId = message.guildId);
         message.emoji !== undefined &&
             (obj.emoji = message.emoji
-                ? MessageData_MessageReactionEmojiData.toJSON(message.emoji)
+                ? model_1.MessageData_MessageReactionEmojiData.toJSON(message.emoji)
                 : undefined);
         return obj;
     },
@@ -4504,28 +4511,28 @@ export const MessageReactionRemoveEvent_PayloadData = {
             message.guildId = object.guildId;
         }
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = MessageData_MessageReactionEmojiData.fromPartial(object.emoji);
+            message.emoji = model_1.MessageData_MessageReactionEmojiData.fromPartial(object.emoji);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageReactionRemoveEvent_PayloadData.$type, MessageReactionRemoveEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageReactionRemoveEvent_PayloadData.$type, exports.MessageReactionRemoveEvent_PayloadData);
 const baseMessageReactionRemoveAllEvent = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveAllEvent",
 };
-export const MessageReactionRemoveAllEvent = {
+exports.MessageReactionRemoveAllEvent = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveAllEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            MessageReactionRemoveAllEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.MessageReactionRemoveAllEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageReactionRemoveAllEvent,
@@ -4534,10 +4541,10 @@ export const MessageReactionRemoveAllEvent = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = MessageReactionRemoveAllEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.MessageReactionRemoveAllEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4551,10 +4558,10 @@ export const MessageReactionRemoveAllEvent = {
             ...baseMessageReactionRemoveAllEvent,
         };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageReactionRemoveAllEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.MessageReactionRemoveAllEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -4562,11 +4569,11 @@ export const MessageReactionRemoveAllEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? MessageReactionRemoveAllEvent_PayloadData.toJSON(message.payload)
+                ? exports.MessageReactionRemoveAllEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
@@ -4575,24 +4582,24 @@ export const MessageReactionRemoveAllEvent = {
             ...baseMessageReactionRemoveAllEvent,
         };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageReactionRemoveAllEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.MessageReactionRemoveAllEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageReactionRemoveAllEvent.$type, MessageReactionRemoveAllEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageReactionRemoveAllEvent.$type, exports.MessageReactionRemoveAllEvent);
 const baseMessageReactionRemoveAllEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveAllEvent.PayloadData",
     channelId: "0",
     messageId: "0",
     guildId: "0",
 };
-export const MessageReactionRemoveAllEvent_PayloadData = {
+exports.MessageReactionRemoveAllEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveAllEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -4605,7 +4612,7 @@ export const MessageReactionRemoveAllEvent_PayloadData = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageReactionRemoveAllEvent_PayloadData,
@@ -4667,23 +4674,23 @@ export const MessageReactionRemoveAllEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(MessageReactionRemoveAllEvent_PayloadData.$type, MessageReactionRemoveAllEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageReactionRemoveAllEvent_PayloadData.$type, exports.MessageReactionRemoveAllEvent_PayloadData);
 const baseMessageReactionRemoveEmojiEvent = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveEmojiEvent",
 };
-export const MessageReactionRemoveEmojiEvent = {
+exports.MessageReactionRemoveEmojiEvent = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveEmojiEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            MessageReactionRemoveEmojiEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.MessageReactionRemoveEmojiEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageReactionRemoveEmojiEvent,
@@ -4692,10 +4699,10 @@ export const MessageReactionRemoveEmojiEvent = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = MessageReactionRemoveEmojiEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.MessageReactionRemoveEmojiEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4709,10 +4716,10 @@ export const MessageReactionRemoveEmojiEvent = {
             ...baseMessageReactionRemoveEmojiEvent,
         };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageReactionRemoveEmojiEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.MessageReactionRemoveEmojiEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -4720,11 +4727,11 @@ export const MessageReactionRemoveEmojiEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? MessageReactionRemoveEmojiEvent_PayloadData.toJSON(message.payload)
+                ? exports.MessageReactionRemoveEmojiEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
@@ -4733,24 +4740,24 @@ export const MessageReactionRemoveEmojiEvent = {
             ...baseMessageReactionRemoveEmojiEvent,
         };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = MessageReactionRemoveEmojiEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.MessageReactionRemoveEmojiEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageReactionRemoveEmojiEvent.$type, MessageReactionRemoveEmojiEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageReactionRemoveEmojiEvent.$type, exports.MessageReactionRemoveEmojiEvent);
 const baseMessageReactionRemoveEmojiEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveEmojiEvent.PayloadData",
     channelId: "0",
     messageId: "0",
     guildId: "0",
 };
-export const MessageReactionRemoveEmojiEvent_PayloadData = {
+exports.MessageReactionRemoveEmojiEvent_PayloadData = {
     $type: "pylon.discord.v1.event.MessageReactionRemoveEmojiEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -4761,12 +4768,12 @@ export const MessageReactionRemoveEmojiEvent_PayloadData = {
             writer.uint32(25).fixed64(message.guildId);
         }
         if (message.emoji !== undefined) {
-            MessageData_MessageReactionEmojiData.encode(message.emoji, writer.uint32(34).fork()).ldelim();
+            model_1.MessageData_MessageReactionEmojiData.encode(message.emoji, writer.uint32(34).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseMessageReactionRemoveEmojiEvent_PayloadData,
@@ -4784,7 +4791,7 @@ export const MessageReactionRemoveEmojiEvent_PayloadData = {
                     message.guildId = longToString(reader.fixed64());
                     break;
                 case 4:
-                    message.emoji = MessageData_MessageReactionEmojiData.decode(reader, reader.uint32());
+                    message.emoji = model_1.MessageData_MessageReactionEmojiData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4807,7 +4814,7 @@ export const MessageReactionRemoveEmojiEvent_PayloadData = {
             message.guildId = String(object.guildId);
         }
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = MessageData_MessageReactionEmojiData.fromJSON(object.emoji);
+            message.emoji = model_1.MessageData_MessageReactionEmojiData.fromJSON(object.emoji);
         }
         return message;
     },
@@ -4818,7 +4825,7 @@ export const MessageReactionRemoveEmojiEvent_PayloadData = {
         message.guildId !== undefined && (obj.guildId = message.guildId);
         message.emoji !== undefined &&
             (obj.emoji = message.emoji
-                ? MessageData_MessageReactionEmojiData.toJSON(message.emoji)
+                ? model_1.MessageData_MessageReactionEmojiData.toJSON(message.emoji)
                 : undefined);
         return obj;
     },
@@ -4836,38 +4843,38 @@ export const MessageReactionRemoveEmojiEvent_PayloadData = {
             message.guildId = object.guildId;
         }
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = MessageData_MessageReactionEmojiData.fromPartial(object.emoji);
+            message.emoji = model_1.MessageData_MessageReactionEmojiData.fromPartial(object.emoji);
         }
         return message;
     },
 };
-messageTypeRegistry.set(MessageReactionRemoveEmojiEvent_PayloadData.$type, MessageReactionRemoveEmojiEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.MessageReactionRemoveEmojiEvent_PayloadData.$type, exports.MessageReactionRemoveEmojiEvent_PayloadData);
 const baseTypingStartEvent = {
     $type: "pylon.discord.v1.event.TypingStartEvent",
 };
-export const TypingStartEvent = {
+exports.TypingStartEvent = {
     $type: "pylon.discord.v1.event.TypingStartEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            TypingStartEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.TypingStartEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseTypingStartEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = TypingStartEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.TypingStartEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4879,10 +4886,10 @@ export const TypingStartEvent = {
     fromJSON(object) {
         const message = { ...baseTypingStartEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = TypingStartEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.TypingStartEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -4890,34 +4897,34 @@ export const TypingStartEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? TypingStartEvent_PayloadData.toJSON(message.payload)
+                ? exports.TypingStartEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseTypingStartEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = TypingStartEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.TypingStartEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(TypingStartEvent.$type, TypingStartEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.TypingStartEvent.$type, exports.TypingStartEvent);
 const baseTypingStartEvent_PayloadData = {
     $type: "pylon.discord.v1.event.TypingStartEvent.PayloadData",
     channelId: "0",
     userId: "0",
 };
-export const TypingStartEvent_PayloadData = {
+exports.TypingStartEvent_PayloadData = {
     $type: "pylon.discord.v1.event.TypingStartEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -4925,15 +4932,15 @@ export const TypingStartEvent_PayloadData = {
             writer.uint32(17).fixed64(message.userId);
         }
         if (message.timestamp !== undefined) {
-            Timestamp.encode(toTimestamp(message.timestamp), writer.uint32(26).fork()).ldelim();
+            timestamp_1.Timestamp.encode(toTimestamp(message.timestamp), writer.uint32(26).fork()).ldelim();
         }
         if (message.member !== undefined) {
-            MemberData.encode(message.member, writer.uint32(34).fork()).ldelim();
+            model_1.MemberData.encode(message.member, writer.uint32(34).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseTypingStartEvent_PayloadData,
@@ -4948,10 +4955,10 @@ export const TypingStartEvent_PayloadData = {
                     message.userId = longToString(reader.fixed64());
                     break;
                 case 3:
-                    message.timestamp = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+                    message.timestamp = fromTimestamp(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 case 4:
-                    message.member = MemberData.decode(reader, reader.uint32());
+                    message.member = model_1.MemberData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4974,7 +4981,7 @@ export const TypingStartEvent_PayloadData = {
             message.timestamp = fromJsonTimestamp(object.timestamp);
         }
         if (object.member !== undefined && object.member !== null) {
-            message.member = MemberData.fromJSON(object.member);
+            message.member = model_1.MemberData.fromJSON(object.member);
         }
         return message;
     },
@@ -4986,7 +4993,7 @@ export const TypingStartEvent_PayloadData = {
             (obj.timestamp = message.timestamp.toISOString());
         message.member !== undefined &&
             (obj.member = message.member
-                ? MemberData.toJSON(message.member)
+                ? model_1.MemberData.toJSON(message.member)
                 : undefined);
         return obj;
     },
@@ -5004,44 +5011,44 @@ export const TypingStartEvent_PayloadData = {
             message.timestamp = object.timestamp;
         }
         if (object.member !== undefined && object.member !== null) {
-            message.member = MemberData.fromPartial(object.member);
+            message.member = model_1.MemberData.fromPartial(object.member);
         }
         return message;
     },
 };
-messageTypeRegistry.set(TypingStartEvent_PayloadData.$type, TypingStartEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.TypingStartEvent_PayloadData.$type, exports.TypingStartEvent_PayloadData);
 const baseVoiceStateUpdateEvent = {
     $type: "pylon.discord.v1.event.VoiceStateUpdateEvent",
 };
-export const VoiceStateUpdateEvent = {
+exports.VoiceStateUpdateEvent = {
     $type: "pylon.discord.v1.event.VoiceStateUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            VoiceStateData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            model_1.VoiceStateData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         if (message.previouslyCached !== undefined) {
-            VoiceStateData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
+            model_1.VoiceStateData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseVoiceStateUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = VoiceStateData.decode(reader, reader.uint32());
+                    message.payload = model_1.VoiceStateData.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.previouslyCached = VoiceStateData.decode(reader, reader.uint32());
+                    message.previouslyCached = model_1.VoiceStateData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5053,14 +5060,14 @@ export const VoiceStateUpdateEvent = {
     fromJSON(object) {
         const message = { ...baseVoiceStateUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = VoiceStateData.fromJSON(object.payload);
+            message.payload = model_1.VoiceStateData.fromJSON(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = VoiceStateData.fromJSON(object.previouslyCached);
+            message.previouslyCached = model_1.VoiceStateData.fromJSON(object.previouslyCached);
         }
         return message;
     },
@@ -5068,60 +5075,60 @@ export const VoiceStateUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? VoiceStateData.toJSON(message.payload)
+                ? model_1.VoiceStateData.toJSON(message.payload)
                 : undefined);
         message.previouslyCached !== undefined &&
             (obj.previouslyCached = message.previouslyCached
-                ? VoiceStateData.toJSON(message.previouslyCached)
+                ? model_1.VoiceStateData.toJSON(message.previouslyCached)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseVoiceStateUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = VoiceStateData.fromPartial(object.payload);
+            message.payload = model_1.VoiceStateData.fromPartial(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = VoiceStateData.fromPartial(object.previouslyCached);
+            message.previouslyCached = model_1.VoiceStateData.fromPartial(object.previouslyCached);
         }
         return message;
     },
 };
-messageTypeRegistry.set(VoiceStateUpdateEvent.$type, VoiceStateUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.VoiceStateUpdateEvent.$type, exports.VoiceStateUpdateEvent);
 const baseVoiceServerUpdateEvent = {
     $type: "pylon.discord.v1.event.VoiceServerUpdateEvent",
 };
-export const VoiceServerUpdateEvent = {
+exports.VoiceServerUpdateEvent = {
     $type: "pylon.discord.v1.event.VoiceServerUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            VoiceServerUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.VoiceServerUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseVoiceServerUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = VoiceServerUpdateEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.VoiceServerUpdateEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5133,10 +5140,10 @@ export const VoiceServerUpdateEvent = {
     fromJSON(object) {
         const message = { ...baseVoiceServerUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = VoiceServerUpdateEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.VoiceServerUpdateEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -5144,35 +5151,35 @@ export const VoiceServerUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? VoiceServerUpdateEvent_PayloadData.toJSON(message.payload)
+                ? exports.VoiceServerUpdateEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseVoiceServerUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = VoiceServerUpdateEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.VoiceServerUpdateEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(VoiceServerUpdateEvent.$type, VoiceServerUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.VoiceServerUpdateEvent.$type, exports.VoiceServerUpdateEvent);
 const baseVoiceServerUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.VoiceServerUpdateEvent.PayloadData",
     guildId: "0",
     token: "",
     endpoint: "",
 };
-export const VoiceServerUpdateEvent_PayloadData = {
+exports.VoiceServerUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.VoiceServerUpdateEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).fixed64(message.guildId);
         }
@@ -5185,7 +5192,7 @@ export const VoiceServerUpdateEvent_PayloadData = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseVoiceServerUpdateEvent_PayloadData,
@@ -5247,33 +5254,33 @@ export const VoiceServerUpdateEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(VoiceServerUpdateEvent_PayloadData.$type, VoiceServerUpdateEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.VoiceServerUpdateEvent_PayloadData.$type, exports.VoiceServerUpdateEvent_PayloadData);
 const baseInviteCreateEvent = {
     $type: "pylon.discord.v1.event.InviteCreateEvent",
 };
-export const InviteCreateEvent = {
+exports.InviteCreateEvent = {
     $type: "pylon.discord.v1.event.InviteCreateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            InviteCreateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.InviteCreateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseInviteCreateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = InviteCreateEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.InviteCreateEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5285,10 +5292,10 @@ export const InviteCreateEvent = {
     fromJSON(object) {
         const message = { ...baseInviteCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = InviteCreateEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.InviteCreateEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -5296,26 +5303,26 @@ export const InviteCreateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? InviteCreateEvent_PayloadData.toJSON(message.payload)
+                ? exports.InviteCreateEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseInviteCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = InviteCreateEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.InviteCreateEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(InviteCreateEvent.$type, InviteCreateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.InviteCreateEvent.$type, exports.InviteCreateEvent);
 const baseInviteCreateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.InviteCreateEvent.PayloadData",
     channelId: "0",
@@ -5326,9 +5333,9 @@ const baseInviteCreateEvent_PayloadData = {
     temporary: false,
     uses: "0",
 };
-export const InviteCreateEvent_PayloadData = {
+exports.InviteCreateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.InviteCreateEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -5336,13 +5343,13 @@ export const InviteCreateEvent_PayloadData = {
             writer.uint32(18).string(message.code);
         }
         if (message.createdAt !== undefined) {
-            Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(26).fork()).ldelim();
+            timestamp_1.Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(26).fork()).ldelim();
         }
         if (message.guildId !== undefined) {
-            SnowflakeValue.encode(message.guildId, writer.uint32(34).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.guildId, writer.uint32(34).fork()).ldelim();
         }
         if (message.inviter !== undefined) {
-            UserData.encode(message.inviter, writer.uint32(42).fork()).ldelim();
+            model_1.UserData.encode(message.inviter, writer.uint32(42).fork()).ldelim();
         }
         if (message.maxAge !== "0") {
             writer.uint32(48).uint64(message.maxAge);
@@ -5351,7 +5358,7 @@ export const InviteCreateEvent_PayloadData = {
             writer.uint32(56).uint64(message.maxUses);
         }
         if (message.targetUser !== undefined) {
-            UserData.encode(message.targetUser, writer.uint32(66).fork()).ldelim();
+            model_1.UserData.encode(message.targetUser, writer.uint32(66).fork()).ldelim();
         }
         if (message.targetUserType !== 0) {
             writer.uint32(72).int32(message.targetUserType);
@@ -5365,7 +5372,7 @@ export const InviteCreateEvent_PayloadData = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseInviteCreateEvent_PayloadData,
@@ -5380,13 +5387,13 @@ export const InviteCreateEvent_PayloadData = {
                     message.code = reader.string();
                     break;
                 case 3:
-                    message.createdAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+                    message.createdAt = fromTimestamp(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 case 4:
-                    message.guildId = SnowflakeValue.decode(reader, reader.uint32());
+                    message.guildId = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 5:
-                    message.inviter = UserData.decode(reader, reader.uint32());
+                    message.inviter = model_1.UserData.decode(reader, reader.uint32());
                     break;
                 case 6:
                     message.maxAge = longToString(reader.uint64());
@@ -5395,7 +5402,7 @@ export const InviteCreateEvent_PayloadData = {
                     message.maxUses = longToString(reader.uint64());
                     break;
                 case 8:
-                    message.targetUser = UserData.decode(reader, reader.uint32());
+                    message.targetUser = model_1.UserData.decode(reader, reader.uint32());
                     break;
                 case 9:
                     message.targetUserType = reader.int32();
@@ -5427,10 +5434,10 @@ export const InviteCreateEvent_PayloadData = {
             message.createdAt = fromJsonTimestamp(object.createdAt);
         }
         if (object.guildId !== undefined && object.guildId !== null) {
-            message.guildId = SnowflakeValue.fromJSON(object.guildId);
+            message.guildId = model_1.SnowflakeValue.fromJSON(object.guildId);
         }
         if (object.inviter !== undefined && object.inviter !== null) {
-            message.inviter = UserData.fromJSON(object.inviter);
+            message.inviter = model_1.UserData.fromJSON(object.inviter);
         }
         if (object.maxAge !== undefined && object.maxAge !== null) {
             message.maxAge = String(object.maxAge);
@@ -5439,10 +5446,10 @@ export const InviteCreateEvent_PayloadData = {
             message.maxUses = String(object.maxUses);
         }
         if (object.targetUser !== undefined && object.targetUser !== null) {
-            message.targetUser = UserData.fromJSON(object.targetUser);
+            message.targetUser = model_1.UserData.fromJSON(object.targetUser);
         }
         if (object.targetUserType !== undefined && object.targetUserType !== null) {
-            message.targetUserType = inviteData_InviteTargetUserTypeFromJSON(object.targetUserType);
+            message.targetUserType = model_1.inviteData_InviteTargetUserTypeFromJSON(object.targetUserType);
         }
         if (object.temporary !== undefined && object.temporary !== null) {
             message.temporary = Boolean(object.temporary);
@@ -5460,20 +5467,20 @@ export const InviteCreateEvent_PayloadData = {
             (obj.createdAt = message.createdAt.toISOString());
         message.guildId !== undefined &&
             (obj.guildId = message.guildId
-                ? SnowflakeValue.toJSON(message.guildId)
+                ? model_1.SnowflakeValue.toJSON(message.guildId)
                 : undefined);
         message.inviter !== undefined &&
             (obj.inviter = message.inviter
-                ? UserData.toJSON(message.inviter)
+                ? model_1.UserData.toJSON(message.inviter)
                 : undefined);
         message.maxAge !== undefined && (obj.maxAge = message.maxAge);
         message.maxUses !== undefined && (obj.maxUses = message.maxUses);
         message.targetUser !== undefined &&
             (obj.targetUser = message.targetUser
-                ? UserData.toJSON(message.targetUser)
+                ? model_1.UserData.toJSON(message.targetUser)
                 : undefined);
         message.targetUserType !== undefined &&
-            (obj.targetUserType = inviteData_InviteTargetUserTypeToJSON(message.targetUserType));
+            (obj.targetUserType = model_1.inviteData_InviteTargetUserTypeToJSON(message.targetUserType));
         message.temporary !== undefined && (obj.temporary = message.temporary);
         message.uses !== undefined && (obj.uses = message.uses);
         return obj;
@@ -5492,10 +5499,10 @@ export const InviteCreateEvent_PayloadData = {
             message.createdAt = object.createdAt;
         }
         if (object.guildId !== undefined && object.guildId !== null) {
-            message.guildId = SnowflakeValue.fromPartial(object.guildId);
+            message.guildId = model_1.SnowflakeValue.fromPartial(object.guildId);
         }
         if (object.inviter !== undefined && object.inviter !== null) {
-            message.inviter = UserData.fromPartial(object.inviter);
+            message.inviter = model_1.UserData.fromPartial(object.inviter);
         }
         if (object.maxAge !== undefined && object.maxAge !== null) {
             message.maxAge = object.maxAge;
@@ -5504,7 +5511,7 @@ export const InviteCreateEvent_PayloadData = {
             message.maxUses = object.maxUses;
         }
         if (object.targetUser !== undefined && object.targetUser !== null) {
-            message.targetUser = UserData.fromPartial(object.targetUser);
+            message.targetUser = model_1.UserData.fromPartial(object.targetUser);
         }
         if (object.targetUserType !== undefined && object.targetUserType !== null) {
             message.targetUserType = object.targetUserType;
@@ -5518,33 +5525,33 @@ export const InviteCreateEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(InviteCreateEvent_PayloadData.$type, InviteCreateEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.InviteCreateEvent_PayloadData.$type, exports.InviteCreateEvent_PayloadData);
 const baseInviteDeleteEvent = {
     $type: "pylon.discord.v1.event.InviteDeleteEvent",
 };
-export const InviteDeleteEvent = {
+exports.InviteDeleteEvent = {
     $type: "pylon.discord.v1.event.InviteDeleteEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            InviteDeleteEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.InviteDeleteEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseInviteDeleteEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = InviteDeleteEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.InviteDeleteEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5556,10 +5563,10 @@ export const InviteDeleteEvent = {
     fromJSON(object) {
         const message = { ...baseInviteDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = InviteDeleteEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.InviteDeleteEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -5567,35 +5574,35 @@ export const InviteDeleteEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? InviteDeleteEvent_PayloadData.toJSON(message.payload)
+                ? exports.InviteDeleteEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseInviteDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = InviteDeleteEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.InviteDeleteEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(InviteDeleteEvent.$type, InviteDeleteEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.InviteDeleteEvent.$type, exports.InviteDeleteEvent);
 const baseInviteDeleteEvent_PayloadData = {
     $type: "pylon.discord.v1.event.InviteDeleteEvent.PayloadData",
     guildId: "0",
     channelId: "0",
     code: "",
 };
-export const InviteDeleteEvent_PayloadData = {
+exports.InviteDeleteEvent_PayloadData = {
     $type: "pylon.discord.v1.event.InviteDeleteEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).fixed64(message.guildId);
         }
@@ -5608,7 +5615,7 @@ export const InviteDeleteEvent_PayloadData = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseInviteDeleteEvent_PayloadData,
@@ -5670,33 +5677,33 @@ export const InviteDeleteEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(InviteDeleteEvent_PayloadData.$type, InviteDeleteEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.InviteDeleteEvent_PayloadData.$type, exports.InviteDeleteEvent_PayloadData);
 const baseGuildBanAddEvent = {
     $type: "pylon.discord.v1.event.GuildBanAddEvent",
 };
-export const GuildBanAddEvent = {
+exports.GuildBanAddEvent = {
     $type: "pylon.discord.v1.event.GuildBanAddEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            GuildBanAddEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.GuildBanAddEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildBanAddEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = GuildBanAddEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.GuildBanAddEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5708,10 +5715,10 @@ export const GuildBanAddEvent = {
     fromJSON(object) {
         const message = { ...baseGuildBanAddEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildBanAddEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.GuildBanAddEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -5719,43 +5726,43 @@ export const GuildBanAddEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? GuildBanAddEvent_PayloadData.toJSON(message.payload)
+                ? exports.GuildBanAddEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildBanAddEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildBanAddEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.GuildBanAddEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildBanAddEvent.$type, GuildBanAddEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildBanAddEvent.$type, exports.GuildBanAddEvent);
 const baseGuildBanAddEvent_PayloadData = {
     $type: "pylon.discord.v1.event.GuildBanAddEvent.PayloadData",
     guildId: "0",
 };
-export const GuildBanAddEvent_PayloadData = {
+exports.GuildBanAddEvent_PayloadData = {
     $type: "pylon.discord.v1.event.GuildBanAddEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).fixed64(message.guildId);
         }
         if (message.user !== undefined) {
-            UserData.encode(message.user, writer.uint32(18).fork()).ldelim();
+            model_1.UserData.encode(message.user, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGuildBanAddEvent_PayloadData,
@@ -5767,7 +5774,7 @@ export const GuildBanAddEvent_PayloadData = {
                     message.guildId = longToString(reader.fixed64());
                     break;
                 case 2:
-                    message.user = UserData.decode(reader, reader.uint32());
+                    message.user = model_1.UserData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5784,7 +5791,7 @@ export const GuildBanAddEvent_PayloadData = {
             message.guildId = String(object.guildId);
         }
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromJSON(object.user);
+            message.user = model_1.UserData.fromJSON(object.user);
         }
         return message;
     },
@@ -5792,7 +5799,7 @@ export const GuildBanAddEvent_PayloadData = {
         const obj = {};
         message.guildId !== undefined && (obj.guildId = message.guildId);
         message.user !== undefined &&
-            (obj.user = message.user ? UserData.toJSON(message.user) : undefined);
+            (obj.user = message.user ? model_1.UserData.toJSON(message.user) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -5803,38 +5810,38 @@ export const GuildBanAddEvent_PayloadData = {
             message.guildId = object.guildId;
         }
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromPartial(object.user);
+            message.user = model_1.UserData.fromPartial(object.user);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildBanAddEvent_PayloadData.$type, GuildBanAddEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildBanAddEvent_PayloadData.$type, exports.GuildBanAddEvent_PayloadData);
 const baseGuildBanRemoveEvent = {
     $type: "pylon.discord.v1.event.GuildBanRemoveEvent",
 };
-export const GuildBanRemoveEvent = {
+exports.GuildBanRemoveEvent = {
     $type: "pylon.discord.v1.event.GuildBanRemoveEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            GuildBanRemoveEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.GuildBanRemoveEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildBanRemoveEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = GuildBanRemoveEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.GuildBanRemoveEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5846,10 +5853,10 @@ export const GuildBanRemoveEvent = {
     fromJSON(object) {
         const message = { ...baseGuildBanRemoveEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildBanRemoveEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.GuildBanRemoveEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -5857,43 +5864,43 @@ export const GuildBanRemoveEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? GuildBanRemoveEvent_PayloadData.toJSON(message.payload)
+                ? exports.GuildBanRemoveEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildBanRemoveEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildBanRemoveEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.GuildBanRemoveEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildBanRemoveEvent.$type, GuildBanRemoveEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildBanRemoveEvent.$type, exports.GuildBanRemoveEvent);
 const baseGuildBanRemoveEvent_PayloadData = {
     $type: "pylon.discord.v1.event.GuildBanRemoveEvent.PayloadData",
     guildId: "0",
 };
-export const GuildBanRemoveEvent_PayloadData = {
+exports.GuildBanRemoveEvent_PayloadData = {
     $type: "pylon.discord.v1.event.GuildBanRemoveEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).fixed64(message.guildId);
         }
         if (message.user !== undefined) {
-            UserData.encode(message.user, writer.uint32(18).fork()).ldelim();
+            model_1.UserData.encode(message.user, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGuildBanRemoveEvent_PayloadData,
@@ -5905,7 +5912,7 @@ export const GuildBanRemoveEvent_PayloadData = {
                     message.guildId = longToString(reader.fixed64());
                     break;
                 case 2:
-                    message.user = UserData.decode(reader, reader.uint32());
+                    message.user = model_1.UserData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5922,7 +5929,7 @@ export const GuildBanRemoveEvent_PayloadData = {
             message.guildId = String(object.guildId);
         }
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromJSON(object.user);
+            message.user = model_1.UserData.fromJSON(object.user);
         }
         return message;
     },
@@ -5930,7 +5937,7 @@ export const GuildBanRemoveEvent_PayloadData = {
         const obj = {};
         message.guildId !== undefined && (obj.guildId = message.guildId);
         message.user !== undefined &&
-            (obj.user = message.user ? UserData.toJSON(message.user) : undefined);
+            (obj.user = message.user ? model_1.UserData.toJSON(message.user) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -5941,44 +5948,44 @@ export const GuildBanRemoveEvent_PayloadData = {
             message.guildId = object.guildId;
         }
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromPartial(object.user);
+            message.user = model_1.UserData.fromPartial(object.user);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildBanRemoveEvent_PayloadData.$type, GuildBanRemoveEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildBanRemoveEvent_PayloadData.$type, exports.GuildBanRemoveEvent_PayloadData);
 const baseGuildEmojisUpdateEvent = {
     $type: "pylon.discord.v1.event.GuildEmojisUpdateEvent",
 };
-export const GuildEmojisUpdateEvent = {
+exports.GuildEmojisUpdateEvent = {
     $type: "pylon.discord.v1.event.GuildEmojisUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            GuildEmojisUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.GuildEmojisUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         if (message.previouslyCached !== undefined) {
-            GuildEmojisUpdateEvent_PayloadData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
+            exports.GuildEmojisUpdateEvent_PayloadData.encode(message.previouslyCached, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGuildEmojisUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = GuildEmojisUpdateEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.GuildEmojisUpdateEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.previouslyCached = GuildEmojisUpdateEvent_PayloadData.decode(reader, reader.uint32());
+                    message.previouslyCached = exports.GuildEmojisUpdateEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5990,14 +5997,14 @@ export const GuildEmojisUpdateEvent = {
     fromJSON(object) {
         const message = { ...baseGuildEmojisUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildEmojisUpdateEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.GuildEmojisUpdateEvent_PayloadData.fromJSON(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = GuildEmojisUpdateEvent_PayloadData.fromJSON(object.previouslyCached);
+            message.previouslyCached = exports.GuildEmojisUpdateEvent_PayloadData.fromJSON(object.previouslyCached);
         }
         return message;
     },
@@ -6005,51 +6012,51 @@ export const GuildEmojisUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? GuildEmojisUpdateEvent_PayloadData.toJSON(message.payload)
+                ? exports.GuildEmojisUpdateEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         message.previouslyCached !== undefined &&
             (obj.previouslyCached = message.previouslyCached
-                ? GuildEmojisUpdateEvent_PayloadData.toJSON(message.previouslyCached)
+                ? exports.GuildEmojisUpdateEvent_PayloadData.toJSON(message.previouslyCached)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGuildEmojisUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildEmojisUpdateEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.GuildEmojisUpdateEvent_PayloadData.fromPartial(object.payload);
         }
         if (object.previouslyCached !== undefined &&
             object.previouslyCached !== null) {
-            message.previouslyCached = GuildEmojisUpdateEvent_PayloadData.fromPartial(object.previouslyCached);
+            message.previouslyCached = exports.GuildEmojisUpdateEvent_PayloadData.fromPartial(object.previouslyCached);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildEmojisUpdateEvent.$type, GuildEmojisUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildEmojisUpdateEvent.$type, exports.GuildEmojisUpdateEvent);
 const baseGuildEmojisUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.GuildEmojisUpdateEvent.PayloadData",
     guildId: "0",
 };
-export const GuildEmojisUpdateEvent_PayloadData = {
+exports.GuildEmojisUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.GuildEmojisUpdateEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).fixed64(message.guildId);
         }
         for (const v of message.emojis) {
-            EmojiData.encode(v, writer.uint32(18).fork()).ldelim();
+            model_1.EmojiData.encode(v, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGuildEmojisUpdateEvent_PayloadData,
@@ -6062,7 +6069,7 @@ export const GuildEmojisUpdateEvent_PayloadData = {
                     message.guildId = longToString(reader.fixed64());
                     break;
                 case 2:
-                    message.emojis.push(EmojiData.decode(reader, reader.uint32()));
+                    message.emojis.push(model_1.EmojiData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6081,7 +6088,7 @@ export const GuildEmojisUpdateEvent_PayloadData = {
         }
         if (object.emojis !== undefined && object.emojis !== null) {
             for (const e of object.emojis) {
-                message.emojis.push(EmojiData.fromJSON(e));
+                message.emojis.push(model_1.EmojiData.fromJSON(e));
             }
         }
         return message;
@@ -6090,7 +6097,7 @@ export const GuildEmojisUpdateEvent_PayloadData = {
         const obj = {};
         message.guildId !== undefined && (obj.guildId = message.guildId);
         if (message.emojis) {
-            obj.emojis = message.emojis.map((e) => e ? EmojiData.toJSON(e) : undefined);
+            obj.emojis = message.emojis.map((e) => e ? model_1.EmojiData.toJSON(e) : undefined);
         }
         else {
             obj.emojis = [];
@@ -6107,29 +6114,29 @@ export const GuildEmojisUpdateEvent_PayloadData = {
         }
         if (object.emojis !== undefined && object.emojis !== null) {
             for (const e of object.emojis) {
-                message.emojis.push(EmojiData.fromPartial(e));
+                message.emojis.push(model_1.EmojiData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildEmojisUpdateEvent_PayloadData.$type, GuildEmojisUpdateEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildEmojisUpdateEvent_PayloadData.$type, exports.GuildEmojisUpdateEvent_PayloadData);
 const baseGuildIntegrationsUpdateEvent = {
     $type: "pylon.discord.v1.event.GuildIntegrationsUpdateEvent",
 };
-export const GuildIntegrationsUpdateEvent = {
+exports.GuildIntegrationsUpdateEvent = {
     $type: "pylon.discord.v1.event.GuildIntegrationsUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            GuildIntegrationsUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.GuildIntegrationsUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGuildIntegrationsUpdateEvent,
@@ -6138,10 +6145,10 @@ export const GuildIntegrationsUpdateEvent = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = GuildIntegrationsUpdateEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.GuildIntegrationsUpdateEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6155,10 +6162,10 @@ export const GuildIntegrationsUpdateEvent = {
             ...baseGuildIntegrationsUpdateEvent,
         };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildIntegrationsUpdateEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.GuildIntegrationsUpdateEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -6166,11 +6173,11 @@ export const GuildIntegrationsUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? GuildIntegrationsUpdateEvent_PayloadData.toJSON(message.payload)
+                ? exports.GuildIntegrationsUpdateEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
@@ -6179,29 +6186,29 @@ export const GuildIntegrationsUpdateEvent = {
             ...baseGuildIntegrationsUpdateEvent,
         };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = GuildIntegrationsUpdateEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.GuildIntegrationsUpdateEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GuildIntegrationsUpdateEvent.$type, GuildIntegrationsUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildIntegrationsUpdateEvent.$type, exports.GuildIntegrationsUpdateEvent);
 const baseGuildIntegrationsUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.GuildIntegrationsUpdateEvent.PayloadData",
     guildId: "0",
 };
-export const GuildIntegrationsUpdateEvent_PayloadData = {
+exports.GuildIntegrationsUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.GuildIntegrationsUpdateEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).fixed64(message.guildId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGuildIntegrationsUpdateEvent_PayloadData,
@@ -6243,33 +6250,33 @@ export const GuildIntegrationsUpdateEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(GuildIntegrationsUpdateEvent_PayloadData.$type, GuildIntegrationsUpdateEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.GuildIntegrationsUpdateEvent_PayloadData.$type, exports.GuildIntegrationsUpdateEvent_PayloadData);
 const baseWebhooksUpdateEvent = {
     $type: "pylon.discord.v1.event.WebhooksUpdateEvent",
 };
-export const WebhooksUpdateEvent = {
+exports.WebhooksUpdateEvent = {
     $type: "pylon.discord.v1.event.WebhooksUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            WebhooksUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.WebhooksUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseWebhooksUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = WebhooksUpdateEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.WebhooksUpdateEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6281,10 +6288,10 @@ export const WebhooksUpdateEvent = {
     fromJSON(object) {
         const message = { ...baseWebhooksUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = WebhooksUpdateEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.WebhooksUpdateEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -6292,40 +6299,40 @@ export const WebhooksUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? WebhooksUpdateEvent_PayloadData.toJSON(message.payload)
+                ? exports.WebhooksUpdateEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseWebhooksUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = WebhooksUpdateEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.WebhooksUpdateEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(WebhooksUpdateEvent.$type, WebhooksUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.WebhooksUpdateEvent.$type, exports.WebhooksUpdateEvent);
 const baseWebhooksUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.WebhooksUpdateEvent.PayloadData",
     guildId: "0",
 };
-export const WebhooksUpdateEvent_PayloadData = {
+exports.WebhooksUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.WebhooksUpdateEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).fixed64(message.guildId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseWebhooksUpdateEvent_PayloadData,
@@ -6367,33 +6374,33 @@ export const WebhooksUpdateEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(WebhooksUpdateEvent_PayloadData.$type, WebhooksUpdateEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.WebhooksUpdateEvent_PayloadData.$type, exports.WebhooksUpdateEvent_PayloadData);
 const baseIntegrationCreateEvent = {
     $type: "pylon.discord.v1.event.IntegrationCreateEvent",
 };
-export const IntegrationCreateEvent = {
+exports.IntegrationCreateEvent = {
     $type: "pylon.discord.v1.event.IntegrationCreateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            IntegrationCreateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.IntegrationCreateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseIntegrationCreateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = IntegrationCreateEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.IntegrationCreateEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6405,10 +6412,10 @@ export const IntegrationCreateEvent = {
     fromJSON(object) {
         const message = { ...baseIntegrationCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = IntegrationCreateEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.IntegrationCreateEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -6416,40 +6423,40 @@ export const IntegrationCreateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? IntegrationCreateEvent_PayloadData.toJSON(message.payload)
+                ? exports.IntegrationCreateEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseIntegrationCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = IntegrationCreateEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.IntegrationCreateEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(IntegrationCreateEvent.$type, IntegrationCreateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.IntegrationCreateEvent.$type, exports.IntegrationCreateEvent);
 const baseIntegrationCreateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.IntegrationCreateEvent.PayloadData",
     guildId: "0",
 };
-export const IntegrationCreateEvent_PayloadData = {
+exports.IntegrationCreateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.IntegrationCreateEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).fixed64(message.guildId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseIntegrationCreateEvent_PayloadData,
@@ -6491,33 +6498,33 @@ export const IntegrationCreateEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(IntegrationCreateEvent_PayloadData.$type, IntegrationCreateEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.IntegrationCreateEvent_PayloadData.$type, exports.IntegrationCreateEvent_PayloadData);
 const baseIntegrationUpdateEvent = {
     $type: "pylon.discord.v1.event.IntegrationUpdateEvent",
 };
-export const IntegrationUpdateEvent = {
+exports.IntegrationUpdateEvent = {
     $type: "pylon.discord.v1.event.IntegrationUpdateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            IntegrationUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.IntegrationUpdateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseIntegrationUpdateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = IntegrationUpdateEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.IntegrationUpdateEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6529,10 +6536,10 @@ export const IntegrationUpdateEvent = {
     fromJSON(object) {
         const message = { ...baseIntegrationUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = IntegrationUpdateEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.IntegrationUpdateEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -6540,40 +6547,40 @@ export const IntegrationUpdateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? IntegrationUpdateEvent_PayloadData.toJSON(message.payload)
+                ? exports.IntegrationUpdateEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseIntegrationUpdateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = IntegrationUpdateEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.IntegrationUpdateEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(IntegrationUpdateEvent.$type, IntegrationUpdateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.IntegrationUpdateEvent.$type, exports.IntegrationUpdateEvent);
 const baseIntegrationUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.IntegrationUpdateEvent.PayloadData",
     guildId: "0",
 };
-export const IntegrationUpdateEvent_PayloadData = {
+exports.IntegrationUpdateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.IntegrationUpdateEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).fixed64(message.guildId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseIntegrationUpdateEvent_PayloadData,
@@ -6615,33 +6622,33 @@ export const IntegrationUpdateEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(IntegrationUpdateEvent_PayloadData.$type, IntegrationUpdateEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.IntegrationUpdateEvent_PayloadData.$type, exports.IntegrationUpdateEvent_PayloadData);
 const baseIntegrationDeleteEvent = {
     $type: "pylon.discord.v1.event.IntegrationDeleteEvent",
 };
-export const IntegrationDeleteEvent = {
+exports.IntegrationDeleteEvent = {
     $type: "pylon.discord.v1.event.IntegrationDeleteEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            IntegrationDeleteEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.IntegrationDeleteEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseIntegrationDeleteEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = IntegrationDeleteEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.IntegrationDeleteEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6653,10 +6660,10 @@ export const IntegrationDeleteEvent = {
     fromJSON(object) {
         const message = { ...baseIntegrationDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = IntegrationDeleteEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.IntegrationDeleteEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -6664,40 +6671,40 @@ export const IntegrationDeleteEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? IntegrationDeleteEvent_PayloadData.toJSON(message.payload)
+                ? exports.IntegrationDeleteEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseIntegrationDeleteEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = IntegrationDeleteEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.IntegrationDeleteEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(IntegrationDeleteEvent.$type, IntegrationDeleteEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.IntegrationDeleteEvent.$type, exports.IntegrationDeleteEvent);
 const baseIntegrationDeleteEvent_PayloadData = {
     $type: "pylon.discord.v1.event.IntegrationDeleteEvent.PayloadData",
     guildId: "0",
 };
-export const IntegrationDeleteEvent_PayloadData = {
+exports.IntegrationDeleteEvent_PayloadData = {
     $type: "pylon.discord.v1.event.IntegrationDeleteEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).fixed64(message.guildId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseIntegrationDeleteEvent_PayloadData,
@@ -6739,33 +6746,33 @@ export const IntegrationDeleteEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(IntegrationDeleteEvent_PayloadData.$type, IntegrationDeleteEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.IntegrationDeleteEvent_PayloadData.$type, exports.IntegrationDeleteEvent_PayloadData);
 const baseInteractionCreateEvent = {
     $type: "pylon.discord.v1.event.InteractionCreateEvent",
 };
-export const InteractionCreateEvent = {
+exports.InteractionCreateEvent = {
     $type: "pylon.discord.v1.event.InteractionCreateEvent",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.scope !== undefined) {
-            EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
+            exports.EventScope.encode(message.scope, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload !== undefined) {
-            InteractionCreateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
+            exports.InteractionCreateEvent_PayloadData.encode(message.payload, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseInteractionCreateEvent };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.scope = EventScope.decode(reader, reader.uint32());
+                    message.scope = exports.EventScope.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.payload = InteractionCreateEvent_PayloadData.decode(reader, reader.uint32());
+                    message.payload = exports.InteractionCreateEvent_PayloadData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6777,10 +6784,10 @@ export const InteractionCreateEvent = {
     fromJSON(object) {
         const message = { ...baseInteractionCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromJSON(object.scope);
+            message.scope = exports.EventScope.fromJSON(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = InteractionCreateEvent_PayloadData.fromJSON(object.payload);
+            message.payload = exports.InteractionCreateEvent_PayloadData.fromJSON(object.payload);
         }
         return message;
     },
@@ -6788,40 +6795,40 @@ export const InteractionCreateEvent = {
         const obj = {};
         message.scope !== undefined &&
             (obj.scope = message.scope
-                ? EventScope.toJSON(message.scope)
+                ? exports.EventScope.toJSON(message.scope)
                 : undefined);
         message.payload !== undefined &&
             (obj.payload = message.payload
-                ? InteractionCreateEvent_PayloadData.toJSON(message.payload)
+                ? exports.InteractionCreateEvent_PayloadData.toJSON(message.payload)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseInteractionCreateEvent };
         if (object.scope !== undefined && object.scope !== null) {
-            message.scope = EventScope.fromPartial(object.scope);
+            message.scope = exports.EventScope.fromPartial(object.scope);
         }
         if (object.payload !== undefined && object.payload !== null) {
-            message.payload = InteractionCreateEvent_PayloadData.fromPartial(object.payload);
+            message.payload = exports.InteractionCreateEvent_PayloadData.fromPartial(object.payload);
         }
         return message;
     },
 };
-messageTypeRegistry.set(InteractionCreateEvent.$type, InteractionCreateEvent);
+typeRegistry_1.messageTypeRegistry.set(exports.InteractionCreateEvent.$type, exports.InteractionCreateEvent);
 const baseInteractionCreateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.InteractionCreateEvent.PayloadData",
     guildId: "0",
 };
-export const InteractionCreateEvent_PayloadData = {
+exports.InteractionCreateEvent_PayloadData = {
     $type: "pylon.discord.v1.event.InteractionCreateEvent.PayloadData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).sfixed64(message.guildId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseInteractionCreateEvent_PayloadData,
@@ -6863,17 +6870,17 @@ export const InteractionCreateEvent_PayloadData = {
         return message;
     },
 };
-messageTypeRegistry.set(InteractionCreateEvent_PayloadData.$type, InteractionCreateEvent_PayloadData);
+typeRegistry_1.messageTypeRegistry.set(exports.InteractionCreateEvent_PayloadData.$type, exports.InteractionCreateEvent_PayloadData);
 const baseEventResponse = {
     $type: "pylon.discord.v1.event.EventResponse",
 };
-export const EventResponse = {
+exports.EventResponse = {
     $type: "pylon.discord.v1.event.EventResponse",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseEventResponse };
         while (reader.pos < end) {
@@ -6899,17 +6906,17 @@ export const EventResponse = {
         return message;
     },
 };
-messageTypeRegistry.set(EventResponse.$type, EventResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.EventResponse.$type, exports.EventResponse);
 const baseInteractionResponse = {
     $type: "pylon.discord.v1.event.InteractionResponse",
 };
-export const InteractionResponse = {
+exports.InteractionResponse = {
     $type: "pylon.discord.v1.event.InteractionResponse",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseInteractionResponse };
         while (reader.pos < end) {
@@ -6935,7 +6942,7 @@ export const InteractionResponse = {
         return message;
     },
 };
-messageTypeRegistry.set(InteractionResponse.$type, InteractionResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.InteractionResponse.$type, exports.InteractionResponse);
 function toTimestamp(date) {
     const seconds = (date.getTime() / 1000).toString();
     const nanos = (date.getTime() % 1000) * 1000000;
@@ -6954,13 +6961,13 @@ function fromJsonTimestamp(o) {
         return new Date(o);
     }
     else {
-        return fromTimestamp(Timestamp.fromJSON(o));
+        return fromTimestamp(timestamp_1.Timestamp.fromJSON(o));
     }
 }
 function longToString(long) {
     return long.toString();
 }
-if (_m0.util.Long !== Long) {
-    _m0.util.Long = Long;
-    _m0.configure();
+if (minimal_1.default.util.Long !== long_1.default) {
+    minimal_1.default.util.Long = long_1.default;
+    minimal_1.default.configure();
 }

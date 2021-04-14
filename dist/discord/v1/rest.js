@@ -1,34 +1,42 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ModifyGuildRoleResponse_Data = exports.ModifyGuildRoleResponse = exports.ModifyGuildRoleRequest = exports.ModifyGuildRolePositionsResponse_Data = exports.ModifyGuildRolePositionsResponse = exports.ModifyGuildRolePositionsRequest_RolePosition = exports.ModifyGuildRolePositionsRequest = exports.CreateGuildRoleResponse_Data = exports.CreateGuildRoleResponse = exports.CreateGuildRoleRequest = exports.RemoveGuildBanResponse = exports.RemoveGuildBanRequest = exports.CreateGuildBanResponse = exports.CreateGuildBanRequest = exports.GetGuildBanResponse_Data = exports.GetGuildBanResponse = exports.GetGuildBanRequest = exports.GetGuildBansResponse_Data = exports.GetGuildBansResponse = exports.GetGuildBansRequest = exports.RemoveGuildMemberResponse = exports.RemoveGuildMemberRequest = exports.RemoveGuildMemberRoleResponse = exports.RemoveGuildMemberRoleRequest = exports.AddGuildMemberRoleResponse = exports.AddGuildMemberRoleRequest = exports.ModifyCurrentUserNickResponse = exports.ModifyCurrentUserNickRequest = exports.ModifyGuildMemberResponse = exports.ModifyGuildMemberRequest = exports.AddGuildMemberResponse_Data = exports.AddGuildMemberResponse = exports.AddGuildMemberRequest = exports.ModifyGuildChannelPositionsResponse = exports.ModifyGuildChannelPositionsRequest_ChannelPosition = exports.ModifyGuildChannelPositionsRequest = exports.CreateGuildChannelResponse_Data = exports.CreateGuildChannelResponse = exports.CreateGuildChannelRequest = exports.ModifyGuildResponse_Data = exports.ModifyGuildResponse = exports.ModifyGuildRequest = exports.RestError_RateLimited = exports.RestError_AccessDenied = exports.RestError_ResourceNotFound = exports.RestError_ValidationError_Field = exports.RestError_ValidationError = exports.RestError_UnknownError = exports.RestError = exports.protobufPackage = void 0;
+exports.BulkDeleteMessagesResponse = exports.BulkDeleteMessagesRequest = exports.DeleteMessageResponse = exports.DeleteMessageRequest = exports.EditMessageResponse_Data = exports.EditMessageResponse = exports.EditMessageRequest = exports.DeleteAllReactionsForEmojiResponse = exports.DeleteAllReactionsForEmojiRequest = exports.DeleteAllReactionsResponse = exports.DeleteAllReactionsRequest = exports.DeleteUserReactionResponse = exports.DeleteUserReactionRequest = exports.DeleteOwnReactionResponse = exports.DeleteOwnReactionRequest = exports.CreateReactionResponse = exports.CreateReactionRequest = exports.CrosspostMessageResponse_Data = exports.CrosspostMessageResponse = exports.CrosspostMessageRequest = exports.CreateMessageResponse_Data = exports.CreateMessageResponse = exports.CreateMessageRequest_Attachment = exports.CreateMessageRequest_AllowedMentions_AllowedMentionTypes = exports.CreateMessageRequest_AllowedMentions = exports.CreateMessageRequest = exports.GetChannelMessageResponse_Data = exports.GetChannelMessageResponse = exports.GetChannelMessageRequest = exports.GetChannelMessagesResponse_Data = exports.GetChannelMessagesResponse = exports.GetChannelMessagesRequest = exports.DeleteChannelResponse = exports.DeleteChannelRequest = exports.ModifyChannelResponse_Data = exports.ModifyChannelResponse = exports.ModifyChannelRequest_ChannelPermissionOverwritesValue = exports.ModifyChannelRequest = exports.GetGuildInvitesResponse_Data = exports.GetGuildInvitesResponse = exports.GetGuildInvitesRequest = exports.GetGuildVoiceRegionsResponse_Data = exports.GetGuildVoiceRegionsResponse = exports.GetGuildVoiceRegionsRequest = exports.BeginGuildPruneResponse = exports.BeginGuildPruneRequest = exports.GetGuildPruneCountResponse = exports.GetGuildPruneCountRequest = exports.DeleteGuildRoleResponse = exports.DeleteGuildRoleRequest = void 0;
+exports.CreateDmResponse_Data = exports.CreateDmResponse = exports.CreateDmRequest = exports.LeaveGuildResponse = exports.LeaveGuildRequest = exports.ModifyCurrentUserResponse_Data = exports.ModifyCurrentUserResponse = exports.ModifyCurrentUserRequest = exports.GetUserResponse_Data = exports.GetUserResponse = exports.GetUserRequest = exports.GetCurrentUserResponse_Data = exports.GetCurrentUserResponse = exports.GetCurrentUserRequest = exports.DeleteGuildEmojiResponse = exports.DeleteGuildEmojiRequest = exports.ModifyGuildEmojiResponse_Data = exports.ModifyGuildEmojiResponse = exports.ModifyGuildEmojiRequest = exports.CreateGuildEmojiResponse_Data = exports.CreateGuildEmojiResponse = exports.CreateGuildEmojiRequest = exports.GetGuildEmojiResponse_Data = exports.GetGuildEmojiResponse = exports.GetGuildEmojiRequest = exports.ListGuildEmojisResponse_Data = exports.ListGuildEmojisResponse = exports.ListGuildEmojisRequest = exports.DeletePinnedChannelMessageResponse = exports.DeletePinnedChannelMessageRequest = exports.AddPinnedChannelMessageResponse = exports.AddPinnedChannelMessageRequest = exports.GetPinnedMessagesResponse_Data = exports.GetPinnedMessagesResponse = exports.GetPinnedMessagesRequest = exports.TriggerTypingIndicatorResponse = exports.TriggerTypingIndicatorRequest = exports.FollowNewsChannelResponse_Data = exports.FollowNewsChannelResponse = exports.FollowNewsChannelRequest = exports.DeleteChannelPermissionResponse = exports.DeleteChannelPermissionRequest = exports.CreateChannelInviteResponse_Data = exports.CreateChannelInviteResponse = exports.CreateChannelInviteRequest = exports.GetChannelInvitesResponse_Data = exports.GetChannelInvitesResponse = exports.GetChannelInvitesRequest = exports.EditChannelPermissionsResponse = exports.EditChannelPermissionsRequest = void 0;
 /* eslint-disable */
-import { messageTypeRegistry } from "../../typeRegistry";
-import Long from "long";
-import _m0 from "protobufjs/minimal";
-import { SnowflakeValue, GuildData, ChannelData_ChannelPermissionOverwriteData, ChannelData, SnowflakeListValue, GuildBanData, PermissionsValue, RoleData, InviteData, MessageData, MessageData_MessageEmbedData, EmojiData, UserData, channelData_ChannelTypeFromJSON, channelData_ChannelTypeToJSON, channelData_ChannelPermissionOverwriteData_ChannelPermissionOverwriteTypeFromJSON, channelData_ChannelPermissionOverwriteData_ChannelPermissionOverwriteTypeToJSON, inviteData_InviteTargetUserTypeFromJSON, inviteData_InviteTargetUserTypeToJSON, } from "../../discord/v1/model";
-import { Empty } from "../../google/protobuf/empty";
-import { StringValue, UInt32Value, BytesValue, BoolValue, } from "../../google/protobuf/wrappers";
-export const protobufPackage = "pylon.discord.v1.rest";
+const typeRegistry_1 = require("../../typeRegistry");
+const long_1 = __importDefault(require("long"));
+const minimal_1 = __importDefault(require("protobufjs/minimal"));
+const model_1 = require("../../discord/v1/model");
+const empty_1 = require("../../google/protobuf/empty");
+const wrappers_1 = require("../../google/protobuf/wrappers");
+exports.protobufPackage = "pylon.discord.v1.rest";
 const baseRestError = { $type: "pylon.discord.v1.rest.RestError" };
-export const RestError = {
+exports.RestError = {
     $type: "pylon.discord.v1.rest.RestError",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.errorType?.$case === "unknownError") {
-            RestError_UnknownError.encode(message.errorType.unknownError, writer.uint32(10).fork()).ldelim();
+            exports.RestError_UnknownError.encode(message.errorType.unknownError, writer.uint32(10).fork()).ldelim();
         }
         if (message.errorType?.$case === "validationError") {
-            RestError_ValidationError.encode(message.errorType.validationError, writer.uint32(18).fork()).ldelim();
+            exports.RestError_ValidationError.encode(message.errorType.validationError, writer.uint32(18).fork()).ldelim();
         }
         if (message.errorType?.$case === "resourceNotFound") {
-            RestError_ResourceNotFound.encode(message.errorType.resourceNotFound, writer.uint32(26).fork()).ldelim();
+            exports.RestError_ResourceNotFound.encode(message.errorType.resourceNotFound, writer.uint32(26).fork()).ldelim();
         }
         if (message.errorType?.$case === "accessDenied") {
-            RestError_AccessDenied.encode(message.errorType.accessDenied, writer.uint32(34).fork()).ldelim();
+            exports.RestError_AccessDenied.encode(message.errorType.accessDenied, writer.uint32(34).fork()).ldelim();
         }
         if (message.errorType?.$case === "rateLimited") {
-            RestError_RateLimited.encode(message.errorType.rateLimited, writer.uint32(42).fork()).ldelim();
+            exports.RestError_RateLimited.encode(message.errorType.rateLimited, writer.uint32(42).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseRestError };
         while (reader.pos < end) {
@@ -37,31 +45,31 @@ export const RestError = {
                 case 1:
                     message.errorType = {
                         $case: "unknownError",
-                        unknownError: RestError_UnknownError.decode(reader, reader.uint32()),
+                        unknownError: exports.RestError_UnknownError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.errorType = {
                         $case: "validationError",
-                        validationError: RestError_ValidationError.decode(reader, reader.uint32()),
+                        validationError: exports.RestError_ValidationError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 3:
                     message.errorType = {
                         $case: "resourceNotFound",
-                        resourceNotFound: RestError_ResourceNotFound.decode(reader, reader.uint32()),
+                        resourceNotFound: exports.RestError_ResourceNotFound.decode(reader, reader.uint32()),
                     };
                     break;
                 case 4:
                     message.errorType = {
                         $case: "accessDenied",
-                        accessDenied: RestError_AccessDenied.decode(reader, reader.uint32()),
+                        accessDenied: exports.RestError_AccessDenied.decode(reader, reader.uint32()),
                     };
                     break;
                 case 5:
                     message.errorType = {
                         $case: "rateLimited",
-                        rateLimited: RestError_RateLimited.decode(reader, reader.uint32()),
+                        rateLimited: exports.RestError_RateLimited.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -76,33 +84,33 @@ export const RestError = {
         if (object.unknownError !== undefined && object.unknownError !== null) {
             message.errorType = {
                 $case: "unknownError",
-                unknownError: RestError_UnknownError.fromJSON(object.unknownError),
+                unknownError: exports.RestError_UnknownError.fromJSON(object.unknownError),
             };
         }
         if (object.validationError !== undefined &&
             object.validationError !== null) {
             message.errorType = {
                 $case: "validationError",
-                validationError: RestError_ValidationError.fromJSON(object.validationError),
+                validationError: exports.RestError_ValidationError.fromJSON(object.validationError),
             };
         }
         if (object.resourceNotFound !== undefined &&
             object.resourceNotFound !== null) {
             message.errorType = {
                 $case: "resourceNotFound",
-                resourceNotFound: RestError_ResourceNotFound.fromJSON(object.resourceNotFound),
+                resourceNotFound: exports.RestError_ResourceNotFound.fromJSON(object.resourceNotFound),
             };
         }
         if (object.accessDenied !== undefined && object.accessDenied !== null) {
             message.errorType = {
                 $case: "accessDenied",
-                accessDenied: RestError_AccessDenied.fromJSON(object.accessDenied),
+                accessDenied: exports.RestError_AccessDenied.fromJSON(object.accessDenied),
             };
         }
         if (object.rateLimited !== undefined && object.rateLimited !== null) {
             message.errorType = {
                 $case: "rateLimited",
-                rateLimited: RestError_RateLimited.fromJSON(object.rateLimited),
+                rateLimited: exports.RestError_RateLimited.fromJSON(object.rateLimited),
             };
         }
         return message;
@@ -111,23 +119,23 @@ export const RestError = {
         const obj = {};
         message.errorType?.$case === "unknownError" &&
             (obj.unknownError = message.errorType?.unknownError
-                ? RestError_UnknownError.toJSON(message.errorType?.unknownError)
+                ? exports.RestError_UnknownError.toJSON(message.errorType?.unknownError)
                 : undefined);
         message.errorType?.$case === "validationError" &&
             (obj.validationError = message.errorType?.validationError
-                ? RestError_ValidationError.toJSON(message.errorType?.validationError)
+                ? exports.RestError_ValidationError.toJSON(message.errorType?.validationError)
                 : undefined);
         message.errorType?.$case === "resourceNotFound" &&
             (obj.resourceNotFound = message.errorType?.resourceNotFound
-                ? RestError_ResourceNotFound.toJSON(message.errorType?.resourceNotFound)
+                ? exports.RestError_ResourceNotFound.toJSON(message.errorType?.resourceNotFound)
                 : undefined);
         message.errorType?.$case === "accessDenied" &&
             (obj.accessDenied = message.errorType?.accessDenied
-                ? RestError_AccessDenied.toJSON(message.errorType?.accessDenied)
+                ? exports.RestError_AccessDenied.toJSON(message.errorType?.accessDenied)
                 : undefined);
         message.errorType?.$case === "rateLimited" &&
             (obj.rateLimited = message.errorType?.rateLimited
-                ? RestError_RateLimited.toJSON(message.errorType?.rateLimited)
+                ? exports.RestError_RateLimited.toJSON(message.errorType?.rateLimited)
                 : undefined);
         return obj;
     },
@@ -138,7 +146,7 @@ export const RestError = {
             object.errorType?.unknownError !== null) {
             message.errorType = {
                 $case: "unknownError",
-                unknownError: RestError_UnknownError.fromPartial(object.errorType.unknownError),
+                unknownError: exports.RestError_UnknownError.fromPartial(object.errorType.unknownError),
             };
         }
         if (object.errorType?.$case === "validationError" &&
@@ -146,7 +154,7 @@ export const RestError = {
             object.errorType?.validationError !== null) {
             message.errorType = {
                 $case: "validationError",
-                validationError: RestError_ValidationError.fromPartial(object.errorType.validationError),
+                validationError: exports.RestError_ValidationError.fromPartial(object.errorType.validationError),
             };
         }
         if (object.errorType?.$case === "resourceNotFound" &&
@@ -154,7 +162,7 @@ export const RestError = {
             object.errorType?.resourceNotFound !== null) {
             message.errorType = {
                 $case: "resourceNotFound",
-                resourceNotFound: RestError_ResourceNotFound.fromPartial(object.errorType.resourceNotFound),
+                resourceNotFound: exports.RestError_ResourceNotFound.fromPartial(object.errorType.resourceNotFound),
             };
         }
         if (object.errorType?.$case === "accessDenied" &&
@@ -162,7 +170,7 @@ export const RestError = {
             object.errorType?.accessDenied !== null) {
             message.errorType = {
                 $case: "accessDenied",
-                accessDenied: RestError_AccessDenied.fromPartial(object.errorType.accessDenied),
+                accessDenied: exports.RestError_AccessDenied.fromPartial(object.errorType.accessDenied),
             };
         }
         if (object.errorType?.$case === "rateLimited" &&
@@ -170,22 +178,22 @@ export const RestError = {
             object.errorType?.rateLimited !== null) {
             message.errorType = {
                 $case: "rateLimited",
-                rateLimited: RestError_RateLimited.fromPartial(object.errorType.rateLimited),
+                rateLimited: exports.RestError_RateLimited.fromPartial(object.errorType.rateLimited),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(RestError.$type, RestError);
+typeRegistry_1.messageTypeRegistry.set(exports.RestError.$type, exports.RestError);
 const baseRestError_UnknownError = {
     $type: "pylon.discord.v1.rest.RestError.UnknownError",
     httpStatus: 0,
     code: 0,
     message: "",
 };
-export const RestError_UnknownError = {
+exports.RestError_UnknownError = {
     $type: "pylon.discord.v1.rest.RestError.UnknownError",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.httpStatus !== 0) {
             writer.uint32(8).uint32(message.httpStatus);
         }
@@ -198,7 +206,7 @@ export const RestError_UnknownError = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseRestError_UnknownError };
         while (reader.pos < end) {
@@ -254,24 +262,24 @@ export const RestError_UnknownError = {
         return message;
     },
 };
-messageTypeRegistry.set(RestError_UnknownError.$type, RestError_UnknownError);
+typeRegistry_1.messageTypeRegistry.set(exports.RestError_UnknownError.$type, exports.RestError_UnknownError);
 const baseRestError_ValidationError = {
     $type: "pylon.discord.v1.rest.RestError.ValidationError",
     message: "",
 };
-export const RestError_ValidationError = {
+exports.RestError_ValidationError = {
     $type: "pylon.discord.v1.rest.RestError.ValidationError",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.message !== "") {
             writer.uint32(10).string(message.message);
         }
         for (const v of message.fields) {
-            RestError_ValidationError_Field.encode(v, writer.uint32(18).fork()).ldelim();
+            exports.RestError_ValidationError_Field.encode(v, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseRestError_ValidationError,
@@ -284,7 +292,7 @@ export const RestError_ValidationError = {
                     message.message = reader.string();
                     break;
                 case 2:
-                    message.fields.push(RestError_ValidationError_Field.decode(reader, reader.uint32()));
+                    message.fields.push(exports.RestError_ValidationError_Field.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -303,7 +311,7 @@ export const RestError_ValidationError = {
         }
         if (object.fields !== undefined && object.fields !== null) {
             for (const e of object.fields) {
-                message.fields.push(RestError_ValidationError_Field.fromJSON(e));
+                message.fields.push(exports.RestError_ValidationError_Field.fromJSON(e));
             }
         }
         return message;
@@ -312,7 +320,7 @@ export const RestError_ValidationError = {
         const obj = {};
         message.message !== undefined && (obj.message = message.message);
         if (message.fields) {
-            obj.fields = message.fields.map((e) => e ? RestError_ValidationError_Field.toJSON(e) : undefined);
+            obj.fields = message.fields.map((e) => e ? exports.RestError_ValidationError_Field.toJSON(e) : undefined);
         }
         else {
             obj.fields = [];
@@ -329,22 +337,22 @@ export const RestError_ValidationError = {
         }
         if (object.fields !== undefined && object.fields !== null) {
             for (const e of object.fields) {
-                message.fields.push(RestError_ValidationError_Field.fromPartial(e));
+                message.fields.push(exports.RestError_ValidationError_Field.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(RestError_ValidationError.$type, RestError_ValidationError);
+typeRegistry_1.messageTypeRegistry.set(exports.RestError_ValidationError.$type, exports.RestError_ValidationError);
 const baseRestError_ValidationError_Field = {
     $type: "pylon.discord.v1.rest.RestError.ValidationError.Field",
     path: "",
     code: "",
     message: "",
 };
-export const RestError_ValidationError_Field = {
+exports.RestError_ValidationError_Field = {
     $type: "pylon.discord.v1.rest.RestError.ValidationError.Field",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.path !== "") {
             writer.uint32(10).string(message.path);
         }
@@ -357,7 +365,7 @@ export const RestError_ValidationError_Field = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseRestError_ValidationError_Field,
@@ -419,15 +427,15 @@ export const RestError_ValidationError_Field = {
         return message;
     },
 };
-messageTypeRegistry.set(RestError_ValidationError_Field.$type, RestError_ValidationError_Field);
+typeRegistry_1.messageTypeRegistry.set(exports.RestError_ValidationError_Field.$type, exports.RestError_ValidationError_Field);
 const baseRestError_ResourceNotFound = {
     $type: "pylon.discord.v1.rest.RestError.ResourceNotFound",
     code: 0,
     message: "",
 };
-export const RestError_ResourceNotFound = {
+exports.RestError_ResourceNotFound = {
     $type: "pylon.discord.v1.rest.RestError.ResourceNotFound",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.code !== 0) {
             writer.uint32(8).uint32(message.code);
         }
@@ -437,7 +445,7 @@ export const RestError_ResourceNotFound = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseRestError_ResourceNotFound,
@@ -489,15 +497,15 @@ export const RestError_ResourceNotFound = {
         return message;
     },
 };
-messageTypeRegistry.set(RestError_ResourceNotFound.$type, RestError_ResourceNotFound);
+typeRegistry_1.messageTypeRegistry.set(exports.RestError_ResourceNotFound.$type, exports.RestError_ResourceNotFound);
 const baseRestError_AccessDenied = {
     $type: "pylon.discord.v1.rest.RestError.AccessDenied",
     code: 0,
     message: "",
 };
-export const RestError_AccessDenied = {
+exports.RestError_AccessDenied = {
     $type: "pylon.discord.v1.rest.RestError.AccessDenied",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.code !== 0) {
             writer.uint32(8).uint32(message.code);
         }
@@ -507,7 +515,7 @@ export const RestError_AccessDenied = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseRestError_AccessDenied };
         while (reader.pos < end) {
@@ -553,15 +561,15 @@ export const RestError_AccessDenied = {
         return message;
     },
 };
-messageTypeRegistry.set(RestError_AccessDenied.$type, RestError_AccessDenied);
+typeRegistry_1.messageTypeRegistry.set(exports.RestError_AccessDenied.$type, exports.RestError_AccessDenied);
 const baseRestError_RateLimited = {
     $type: "pylon.discord.v1.rest.RestError.RateLimited",
     global: false,
     retryAt: 0,
 };
-export const RestError_RateLimited = {
+exports.RestError_RateLimited = {
     $type: "pylon.discord.v1.rest.RestError.RateLimited",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.global === true) {
             writer.uint32(8).bool(message.global);
         }
@@ -571,7 +579,7 @@ export const RestError_RateLimited = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseRestError_RateLimited };
         while (reader.pos < end) {
@@ -617,72 +625,72 @@ export const RestError_RateLimited = {
         return message;
     },
 };
-messageTypeRegistry.set(RestError_RateLimited.$type, RestError_RateLimited);
+typeRegistry_1.messageTypeRegistry.set(exports.RestError_RateLimited.$type, exports.RestError_RateLimited);
 const baseModifyGuildRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildRequest",
 };
-export const ModifyGuildRequest = {
+exports.ModifyGuildRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.name !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.name }, writer.uint32(10).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.name }, writer.uint32(10).fork()).ldelim();
         }
         if (message.region !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.region }, writer.uint32(18).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.region }, writer.uint32(18).fork()).ldelim();
         }
         if (message.verificationLevel !== undefined) {
-            UInt32Value.encode({
+            wrappers_1.UInt32Value.encode({
                 $type: "google.protobuf.UInt32Value",
                 value: message.verificationLevel,
             }, writer.uint32(26).fork()).ldelim();
         }
         if (message.defaultMessageNotifications !== undefined) {
-            UInt32Value.encode({
+            wrappers_1.UInt32Value.encode({
                 $type: "google.protobuf.UInt32Value",
                 value: message.defaultMessageNotifications,
             }, writer.uint32(34).fork()).ldelim();
         }
         if (message.explicitContentFilter !== undefined) {
-            UInt32Value.encode({
+            wrappers_1.UInt32Value.encode({
                 $type: "google.protobuf.UInt32Value",
                 value: message.explicitContentFilter,
             }, writer.uint32(42).fork()).ldelim();
         }
         if (message.afkChannelId !== undefined) {
-            SnowflakeValue.encode(message.afkChannelId, writer.uint32(50).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.afkChannelId, writer.uint32(50).fork()).ldelim();
         }
         if (message.afkTimeout !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.afkTimeout }, writer.uint32(58).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.afkTimeout }, writer.uint32(58).fork()).ldelim();
         }
         if (message.icon !== undefined) {
-            BytesValue.encode({ $type: "google.protobuf.BytesValue", value: message.icon }, writer.uint32(66).fork()).ldelim();
+            wrappers_1.BytesValue.encode({ $type: "google.protobuf.BytesValue", value: message.icon }, writer.uint32(66).fork()).ldelim();
         }
         if (message.ownerId !== undefined) {
-            SnowflakeValue.encode(message.ownerId, writer.uint32(74).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.ownerId, writer.uint32(74).fork()).ldelim();
         }
         if (message.splash !== undefined) {
-            BytesValue.encode({ $type: "google.protobuf.BytesValue", value: message.splash }, writer.uint32(82).fork()).ldelim();
+            wrappers_1.BytesValue.encode({ $type: "google.protobuf.BytesValue", value: message.splash }, writer.uint32(82).fork()).ldelim();
         }
         if (message.banner !== undefined) {
-            BytesValue.encode({ $type: "google.protobuf.BytesValue", value: message.banner }, writer.uint32(90).fork()).ldelim();
+            wrappers_1.BytesValue.encode({ $type: "google.protobuf.BytesValue", value: message.banner }, writer.uint32(90).fork()).ldelim();
         }
         if (message.systemChannelId !== undefined) {
-            SnowflakeValue.encode(message.systemChannelId, writer.uint32(98).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.systemChannelId, writer.uint32(98).fork()).ldelim();
         }
         if (message.rulesChannelId !== undefined) {
-            SnowflakeValue.encode(message.rulesChannelId, writer.uint32(106).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.rulesChannelId, writer.uint32(106).fork()).ldelim();
         }
         if (message.publicUpdatesChannelId !== undefined) {
-            SnowflakeValue.encode(message.publicUpdatesChannelId, writer.uint32(114).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.publicUpdatesChannelId, writer.uint32(114).fork()).ldelim();
         }
         if (message.preferredLocale !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.preferredLocale,
             }, writer.uint32(122).fork()).ldelim();
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -690,59 +698,59 @@ export const ModifyGuildRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseModifyGuildRequest };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.name = StringValue.decode(reader, reader.uint32()).value;
+                    message.name = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 2:
-                    message.region = StringValue.decode(reader, reader.uint32()).value;
+                    message.region = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 3:
-                    message.verificationLevel = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.verificationLevel = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 4:
-                    message.defaultMessageNotifications = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.defaultMessageNotifications = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 5:
-                    message.explicitContentFilter = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.explicitContentFilter = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 6:
-                    message.afkChannelId = SnowflakeValue.decode(reader, reader.uint32());
+                    message.afkChannelId = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 7:
-                    message.afkTimeout = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.afkTimeout = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 8:
-                    message.icon = BytesValue.decode(reader, reader.uint32()).value;
+                    message.icon = wrappers_1.BytesValue.decode(reader, reader.uint32()).value;
                     break;
                 case 9:
-                    message.ownerId = SnowflakeValue.decode(reader, reader.uint32());
+                    message.ownerId = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 10:
-                    message.splash = BytesValue.decode(reader, reader.uint32()).value;
+                    message.splash = wrappers_1.BytesValue.decode(reader, reader.uint32()).value;
                     break;
                 case 11:
-                    message.banner = BytesValue.decode(reader, reader.uint32()).value;
+                    message.banner = wrappers_1.BytesValue.decode(reader, reader.uint32()).value;
                     break;
                 case 12:
-                    message.systemChannelId = SnowflakeValue.decode(reader, reader.uint32());
+                    message.systemChannelId = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 13:
-                    message.rulesChannelId = SnowflakeValue.decode(reader, reader.uint32());
+                    message.rulesChannelId = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 14:
-                    message.publicUpdatesChannelId = SnowflakeValue.decode(reader, reader.uint32());
+                    message.publicUpdatesChannelId = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 15:
-                    message.preferredLocale = StringValue.decode(reader, reader.uint32()).value;
+                    message.preferredLocale = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -772,7 +780,7 @@ export const ModifyGuildRequest = {
             message.explicitContentFilter = Number(object.explicitContentFilter);
         }
         if (object.afkChannelId !== undefined && object.afkChannelId !== null) {
-            message.afkChannelId = SnowflakeValue.fromJSON(object.afkChannelId);
+            message.afkChannelId = model_1.SnowflakeValue.fromJSON(object.afkChannelId);
         }
         if (object.afkTimeout !== undefined && object.afkTimeout !== null) {
             message.afkTimeout = Number(object.afkTimeout);
@@ -781,7 +789,7 @@ export const ModifyGuildRequest = {
             message.icon = new Uint8Array(object.icon);
         }
         if (object.ownerId !== undefined && object.ownerId !== null) {
-            message.ownerId = SnowflakeValue.fromJSON(object.ownerId);
+            message.ownerId = model_1.SnowflakeValue.fromJSON(object.ownerId);
         }
         if (object.splash !== undefined && object.splash !== null) {
             message.splash = new Uint8Array(object.splash);
@@ -791,14 +799,14 @@ export const ModifyGuildRequest = {
         }
         if (object.systemChannelId !== undefined &&
             object.systemChannelId !== null) {
-            message.systemChannelId = SnowflakeValue.fromJSON(object.systemChannelId);
+            message.systemChannelId = model_1.SnowflakeValue.fromJSON(object.systemChannelId);
         }
         if (object.rulesChannelId !== undefined && object.rulesChannelId !== null) {
-            message.rulesChannelId = SnowflakeValue.fromJSON(object.rulesChannelId);
+            message.rulesChannelId = model_1.SnowflakeValue.fromJSON(object.rulesChannelId);
         }
         if (object.publicUpdatesChannelId !== undefined &&
             object.publicUpdatesChannelId !== null) {
-            message.publicUpdatesChannelId = SnowflakeValue.fromJSON(object.publicUpdatesChannelId);
+            message.publicUpdatesChannelId = model_1.SnowflakeValue.fromJSON(object.publicUpdatesChannelId);
         }
         if (object.preferredLocale !== undefined &&
             object.preferredLocale !== null) {
@@ -821,27 +829,27 @@ export const ModifyGuildRequest = {
             (obj.explicitContentFilter = message.explicitContentFilter);
         message.afkChannelId !== undefined &&
             (obj.afkChannelId = message.afkChannelId
-                ? SnowflakeValue.toJSON(message.afkChannelId)
+                ? model_1.SnowflakeValue.toJSON(message.afkChannelId)
                 : undefined);
         message.afkTimeout !== undefined && (obj.afkTimeout = message.afkTimeout);
         message.icon !== undefined && (obj.icon = message.icon);
         message.ownerId !== undefined &&
             (obj.ownerId = message.ownerId
-                ? SnowflakeValue.toJSON(message.ownerId)
+                ? model_1.SnowflakeValue.toJSON(message.ownerId)
                 : undefined);
         message.splash !== undefined && (obj.splash = message.splash);
         message.banner !== undefined && (obj.banner = message.banner);
         message.systemChannelId !== undefined &&
             (obj.systemChannelId = message.systemChannelId
-                ? SnowflakeValue.toJSON(message.systemChannelId)
+                ? model_1.SnowflakeValue.toJSON(message.systemChannelId)
                 : undefined);
         message.rulesChannelId !== undefined &&
             (obj.rulesChannelId = message.rulesChannelId
-                ? SnowflakeValue.toJSON(message.rulesChannelId)
+                ? model_1.SnowflakeValue.toJSON(message.rulesChannelId)
                 : undefined);
         message.publicUpdatesChannelId !== undefined &&
             (obj.publicUpdatesChannelId = message.publicUpdatesChannelId
-                ? SnowflakeValue.toJSON(message.publicUpdatesChannelId)
+                ? model_1.SnowflakeValue.toJSON(message.publicUpdatesChannelId)
                 : undefined);
         message.preferredLocale !== undefined &&
             (obj.preferredLocale = message.preferredLocale);
@@ -870,7 +878,7 @@ export const ModifyGuildRequest = {
             message.explicitContentFilter = object.explicitContentFilter;
         }
         if (object.afkChannelId !== undefined && object.afkChannelId !== null) {
-            message.afkChannelId = SnowflakeValue.fromPartial(object.afkChannelId);
+            message.afkChannelId = model_1.SnowflakeValue.fromPartial(object.afkChannelId);
         }
         if (object.afkTimeout !== undefined && object.afkTimeout !== null) {
             message.afkTimeout = object.afkTimeout;
@@ -879,7 +887,7 @@ export const ModifyGuildRequest = {
             message.icon = object.icon;
         }
         if (object.ownerId !== undefined && object.ownerId !== null) {
-            message.ownerId = SnowflakeValue.fromPartial(object.ownerId);
+            message.ownerId = model_1.SnowflakeValue.fromPartial(object.ownerId);
         }
         if (object.splash !== undefined && object.splash !== null) {
             message.splash = object.splash;
@@ -889,14 +897,14 @@ export const ModifyGuildRequest = {
         }
         if (object.systemChannelId !== undefined &&
             object.systemChannelId !== null) {
-            message.systemChannelId = SnowflakeValue.fromPartial(object.systemChannelId);
+            message.systemChannelId = model_1.SnowflakeValue.fromPartial(object.systemChannelId);
         }
         if (object.rulesChannelId !== undefined && object.rulesChannelId !== null) {
-            message.rulesChannelId = SnowflakeValue.fromPartial(object.rulesChannelId);
+            message.rulesChannelId = model_1.SnowflakeValue.fromPartial(object.rulesChannelId);
         }
         if (object.publicUpdatesChannelId !== undefined &&
             object.publicUpdatesChannelId !== null) {
-            message.publicUpdatesChannelId = SnowflakeValue.fromPartial(object.publicUpdatesChannelId);
+            message.publicUpdatesChannelId = model_1.SnowflakeValue.fromPartial(object.publicUpdatesChannelId);
         }
         if (object.preferredLocale !== undefined &&
             object.preferredLocale !== null) {
@@ -908,23 +916,23 @@ export const ModifyGuildRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildRequest.$type, ModifyGuildRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildRequest.$type, exports.ModifyGuildRequest);
 const baseModifyGuildResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildResponse",
 };
-export const ModifyGuildResponse = {
+exports.ModifyGuildResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            ModifyGuildResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.ModifyGuildResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseModifyGuildResponse };
         while (reader.pos < end) {
@@ -933,13 +941,13 @@ export const ModifyGuildResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: ModifyGuildResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.ModifyGuildResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -954,13 +962,13 @@ export const ModifyGuildResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyGuildResponse_Data.fromJSON(object.data),
+                data: exports.ModifyGuildResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -969,11 +977,11 @@ export const ModifyGuildResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? ModifyGuildResponse_Data.toJSON(message.response?.data)
+                ? exports.ModifyGuildResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -984,7 +992,7 @@ export const ModifyGuildResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -992,26 +1000,26 @@ export const ModifyGuildResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyGuildResponse_Data.fromPartial(object.response.data),
+                data: exports.ModifyGuildResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildResponse.$type, ModifyGuildResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildResponse.$type, exports.ModifyGuildResponse);
 const baseModifyGuildResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyGuildResponse.Data",
 };
-export const ModifyGuildResponse_Data = {
+exports.ModifyGuildResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyGuildResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guild !== undefined) {
-            GuildData.encode(message.guild, writer.uint32(10).fork()).ldelim();
+            model_1.GuildData.encode(message.guild, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildResponse_Data,
@@ -1020,7 +1028,7 @@ export const ModifyGuildResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.guild = GuildData.decode(reader, reader.uint32());
+                    message.guild = model_1.GuildData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1034,14 +1042,14 @@ export const ModifyGuildResponse_Data = {
             ...baseModifyGuildResponse_Data,
         };
         if (object.guild !== undefined && object.guild !== null) {
-            message.guild = GuildData.fromJSON(object.guild);
+            message.guild = model_1.GuildData.fromJSON(object.guild);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.guild !== undefined &&
-            (obj.guild = message.guild ? GuildData.toJSON(message.guild) : undefined);
+            (obj.guild = message.guild ? model_1.GuildData.toJSON(message.guild) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -1049,20 +1057,20 @@ export const ModifyGuildResponse_Data = {
             ...baseModifyGuildResponse_Data,
         };
         if (object.guild !== undefined && object.guild !== null) {
-            message.guild = GuildData.fromPartial(object.guild);
+            message.guild = model_1.GuildData.fromPartial(object.guild);
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildResponse_Data.$type, ModifyGuildResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildResponse_Data.$type, exports.ModifyGuildResponse_Data);
 const baseCreateGuildChannelRequest = {
     $type: "pylon.discord.v1.rest.CreateGuildChannelRequest",
     name: "",
     type: 0,
 };
-export const CreateGuildChannelRequest = {
+exports.CreateGuildChannelRequest = {
     $type: "pylon.discord.v1.rest.CreateGuildChannelRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.name !== "") {
             writer.uint32(10).string(message.name);
         }
@@ -1070,34 +1078,34 @@ export const CreateGuildChannelRequest = {
             writer.uint32(16).int32(message.type);
         }
         if (message.topic !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.topic }, writer.uint32(26).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.topic }, writer.uint32(26).fork()).ldelim();
         }
         if (message.bitrate !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.bitrate }, writer.uint32(34).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.bitrate }, writer.uint32(34).fork()).ldelim();
         }
         if (message.userLimit !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.userLimit }, writer.uint32(42).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.userLimit }, writer.uint32(42).fork()).ldelim();
         }
         if (message.rateLimitPerUser !== undefined) {
-            UInt32Value.encode({
+            wrappers_1.UInt32Value.encode({
                 $type: "google.protobuf.UInt32Value",
                 value: message.rateLimitPerUser,
             }, writer.uint32(50).fork()).ldelim();
         }
         if (message.position !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.position }, writer.uint32(58).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.position }, writer.uint32(58).fork()).ldelim();
         }
         for (const v of message.permissionOverwrites) {
-            ChannelData_ChannelPermissionOverwriteData.encode(v, writer.uint32(66).fork()).ldelim();
+            model_1.ChannelData_ChannelPermissionOverwriteData.encode(v, writer.uint32(66).fork()).ldelim();
         }
         if (message.parentId !== undefined) {
-            SnowflakeValue.encode(message.parentId, writer.uint32(74).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.parentId, writer.uint32(74).fork()).ldelim();
         }
         if (message.nsfw !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.nsfw }, writer.uint32(82).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.nsfw }, writer.uint32(82).fork()).ldelim();
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -1105,7 +1113,7 @@ export const CreateGuildChannelRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateGuildChannelRequest,
@@ -1121,31 +1129,31 @@ export const CreateGuildChannelRequest = {
                     message.type = reader.int32();
                     break;
                 case 3:
-                    message.topic = StringValue.decode(reader, reader.uint32()).value;
+                    message.topic = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 4:
-                    message.bitrate = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.bitrate = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 5:
-                    message.userLimit = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.userLimit = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 6:
-                    message.rateLimitPerUser = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.rateLimitPerUser = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 7:
-                    message.position = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.position = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 8:
-                    message.permissionOverwrites.push(ChannelData_ChannelPermissionOverwriteData.decode(reader, reader.uint32()));
+                    message.permissionOverwrites.push(model_1.ChannelData_ChannelPermissionOverwriteData.decode(reader, reader.uint32()));
                     break;
                 case 9:
-                    message.parentId = SnowflakeValue.decode(reader, reader.uint32());
+                    message.parentId = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 10:
-                    message.nsfw = BoolValue.decode(reader, reader.uint32()).value;
+                    message.nsfw = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1163,7 +1171,7 @@ export const CreateGuildChannelRequest = {
             message.name = String(object.name);
         }
         if (object.type !== undefined && object.type !== null) {
-            message.type = channelData_ChannelTypeFromJSON(object.type);
+            message.type = model_1.channelData_ChannelTypeFromJSON(object.type);
         }
         if (object.topic !== undefined && object.topic !== null) {
             message.topic = String(object.topic);
@@ -1184,11 +1192,11 @@ export const CreateGuildChannelRequest = {
         if (object.permissionOverwrites !== undefined &&
             object.permissionOverwrites !== null) {
             for (const e of object.permissionOverwrites) {
-                message.permissionOverwrites.push(ChannelData_ChannelPermissionOverwriteData.fromJSON(e));
+                message.permissionOverwrites.push(model_1.ChannelData_ChannelPermissionOverwriteData.fromJSON(e));
             }
         }
         if (object.parentId !== undefined && object.parentId !== null) {
-            message.parentId = SnowflakeValue.fromJSON(object.parentId);
+            message.parentId = model_1.SnowflakeValue.fromJSON(object.parentId);
         }
         if (object.nsfw !== undefined && object.nsfw !== null) {
             message.nsfw = Boolean(object.nsfw);
@@ -1202,7 +1210,7 @@ export const CreateGuildChannelRequest = {
         const obj = {};
         message.name !== undefined && (obj.name = message.name);
         message.type !== undefined &&
-            (obj.type = channelData_ChannelTypeToJSON(message.type));
+            (obj.type = model_1.channelData_ChannelTypeToJSON(message.type));
         message.topic !== undefined && (obj.topic = message.topic);
         message.bitrate !== undefined && (obj.bitrate = message.bitrate);
         message.userLimit !== undefined && (obj.userLimit = message.userLimit);
@@ -1210,14 +1218,14 @@ export const CreateGuildChannelRequest = {
             (obj.rateLimitPerUser = message.rateLimitPerUser);
         message.position !== undefined && (obj.position = message.position);
         if (message.permissionOverwrites) {
-            obj.permissionOverwrites = message.permissionOverwrites.map((e) => e ? ChannelData_ChannelPermissionOverwriteData.toJSON(e) : undefined);
+            obj.permissionOverwrites = message.permissionOverwrites.map((e) => e ? model_1.ChannelData_ChannelPermissionOverwriteData.toJSON(e) : undefined);
         }
         else {
             obj.permissionOverwrites = [];
         }
         message.parentId !== undefined &&
             (obj.parentId = message.parentId
-                ? SnowflakeValue.toJSON(message.parentId)
+                ? model_1.SnowflakeValue.toJSON(message.parentId)
                 : undefined);
         message.nsfw !== undefined && (obj.nsfw = message.nsfw);
         message.auditLogReason !== undefined &&
@@ -1254,11 +1262,11 @@ export const CreateGuildChannelRequest = {
         if (object.permissionOverwrites !== undefined &&
             object.permissionOverwrites !== null) {
             for (const e of object.permissionOverwrites) {
-                message.permissionOverwrites.push(ChannelData_ChannelPermissionOverwriteData.fromPartial(e));
+                message.permissionOverwrites.push(model_1.ChannelData_ChannelPermissionOverwriteData.fromPartial(e));
             }
         }
         if (object.parentId !== undefined && object.parentId !== null) {
-            message.parentId = SnowflakeValue.fromPartial(object.parentId);
+            message.parentId = model_1.SnowflakeValue.fromPartial(object.parentId);
         }
         if (object.nsfw !== undefined && object.nsfw !== null) {
             message.nsfw = object.nsfw;
@@ -1269,23 +1277,23 @@ export const CreateGuildChannelRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(CreateGuildChannelRequest.$type, CreateGuildChannelRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateGuildChannelRequest.$type, exports.CreateGuildChannelRequest);
 const baseCreateGuildChannelResponse = {
     $type: "pylon.discord.v1.rest.CreateGuildChannelResponse",
 };
-export const CreateGuildChannelResponse = {
+exports.CreateGuildChannelResponse = {
     $type: "pylon.discord.v1.rest.CreateGuildChannelResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            CreateGuildChannelResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.CreateGuildChannelResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateGuildChannelResponse,
@@ -1296,13 +1304,13 @@ export const CreateGuildChannelResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: CreateGuildChannelResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.CreateGuildChannelResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -1319,13 +1327,13 @@ export const CreateGuildChannelResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateGuildChannelResponse_Data.fromJSON(object.data),
+                data: exports.CreateGuildChannelResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -1334,11 +1342,11 @@ export const CreateGuildChannelResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? CreateGuildChannelResponse_Data.toJSON(message.response?.data)
+                ? exports.CreateGuildChannelResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -1351,7 +1359,7 @@ export const CreateGuildChannelResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -1359,26 +1367,26 @@ export const CreateGuildChannelResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateGuildChannelResponse_Data.fromPartial(object.response.data),
+                data: exports.CreateGuildChannelResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateGuildChannelResponse.$type, CreateGuildChannelResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateGuildChannelResponse.$type, exports.CreateGuildChannelResponse);
 const baseCreateGuildChannelResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateGuildChannelResponse.Data",
 };
-export const CreateGuildChannelResponse_Data = {
+exports.CreateGuildChannelResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateGuildChannelResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channel !== undefined) {
-            ChannelData.encode(message.channel, writer.uint32(10).fork()).ldelim();
+            model_1.ChannelData.encode(message.channel, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateGuildChannelResponse_Data,
@@ -1387,7 +1395,7 @@ export const CreateGuildChannelResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.channel = ChannelData.decode(reader, reader.uint32());
+                    message.channel = model_1.ChannelData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1401,7 +1409,7 @@ export const CreateGuildChannelResponse_Data = {
             ...baseCreateGuildChannelResponse_Data,
         };
         if (object.channel !== undefined && object.channel !== null) {
-            message.channel = ChannelData.fromJSON(object.channel);
+            message.channel = model_1.ChannelData.fromJSON(object.channel);
         }
         return message;
     },
@@ -1409,7 +1417,7 @@ export const CreateGuildChannelResponse_Data = {
         const obj = {};
         message.channel !== undefined &&
             (obj.channel = message.channel
-                ? ChannelData.toJSON(message.channel)
+                ? model_1.ChannelData.toJSON(message.channel)
                 : undefined);
         return obj;
     },
@@ -1418,25 +1426,25 @@ export const CreateGuildChannelResponse_Data = {
             ...baseCreateGuildChannelResponse_Data,
         };
         if (object.channel !== undefined && object.channel !== null) {
-            message.channel = ChannelData.fromPartial(object.channel);
+            message.channel = model_1.ChannelData.fromPartial(object.channel);
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateGuildChannelResponse_Data.$type, CreateGuildChannelResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateGuildChannelResponse_Data.$type, exports.CreateGuildChannelResponse_Data);
 const baseModifyGuildChannelPositionsRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildChannelPositionsRequest",
 };
-export const ModifyGuildChannelPositionsRequest = {
+exports.ModifyGuildChannelPositionsRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildChannelPositionsRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.channelPositions) {
-            ModifyGuildChannelPositionsRequest_ChannelPosition.encode(v, writer.uint32(10).fork()).ldelim();
+            exports.ModifyGuildChannelPositionsRequest_ChannelPosition.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildChannelPositionsRequest,
@@ -1446,7 +1454,7 @@ export const ModifyGuildChannelPositionsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.channelPositions.push(ModifyGuildChannelPositionsRequest_ChannelPosition.decode(reader, reader.uint32()));
+                    message.channelPositions.push(exports.ModifyGuildChannelPositionsRequest_ChannelPosition.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1463,7 +1471,7 @@ export const ModifyGuildChannelPositionsRequest = {
         if (object.channelPositions !== undefined &&
             object.channelPositions !== null) {
             for (const e of object.channelPositions) {
-                message.channelPositions.push(ModifyGuildChannelPositionsRequest_ChannelPosition.fromJSON(e));
+                message.channelPositions.push(exports.ModifyGuildChannelPositionsRequest_ChannelPosition.fromJSON(e));
             }
         }
         return message;
@@ -1472,7 +1480,7 @@ export const ModifyGuildChannelPositionsRequest = {
         const obj = {};
         if (message.channelPositions) {
             obj.channelPositions = message.channelPositions.map((e) => e
-                ? ModifyGuildChannelPositionsRequest_ChannelPosition.toJSON(e)
+                ? exports.ModifyGuildChannelPositionsRequest_ChannelPosition.toJSON(e)
                 : undefined);
         }
         else {
@@ -1488,21 +1496,21 @@ export const ModifyGuildChannelPositionsRequest = {
         if (object.channelPositions !== undefined &&
             object.channelPositions !== null) {
             for (const e of object.channelPositions) {
-                message.channelPositions.push(ModifyGuildChannelPositionsRequest_ChannelPosition.fromPartial(e));
+                message.channelPositions.push(exports.ModifyGuildChannelPositionsRequest_ChannelPosition.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildChannelPositionsRequest.$type, ModifyGuildChannelPositionsRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildChannelPositionsRequest.$type, exports.ModifyGuildChannelPositionsRequest);
 const baseModifyGuildChannelPositionsRequest_ChannelPosition = {
     $type: "pylon.discord.v1.rest.ModifyGuildChannelPositionsRequest.ChannelPosition",
     id: "0",
     position: 0,
 };
-export const ModifyGuildChannelPositionsRequest_ChannelPosition = {
+exports.ModifyGuildChannelPositionsRequest_ChannelPosition = {
     $type: "pylon.discord.v1.rest.ModifyGuildChannelPositionsRequest.ChannelPosition",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.id !== "0") {
             writer.uint32(9).fixed64(message.id);
         }
@@ -1512,7 +1520,7 @@ export const ModifyGuildChannelPositionsRequest_ChannelPosition = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildChannelPositionsRequest_ChannelPosition,
@@ -1564,23 +1572,23 @@ export const ModifyGuildChannelPositionsRequest_ChannelPosition = {
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildChannelPositionsRequest_ChannelPosition.$type, ModifyGuildChannelPositionsRequest_ChannelPosition);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildChannelPositionsRequest_ChannelPosition.$type, exports.ModifyGuildChannelPositionsRequest_ChannelPosition);
 const baseModifyGuildChannelPositionsResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildChannelPositionsResponse",
 };
-export const ModifyGuildChannelPositionsResponse = {
+exports.ModifyGuildChannelPositionsResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildChannelPositionsResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildChannelPositionsResponse,
@@ -1591,13 +1599,13 @@ export const ModifyGuildChannelPositionsResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -1614,11 +1622,11 @@ export const ModifyGuildChannelPositionsResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -1626,11 +1634,11 @@ export const ModifyGuildChannelPositionsResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -1643,7 +1651,7 @@ export const ModifyGuildChannelPositionsResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -1651,21 +1659,21 @@ export const ModifyGuildChannelPositionsResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildChannelPositionsResponse.$type, ModifyGuildChannelPositionsResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildChannelPositionsResponse.$type, exports.ModifyGuildChannelPositionsResponse);
 const baseAddGuildMemberRequest = {
     $type: "pylon.discord.v1.rest.AddGuildMemberRequest",
     userId: "0",
     accessToken: "",
 };
-export const AddGuildMemberRequest = {
+exports.AddGuildMemberRequest = {
     $type: "pylon.discord.v1.rest.AddGuildMemberRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
@@ -1673,21 +1681,21 @@ export const AddGuildMemberRequest = {
             writer.uint32(18).string(message.accessToken);
         }
         if (message.nick !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.nick }, writer.uint32(26).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.nick }, writer.uint32(26).fork()).ldelim();
         }
         if (message.roles !== undefined) {
-            SnowflakeListValue.encode(message.roles, writer.uint32(34).fork()).ldelim();
+            model_1.SnowflakeListValue.encode(message.roles, writer.uint32(34).fork()).ldelim();
         }
         if (message.mute !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.mute }, writer.uint32(42).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.mute }, writer.uint32(42).fork()).ldelim();
         }
         if (message.deaf !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.deaf }, writer.uint32(50).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.deaf }, writer.uint32(50).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseAddGuildMemberRequest };
         while (reader.pos < end) {
@@ -1700,16 +1708,16 @@ export const AddGuildMemberRequest = {
                     message.accessToken = reader.string();
                     break;
                 case 3:
-                    message.nick = StringValue.decode(reader, reader.uint32()).value;
+                    message.nick = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 4:
-                    message.roles = SnowflakeListValue.decode(reader, reader.uint32());
+                    message.roles = model_1.SnowflakeListValue.decode(reader, reader.uint32());
                     break;
                 case 5:
-                    message.mute = BoolValue.decode(reader, reader.uint32()).value;
+                    message.mute = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 6:
-                    message.deaf = BoolValue.decode(reader, reader.uint32()).value;
+                    message.deaf = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1730,7 +1738,7 @@ export const AddGuildMemberRequest = {
             message.nick = String(object.nick);
         }
         if (object.roles !== undefined && object.roles !== null) {
-            message.roles = SnowflakeListValue.fromJSON(object.roles);
+            message.roles = model_1.SnowflakeListValue.fromJSON(object.roles);
         }
         if (object.mute !== undefined && object.mute !== null) {
             message.mute = Boolean(object.mute);
@@ -1748,7 +1756,7 @@ export const AddGuildMemberRequest = {
         message.nick !== undefined && (obj.nick = message.nick);
         message.roles !== undefined &&
             (obj.roles = message.roles
-                ? SnowflakeListValue.toJSON(message.roles)
+                ? model_1.SnowflakeListValue.toJSON(message.roles)
                 : undefined);
         message.mute !== undefined && (obj.mute = message.mute);
         message.deaf !== undefined && (obj.deaf = message.deaf);
@@ -1766,7 +1774,7 @@ export const AddGuildMemberRequest = {
             message.nick = object.nick;
         }
         if (object.roles !== undefined && object.roles !== null) {
-            message.roles = SnowflakeListValue.fromPartial(object.roles);
+            message.roles = model_1.SnowflakeListValue.fromPartial(object.roles);
         }
         if (object.mute !== undefined && object.mute !== null) {
             message.mute = object.mute;
@@ -1777,23 +1785,23 @@ export const AddGuildMemberRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(AddGuildMemberRequest.$type, AddGuildMemberRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.AddGuildMemberRequest.$type, exports.AddGuildMemberRequest);
 const baseAddGuildMemberResponse = {
     $type: "pylon.discord.v1.rest.AddGuildMemberResponse",
 };
-export const AddGuildMemberResponse = {
+exports.AddGuildMemberResponse = {
     $type: "pylon.discord.v1.rest.AddGuildMemberResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            AddGuildMemberResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.AddGuildMemberResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseAddGuildMemberResponse };
         while (reader.pos < end) {
@@ -1802,13 +1810,13 @@ export const AddGuildMemberResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: AddGuildMemberResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.AddGuildMemberResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -1823,13 +1831,13 @@ export const AddGuildMemberResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: AddGuildMemberResponse_Data.fromJSON(object.data),
+                data: exports.AddGuildMemberResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -1838,11 +1846,11 @@ export const AddGuildMemberResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? AddGuildMemberResponse_Data.toJSON(message.response?.data)
+                ? exports.AddGuildMemberResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -1853,7 +1861,7 @@ export const AddGuildMemberResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -1861,27 +1869,27 @@ export const AddGuildMemberResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: AddGuildMemberResponse_Data.fromPartial(object.response.data),
+                data: exports.AddGuildMemberResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(AddGuildMemberResponse.$type, AddGuildMemberResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.AddGuildMemberResponse.$type, exports.AddGuildMemberResponse);
 const baseAddGuildMemberResponse_Data = {
     $type: "pylon.discord.v1.rest.AddGuildMemberResponse.Data",
     added: false,
 };
-export const AddGuildMemberResponse_Data = {
+exports.AddGuildMemberResponse_Data = {
     $type: "pylon.discord.v1.rest.AddGuildMemberResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.added === true) {
             writer.uint32(8).bool(message.added);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseAddGuildMemberResponse_Data,
@@ -1923,34 +1931,34 @@ export const AddGuildMemberResponse_Data = {
         return message;
     },
 };
-messageTypeRegistry.set(AddGuildMemberResponse_Data.$type, AddGuildMemberResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.AddGuildMemberResponse_Data.$type, exports.AddGuildMemberResponse_Data);
 const baseModifyGuildMemberRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildMemberRequest",
     userId: "0",
 };
-export const ModifyGuildMemberRequest = {
+exports.ModifyGuildMemberRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildMemberRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
         if (message.nick !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.nick }, writer.uint32(18).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.nick }, writer.uint32(18).fork()).ldelim();
         }
         if (message.roles !== undefined) {
-            SnowflakeListValue.encode(message.roles, writer.uint32(26).fork()).ldelim();
+            model_1.SnowflakeListValue.encode(message.roles, writer.uint32(26).fork()).ldelim();
         }
         if (message.mute !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.mute }, writer.uint32(34).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.mute }, writer.uint32(34).fork()).ldelim();
         }
         if (message.deaf !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.deaf }, writer.uint32(42).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.deaf }, writer.uint32(42).fork()).ldelim();
         }
         if (message.channelId !== undefined) {
-            SnowflakeValue.encode(message.channelId, writer.uint32(50).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.channelId, writer.uint32(50).fork()).ldelim();
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -1958,7 +1966,7 @@ export const ModifyGuildMemberRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildMemberRequest,
@@ -1970,22 +1978,22 @@ export const ModifyGuildMemberRequest = {
                     message.userId = longToString(reader.fixed64());
                     break;
                 case 2:
-                    message.nick = StringValue.decode(reader, reader.uint32()).value;
+                    message.nick = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 3:
-                    message.roles = SnowflakeListValue.decode(reader, reader.uint32());
+                    message.roles = model_1.SnowflakeListValue.decode(reader, reader.uint32());
                     break;
                 case 4:
-                    message.mute = BoolValue.decode(reader, reader.uint32()).value;
+                    message.mute = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 5:
-                    message.deaf = BoolValue.decode(reader, reader.uint32()).value;
+                    message.deaf = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 6:
-                    message.channelId = SnowflakeValue.decode(reader, reader.uint32());
+                    message.channelId = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2005,7 +2013,7 @@ export const ModifyGuildMemberRequest = {
             message.nick = String(object.nick);
         }
         if (object.roles !== undefined && object.roles !== null) {
-            message.roles = SnowflakeListValue.fromJSON(object.roles);
+            message.roles = model_1.SnowflakeListValue.fromJSON(object.roles);
         }
         if (object.mute !== undefined && object.mute !== null) {
             message.mute = Boolean(object.mute);
@@ -2014,7 +2022,7 @@ export const ModifyGuildMemberRequest = {
             message.deaf = Boolean(object.deaf);
         }
         if (object.channelId !== undefined && object.channelId !== null) {
-            message.channelId = SnowflakeValue.fromJSON(object.channelId);
+            message.channelId = model_1.SnowflakeValue.fromJSON(object.channelId);
         }
         if (object.auditLogReason !== undefined && object.auditLogReason !== null) {
             message.auditLogReason = String(object.auditLogReason);
@@ -2027,13 +2035,13 @@ export const ModifyGuildMemberRequest = {
         message.nick !== undefined && (obj.nick = message.nick);
         message.roles !== undefined &&
             (obj.roles = message.roles
-                ? SnowflakeListValue.toJSON(message.roles)
+                ? model_1.SnowflakeListValue.toJSON(message.roles)
                 : undefined);
         message.mute !== undefined && (obj.mute = message.mute);
         message.deaf !== undefined && (obj.deaf = message.deaf);
         message.channelId !== undefined &&
             (obj.channelId = message.channelId
-                ? SnowflakeValue.toJSON(message.channelId)
+                ? model_1.SnowflakeValue.toJSON(message.channelId)
                 : undefined);
         message.auditLogReason !== undefined &&
             (obj.auditLogReason = message.auditLogReason);
@@ -2050,7 +2058,7 @@ export const ModifyGuildMemberRequest = {
             message.nick = object.nick;
         }
         if (object.roles !== undefined && object.roles !== null) {
-            message.roles = SnowflakeListValue.fromPartial(object.roles);
+            message.roles = model_1.SnowflakeListValue.fromPartial(object.roles);
         }
         if (object.mute !== undefined && object.mute !== null) {
             message.mute = object.mute;
@@ -2059,7 +2067,7 @@ export const ModifyGuildMemberRequest = {
             message.deaf = object.deaf;
         }
         if (object.channelId !== undefined && object.channelId !== null) {
-            message.channelId = SnowflakeValue.fromPartial(object.channelId);
+            message.channelId = model_1.SnowflakeValue.fromPartial(object.channelId);
         }
         if (object.auditLogReason !== undefined && object.auditLogReason !== null) {
             message.auditLogReason = object.auditLogReason;
@@ -2067,23 +2075,23 @@ export const ModifyGuildMemberRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildMemberRequest.$type, ModifyGuildMemberRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildMemberRequest.$type, exports.ModifyGuildMemberRequest);
 const baseModifyGuildMemberResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildMemberResponse",
 };
-export const ModifyGuildMemberResponse = {
+exports.ModifyGuildMemberResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildMemberResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildMemberResponse,
@@ -2094,13 +2102,13 @@ export const ModifyGuildMemberResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -2117,11 +2125,11 @@ export const ModifyGuildMemberResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -2129,11 +2137,11 @@ export const ModifyGuildMemberResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -2146,7 +2154,7 @@ export const ModifyGuildMemberResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -2154,26 +2162,26 @@ export const ModifyGuildMemberResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildMemberResponse.$type, ModifyGuildMemberResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildMemberResponse.$type, exports.ModifyGuildMemberResponse);
 const baseModifyCurrentUserNickRequest = {
     $type: "pylon.discord.v1.rest.ModifyCurrentUserNickRequest",
 };
-export const ModifyCurrentUserNickRequest = {
+exports.ModifyCurrentUserNickRequest = {
     $type: "pylon.discord.v1.rest.ModifyCurrentUserNickRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.nick !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.nick }, writer.uint32(10).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.nick }, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyCurrentUserNickRequest,
@@ -2182,7 +2190,7 @@ export const ModifyCurrentUserNickRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.nick = StringValue.decode(reader, reader.uint32()).value;
+                    message.nick = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2215,23 +2223,23 @@ export const ModifyCurrentUserNickRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(ModifyCurrentUserNickRequest.$type, ModifyCurrentUserNickRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyCurrentUserNickRequest.$type, exports.ModifyCurrentUserNickRequest);
 const baseModifyCurrentUserNickResponse = {
     $type: "pylon.discord.v1.rest.ModifyCurrentUserNickResponse",
 };
-export const ModifyCurrentUserNickResponse = {
+exports.ModifyCurrentUserNickResponse = {
     $type: "pylon.discord.v1.rest.ModifyCurrentUserNickResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyCurrentUserNickResponse,
@@ -2242,13 +2250,13 @@ export const ModifyCurrentUserNickResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -2265,11 +2273,11 @@ export const ModifyCurrentUserNickResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -2277,11 +2285,11 @@ export const ModifyCurrentUserNickResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -2294,7 +2302,7 @@ export const ModifyCurrentUserNickResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -2302,21 +2310,21 @@ export const ModifyCurrentUserNickResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyCurrentUserNickResponse.$type, ModifyCurrentUserNickResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyCurrentUserNickResponse.$type, exports.ModifyCurrentUserNickResponse);
 const baseAddGuildMemberRoleRequest = {
     $type: "pylon.discord.v1.rest.AddGuildMemberRoleRequest",
     userId: "0",
     roleId: "0",
 };
-export const AddGuildMemberRoleRequest = {
+exports.AddGuildMemberRoleRequest = {
     $type: "pylon.discord.v1.rest.AddGuildMemberRoleRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
@@ -2324,7 +2332,7 @@ export const AddGuildMemberRoleRequest = {
             writer.uint32(17).fixed64(message.roleId);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -2332,7 +2340,7 @@ export const AddGuildMemberRoleRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseAddGuildMemberRoleRequest,
@@ -2347,7 +2355,7 @@ export const AddGuildMemberRoleRequest = {
                     message.roleId = longToString(reader.fixed64());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2395,23 +2403,23 @@ export const AddGuildMemberRoleRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(AddGuildMemberRoleRequest.$type, AddGuildMemberRoleRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.AddGuildMemberRoleRequest.$type, exports.AddGuildMemberRoleRequest);
 const baseAddGuildMemberRoleResponse = {
     $type: "pylon.discord.v1.rest.AddGuildMemberRoleResponse",
 };
-export const AddGuildMemberRoleResponse = {
+exports.AddGuildMemberRoleResponse = {
     $type: "pylon.discord.v1.rest.AddGuildMemberRoleResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseAddGuildMemberRoleResponse,
@@ -2422,13 +2430,13 @@ export const AddGuildMemberRoleResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -2445,11 +2453,11 @@ export const AddGuildMemberRoleResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -2457,11 +2465,11 @@ export const AddGuildMemberRoleResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -2474,7 +2482,7 @@ export const AddGuildMemberRoleResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -2482,21 +2490,21 @@ export const AddGuildMemberRoleResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(AddGuildMemberRoleResponse.$type, AddGuildMemberRoleResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.AddGuildMemberRoleResponse.$type, exports.AddGuildMemberRoleResponse);
 const baseRemoveGuildMemberRoleRequest = {
     $type: "pylon.discord.v1.rest.RemoveGuildMemberRoleRequest",
     userId: "0",
     roleId: "0",
 };
-export const RemoveGuildMemberRoleRequest = {
+exports.RemoveGuildMemberRoleRequest = {
     $type: "pylon.discord.v1.rest.RemoveGuildMemberRoleRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
@@ -2504,7 +2512,7 @@ export const RemoveGuildMemberRoleRequest = {
             writer.uint32(17).fixed64(message.roleId);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -2512,7 +2520,7 @@ export const RemoveGuildMemberRoleRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseRemoveGuildMemberRoleRequest,
@@ -2527,7 +2535,7 @@ export const RemoveGuildMemberRoleRequest = {
                     message.roleId = longToString(reader.fixed64());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2575,23 +2583,23 @@ export const RemoveGuildMemberRoleRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(RemoveGuildMemberRoleRequest.$type, RemoveGuildMemberRoleRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.RemoveGuildMemberRoleRequest.$type, exports.RemoveGuildMemberRoleRequest);
 const baseRemoveGuildMemberRoleResponse = {
     $type: "pylon.discord.v1.rest.RemoveGuildMemberRoleResponse",
 };
-export const RemoveGuildMemberRoleResponse = {
+exports.RemoveGuildMemberRoleResponse = {
     $type: "pylon.discord.v1.rest.RemoveGuildMemberRoleResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseRemoveGuildMemberRoleResponse,
@@ -2602,13 +2610,13 @@ export const RemoveGuildMemberRoleResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -2625,11 +2633,11 @@ export const RemoveGuildMemberRoleResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -2637,11 +2645,11 @@ export const RemoveGuildMemberRoleResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -2654,7 +2662,7 @@ export const RemoveGuildMemberRoleResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -2662,25 +2670,25 @@ export const RemoveGuildMemberRoleResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(RemoveGuildMemberRoleResponse.$type, RemoveGuildMemberRoleResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.RemoveGuildMemberRoleResponse.$type, exports.RemoveGuildMemberRoleResponse);
 const baseRemoveGuildMemberRequest = {
     $type: "pylon.discord.v1.rest.RemoveGuildMemberRequest",
     userId: "0",
 };
-export const RemoveGuildMemberRequest = {
+exports.RemoveGuildMemberRequest = {
     $type: "pylon.discord.v1.rest.RemoveGuildMemberRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -2688,7 +2696,7 @@ export const RemoveGuildMemberRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseRemoveGuildMemberRequest,
@@ -2700,7 +2708,7 @@ export const RemoveGuildMemberRequest = {
                     message.userId = longToString(reader.fixed64());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2741,23 +2749,23 @@ export const RemoveGuildMemberRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(RemoveGuildMemberRequest.$type, RemoveGuildMemberRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.RemoveGuildMemberRequest.$type, exports.RemoveGuildMemberRequest);
 const baseRemoveGuildMemberResponse = {
     $type: "pylon.discord.v1.rest.RemoveGuildMemberResponse",
 };
-export const RemoveGuildMemberResponse = {
+exports.RemoveGuildMemberResponse = {
     $type: "pylon.discord.v1.rest.RemoveGuildMemberResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseRemoveGuildMemberResponse,
@@ -2768,13 +2776,13 @@ export const RemoveGuildMemberResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -2791,11 +2799,11 @@ export const RemoveGuildMemberResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -2803,11 +2811,11 @@ export const RemoveGuildMemberResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -2820,7 +2828,7 @@ export const RemoveGuildMemberResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -2828,27 +2836,27 @@ export const RemoveGuildMemberResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(RemoveGuildMemberResponse.$type, RemoveGuildMemberResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.RemoveGuildMemberResponse.$type, exports.RemoveGuildMemberResponse);
 const baseGetGuildBansRequest = {
     $type: "pylon.discord.v1.rest.GetGuildBansRequest",
     userId: "0",
 };
-export const GetGuildBansRequest = {
+exports.GetGuildBansRequest = {
     $type: "pylon.discord.v1.rest.GetGuildBansRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetGuildBansRequest };
         while (reader.pos < end) {
@@ -2884,23 +2892,23 @@ export const GetGuildBansRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildBansRequest.$type, GetGuildBansRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildBansRequest.$type, exports.GetGuildBansRequest);
 const baseGetGuildBansResponse = {
     $type: "pylon.discord.v1.rest.GetGuildBansResponse",
 };
-export const GetGuildBansResponse = {
+exports.GetGuildBansResponse = {
     $type: "pylon.discord.v1.rest.GetGuildBansResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            GetGuildBansResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.GetGuildBansResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetGuildBansResponse };
         while (reader.pos < end) {
@@ -2909,13 +2917,13 @@ export const GetGuildBansResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: GetGuildBansResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.GetGuildBansResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -2930,13 +2938,13 @@ export const GetGuildBansResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetGuildBansResponse_Data.fromJSON(object.data),
+                data: exports.GetGuildBansResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -2945,11 +2953,11 @@ export const GetGuildBansResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? GetGuildBansResponse_Data.toJSON(message.response?.data)
+                ? exports.GetGuildBansResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -2960,7 +2968,7 @@ export const GetGuildBansResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -2968,26 +2976,26 @@ export const GetGuildBansResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetGuildBansResponse_Data.fromPartial(object.response.data),
+                data: exports.GetGuildBansResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildBansResponse.$type, GetGuildBansResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildBansResponse.$type, exports.GetGuildBansResponse);
 const baseGetGuildBansResponse_Data = {
     $type: "pylon.discord.v1.rest.GetGuildBansResponse.Data",
 };
-export const GetGuildBansResponse_Data = {
+exports.GetGuildBansResponse_Data = {
     $type: "pylon.discord.v1.rest.GetGuildBansResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.bans) {
-            GuildBanData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.GuildBanData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetGuildBansResponse_Data,
@@ -2997,7 +3005,7 @@ export const GetGuildBansResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.bans.push(GuildBanData.decode(reader, reader.uint32()));
+                    message.bans.push(model_1.GuildBanData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3013,7 +3021,7 @@ export const GetGuildBansResponse_Data = {
         message.bans = [];
         if (object.bans !== undefined && object.bans !== null) {
             for (const e of object.bans) {
-                message.bans.push(GuildBanData.fromJSON(e));
+                message.bans.push(model_1.GuildBanData.fromJSON(e));
             }
         }
         return message;
@@ -3021,7 +3029,7 @@ export const GetGuildBansResponse_Data = {
     toJSON(message) {
         const obj = {};
         if (message.bans) {
-            obj.bans = message.bans.map((e) => e ? GuildBanData.toJSON(e) : undefined);
+            obj.bans = message.bans.map((e) => e ? model_1.GuildBanData.toJSON(e) : undefined);
         }
         else {
             obj.bans = [];
@@ -3035,27 +3043,27 @@ export const GetGuildBansResponse_Data = {
         message.bans = [];
         if (object.bans !== undefined && object.bans !== null) {
             for (const e of object.bans) {
-                message.bans.push(GuildBanData.fromPartial(e));
+                message.bans.push(model_1.GuildBanData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildBansResponse_Data.$type, GetGuildBansResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildBansResponse_Data.$type, exports.GetGuildBansResponse_Data);
 const baseGetGuildBanRequest = {
     $type: "pylon.discord.v1.rest.GetGuildBanRequest",
     userId: "0",
 };
-export const GetGuildBanRequest = {
+exports.GetGuildBanRequest = {
     $type: "pylon.discord.v1.rest.GetGuildBanRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetGuildBanRequest };
         while (reader.pos < end) {
@@ -3091,23 +3099,23 @@ export const GetGuildBanRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildBanRequest.$type, GetGuildBanRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildBanRequest.$type, exports.GetGuildBanRequest);
 const baseGetGuildBanResponse = {
     $type: "pylon.discord.v1.rest.GetGuildBanResponse",
 };
-export const GetGuildBanResponse = {
+exports.GetGuildBanResponse = {
     $type: "pylon.discord.v1.rest.GetGuildBanResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            GetGuildBanResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.GetGuildBanResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetGuildBanResponse };
         while (reader.pos < end) {
@@ -3116,13 +3124,13 @@ export const GetGuildBanResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: GetGuildBanResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.GetGuildBanResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -3137,13 +3145,13 @@ export const GetGuildBanResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetGuildBanResponse_Data.fromJSON(object.data),
+                data: exports.GetGuildBanResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -3152,11 +3160,11 @@ export const GetGuildBanResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? GetGuildBanResponse_Data.toJSON(message.response?.data)
+                ? exports.GetGuildBanResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -3167,7 +3175,7 @@ export const GetGuildBanResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -3175,26 +3183,26 @@ export const GetGuildBanResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetGuildBanResponse_Data.fromPartial(object.response.data),
+                data: exports.GetGuildBanResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildBanResponse.$type, GetGuildBanResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildBanResponse.$type, exports.GetGuildBanResponse);
 const baseGetGuildBanResponse_Data = {
     $type: "pylon.discord.v1.rest.GetGuildBanResponse.Data",
 };
-export const GetGuildBanResponse_Data = {
+exports.GetGuildBanResponse_Data = {
     $type: "pylon.discord.v1.rest.GetGuildBanResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.ban !== undefined) {
-            GuildBanData.encode(message.ban, writer.uint32(10).fork()).ldelim();
+            model_1.GuildBanData.encode(message.ban, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetGuildBanResponse_Data,
@@ -3203,7 +3211,7 @@ export const GetGuildBanResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.ban = GuildBanData.decode(reader, reader.uint32());
+                    message.ban = model_1.GuildBanData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3217,14 +3225,14 @@ export const GetGuildBanResponse_Data = {
             ...baseGetGuildBanResponse_Data,
         };
         if (object.ban !== undefined && object.ban !== null) {
-            message.ban = GuildBanData.fromJSON(object.ban);
+            message.ban = model_1.GuildBanData.fromJSON(object.ban);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.ban !== undefined &&
-            (obj.ban = message.ban ? GuildBanData.toJSON(message.ban) : undefined);
+            (obj.ban = message.ban ? model_1.GuildBanData.toJSON(message.ban) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -3232,30 +3240,30 @@ export const GetGuildBanResponse_Data = {
             ...baseGetGuildBanResponse_Data,
         };
         if (object.ban !== undefined && object.ban !== null) {
-            message.ban = GuildBanData.fromPartial(object.ban);
+            message.ban = model_1.GuildBanData.fromPartial(object.ban);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildBanResponse_Data.$type, GetGuildBanResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildBanResponse_Data.$type, exports.GetGuildBanResponse_Data);
 const baseCreateGuildBanRequest = {
     $type: "pylon.discord.v1.rest.CreateGuildBanRequest",
     userId: "0",
 };
-export const CreateGuildBanRequest = {
+exports.CreateGuildBanRequest = {
     $type: "pylon.discord.v1.rest.CreateGuildBanRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
         if (message.deleteMessageDays !== undefined) {
-            UInt32Value.encode({
+            wrappers_1.UInt32Value.encode({
                 $type: "google.protobuf.UInt32Value",
                 value: message.deleteMessageDays,
             }, writer.uint32(18).fork()).ldelim();
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -3263,7 +3271,7 @@ export const CreateGuildBanRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseCreateGuildBanRequest };
         while (reader.pos < end) {
@@ -3273,10 +3281,10 @@ export const CreateGuildBanRequest = {
                     message.userId = longToString(reader.fixed64());
                     break;
                 case 2:
-                    message.deleteMessageDays = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.deleteMessageDays = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3323,23 +3331,23 @@ export const CreateGuildBanRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(CreateGuildBanRequest.$type, CreateGuildBanRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateGuildBanRequest.$type, exports.CreateGuildBanRequest);
 const baseCreateGuildBanResponse = {
     $type: "pylon.discord.v1.rest.CreateGuildBanResponse",
 };
-export const CreateGuildBanResponse = {
+exports.CreateGuildBanResponse = {
     $type: "pylon.discord.v1.rest.CreateGuildBanResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseCreateGuildBanResponse };
         while (reader.pos < end) {
@@ -3348,13 +3356,13 @@ export const CreateGuildBanResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -3369,11 +3377,11 @@ export const CreateGuildBanResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -3381,11 +3389,11 @@ export const CreateGuildBanResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -3396,7 +3404,7 @@ export const CreateGuildBanResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -3404,25 +3412,25 @@ export const CreateGuildBanResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateGuildBanResponse.$type, CreateGuildBanResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateGuildBanResponse.$type, exports.CreateGuildBanResponse);
 const baseRemoveGuildBanRequest = {
     $type: "pylon.discord.v1.rest.RemoveGuildBanRequest",
     userId: "0",
 };
-export const RemoveGuildBanRequest = {
+exports.RemoveGuildBanRequest = {
     $type: "pylon.discord.v1.rest.RemoveGuildBanRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -3430,7 +3438,7 @@ export const RemoveGuildBanRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseRemoveGuildBanRequest };
         while (reader.pos < end) {
@@ -3440,7 +3448,7 @@ export const RemoveGuildBanRequest = {
                     message.userId = longToString(reader.fixed64());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3477,23 +3485,23 @@ export const RemoveGuildBanRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(RemoveGuildBanRequest.$type, RemoveGuildBanRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.RemoveGuildBanRequest.$type, exports.RemoveGuildBanRequest);
 const baseRemoveGuildBanResponse = {
     $type: "pylon.discord.v1.rest.RemoveGuildBanResponse",
 };
-export const RemoveGuildBanResponse = {
+exports.RemoveGuildBanResponse = {
     $type: "pylon.discord.v1.rest.RemoveGuildBanResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseRemoveGuildBanResponse };
         while (reader.pos < end) {
@@ -3502,13 +3510,13 @@ export const RemoveGuildBanResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -3523,11 +3531,11 @@ export const RemoveGuildBanResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -3535,11 +3543,11 @@ export const RemoveGuildBanResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -3550,7 +3558,7 @@ export const RemoveGuildBanResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -3558,36 +3566,36 @@ export const RemoveGuildBanResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(RemoveGuildBanResponse.$type, RemoveGuildBanResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.RemoveGuildBanResponse.$type, exports.RemoveGuildBanResponse);
 const baseCreateGuildRoleRequest = {
     $type: "pylon.discord.v1.rest.CreateGuildRoleRequest",
 };
-export const CreateGuildRoleRequest = {
+exports.CreateGuildRoleRequest = {
     $type: "pylon.discord.v1.rest.CreateGuildRoleRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.name !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.name }, writer.uint32(10).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.name }, writer.uint32(10).fork()).ldelim();
         }
         if (message.permissions !== undefined) {
-            PermissionsValue.encode(message.permissions, writer.uint32(18).fork()).ldelim();
+            model_1.PermissionsValue.encode(message.permissions, writer.uint32(18).fork()).ldelim();
         }
         if (message.color !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.color }, writer.uint32(26).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.color }, writer.uint32(26).fork()).ldelim();
         }
         if (message.hoist !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.hoist }, writer.uint32(34).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.hoist }, writer.uint32(34).fork()).ldelim();
         }
         if (message.mentionable !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.mentionable }, writer.uint32(42).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.mentionable }, writer.uint32(42).fork()).ldelim();
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -3595,29 +3603,29 @@ export const CreateGuildRoleRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseCreateGuildRoleRequest };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.name = StringValue.decode(reader, reader.uint32()).value;
+                    message.name = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 2:
-                    message.permissions = PermissionsValue.decode(reader, reader.uint32());
+                    message.permissions = model_1.PermissionsValue.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.color = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.color = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 4:
-                    message.hoist = BoolValue.decode(reader, reader.uint32()).value;
+                    message.hoist = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 5:
-                    message.mentionable = BoolValue.decode(reader, reader.uint32()).value;
+                    message.mentionable = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3632,7 +3640,7 @@ export const CreateGuildRoleRequest = {
             message.name = String(object.name);
         }
         if (object.permissions !== undefined && object.permissions !== null) {
-            message.permissions = PermissionsValue.fromJSON(object.permissions);
+            message.permissions = model_1.PermissionsValue.fromJSON(object.permissions);
         }
         if (object.color !== undefined && object.color !== null) {
             message.color = Number(object.color);
@@ -3653,7 +3661,7 @@ export const CreateGuildRoleRequest = {
         message.name !== undefined && (obj.name = message.name);
         message.permissions !== undefined &&
             (obj.permissions = message.permissions
-                ? PermissionsValue.toJSON(message.permissions)
+                ? model_1.PermissionsValue.toJSON(message.permissions)
                 : undefined);
         message.color !== undefined && (obj.color = message.color);
         message.hoist !== undefined && (obj.hoist = message.hoist);
@@ -3669,7 +3677,7 @@ export const CreateGuildRoleRequest = {
             message.name = object.name;
         }
         if (object.permissions !== undefined && object.permissions !== null) {
-            message.permissions = PermissionsValue.fromPartial(object.permissions);
+            message.permissions = model_1.PermissionsValue.fromPartial(object.permissions);
         }
         if (object.color !== undefined && object.color !== null) {
             message.color = object.color;
@@ -3686,23 +3694,23 @@ export const CreateGuildRoleRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(CreateGuildRoleRequest.$type, CreateGuildRoleRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateGuildRoleRequest.$type, exports.CreateGuildRoleRequest);
 const baseCreateGuildRoleResponse = {
     $type: "pylon.discord.v1.rest.CreateGuildRoleResponse",
 };
-export const CreateGuildRoleResponse = {
+exports.CreateGuildRoleResponse = {
     $type: "pylon.discord.v1.rest.CreateGuildRoleResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            CreateGuildRoleResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.CreateGuildRoleResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateGuildRoleResponse,
@@ -3713,13 +3721,13 @@ export const CreateGuildRoleResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: CreateGuildRoleResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.CreateGuildRoleResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -3736,13 +3744,13 @@ export const CreateGuildRoleResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateGuildRoleResponse_Data.fromJSON(object.data),
+                data: exports.CreateGuildRoleResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -3751,11 +3759,11 @@ export const CreateGuildRoleResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? CreateGuildRoleResponse_Data.toJSON(message.response?.data)
+                ? exports.CreateGuildRoleResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -3768,7 +3776,7 @@ export const CreateGuildRoleResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -3776,26 +3784,26 @@ export const CreateGuildRoleResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateGuildRoleResponse_Data.fromPartial(object.response.data),
+                data: exports.CreateGuildRoleResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateGuildRoleResponse.$type, CreateGuildRoleResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateGuildRoleResponse.$type, exports.CreateGuildRoleResponse);
 const baseCreateGuildRoleResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateGuildRoleResponse.Data",
 };
-export const CreateGuildRoleResponse_Data = {
+exports.CreateGuildRoleResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateGuildRoleResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.role !== undefined) {
-            RoleData.encode(message.role, writer.uint32(10).fork()).ldelim();
+            model_1.RoleData.encode(message.role, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateGuildRoleResponse_Data,
@@ -3804,7 +3812,7 @@ export const CreateGuildRoleResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.role = RoleData.decode(reader, reader.uint32());
+                    message.role = model_1.RoleData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3818,14 +3826,14 @@ export const CreateGuildRoleResponse_Data = {
             ...baseCreateGuildRoleResponse_Data,
         };
         if (object.role !== undefined && object.role !== null) {
-            message.role = RoleData.fromJSON(object.role);
+            message.role = model_1.RoleData.fromJSON(object.role);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.role !== undefined &&
-            (obj.role = message.role ? RoleData.toJSON(message.role) : undefined);
+            (obj.role = message.role ? model_1.RoleData.toJSON(message.role) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -3833,25 +3841,25 @@ export const CreateGuildRoleResponse_Data = {
             ...baseCreateGuildRoleResponse_Data,
         };
         if (object.role !== undefined && object.role !== null) {
-            message.role = RoleData.fromPartial(object.role);
+            message.role = model_1.RoleData.fromPartial(object.role);
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateGuildRoleResponse_Data.$type, CreateGuildRoleResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateGuildRoleResponse_Data.$type, exports.CreateGuildRoleResponse_Data);
 const baseModifyGuildRolePositionsRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildRolePositionsRequest",
 };
-export const ModifyGuildRolePositionsRequest = {
+exports.ModifyGuildRolePositionsRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildRolePositionsRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.rolePositions) {
-            ModifyGuildRolePositionsRequest_RolePosition.encode(v, writer.uint32(10).fork()).ldelim();
+            exports.ModifyGuildRolePositionsRequest_RolePosition.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildRolePositionsRequest,
@@ -3861,7 +3869,7 @@ export const ModifyGuildRolePositionsRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.rolePositions.push(ModifyGuildRolePositionsRequest_RolePosition.decode(reader, reader.uint32()));
+                    message.rolePositions.push(exports.ModifyGuildRolePositionsRequest_RolePosition.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3877,7 +3885,7 @@ export const ModifyGuildRolePositionsRequest = {
         message.rolePositions = [];
         if (object.rolePositions !== undefined && object.rolePositions !== null) {
             for (const e of object.rolePositions) {
-                message.rolePositions.push(ModifyGuildRolePositionsRequest_RolePosition.fromJSON(e));
+                message.rolePositions.push(exports.ModifyGuildRolePositionsRequest_RolePosition.fromJSON(e));
             }
         }
         return message;
@@ -3885,7 +3893,7 @@ export const ModifyGuildRolePositionsRequest = {
     toJSON(message) {
         const obj = {};
         if (message.rolePositions) {
-            obj.rolePositions = message.rolePositions.map((e) => e ? ModifyGuildRolePositionsRequest_RolePosition.toJSON(e) : undefined);
+            obj.rolePositions = message.rolePositions.map((e) => e ? exports.ModifyGuildRolePositionsRequest_RolePosition.toJSON(e) : undefined);
         }
         else {
             obj.rolePositions = [];
@@ -3899,21 +3907,21 @@ export const ModifyGuildRolePositionsRequest = {
         message.rolePositions = [];
         if (object.rolePositions !== undefined && object.rolePositions !== null) {
             for (const e of object.rolePositions) {
-                message.rolePositions.push(ModifyGuildRolePositionsRequest_RolePosition.fromPartial(e));
+                message.rolePositions.push(exports.ModifyGuildRolePositionsRequest_RolePosition.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildRolePositionsRequest.$type, ModifyGuildRolePositionsRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildRolePositionsRequest.$type, exports.ModifyGuildRolePositionsRequest);
 const baseModifyGuildRolePositionsRequest_RolePosition = {
     $type: "pylon.discord.v1.rest.ModifyGuildRolePositionsRequest.RolePosition",
     id: "0",
     position: 0,
 };
-export const ModifyGuildRolePositionsRequest_RolePosition = {
+exports.ModifyGuildRolePositionsRequest_RolePosition = {
     $type: "pylon.discord.v1.rest.ModifyGuildRolePositionsRequest.RolePosition",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.id !== "0") {
             writer.uint32(9).fixed64(message.id);
         }
@@ -3923,7 +3931,7 @@ export const ModifyGuildRolePositionsRequest_RolePosition = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildRolePositionsRequest_RolePosition,
@@ -3975,23 +3983,23 @@ export const ModifyGuildRolePositionsRequest_RolePosition = {
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildRolePositionsRequest_RolePosition.$type, ModifyGuildRolePositionsRequest_RolePosition);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildRolePositionsRequest_RolePosition.$type, exports.ModifyGuildRolePositionsRequest_RolePosition);
 const baseModifyGuildRolePositionsResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildRolePositionsResponse",
 };
-export const ModifyGuildRolePositionsResponse = {
+exports.ModifyGuildRolePositionsResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildRolePositionsResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            ModifyGuildRolePositionsResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.ModifyGuildRolePositionsResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildRolePositionsResponse,
@@ -4002,13 +4010,13 @@ export const ModifyGuildRolePositionsResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: ModifyGuildRolePositionsResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.ModifyGuildRolePositionsResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -4025,13 +4033,13 @@ export const ModifyGuildRolePositionsResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyGuildRolePositionsResponse_Data.fromJSON(object.data),
+                data: exports.ModifyGuildRolePositionsResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -4040,11 +4048,11 @@ export const ModifyGuildRolePositionsResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? ModifyGuildRolePositionsResponse_Data.toJSON(message.response?.data)
+                ? exports.ModifyGuildRolePositionsResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -4057,7 +4065,7 @@ export const ModifyGuildRolePositionsResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -4065,26 +4073,26 @@ export const ModifyGuildRolePositionsResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyGuildRolePositionsResponse_Data.fromPartial(object.response.data),
+                data: exports.ModifyGuildRolePositionsResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildRolePositionsResponse.$type, ModifyGuildRolePositionsResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildRolePositionsResponse.$type, exports.ModifyGuildRolePositionsResponse);
 const baseModifyGuildRolePositionsResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyGuildRolePositionsResponse.Data",
 };
-export const ModifyGuildRolePositionsResponse_Data = {
+exports.ModifyGuildRolePositionsResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyGuildRolePositionsResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.roles) {
-            RoleData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.RoleData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildRolePositionsResponse_Data,
@@ -4094,7 +4102,7 @@ export const ModifyGuildRolePositionsResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.roles.push(RoleData.decode(reader, reader.uint32()));
+                    message.roles.push(model_1.RoleData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4110,7 +4118,7 @@ export const ModifyGuildRolePositionsResponse_Data = {
         message.roles = [];
         if (object.roles !== undefined && object.roles !== null) {
             for (const e of object.roles) {
-                message.roles.push(RoleData.fromJSON(e));
+                message.roles.push(model_1.RoleData.fromJSON(e));
             }
         }
         return message;
@@ -4118,7 +4126,7 @@ export const ModifyGuildRolePositionsResponse_Data = {
     toJSON(message) {
         const obj = {};
         if (message.roles) {
-            obj.roles = message.roles.map((e) => e ? RoleData.toJSON(e) : undefined);
+            obj.roles = message.roles.map((e) => e ? model_1.RoleData.toJSON(e) : undefined);
         }
         else {
             obj.roles = [];
@@ -4132,40 +4140,40 @@ export const ModifyGuildRolePositionsResponse_Data = {
         message.roles = [];
         if (object.roles !== undefined && object.roles !== null) {
             for (const e of object.roles) {
-                message.roles.push(RoleData.fromPartial(e));
+                message.roles.push(model_1.RoleData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildRolePositionsResponse_Data.$type, ModifyGuildRolePositionsResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildRolePositionsResponse_Data.$type, exports.ModifyGuildRolePositionsResponse_Data);
 const baseModifyGuildRoleRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildRoleRequest",
     roleId: "0",
 };
-export const ModifyGuildRoleRequest = {
+exports.ModifyGuildRoleRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildRoleRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.roleId !== "0") {
             writer.uint32(9).fixed64(message.roleId);
         }
         if (message.name !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.name }, writer.uint32(18).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.name }, writer.uint32(18).fork()).ldelim();
         }
         if (message.permissions !== undefined) {
-            PermissionsValue.encode(message.permissions, writer.uint32(26).fork()).ldelim();
+            model_1.PermissionsValue.encode(message.permissions, writer.uint32(26).fork()).ldelim();
         }
         if (message.color !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.color }, writer.uint32(34).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.color }, writer.uint32(34).fork()).ldelim();
         }
         if (message.hoist !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.hoist }, writer.uint32(42).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.hoist }, writer.uint32(42).fork()).ldelim();
         }
         if (message.mentionable !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.mentionable }, writer.uint32(50).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.mentionable }, writer.uint32(50).fork()).ldelim();
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -4173,7 +4181,7 @@ export const ModifyGuildRoleRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseModifyGuildRoleRequest };
         while (reader.pos < end) {
@@ -4183,22 +4191,22 @@ export const ModifyGuildRoleRequest = {
                     message.roleId = longToString(reader.fixed64());
                     break;
                 case 2:
-                    message.name = StringValue.decode(reader, reader.uint32()).value;
+                    message.name = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 3:
-                    message.permissions = PermissionsValue.decode(reader, reader.uint32());
+                    message.permissions = model_1.PermissionsValue.decode(reader, reader.uint32());
                     break;
                 case 4:
-                    message.color = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.color = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 5:
-                    message.hoist = BoolValue.decode(reader, reader.uint32()).value;
+                    message.hoist = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 6:
-                    message.mentionable = BoolValue.decode(reader, reader.uint32()).value;
+                    message.mentionable = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4216,7 +4224,7 @@ export const ModifyGuildRoleRequest = {
             message.name = String(object.name);
         }
         if (object.permissions !== undefined && object.permissions !== null) {
-            message.permissions = PermissionsValue.fromJSON(object.permissions);
+            message.permissions = model_1.PermissionsValue.fromJSON(object.permissions);
         }
         if (object.color !== undefined && object.color !== null) {
             message.color = Number(object.color);
@@ -4238,7 +4246,7 @@ export const ModifyGuildRoleRequest = {
         message.name !== undefined && (obj.name = message.name);
         message.permissions !== undefined &&
             (obj.permissions = message.permissions
-                ? PermissionsValue.toJSON(message.permissions)
+                ? model_1.PermissionsValue.toJSON(message.permissions)
                 : undefined);
         message.color !== undefined && (obj.color = message.color);
         message.hoist !== undefined && (obj.hoist = message.hoist);
@@ -4257,7 +4265,7 @@ export const ModifyGuildRoleRequest = {
             message.name = object.name;
         }
         if (object.permissions !== undefined && object.permissions !== null) {
-            message.permissions = PermissionsValue.fromPartial(object.permissions);
+            message.permissions = model_1.PermissionsValue.fromPartial(object.permissions);
         }
         if (object.color !== undefined && object.color !== null) {
             message.color = object.color;
@@ -4274,23 +4282,23 @@ export const ModifyGuildRoleRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildRoleRequest.$type, ModifyGuildRoleRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildRoleRequest.$type, exports.ModifyGuildRoleRequest);
 const baseModifyGuildRoleResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildRoleResponse",
 };
-export const ModifyGuildRoleResponse = {
+exports.ModifyGuildRoleResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildRoleResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            ModifyGuildRoleResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.ModifyGuildRoleResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildRoleResponse,
@@ -4301,13 +4309,13 @@ export const ModifyGuildRoleResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: ModifyGuildRoleResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.ModifyGuildRoleResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -4324,13 +4332,13 @@ export const ModifyGuildRoleResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyGuildRoleResponse_Data.fromJSON(object.data),
+                data: exports.ModifyGuildRoleResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -4339,11 +4347,11 @@ export const ModifyGuildRoleResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? ModifyGuildRoleResponse_Data.toJSON(message.response?.data)
+                ? exports.ModifyGuildRoleResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -4356,7 +4364,7 @@ export const ModifyGuildRoleResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -4364,26 +4372,26 @@ export const ModifyGuildRoleResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyGuildRoleResponse_Data.fromPartial(object.response.data),
+                data: exports.ModifyGuildRoleResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildRoleResponse.$type, ModifyGuildRoleResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildRoleResponse.$type, exports.ModifyGuildRoleResponse);
 const baseModifyGuildRoleResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyGuildRoleResponse.Data",
 };
-export const ModifyGuildRoleResponse_Data = {
+exports.ModifyGuildRoleResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyGuildRoleResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.role !== undefined) {
-            RoleData.encode(message.role, writer.uint32(10).fork()).ldelim();
+            model_1.RoleData.encode(message.role, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildRoleResponse_Data,
@@ -4392,7 +4400,7 @@ export const ModifyGuildRoleResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.role = RoleData.decode(reader, reader.uint32());
+                    message.role = model_1.RoleData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4406,14 +4414,14 @@ export const ModifyGuildRoleResponse_Data = {
             ...baseModifyGuildRoleResponse_Data,
         };
         if (object.role !== undefined && object.role !== null) {
-            message.role = RoleData.fromJSON(object.role);
+            message.role = model_1.RoleData.fromJSON(object.role);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.role !== undefined &&
-            (obj.role = message.role ? RoleData.toJSON(message.role) : undefined);
+            (obj.role = message.role ? model_1.RoleData.toJSON(message.role) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -4421,24 +4429,24 @@ export const ModifyGuildRoleResponse_Data = {
             ...baseModifyGuildRoleResponse_Data,
         };
         if (object.role !== undefined && object.role !== null) {
-            message.role = RoleData.fromPartial(object.role);
+            message.role = model_1.RoleData.fromPartial(object.role);
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildRoleResponse_Data.$type, ModifyGuildRoleResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildRoleResponse_Data.$type, exports.ModifyGuildRoleResponse_Data);
 const baseDeleteGuildRoleRequest = {
     $type: "pylon.discord.v1.rest.DeleteGuildRoleRequest",
     roleId: "0",
 };
-export const DeleteGuildRoleRequest = {
+exports.DeleteGuildRoleRequest = {
     $type: "pylon.discord.v1.rest.DeleteGuildRoleRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.roleId !== "0") {
             writer.uint32(9).fixed64(message.roleId);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -4446,7 +4454,7 @@ export const DeleteGuildRoleRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseDeleteGuildRoleRequest };
         while (reader.pos < end) {
@@ -4456,7 +4464,7 @@ export const DeleteGuildRoleRequest = {
                     message.roleId = longToString(reader.fixed64());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4493,23 +4501,23 @@ export const DeleteGuildRoleRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(DeleteGuildRoleRequest.$type, DeleteGuildRoleRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteGuildRoleRequest.$type, exports.DeleteGuildRoleRequest);
 const baseDeleteGuildRoleResponse = {
     $type: "pylon.discord.v1.rest.DeleteGuildRoleResponse",
 };
-export const DeleteGuildRoleResponse = {
+exports.DeleteGuildRoleResponse = {
     $type: "pylon.discord.v1.rest.DeleteGuildRoleResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteGuildRoleResponse,
@@ -4520,13 +4528,13 @@ export const DeleteGuildRoleResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -4543,11 +4551,11 @@ export const DeleteGuildRoleResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -4555,11 +4563,11 @@ export const DeleteGuildRoleResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -4572,7 +4580,7 @@ export const DeleteGuildRoleResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -4580,29 +4588,29 @@ export const DeleteGuildRoleResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(DeleteGuildRoleResponse.$type, DeleteGuildRoleResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteGuildRoleResponse.$type, exports.DeleteGuildRoleResponse);
 const baseGetGuildPruneCountRequest = {
     $type: "pylon.discord.v1.rest.GetGuildPruneCountRequest",
 };
-export const GetGuildPruneCountRequest = {
+exports.GetGuildPruneCountRequest = {
     $type: "pylon.discord.v1.rest.GetGuildPruneCountRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.days !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.days }, writer.uint32(10).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.days }, writer.uint32(10).fork()).ldelim();
         }
         if (message.includeRoles !== undefined) {
-            SnowflakeListValue.encode(message.includeRoles, writer.uint32(18).fork()).ldelim();
+            model_1.SnowflakeListValue.encode(message.includeRoles, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetGuildPruneCountRequest,
@@ -4611,10 +4619,10 @@ export const GetGuildPruneCountRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.days = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.days = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 2:
-                    message.includeRoles = SnowflakeListValue.decode(reader, reader.uint32());
+                    message.includeRoles = model_1.SnowflakeListValue.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4631,7 +4639,7 @@ export const GetGuildPruneCountRequest = {
             message.days = Number(object.days);
         }
         if (object.includeRoles !== undefined && object.includeRoles !== null) {
-            message.includeRoles = SnowflakeListValue.fromJSON(object.includeRoles);
+            message.includeRoles = model_1.SnowflakeListValue.fromJSON(object.includeRoles);
         }
         return message;
     },
@@ -4640,7 +4648,7 @@ export const GetGuildPruneCountRequest = {
         message.days !== undefined && (obj.days = message.days);
         message.includeRoles !== undefined &&
             (obj.includeRoles = message.includeRoles
-                ? SnowflakeListValue.toJSON(message.includeRoles)
+                ? model_1.SnowflakeListValue.toJSON(message.includeRoles)
                 : undefined);
         return obj;
     },
@@ -4652,28 +4660,28 @@ export const GetGuildPruneCountRequest = {
             message.days = object.days;
         }
         if (object.includeRoles !== undefined && object.includeRoles !== null) {
-            message.includeRoles = SnowflakeListValue.fromPartial(object.includeRoles);
+            message.includeRoles = model_1.SnowflakeListValue.fromPartial(object.includeRoles);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildPruneCountRequest.$type, GetGuildPruneCountRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildPruneCountRequest.$type, exports.GetGuildPruneCountRequest);
 const baseGetGuildPruneCountResponse = {
     $type: "pylon.discord.v1.rest.GetGuildPruneCountResponse",
 };
-export const GetGuildPruneCountResponse = {
+exports.GetGuildPruneCountResponse = {
     $type: "pylon.discord.v1.rest.GetGuildPruneCountResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetGuildPruneCountResponse,
@@ -4684,13 +4692,13 @@ export const GetGuildPruneCountResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -4707,11 +4715,11 @@ export const GetGuildPruneCountResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -4719,11 +4727,11 @@ export const GetGuildPruneCountResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -4736,7 +4744,7 @@ export const GetGuildPruneCountResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -4744,33 +4752,33 @@ export const GetGuildPruneCountResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildPruneCountResponse.$type, GetGuildPruneCountResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildPruneCountResponse.$type, exports.GetGuildPruneCountResponse);
 const baseBeginGuildPruneRequest = {
     $type: "pylon.discord.v1.rest.BeginGuildPruneRequest",
 };
-export const BeginGuildPruneRequest = {
+exports.BeginGuildPruneRequest = {
     $type: "pylon.discord.v1.rest.BeginGuildPruneRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.days !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.days }, writer.uint32(10).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.days }, writer.uint32(10).fork()).ldelim();
         }
         if (message.includeRoles !== undefined) {
-            SnowflakeListValue.encode(message.includeRoles, writer.uint32(18).fork()).ldelim();
+            model_1.SnowflakeListValue.encode(message.includeRoles, writer.uint32(18).fork()).ldelim();
         }
         if (message.computePruneCount !== undefined) {
-            BoolValue.encode({
+            wrappers_1.BoolValue.encode({
                 $type: "google.protobuf.BoolValue",
                 value: message.computePruneCount,
             }, writer.uint32(26).fork()).ldelim();
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -4778,23 +4786,23 @@ export const BeginGuildPruneRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseBeginGuildPruneRequest };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.days = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.days = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 2:
-                    message.includeRoles = SnowflakeListValue.decode(reader, reader.uint32());
+                    message.includeRoles = model_1.SnowflakeListValue.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.computePruneCount = BoolValue.decode(reader, reader.uint32()).value;
+                    message.computePruneCount = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4809,7 +4817,7 @@ export const BeginGuildPruneRequest = {
             message.days = Number(object.days);
         }
         if (object.includeRoles !== undefined && object.includeRoles !== null) {
-            message.includeRoles = SnowflakeListValue.fromJSON(object.includeRoles);
+            message.includeRoles = model_1.SnowflakeListValue.fromJSON(object.includeRoles);
         }
         if (object.computePruneCount !== undefined &&
             object.computePruneCount !== null) {
@@ -4825,7 +4833,7 @@ export const BeginGuildPruneRequest = {
         message.days !== undefined && (obj.days = message.days);
         message.includeRoles !== undefined &&
             (obj.includeRoles = message.includeRoles
-                ? SnowflakeListValue.toJSON(message.includeRoles)
+                ? model_1.SnowflakeListValue.toJSON(message.includeRoles)
                 : undefined);
         message.computePruneCount !== undefined &&
             (obj.computePruneCount = message.computePruneCount);
@@ -4839,7 +4847,7 @@ export const BeginGuildPruneRequest = {
             message.days = object.days;
         }
         if (object.includeRoles !== undefined && object.includeRoles !== null) {
-            message.includeRoles = SnowflakeListValue.fromPartial(object.includeRoles);
+            message.includeRoles = model_1.SnowflakeListValue.fromPartial(object.includeRoles);
         }
         if (object.computePruneCount !== undefined &&
             object.computePruneCount !== null) {
@@ -4851,23 +4859,23 @@ export const BeginGuildPruneRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(BeginGuildPruneRequest.$type, BeginGuildPruneRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.BeginGuildPruneRequest.$type, exports.BeginGuildPruneRequest);
 const baseBeginGuildPruneResponse = {
     $type: "pylon.discord.v1.rest.BeginGuildPruneResponse",
 };
-export const BeginGuildPruneResponse = {
+exports.BeginGuildPruneResponse = {
     $type: "pylon.discord.v1.rest.BeginGuildPruneResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseBeginGuildPruneResponse,
@@ -4878,13 +4886,13 @@ export const BeginGuildPruneResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -4901,11 +4909,11 @@ export const BeginGuildPruneResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -4913,11 +4921,11 @@ export const BeginGuildPruneResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -4930,7 +4938,7 @@ export const BeginGuildPruneResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -4938,23 +4946,23 @@ export const BeginGuildPruneResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(BeginGuildPruneResponse.$type, BeginGuildPruneResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.BeginGuildPruneResponse.$type, exports.BeginGuildPruneResponse);
 const baseGetGuildVoiceRegionsRequest = {
     $type: "pylon.discord.v1.rest.GetGuildVoiceRegionsRequest",
 };
-export const GetGuildVoiceRegionsRequest = {
+exports.GetGuildVoiceRegionsRequest = {
     $type: "pylon.discord.v1.rest.GetGuildVoiceRegionsRequest",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetGuildVoiceRegionsRequest,
@@ -4986,23 +4994,23 @@ export const GetGuildVoiceRegionsRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildVoiceRegionsRequest.$type, GetGuildVoiceRegionsRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildVoiceRegionsRequest.$type, exports.GetGuildVoiceRegionsRequest);
 const baseGetGuildVoiceRegionsResponse = {
     $type: "pylon.discord.v1.rest.GetGuildVoiceRegionsResponse",
 };
-export const GetGuildVoiceRegionsResponse = {
+exports.GetGuildVoiceRegionsResponse = {
     $type: "pylon.discord.v1.rest.GetGuildVoiceRegionsResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            GetGuildVoiceRegionsResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.GetGuildVoiceRegionsResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetGuildVoiceRegionsResponse,
@@ -5013,13 +5021,13 @@ export const GetGuildVoiceRegionsResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: GetGuildVoiceRegionsResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.GetGuildVoiceRegionsResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -5036,13 +5044,13 @@ export const GetGuildVoiceRegionsResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetGuildVoiceRegionsResponse_Data.fromJSON(object.data),
+                data: exports.GetGuildVoiceRegionsResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -5051,11 +5059,11 @@ export const GetGuildVoiceRegionsResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? GetGuildVoiceRegionsResponse_Data.toJSON(message.response?.data)
+                ? exports.GetGuildVoiceRegionsResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -5068,7 +5076,7 @@ export const GetGuildVoiceRegionsResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -5076,27 +5084,27 @@ export const GetGuildVoiceRegionsResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetGuildVoiceRegionsResponse_Data.fromPartial(object.response.data),
+                data: exports.GetGuildVoiceRegionsResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildVoiceRegionsResponse.$type, GetGuildVoiceRegionsResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildVoiceRegionsResponse.$type, exports.GetGuildVoiceRegionsResponse);
 const baseGetGuildVoiceRegionsResponse_Data = {
     $type: "pylon.discord.v1.rest.GetGuildVoiceRegionsResponse.Data",
     regions: "",
 };
-export const GetGuildVoiceRegionsResponse_Data = {
+exports.GetGuildVoiceRegionsResponse_Data = {
     $type: "pylon.discord.v1.rest.GetGuildVoiceRegionsResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.regions) {
             writer.uint32(10).string(v);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetGuildVoiceRegionsResponse_Data,
@@ -5150,17 +5158,17 @@ export const GetGuildVoiceRegionsResponse_Data = {
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildVoiceRegionsResponse_Data.$type, GetGuildVoiceRegionsResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildVoiceRegionsResponse_Data.$type, exports.GetGuildVoiceRegionsResponse_Data);
 const baseGetGuildInvitesRequest = {
     $type: "pylon.discord.v1.rest.GetGuildInvitesRequest",
 };
-export const GetGuildInvitesRequest = {
+exports.GetGuildInvitesRequest = {
     $type: "pylon.discord.v1.rest.GetGuildInvitesRequest",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetGuildInvitesRequest };
         while (reader.pos < end) {
@@ -5186,23 +5194,23 @@ export const GetGuildInvitesRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildInvitesRequest.$type, GetGuildInvitesRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildInvitesRequest.$type, exports.GetGuildInvitesRequest);
 const baseGetGuildInvitesResponse = {
     $type: "pylon.discord.v1.rest.GetGuildInvitesResponse",
 };
-export const GetGuildInvitesResponse = {
+exports.GetGuildInvitesResponse = {
     $type: "pylon.discord.v1.rest.GetGuildInvitesResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            GetGuildInvitesResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.GetGuildInvitesResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetGuildInvitesResponse,
@@ -5213,13 +5221,13 @@ export const GetGuildInvitesResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: GetGuildInvitesResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.GetGuildInvitesResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -5236,13 +5244,13 @@ export const GetGuildInvitesResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetGuildInvitesResponse_Data.fromJSON(object.data),
+                data: exports.GetGuildInvitesResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -5251,11 +5259,11 @@ export const GetGuildInvitesResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? GetGuildInvitesResponse_Data.toJSON(message.response?.data)
+                ? exports.GetGuildInvitesResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -5268,7 +5276,7 @@ export const GetGuildInvitesResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -5276,26 +5284,26 @@ export const GetGuildInvitesResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetGuildInvitesResponse_Data.fromPartial(object.response.data),
+                data: exports.GetGuildInvitesResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildInvitesResponse.$type, GetGuildInvitesResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildInvitesResponse.$type, exports.GetGuildInvitesResponse);
 const baseGetGuildInvitesResponse_Data = {
     $type: "pylon.discord.v1.rest.GetGuildInvitesResponse.Data",
 };
-export const GetGuildInvitesResponse_Data = {
+exports.GetGuildInvitesResponse_Data = {
     $type: "pylon.discord.v1.rest.GetGuildInvitesResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.invites) {
-            InviteData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.InviteData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetGuildInvitesResponse_Data,
@@ -5305,7 +5313,7 @@ export const GetGuildInvitesResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.invites.push(InviteData.decode(reader, reader.uint32()));
+                    message.invites.push(model_1.InviteData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5321,7 +5329,7 @@ export const GetGuildInvitesResponse_Data = {
         message.invites = [];
         if (object.invites !== undefined && object.invites !== null) {
             for (const e of object.invites) {
-                message.invites.push(InviteData.fromJSON(e));
+                message.invites.push(model_1.InviteData.fromJSON(e));
             }
         }
         return message;
@@ -5329,7 +5337,7 @@ export const GetGuildInvitesResponse_Data = {
     toJSON(message) {
         const obj = {};
         if (message.invites) {
-            obj.invites = message.invites.map((e) => e ? InviteData.toJSON(e) : undefined);
+            obj.invites = message.invites.map((e) => e ? model_1.InviteData.toJSON(e) : undefined);
         }
         else {
             obj.invites = [];
@@ -5343,59 +5351,59 @@ export const GetGuildInvitesResponse_Data = {
         message.invites = [];
         if (object.invites !== undefined && object.invites !== null) {
             for (const e of object.invites) {
-                message.invites.push(InviteData.fromPartial(e));
+                message.invites.push(model_1.InviteData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildInvitesResponse_Data.$type, GetGuildInvitesResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildInvitesResponse_Data.$type, exports.GetGuildInvitesResponse_Data);
 const baseModifyChannelRequest = {
     $type: "pylon.discord.v1.rest.ModifyChannelRequest",
     channelId: "0",
     type: 0,
 };
-export const ModifyChannelRequest = {
+exports.ModifyChannelRequest = {
     $type: "pylon.discord.v1.rest.ModifyChannelRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
         if (message.name !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.name }, writer.uint32(18).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.name }, writer.uint32(18).fork()).ldelim();
         }
         if (message.type !== 0) {
             writer.uint32(24).int32(message.type);
         }
         if (message.position !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.position }, writer.uint32(34).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.position }, writer.uint32(34).fork()).ldelim();
         }
         if (message.topic !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.topic }, writer.uint32(42).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.topic }, writer.uint32(42).fork()).ldelim();
         }
         if (message.nsfw !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.nsfw }, writer.uint32(50).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.nsfw }, writer.uint32(50).fork()).ldelim();
         }
         if (message.rateLimitPerUser !== undefined) {
-            UInt32Value.encode({
+            wrappers_1.UInt32Value.encode({
                 $type: "google.protobuf.UInt32Value",
                 value: message.rateLimitPerUser,
             }, writer.uint32(58).fork()).ldelim();
         }
         if (message.bitrate !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.bitrate }, writer.uint32(66).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.bitrate }, writer.uint32(66).fork()).ldelim();
         }
         if (message.userLimit !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.userLimit }, writer.uint32(74).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.userLimit }, writer.uint32(74).fork()).ldelim();
         }
         if (message.permissionOverwrites !== undefined) {
-            ModifyChannelRequest_ChannelPermissionOverwritesValue.encode(message.permissionOverwrites, writer.uint32(82).fork()).ldelim();
+            exports.ModifyChannelRequest_ChannelPermissionOverwritesValue.encode(message.permissionOverwrites, writer.uint32(82).fork()).ldelim();
         }
         if (message.parentId !== undefined) {
-            SnowflakeValue.encode(message.parentId, writer.uint32(90).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.parentId, writer.uint32(90).fork()).ldelim();
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -5403,7 +5411,7 @@ export const ModifyChannelRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseModifyChannelRequest };
         while (reader.pos < end) {
@@ -5413,37 +5421,37 @@ export const ModifyChannelRequest = {
                     message.channelId = longToString(reader.fixed64());
                     break;
                 case 2:
-                    message.name = StringValue.decode(reader, reader.uint32()).value;
+                    message.name = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 3:
                     message.type = reader.int32();
                     break;
                 case 4:
-                    message.position = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.position = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 5:
-                    message.topic = StringValue.decode(reader, reader.uint32()).value;
+                    message.topic = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 6:
-                    message.nsfw = BoolValue.decode(reader, reader.uint32()).value;
+                    message.nsfw = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 7:
-                    message.rateLimitPerUser = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.rateLimitPerUser = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 8:
-                    message.bitrate = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.bitrate = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 9:
-                    message.userLimit = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.userLimit = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 10:
-                    message.permissionOverwrites = ModifyChannelRequest_ChannelPermissionOverwritesValue.decode(reader, reader.uint32());
+                    message.permissionOverwrites = exports.ModifyChannelRequest_ChannelPermissionOverwritesValue.decode(reader, reader.uint32());
                     break;
                 case 11:
-                    message.parentId = SnowflakeValue.decode(reader, reader.uint32());
+                    message.parentId = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5461,7 +5469,7 @@ export const ModifyChannelRequest = {
             message.name = String(object.name);
         }
         if (object.type !== undefined && object.type !== null) {
-            message.type = channelData_ChannelTypeFromJSON(object.type);
+            message.type = model_1.channelData_ChannelTypeFromJSON(object.type);
         }
         if (object.position !== undefined && object.position !== null) {
             message.position = Number(object.position);
@@ -5484,10 +5492,10 @@ export const ModifyChannelRequest = {
         }
         if (object.permissionOverwrites !== undefined &&
             object.permissionOverwrites !== null) {
-            message.permissionOverwrites = ModifyChannelRequest_ChannelPermissionOverwritesValue.fromJSON(object.permissionOverwrites);
+            message.permissionOverwrites = exports.ModifyChannelRequest_ChannelPermissionOverwritesValue.fromJSON(object.permissionOverwrites);
         }
         if (object.parentId !== undefined && object.parentId !== null) {
-            message.parentId = SnowflakeValue.fromJSON(object.parentId);
+            message.parentId = model_1.SnowflakeValue.fromJSON(object.parentId);
         }
         if (object.auditLogReason !== undefined && object.auditLogReason !== null) {
             message.auditLogReason = String(object.auditLogReason);
@@ -5499,7 +5507,7 @@ export const ModifyChannelRequest = {
         message.channelId !== undefined && (obj.channelId = message.channelId);
         message.name !== undefined && (obj.name = message.name);
         message.type !== undefined &&
-            (obj.type = channelData_ChannelTypeToJSON(message.type));
+            (obj.type = model_1.channelData_ChannelTypeToJSON(message.type));
         message.position !== undefined && (obj.position = message.position);
         message.topic !== undefined && (obj.topic = message.topic);
         message.nsfw !== undefined && (obj.nsfw = message.nsfw);
@@ -5509,11 +5517,11 @@ export const ModifyChannelRequest = {
         message.userLimit !== undefined && (obj.userLimit = message.userLimit);
         message.permissionOverwrites !== undefined &&
             (obj.permissionOverwrites = message.permissionOverwrites
-                ? ModifyChannelRequest_ChannelPermissionOverwritesValue.toJSON(message.permissionOverwrites)
+                ? exports.ModifyChannelRequest_ChannelPermissionOverwritesValue.toJSON(message.permissionOverwrites)
                 : undefined);
         message.parentId !== undefined &&
             (obj.parentId = message.parentId
-                ? SnowflakeValue.toJSON(message.parentId)
+                ? model_1.SnowflakeValue.toJSON(message.parentId)
                 : undefined);
         message.auditLogReason !== undefined &&
             (obj.auditLogReason = message.auditLogReason);
@@ -5551,10 +5559,10 @@ export const ModifyChannelRequest = {
         }
         if (object.permissionOverwrites !== undefined &&
             object.permissionOverwrites !== null) {
-            message.permissionOverwrites = ModifyChannelRequest_ChannelPermissionOverwritesValue.fromPartial(object.permissionOverwrites);
+            message.permissionOverwrites = exports.ModifyChannelRequest_ChannelPermissionOverwritesValue.fromPartial(object.permissionOverwrites);
         }
         if (object.parentId !== undefined && object.parentId !== null) {
-            message.parentId = SnowflakeValue.fromPartial(object.parentId);
+            message.parentId = model_1.SnowflakeValue.fromPartial(object.parentId);
         }
         if (object.auditLogReason !== undefined && object.auditLogReason !== null) {
             message.auditLogReason = object.auditLogReason;
@@ -5562,20 +5570,20 @@ export const ModifyChannelRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(ModifyChannelRequest.$type, ModifyChannelRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyChannelRequest.$type, exports.ModifyChannelRequest);
 const baseModifyChannelRequest_ChannelPermissionOverwritesValue = {
     $type: "pylon.discord.v1.rest.ModifyChannelRequest.ChannelPermissionOverwritesValue",
 };
-export const ModifyChannelRequest_ChannelPermissionOverwritesValue = {
+exports.ModifyChannelRequest_ChannelPermissionOverwritesValue = {
     $type: "pylon.discord.v1.rest.ModifyChannelRequest.ChannelPermissionOverwritesValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.values) {
-            ChannelData_ChannelPermissionOverwriteData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.ChannelData_ChannelPermissionOverwriteData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyChannelRequest_ChannelPermissionOverwritesValue,
@@ -5585,7 +5593,7 @@ export const ModifyChannelRequest_ChannelPermissionOverwritesValue = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.values.push(ChannelData_ChannelPermissionOverwriteData.decode(reader, reader.uint32()));
+                    message.values.push(model_1.ChannelData_ChannelPermissionOverwriteData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5601,7 +5609,7 @@ export const ModifyChannelRequest_ChannelPermissionOverwritesValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(ChannelData_ChannelPermissionOverwriteData.fromJSON(e));
+                message.values.push(model_1.ChannelData_ChannelPermissionOverwriteData.fromJSON(e));
             }
         }
         return message;
@@ -5609,7 +5617,7 @@ export const ModifyChannelRequest_ChannelPermissionOverwritesValue = {
     toJSON(message) {
         const obj = {};
         if (message.values) {
-            obj.values = message.values.map((e) => e ? ChannelData_ChannelPermissionOverwriteData.toJSON(e) : undefined);
+            obj.values = message.values.map((e) => e ? model_1.ChannelData_ChannelPermissionOverwriteData.toJSON(e) : undefined);
         }
         else {
             obj.values = [];
@@ -5623,29 +5631,29 @@ export const ModifyChannelRequest_ChannelPermissionOverwritesValue = {
         message.values = [];
         if (object.values !== undefined && object.values !== null) {
             for (const e of object.values) {
-                message.values.push(ChannelData_ChannelPermissionOverwriteData.fromPartial(e));
+                message.values.push(model_1.ChannelData_ChannelPermissionOverwriteData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyChannelRequest_ChannelPermissionOverwritesValue.$type, ModifyChannelRequest_ChannelPermissionOverwritesValue);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyChannelRequest_ChannelPermissionOverwritesValue.$type, exports.ModifyChannelRequest_ChannelPermissionOverwritesValue);
 const baseModifyChannelResponse = {
     $type: "pylon.discord.v1.rest.ModifyChannelResponse",
 };
-export const ModifyChannelResponse = {
+exports.ModifyChannelResponse = {
     $type: "pylon.discord.v1.rest.ModifyChannelResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            ModifyChannelResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.ModifyChannelResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseModifyChannelResponse };
         while (reader.pos < end) {
@@ -5654,13 +5662,13 @@ export const ModifyChannelResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: ModifyChannelResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.ModifyChannelResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -5675,13 +5683,13 @@ export const ModifyChannelResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyChannelResponse_Data.fromJSON(object.data),
+                data: exports.ModifyChannelResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -5690,11 +5698,11 @@ export const ModifyChannelResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? ModifyChannelResponse_Data.toJSON(message.response?.data)
+                ? exports.ModifyChannelResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -5705,7 +5713,7 @@ export const ModifyChannelResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -5713,26 +5721,26 @@ export const ModifyChannelResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyChannelResponse_Data.fromPartial(object.response.data),
+                data: exports.ModifyChannelResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyChannelResponse.$type, ModifyChannelResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyChannelResponse.$type, exports.ModifyChannelResponse);
 const baseModifyChannelResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyChannelResponse.Data",
 };
-export const ModifyChannelResponse_Data = {
+exports.ModifyChannelResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyChannelResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channel !== undefined) {
-            ChannelData.encode(message.channel, writer.uint32(10).fork()).ldelim();
+            model_1.ChannelData.encode(message.channel, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyChannelResponse_Data,
@@ -5741,7 +5749,7 @@ export const ModifyChannelResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.channel = ChannelData.decode(reader, reader.uint32());
+                    message.channel = model_1.ChannelData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5755,7 +5763,7 @@ export const ModifyChannelResponse_Data = {
             ...baseModifyChannelResponse_Data,
         };
         if (object.channel !== undefined && object.channel !== null) {
-            message.channel = ChannelData.fromJSON(object.channel);
+            message.channel = model_1.ChannelData.fromJSON(object.channel);
         }
         return message;
     },
@@ -5763,7 +5771,7 @@ export const ModifyChannelResponse_Data = {
         const obj = {};
         message.channel !== undefined &&
             (obj.channel = message.channel
-                ? ChannelData.toJSON(message.channel)
+                ? model_1.ChannelData.toJSON(message.channel)
                 : undefined);
         return obj;
     },
@@ -5772,24 +5780,24 @@ export const ModifyChannelResponse_Data = {
             ...baseModifyChannelResponse_Data,
         };
         if (object.channel !== undefined && object.channel !== null) {
-            message.channel = ChannelData.fromPartial(object.channel);
+            message.channel = model_1.ChannelData.fromPartial(object.channel);
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyChannelResponse_Data.$type, ModifyChannelResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyChannelResponse_Data.$type, exports.ModifyChannelResponse_Data);
 const baseDeleteChannelRequest = {
     $type: "pylon.discord.v1.rest.DeleteChannelRequest",
     channelId: "0",
 };
-export const DeleteChannelRequest = {
+exports.DeleteChannelRequest = {
     $type: "pylon.discord.v1.rest.DeleteChannelRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -5797,7 +5805,7 @@ export const DeleteChannelRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseDeleteChannelRequest };
         while (reader.pos < end) {
@@ -5807,7 +5815,7 @@ export const DeleteChannelRequest = {
                     message.channelId = longToString(reader.fixed64());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5844,23 +5852,23 @@ export const DeleteChannelRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(DeleteChannelRequest.$type, DeleteChannelRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteChannelRequest.$type, exports.DeleteChannelRequest);
 const baseDeleteChannelResponse = {
     $type: "pylon.discord.v1.rest.DeleteChannelResponse",
 };
-export const DeleteChannelResponse = {
+exports.DeleteChannelResponse = {
     $type: "pylon.discord.v1.rest.DeleteChannelResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseDeleteChannelResponse };
         while (reader.pos < end) {
@@ -5869,13 +5877,13 @@ export const DeleteChannelResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -5890,11 +5898,11 @@ export const DeleteChannelResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -5902,11 +5910,11 @@ export const DeleteChannelResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -5917,7 +5925,7 @@ export const DeleteChannelResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -5925,32 +5933,32 @@ export const DeleteChannelResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(DeleteChannelResponse.$type, DeleteChannelResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteChannelResponse.$type, exports.DeleteChannelResponse);
 const baseGetChannelMessagesRequest = {
     $type: "pylon.discord.v1.rest.GetChannelMessagesRequest",
     channelId: "0",
     limit: 0,
 };
-export const GetChannelMessagesRequest = {
+exports.GetChannelMessagesRequest = {
     $type: "pylon.discord.v1.rest.GetChannelMessagesRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
         if (message.around !== undefined) {
-            SnowflakeValue.encode(message.around, writer.uint32(18).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.around, writer.uint32(18).fork()).ldelim();
         }
         if (message.before !== undefined) {
-            SnowflakeValue.encode(message.before, writer.uint32(26).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.before, writer.uint32(26).fork()).ldelim();
         }
         if (message.after !== undefined) {
-            SnowflakeValue.encode(message.after, writer.uint32(34).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.after, writer.uint32(34).fork()).ldelim();
         }
         if (message.limit !== 0) {
             writer.uint32(40).uint32(message.limit);
@@ -5958,7 +5966,7 @@ export const GetChannelMessagesRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetChannelMessagesRequest,
@@ -5970,13 +5978,13 @@ export const GetChannelMessagesRequest = {
                     message.channelId = longToString(reader.fixed64());
                     break;
                 case 2:
-                    message.around = SnowflakeValue.decode(reader, reader.uint32());
+                    message.around = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.before = SnowflakeValue.decode(reader, reader.uint32());
+                    message.before = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 4:
-                    message.after = SnowflakeValue.decode(reader, reader.uint32());
+                    message.after = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 5:
                     message.limit = reader.uint32();
@@ -5996,13 +6004,13 @@ export const GetChannelMessagesRequest = {
             message.channelId = String(object.channelId);
         }
         if (object.around !== undefined && object.around !== null) {
-            message.around = SnowflakeValue.fromJSON(object.around);
+            message.around = model_1.SnowflakeValue.fromJSON(object.around);
         }
         if (object.before !== undefined && object.before !== null) {
-            message.before = SnowflakeValue.fromJSON(object.before);
+            message.before = model_1.SnowflakeValue.fromJSON(object.before);
         }
         if (object.after !== undefined && object.after !== null) {
-            message.after = SnowflakeValue.fromJSON(object.after);
+            message.after = model_1.SnowflakeValue.fromJSON(object.after);
         }
         if (object.limit !== undefined && object.limit !== null) {
             message.limit = Number(object.limit);
@@ -6014,15 +6022,15 @@ export const GetChannelMessagesRequest = {
         message.channelId !== undefined && (obj.channelId = message.channelId);
         message.around !== undefined &&
             (obj.around = message.around
-                ? SnowflakeValue.toJSON(message.around)
+                ? model_1.SnowflakeValue.toJSON(message.around)
                 : undefined);
         message.before !== undefined &&
             (obj.before = message.before
-                ? SnowflakeValue.toJSON(message.before)
+                ? model_1.SnowflakeValue.toJSON(message.before)
                 : undefined);
         message.after !== undefined &&
             (obj.after = message.after
-                ? SnowflakeValue.toJSON(message.after)
+                ? model_1.SnowflakeValue.toJSON(message.after)
                 : undefined);
         message.limit !== undefined && (obj.limit = message.limit);
         return obj;
@@ -6035,13 +6043,13 @@ export const GetChannelMessagesRequest = {
             message.channelId = object.channelId;
         }
         if (object.around !== undefined && object.around !== null) {
-            message.around = SnowflakeValue.fromPartial(object.around);
+            message.around = model_1.SnowflakeValue.fromPartial(object.around);
         }
         if (object.before !== undefined && object.before !== null) {
-            message.before = SnowflakeValue.fromPartial(object.before);
+            message.before = model_1.SnowflakeValue.fromPartial(object.before);
         }
         if (object.after !== undefined && object.after !== null) {
-            message.after = SnowflakeValue.fromPartial(object.after);
+            message.after = model_1.SnowflakeValue.fromPartial(object.after);
         }
         if (object.limit !== undefined && object.limit !== null) {
             message.limit = object.limit;
@@ -6049,23 +6057,23 @@ export const GetChannelMessagesRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetChannelMessagesRequest.$type, GetChannelMessagesRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetChannelMessagesRequest.$type, exports.GetChannelMessagesRequest);
 const baseGetChannelMessagesResponse = {
     $type: "pylon.discord.v1.rest.GetChannelMessagesResponse",
 };
-export const GetChannelMessagesResponse = {
+exports.GetChannelMessagesResponse = {
     $type: "pylon.discord.v1.rest.GetChannelMessagesResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            GetChannelMessagesResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.GetChannelMessagesResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetChannelMessagesResponse,
@@ -6076,13 +6084,13 @@ export const GetChannelMessagesResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: GetChannelMessagesResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.GetChannelMessagesResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -6099,13 +6107,13 @@ export const GetChannelMessagesResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetChannelMessagesResponse_Data.fromJSON(object.data),
+                data: exports.GetChannelMessagesResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -6114,11 +6122,11 @@ export const GetChannelMessagesResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? GetChannelMessagesResponse_Data.toJSON(message.response?.data)
+                ? exports.GetChannelMessagesResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -6131,7 +6139,7 @@ export const GetChannelMessagesResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -6139,26 +6147,26 @@ export const GetChannelMessagesResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetChannelMessagesResponse_Data.fromPartial(object.response.data),
+                data: exports.GetChannelMessagesResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetChannelMessagesResponse.$type, GetChannelMessagesResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetChannelMessagesResponse.$type, exports.GetChannelMessagesResponse);
 const baseGetChannelMessagesResponse_Data = {
     $type: "pylon.discord.v1.rest.GetChannelMessagesResponse.Data",
 };
-export const GetChannelMessagesResponse_Data = {
+exports.GetChannelMessagesResponse_Data = {
     $type: "pylon.discord.v1.rest.GetChannelMessagesResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.messages) {
-            MessageData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetChannelMessagesResponse_Data,
@@ -6168,7 +6176,7 @@ export const GetChannelMessagesResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.messages.push(MessageData.decode(reader, reader.uint32()));
+                    message.messages.push(model_1.MessageData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6184,7 +6192,7 @@ export const GetChannelMessagesResponse_Data = {
         message.messages = [];
         if (object.messages !== undefined && object.messages !== null) {
             for (const e of object.messages) {
-                message.messages.push(MessageData.fromJSON(e));
+                message.messages.push(model_1.MessageData.fromJSON(e));
             }
         }
         return message;
@@ -6192,7 +6200,7 @@ export const GetChannelMessagesResponse_Data = {
     toJSON(message) {
         const obj = {};
         if (message.messages) {
-            obj.messages = message.messages.map((e) => e ? MessageData.toJSON(e) : undefined);
+            obj.messages = message.messages.map((e) => e ? model_1.MessageData.toJSON(e) : undefined);
         }
         else {
             obj.messages = [];
@@ -6206,21 +6214,21 @@ export const GetChannelMessagesResponse_Data = {
         message.messages = [];
         if (object.messages !== undefined && object.messages !== null) {
             for (const e of object.messages) {
-                message.messages.push(MessageData.fromPartial(e));
+                message.messages.push(model_1.MessageData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetChannelMessagesResponse_Data.$type, GetChannelMessagesResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.GetChannelMessagesResponse_Data.$type, exports.GetChannelMessagesResponse_Data);
 const baseGetChannelMessageRequest = {
     $type: "pylon.discord.v1.rest.GetChannelMessageRequest",
     channelId: "0",
     messageId: "0",
 };
-export const GetChannelMessageRequest = {
+exports.GetChannelMessageRequest = {
     $type: "pylon.discord.v1.rest.GetChannelMessageRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -6230,7 +6238,7 @@ export const GetChannelMessageRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetChannelMessageRequest,
@@ -6282,23 +6290,23 @@ export const GetChannelMessageRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetChannelMessageRequest.$type, GetChannelMessageRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetChannelMessageRequest.$type, exports.GetChannelMessageRequest);
 const baseGetChannelMessageResponse = {
     $type: "pylon.discord.v1.rest.GetChannelMessageResponse",
 };
-export const GetChannelMessageResponse = {
+exports.GetChannelMessageResponse = {
     $type: "pylon.discord.v1.rest.GetChannelMessageResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            GetChannelMessageResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.GetChannelMessageResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetChannelMessageResponse,
@@ -6309,13 +6317,13 @@ export const GetChannelMessageResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: GetChannelMessageResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.GetChannelMessageResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -6332,13 +6340,13 @@ export const GetChannelMessageResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetChannelMessageResponse_Data.fromJSON(object.data),
+                data: exports.GetChannelMessageResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -6347,11 +6355,11 @@ export const GetChannelMessageResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? GetChannelMessageResponse_Data.toJSON(message.response?.data)
+                ? exports.GetChannelMessageResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -6364,7 +6372,7 @@ export const GetChannelMessageResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -6372,26 +6380,26 @@ export const GetChannelMessageResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetChannelMessageResponse_Data.fromPartial(object.response.data),
+                data: exports.GetChannelMessageResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetChannelMessageResponse.$type, GetChannelMessageResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetChannelMessageResponse.$type, exports.GetChannelMessageResponse);
 const baseGetChannelMessageResponse_Data = {
     $type: "pylon.discord.v1.rest.GetChannelMessageResponse.Data",
 };
-export const GetChannelMessageResponse_Data = {
+exports.GetChannelMessageResponse_Data = {
     $type: "pylon.discord.v1.rest.GetChannelMessageResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.message !== undefined) {
-            MessageData.encode(message.message, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData.encode(message.message, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetChannelMessageResponse_Data,
@@ -6400,7 +6408,7 @@ export const GetChannelMessageResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.message = MessageData.decode(reader, reader.uint32());
+                    message.message = model_1.MessageData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6414,7 +6422,7 @@ export const GetChannelMessageResponse_Data = {
             ...baseGetChannelMessageResponse_Data,
         };
         if (object.message !== undefined && object.message !== null) {
-            message.message = MessageData.fromJSON(object.message);
+            message.message = model_1.MessageData.fromJSON(object.message);
         }
         return message;
     },
@@ -6422,7 +6430,7 @@ export const GetChannelMessageResponse_Data = {
         const obj = {};
         message.message !== undefined &&
             (obj.message = message.message
-                ? MessageData.toJSON(message.message)
+                ? model_1.MessageData.toJSON(message.message)
                 : undefined);
         return obj;
     },
@@ -6431,20 +6439,20 @@ export const GetChannelMessageResponse_Data = {
             ...baseGetChannelMessageResponse_Data,
         };
         if (object.message !== undefined && object.message !== null) {
-            message.message = MessageData.fromPartial(object.message);
+            message.message = model_1.MessageData.fromPartial(object.message);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetChannelMessageResponse_Data.$type, GetChannelMessageResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.GetChannelMessageResponse_Data.$type, exports.GetChannelMessageResponse_Data);
 const baseCreateMessageRequest = {
     $type: "pylon.discord.v1.rest.CreateMessageRequest",
     channelId: "0",
     content: "",
 };
-export const CreateMessageRequest = {
+exports.CreateMessageRequest = {
     $type: "pylon.discord.v1.rest.CreateMessageRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -6452,24 +6460,24 @@ export const CreateMessageRequest = {
             writer.uint32(18).string(message.content);
         }
         if (message.nonce !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.nonce }, writer.uint32(26).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.nonce }, writer.uint32(26).fork()).ldelim();
         }
         if (message.tts !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.tts }, writer.uint32(34).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.tts }, writer.uint32(34).fork()).ldelim();
         }
         if (message.embed !== undefined) {
-            MessageData_MessageEmbedData.encode(message.embed, writer.uint32(42).fork()).ldelim();
+            model_1.MessageData_MessageEmbedData.encode(message.embed, writer.uint32(42).fork()).ldelim();
         }
         if (message.allowedMentions !== undefined) {
-            CreateMessageRequest_AllowedMentions.encode(message.allowedMentions, writer.uint32(50).fork()).ldelim();
+            exports.CreateMessageRequest_AllowedMentions.encode(message.allowedMentions, writer.uint32(50).fork()).ldelim();
         }
         if (message.attachment !== undefined) {
-            CreateMessageRequest_Attachment.encode(message.attachment, writer.uint32(58).fork()).ldelim();
+            exports.CreateMessageRequest_Attachment.encode(message.attachment, writer.uint32(58).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseCreateMessageRequest };
         while (reader.pos < end) {
@@ -6482,19 +6490,19 @@ export const CreateMessageRequest = {
                     message.content = reader.string();
                     break;
                 case 3:
-                    message.nonce = StringValue.decode(reader, reader.uint32()).value;
+                    message.nonce = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 4:
-                    message.tts = BoolValue.decode(reader, reader.uint32()).value;
+                    message.tts = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 5:
-                    message.embed = MessageData_MessageEmbedData.decode(reader, reader.uint32());
+                    message.embed = model_1.MessageData_MessageEmbedData.decode(reader, reader.uint32());
                     break;
                 case 6:
-                    message.allowedMentions = CreateMessageRequest_AllowedMentions.decode(reader, reader.uint32());
+                    message.allowedMentions = exports.CreateMessageRequest_AllowedMentions.decode(reader, reader.uint32());
                     break;
                 case 7:
-                    message.attachment = CreateMessageRequest_Attachment.decode(reader, reader.uint32());
+                    message.attachment = exports.CreateMessageRequest_Attachment.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6518,14 +6526,14 @@ export const CreateMessageRequest = {
             message.tts = Boolean(object.tts);
         }
         if (object.embed !== undefined && object.embed !== null) {
-            message.embed = MessageData_MessageEmbedData.fromJSON(object.embed);
+            message.embed = model_1.MessageData_MessageEmbedData.fromJSON(object.embed);
         }
         if (object.allowedMentions !== undefined &&
             object.allowedMentions !== null) {
-            message.allowedMentions = CreateMessageRequest_AllowedMentions.fromJSON(object.allowedMentions);
+            message.allowedMentions = exports.CreateMessageRequest_AllowedMentions.fromJSON(object.allowedMentions);
         }
         if (object.attachment !== undefined && object.attachment !== null) {
-            message.attachment = CreateMessageRequest_Attachment.fromJSON(object.attachment);
+            message.attachment = exports.CreateMessageRequest_Attachment.fromJSON(object.attachment);
         }
         return message;
     },
@@ -6537,15 +6545,15 @@ export const CreateMessageRequest = {
         message.tts !== undefined && (obj.tts = message.tts);
         message.embed !== undefined &&
             (obj.embed = message.embed
-                ? MessageData_MessageEmbedData.toJSON(message.embed)
+                ? model_1.MessageData_MessageEmbedData.toJSON(message.embed)
                 : undefined);
         message.allowedMentions !== undefined &&
             (obj.allowedMentions = message.allowedMentions
-                ? CreateMessageRequest_AllowedMentions.toJSON(message.allowedMentions)
+                ? exports.CreateMessageRequest_AllowedMentions.toJSON(message.allowedMentions)
                 : undefined);
         message.attachment !== undefined &&
             (obj.attachment = message.attachment
-                ? CreateMessageRequest_Attachment.toJSON(message.attachment)
+                ? exports.CreateMessageRequest_Attachment.toJSON(message.attachment)
                 : undefined);
         return obj;
     },
@@ -6564,38 +6572,38 @@ export const CreateMessageRequest = {
             message.tts = object.tts;
         }
         if (object.embed !== undefined && object.embed !== null) {
-            message.embed = MessageData_MessageEmbedData.fromPartial(object.embed);
+            message.embed = model_1.MessageData_MessageEmbedData.fromPartial(object.embed);
         }
         if (object.allowedMentions !== undefined &&
             object.allowedMentions !== null) {
-            message.allowedMentions = CreateMessageRequest_AllowedMentions.fromPartial(object.allowedMentions);
+            message.allowedMentions = exports.CreateMessageRequest_AllowedMentions.fromPartial(object.allowedMentions);
         }
         if (object.attachment !== undefined && object.attachment !== null) {
-            message.attachment = CreateMessageRequest_Attachment.fromPartial(object.attachment);
+            message.attachment = exports.CreateMessageRequest_Attachment.fromPartial(object.attachment);
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateMessageRequest.$type, CreateMessageRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateMessageRequest.$type, exports.CreateMessageRequest);
 const baseCreateMessageRequest_AllowedMentions = {
     $type: "pylon.discord.v1.rest.CreateMessageRequest.AllowedMentions",
 };
-export const CreateMessageRequest_AllowedMentions = {
+exports.CreateMessageRequest_AllowedMentions = {
     $type: "pylon.discord.v1.rest.CreateMessageRequest.AllowedMentions",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.parse !== undefined) {
-            CreateMessageRequest_AllowedMentions_AllowedMentionTypes.encode(message.parse, writer.uint32(10).fork()).ldelim();
+            exports.CreateMessageRequest_AllowedMentions_AllowedMentionTypes.encode(message.parse, writer.uint32(10).fork()).ldelim();
         }
         if (message.roles !== undefined) {
-            SnowflakeListValue.encode(message.roles, writer.uint32(18).fork()).ldelim();
+            model_1.SnowflakeListValue.encode(message.roles, writer.uint32(18).fork()).ldelim();
         }
         if (message.users !== undefined) {
-            SnowflakeListValue.encode(message.users, writer.uint32(26).fork()).ldelim();
+            model_1.SnowflakeListValue.encode(message.users, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateMessageRequest_AllowedMentions,
@@ -6604,13 +6612,13 @@ export const CreateMessageRequest_AllowedMentions = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.parse = CreateMessageRequest_AllowedMentions_AllowedMentionTypes.decode(reader, reader.uint32());
+                    message.parse = exports.CreateMessageRequest_AllowedMentions_AllowedMentionTypes.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.roles = SnowflakeListValue.decode(reader, reader.uint32());
+                    message.roles = model_1.SnowflakeListValue.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.users = SnowflakeListValue.decode(reader, reader.uint32());
+                    message.users = model_1.SnowflakeListValue.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6624,13 +6632,13 @@ export const CreateMessageRequest_AllowedMentions = {
             ...baseCreateMessageRequest_AllowedMentions,
         };
         if (object.parse !== undefined && object.parse !== null) {
-            message.parse = CreateMessageRequest_AllowedMentions_AllowedMentionTypes.fromJSON(object.parse);
+            message.parse = exports.CreateMessageRequest_AllowedMentions_AllowedMentionTypes.fromJSON(object.parse);
         }
         if (object.roles !== undefined && object.roles !== null) {
-            message.roles = SnowflakeListValue.fromJSON(object.roles);
+            message.roles = model_1.SnowflakeListValue.fromJSON(object.roles);
         }
         if (object.users !== undefined && object.users !== null) {
-            message.users = SnowflakeListValue.fromJSON(object.users);
+            message.users = model_1.SnowflakeListValue.fromJSON(object.users);
         }
         return message;
     },
@@ -6638,15 +6646,15 @@ export const CreateMessageRequest_AllowedMentions = {
         const obj = {};
         message.parse !== undefined &&
             (obj.parse = message.parse
-                ? CreateMessageRequest_AllowedMentions_AllowedMentionTypes.toJSON(message.parse)
+                ? exports.CreateMessageRequest_AllowedMentions_AllowedMentionTypes.toJSON(message.parse)
                 : undefined);
         message.roles !== undefined &&
             (obj.roles = message.roles
-                ? SnowflakeListValue.toJSON(message.roles)
+                ? model_1.SnowflakeListValue.toJSON(message.roles)
                 : undefined);
         message.users !== undefined &&
             (obj.users = message.users
-                ? SnowflakeListValue.toJSON(message.users)
+                ? model_1.SnowflakeListValue.toJSON(message.users)
                 : undefined);
         return obj;
     },
@@ -6655,27 +6663,27 @@ export const CreateMessageRequest_AllowedMentions = {
             ...baseCreateMessageRequest_AllowedMentions,
         };
         if (object.parse !== undefined && object.parse !== null) {
-            message.parse = CreateMessageRequest_AllowedMentions_AllowedMentionTypes.fromPartial(object.parse);
+            message.parse = exports.CreateMessageRequest_AllowedMentions_AllowedMentionTypes.fromPartial(object.parse);
         }
         if (object.roles !== undefined && object.roles !== null) {
-            message.roles = SnowflakeListValue.fromPartial(object.roles);
+            message.roles = model_1.SnowflakeListValue.fromPartial(object.roles);
         }
         if (object.users !== undefined && object.users !== null) {
-            message.users = SnowflakeListValue.fromPartial(object.users);
+            message.users = model_1.SnowflakeListValue.fromPartial(object.users);
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateMessageRequest_AllowedMentions.$type, CreateMessageRequest_AllowedMentions);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateMessageRequest_AllowedMentions.$type, exports.CreateMessageRequest_AllowedMentions);
 const baseCreateMessageRequest_AllowedMentions_AllowedMentionTypes = {
     $type: "pylon.discord.v1.rest.CreateMessageRequest.AllowedMentions.AllowedMentionTypes",
     roles: false,
     users: false,
     everyone: false,
 };
-export const CreateMessageRequest_AllowedMentions_AllowedMentionTypes = {
+exports.CreateMessageRequest_AllowedMentions_AllowedMentionTypes = {
     $type: "pylon.discord.v1.rest.CreateMessageRequest.AllowedMentions.AllowedMentionTypes",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.roles === true) {
             writer.uint32(8).bool(message.roles);
         }
@@ -6688,7 +6696,7 @@ export const CreateMessageRequest_AllowedMentions_AllowedMentionTypes = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateMessageRequest_AllowedMentions_AllowedMentionTypes,
@@ -6750,14 +6758,14 @@ export const CreateMessageRequest_AllowedMentions_AllowedMentionTypes = {
         return message;
     },
 };
-messageTypeRegistry.set(CreateMessageRequest_AllowedMentions_AllowedMentionTypes.$type, CreateMessageRequest_AllowedMentions_AllowedMentionTypes);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateMessageRequest_AllowedMentions_AllowedMentionTypes.$type, exports.CreateMessageRequest_AllowedMentions_AllowedMentionTypes);
 const baseCreateMessageRequest_Attachment = {
     $type: "pylon.discord.v1.rest.CreateMessageRequest.Attachment",
     name: "",
 };
-export const CreateMessageRequest_Attachment = {
+exports.CreateMessageRequest_Attachment = {
     $type: "pylon.discord.v1.rest.CreateMessageRequest.Attachment",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.name !== "") {
             writer.uint32(10).string(message.name);
         }
@@ -6767,7 +6775,7 @@ export const CreateMessageRequest_Attachment = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateMessageRequest_Attachment,
@@ -6822,23 +6830,23 @@ export const CreateMessageRequest_Attachment = {
         return message;
     },
 };
-messageTypeRegistry.set(CreateMessageRequest_Attachment.$type, CreateMessageRequest_Attachment);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateMessageRequest_Attachment.$type, exports.CreateMessageRequest_Attachment);
 const baseCreateMessageResponse = {
     $type: "pylon.discord.v1.rest.CreateMessageResponse",
 };
-export const CreateMessageResponse = {
+exports.CreateMessageResponse = {
     $type: "pylon.discord.v1.rest.CreateMessageResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            CreateMessageResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.CreateMessageResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseCreateMessageResponse };
         while (reader.pos < end) {
@@ -6847,13 +6855,13 @@ export const CreateMessageResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: CreateMessageResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.CreateMessageResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -6868,13 +6876,13 @@ export const CreateMessageResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateMessageResponse_Data.fromJSON(object.data),
+                data: exports.CreateMessageResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -6883,11 +6891,11 @@ export const CreateMessageResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? CreateMessageResponse_Data.toJSON(message.response?.data)
+                ? exports.CreateMessageResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -6898,7 +6906,7 @@ export const CreateMessageResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -6906,26 +6914,26 @@ export const CreateMessageResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateMessageResponse_Data.fromPartial(object.response.data),
+                data: exports.CreateMessageResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateMessageResponse.$type, CreateMessageResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateMessageResponse.$type, exports.CreateMessageResponse);
 const baseCreateMessageResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateMessageResponse.Data",
 };
-export const CreateMessageResponse_Data = {
+exports.CreateMessageResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateMessageResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.message !== undefined) {
-            MessageData.encode(message.message, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData.encode(message.message, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateMessageResponse_Data,
@@ -6934,7 +6942,7 @@ export const CreateMessageResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.message = MessageData.decode(reader, reader.uint32());
+                    message.message = model_1.MessageData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6948,7 +6956,7 @@ export const CreateMessageResponse_Data = {
             ...baseCreateMessageResponse_Data,
         };
         if (object.message !== undefined && object.message !== null) {
-            message.message = MessageData.fromJSON(object.message);
+            message.message = model_1.MessageData.fromJSON(object.message);
         }
         return message;
     },
@@ -6956,7 +6964,7 @@ export const CreateMessageResponse_Data = {
         const obj = {};
         message.message !== undefined &&
             (obj.message = message.message
-                ? MessageData.toJSON(message.message)
+                ? model_1.MessageData.toJSON(message.message)
                 : undefined);
         return obj;
     },
@@ -6965,20 +6973,20 @@ export const CreateMessageResponse_Data = {
             ...baseCreateMessageResponse_Data,
         };
         if (object.message !== undefined && object.message !== null) {
-            message.message = MessageData.fromPartial(object.message);
+            message.message = model_1.MessageData.fromPartial(object.message);
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateMessageResponse_Data.$type, CreateMessageResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateMessageResponse_Data.$type, exports.CreateMessageResponse_Data);
 const baseCrosspostMessageRequest = {
     $type: "pylon.discord.v1.rest.CrosspostMessageRequest",
     channelId: "0",
     messageId: "0",
 };
-export const CrosspostMessageRequest = {
+exports.CrosspostMessageRequest = {
     $type: "pylon.discord.v1.rest.CrosspostMessageRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -6988,7 +6996,7 @@ export const CrosspostMessageRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCrosspostMessageRequest,
@@ -7040,23 +7048,23 @@ export const CrosspostMessageRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(CrosspostMessageRequest.$type, CrosspostMessageRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.CrosspostMessageRequest.$type, exports.CrosspostMessageRequest);
 const baseCrosspostMessageResponse = {
     $type: "pylon.discord.v1.rest.CrosspostMessageResponse",
 };
-export const CrosspostMessageResponse = {
+exports.CrosspostMessageResponse = {
     $type: "pylon.discord.v1.rest.CrosspostMessageResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            CrosspostMessageResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.CrosspostMessageResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCrosspostMessageResponse,
@@ -7067,13 +7075,13 @@ export const CrosspostMessageResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: CrosspostMessageResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.CrosspostMessageResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -7090,13 +7098,13 @@ export const CrosspostMessageResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: CrosspostMessageResponse_Data.fromJSON(object.data),
+                data: exports.CrosspostMessageResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -7105,11 +7113,11 @@ export const CrosspostMessageResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? CrosspostMessageResponse_Data.toJSON(message.response?.data)
+                ? exports.CrosspostMessageResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -7122,7 +7130,7 @@ export const CrosspostMessageResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -7130,26 +7138,26 @@ export const CrosspostMessageResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: CrosspostMessageResponse_Data.fromPartial(object.response.data),
+                data: exports.CrosspostMessageResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(CrosspostMessageResponse.$type, CrosspostMessageResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.CrosspostMessageResponse.$type, exports.CrosspostMessageResponse);
 const baseCrosspostMessageResponse_Data = {
     $type: "pylon.discord.v1.rest.CrosspostMessageResponse.Data",
 };
-export const CrosspostMessageResponse_Data = {
+exports.CrosspostMessageResponse_Data = {
     $type: "pylon.discord.v1.rest.CrosspostMessageResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.message !== undefined) {
-            MessageData.encode(message.message, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData.encode(message.message, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCrosspostMessageResponse_Data,
@@ -7158,7 +7166,7 @@ export const CrosspostMessageResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.message = MessageData.decode(reader, reader.uint32());
+                    message.message = model_1.MessageData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -7172,7 +7180,7 @@ export const CrosspostMessageResponse_Data = {
             ...baseCrosspostMessageResponse_Data,
         };
         if (object.message !== undefined && object.message !== null) {
-            message.message = MessageData.fromJSON(object.message);
+            message.message = model_1.MessageData.fromJSON(object.message);
         }
         return message;
     },
@@ -7180,7 +7188,7 @@ export const CrosspostMessageResponse_Data = {
         const obj = {};
         message.message !== undefined &&
             (obj.message = message.message
-                ? MessageData.toJSON(message.message)
+                ? model_1.MessageData.toJSON(message.message)
                 : undefined);
         return obj;
     },
@@ -7189,21 +7197,21 @@ export const CrosspostMessageResponse_Data = {
             ...baseCrosspostMessageResponse_Data,
         };
         if (object.message !== undefined && object.message !== null) {
-            message.message = MessageData.fromPartial(object.message);
+            message.message = model_1.MessageData.fromPartial(object.message);
         }
         return message;
     },
 };
-messageTypeRegistry.set(CrosspostMessageResponse_Data.$type, CrosspostMessageResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.CrosspostMessageResponse_Data.$type, exports.CrosspostMessageResponse_Data);
 const baseCreateReactionRequest = {
     $type: "pylon.discord.v1.rest.CreateReactionRequest",
     channelId: "0",
     messageId: "0",
     emoji: "",
 };
-export const CreateReactionRequest = {
+exports.CreateReactionRequest = {
     $type: "pylon.discord.v1.rest.CreateReactionRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -7216,7 +7224,7 @@ export const CreateReactionRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseCreateReactionRequest };
         while (reader.pos < end) {
@@ -7272,23 +7280,23 @@ export const CreateReactionRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(CreateReactionRequest.$type, CreateReactionRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateReactionRequest.$type, exports.CreateReactionRequest);
 const baseCreateReactionResponse = {
     $type: "pylon.discord.v1.rest.CreateReactionResponse",
 };
-export const CreateReactionResponse = {
+exports.CreateReactionResponse = {
     $type: "pylon.discord.v1.rest.CreateReactionResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseCreateReactionResponse };
         while (reader.pos < end) {
@@ -7297,13 +7305,13 @@ export const CreateReactionResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -7318,11 +7326,11 @@ export const CreateReactionResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -7330,11 +7338,11 @@ export const CreateReactionResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -7345,7 +7353,7 @@ export const CreateReactionResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -7353,22 +7361,22 @@ export const CreateReactionResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateReactionResponse.$type, CreateReactionResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateReactionResponse.$type, exports.CreateReactionResponse);
 const baseDeleteOwnReactionRequest = {
     $type: "pylon.discord.v1.rest.DeleteOwnReactionRequest",
     channelId: "0",
     messageId: "0",
     emoji: "",
 };
-export const DeleteOwnReactionRequest = {
+exports.DeleteOwnReactionRequest = {
     $type: "pylon.discord.v1.rest.DeleteOwnReactionRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -7381,7 +7389,7 @@ export const DeleteOwnReactionRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteOwnReactionRequest,
@@ -7443,23 +7451,23 @@ export const DeleteOwnReactionRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(DeleteOwnReactionRequest.$type, DeleteOwnReactionRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteOwnReactionRequest.$type, exports.DeleteOwnReactionRequest);
 const baseDeleteOwnReactionResponse = {
     $type: "pylon.discord.v1.rest.DeleteOwnReactionResponse",
 };
-export const DeleteOwnReactionResponse = {
+exports.DeleteOwnReactionResponse = {
     $type: "pylon.discord.v1.rest.DeleteOwnReactionResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteOwnReactionResponse,
@@ -7470,13 +7478,13 @@ export const DeleteOwnReactionResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -7493,11 +7501,11 @@ export const DeleteOwnReactionResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -7505,11 +7513,11 @@ export const DeleteOwnReactionResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -7522,7 +7530,7 @@ export const DeleteOwnReactionResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -7530,13 +7538,13 @@ export const DeleteOwnReactionResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(DeleteOwnReactionResponse.$type, DeleteOwnReactionResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteOwnReactionResponse.$type, exports.DeleteOwnReactionResponse);
 const baseDeleteUserReactionRequest = {
     $type: "pylon.discord.v1.rest.DeleteUserReactionRequest",
     channelId: "0",
@@ -7544,9 +7552,9 @@ const baseDeleteUserReactionRequest = {
     emoji: "",
     userId: "0",
 };
-export const DeleteUserReactionRequest = {
+exports.DeleteUserReactionRequest = {
     $type: "pylon.discord.v1.rest.DeleteUserReactionRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -7562,7 +7570,7 @@ export const DeleteUserReactionRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteUserReactionRequest,
@@ -7634,23 +7642,23 @@ export const DeleteUserReactionRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(DeleteUserReactionRequest.$type, DeleteUserReactionRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteUserReactionRequest.$type, exports.DeleteUserReactionRequest);
 const baseDeleteUserReactionResponse = {
     $type: "pylon.discord.v1.rest.DeleteUserReactionResponse",
 };
-export const DeleteUserReactionResponse = {
+exports.DeleteUserReactionResponse = {
     $type: "pylon.discord.v1.rest.DeleteUserReactionResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteUserReactionResponse,
@@ -7661,13 +7669,13 @@ export const DeleteUserReactionResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -7684,11 +7692,11 @@ export const DeleteUserReactionResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -7696,11 +7704,11 @@ export const DeleteUserReactionResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -7713,7 +7721,7 @@ export const DeleteUserReactionResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -7721,21 +7729,21 @@ export const DeleteUserReactionResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(DeleteUserReactionResponse.$type, DeleteUserReactionResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteUserReactionResponse.$type, exports.DeleteUserReactionResponse);
 const baseDeleteAllReactionsRequest = {
     $type: "pylon.discord.v1.rest.DeleteAllReactionsRequest",
     channelId: "0",
     messageId: "0",
 };
-export const DeleteAllReactionsRequest = {
+exports.DeleteAllReactionsRequest = {
     $type: "pylon.discord.v1.rest.DeleteAllReactionsRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -7745,7 +7753,7 @@ export const DeleteAllReactionsRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteAllReactionsRequest,
@@ -7797,23 +7805,23 @@ export const DeleteAllReactionsRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(DeleteAllReactionsRequest.$type, DeleteAllReactionsRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteAllReactionsRequest.$type, exports.DeleteAllReactionsRequest);
 const baseDeleteAllReactionsResponse = {
     $type: "pylon.discord.v1.rest.DeleteAllReactionsResponse",
 };
-export const DeleteAllReactionsResponse = {
+exports.DeleteAllReactionsResponse = {
     $type: "pylon.discord.v1.rest.DeleteAllReactionsResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteAllReactionsResponse,
@@ -7824,13 +7832,13 @@ export const DeleteAllReactionsResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -7847,11 +7855,11 @@ export const DeleteAllReactionsResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -7859,11 +7867,11 @@ export const DeleteAllReactionsResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -7876,7 +7884,7 @@ export const DeleteAllReactionsResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -7884,22 +7892,22 @@ export const DeleteAllReactionsResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(DeleteAllReactionsResponse.$type, DeleteAllReactionsResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteAllReactionsResponse.$type, exports.DeleteAllReactionsResponse);
 const baseDeleteAllReactionsForEmojiRequest = {
     $type: "pylon.discord.v1.rest.DeleteAllReactionsForEmojiRequest",
     channelId: "0",
     messageId: "0",
     emoji: "",
 };
-export const DeleteAllReactionsForEmojiRequest = {
+exports.DeleteAllReactionsForEmojiRequest = {
     $type: "pylon.discord.v1.rest.DeleteAllReactionsForEmojiRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -7912,7 +7920,7 @@ export const DeleteAllReactionsForEmojiRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteAllReactionsForEmojiRequest,
@@ -7974,23 +7982,23 @@ export const DeleteAllReactionsForEmojiRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(DeleteAllReactionsForEmojiRequest.$type, DeleteAllReactionsForEmojiRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteAllReactionsForEmojiRequest.$type, exports.DeleteAllReactionsForEmojiRequest);
 const baseDeleteAllReactionsForEmojiResponse = {
     $type: "pylon.discord.v1.rest.DeleteAllReactionsForEmojiResponse",
 };
-export const DeleteAllReactionsForEmojiResponse = {
+exports.DeleteAllReactionsForEmojiResponse = {
     $type: "pylon.discord.v1.rest.DeleteAllReactionsForEmojiResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteAllReactionsForEmojiResponse,
@@ -8001,13 +8009,13 @@ export const DeleteAllReactionsForEmojiResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -8024,11 +8032,11 @@ export const DeleteAllReactionsForEmojiResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -8036,11 +8044,11 @@ export const DeleteAllReactionsForEmojiResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -8053,7 +8061,7 @@ export const DeleteAllReactionsForEmojiResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -8061,21 +8069,21 @@ export const DeleteAllReactionsForEmojiResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(DeleteAllReactionsForEmojiResponse.$type, DeleteAllReactionsForEmojiResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteAllReactionsForEmojiResponse.$type, exports.DeleteAllReactionsForEmojiResponse);
 const baseEditMessageRequest = {
     $type: "pylon.discord.v1.rest.EditMessageRequest",
     channelId: "0",
     messageId: "0",
 };
-export const EditMessageRequest = {
+exports.EditMessageRequest = {
     $type: "pylon.discord.v1.rest.EditMessageRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -8083,18 +8091,18 @@ export const EditMessageRequest = {
             writer.uint32(17).fixed64(message.messageId);
         }
         if (message.content !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.content }, writer.uint32(26).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.content }, writer.uint32(26).fork()).ldelim();
         }
         if (message.embed !== undefined) {
-            MessageData_MessageEmbedData.encode(message.embed, writer.uint32(34).fork()).ldelim();
+            model_1.MessageData_MessageEmbedData.encode(message.embed, writer.uint32(34).fork()).ldelim();
         }
         if (message.flags !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.flags }, writer.uint32(42).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.flags }, writer.uint32(42).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseEditMessageRequest };
         while (reader.pos < end) {
@@ -8107,13 +8115,13 @@ export const EditMessageRequest = {
                     message.messageId = longToString(reader.fixed64());
                     break;
                 case 3:
-                    message.content = StringValue.decode(reader, reader.uint32()).value;
+                    message.content = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 4:
-                    message.embed = MessageData_MessageEmbedData.decode(reader, reader.uint32());
+                    message.embed = model_1.MessageData_MessageEmbedData.decode(reader, reader.uint32());
                     break;
                 case 5:
-                    message.flags = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.flags = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -8134,7 +8142,7 @@ export const EditMessageRequest = {
             message.content = String(object.content);
         }
         if (object.embed !== undefined && object.embed !== null) {
-            message.embed = MessageData_MessageEmbedData.fromJSON(object.embed);
+            message.embed = model_1.MessageData_MessageEmbedData.fromJSON(object.embed);
         }
         if (object.flags !== undefined && object.flags !== null) {
             message.flags = Number(object.flags);
@@ -8148,7 +8156,7 @@ export const EditMessageRequest = {
         message.content !== undefined && (obj.content = message.content);
         message.embed !== undefined &&
             (obj.embed = message.embed
-                ? MessageData_MessageEmbedData.toJSON(message.embed)
+                ? model_1.MessageData_MessageEmbedData.toJSON(message.embed)
                 : undefined);
         message.flags !== undefined && (obj.flags = message.flags);
         return obj;
@@ -8165,7 +8173,7 @@ export const EditMessageRequest = {
             message.content = object.content;
         }
         if (object.embed !== undefined && object.embed !== null) {
-            message.embed = MessageData_MessageEmbedData.fromPartial(object.embed);
+            message.embed = model_1.MessageData_MessageEmbedData.fromPartial(object.embed);
         }
         if (object.flags !== undefined && object.flags !== null) {
             message.flags = object.flags;
@@ -8173,23 +8181,23 @@ export const EditMessageRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(EditMessageRequest.$type, EditMessageRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.EditMessageRequest.$type, exports.EditMessageRequest);
 const baseEditMessageResponse = {
     $type: "pylon.discord.v1.rest.EditMessageResponse",
 };
-export const EditMessageResponse = {
+exports.EditMessageResponse = {
     $type: "pylon.discord.v1.rest.EditMessageResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            EditMessageResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.EditMessageResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseEditMessageResponse };
         while (reader.pos < end) {
@@ -8198,13 +8206,13 @@ export const EditMessageResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: EditMessageResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.EditMessageResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -8219,13 +8227,13 @@ export const EditMessageResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: EditMessageResponse_Data.fromJSON(object.data),
+                data: exports.EditMessageResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -8234,11 +8242,11 @@ export const EditMessageResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? EditMessageResponse_Data.toJSON(message.response?.data)
+                ? exports.EditMessageResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -8249,7 +8257,7 @@ export const EditMessageResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -8257,26 +8265,26 @@ export const EditMessageResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: EditMessageResponse_Data.fromPartial(object.response.data),
+                data: exports.EditMessageResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(EditMessageResponse.$type, EditMessageResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.EditMessageResponse.$type, exports.EditMessageResponse);
 const baseEditMessageResponse_Data = {
     $type: "pylon.discord.v1.rest.EditMessageResponse.Data",
 };
-export const EditMessageResponse_Data = {
+exports.EditMessageResponse_Data = {
     $type: "pylon.discord.v1.rest.EditMessageResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.message !== undefined) {
-            MessageData.encode(message.message, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData.encode(message.message, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseEditMessageResponse_Data,
@@ -8285,7 +8293,7 @@ export const EditMessageResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.message = MessageData.decode(reader, reader.uint32());
+                    message.message = model_1.MessageData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -8299,7 +8307,7 @@ export const EditMessageResponse_Data = {
             ...baseEditMessageResponse_Data,
         };
         if (object.message !== undefined && object.message !== null) {
-            message.message = MessageData.fromJSON(object.message);
+            message.message = model_1.MessageData.fromJSON(object.message);
         }
         return message;
     },
@@ -8307,7 +8315,7 @@ export const EditMessageResponse_Data = {
         const obj = {};
         message.message !== undefined &&
             (obj.message = message.message
-                ? MessageData.toJSON(message.message)
+                ? model_1.MessageData.toJSON(message.message)
                 : undefined);
         return obj;
     },
@@ -8316,20 +8324,20 @@ export const EditMessageResponse_Data = {
             ...baseEditMessageResponse_Data,
         };
         if (object.message !== undefined && object.message !== null) {
-            message.message = MessageData.fromPartial(object.message);
+            message.message = model_1.MessageData.fromPartial(object.message);
         }
         return message;
     },
 };
-messageTypeRegistry.set(EditMessageResponse_Data.$type, EditMessageResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.EditMessageResponse_Data.$type, exports.EditMessageResponse_Data);
 const baseDeleteMessageRequest = {
     $type: "pylon.discord.v1.rest.DeleteMessageRequest",
     channelId: "0",
     messageId: "0",
 };
-export const DeleteMessageRequest = {
+exports.DeleteMessageRequest = {
     $type: "pylon.discord.v1.rest.DeleteMessageRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -8337,7 +8345,7 @@ export const DeleteMessageRequest = {
             writer.uint32(17).fixed64(message.messageId);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -8345,7 +8353,7 @@ export const DeleteMessageRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseDeleteMessageRequest };
         while (reader.pos < end) {
@@ -8358,7 +8366,7 @@ export const DeleteMessageRequest = {
                     message.messageId = longToString(reader.fixed64());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -8402,23 +8410,23 @@ export const DeleteMessageRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(DeleteMessageRequest.$type, DeleteMessageRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteMessageRequest.$type, exports.DeleteMessageRequest);
 const baseDeleteMessageResponse = {
     $type: "pylon.discord.v1.rest.DeleteMessageResponse",
 };
-export const DeleteMessageResponse = {
+exports.DeleteMessageResponse = {
     $type: "pylon.discord.v1.rest.DeleteMessageResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseDeleteMessageResponse };
         while (reader.pos < end) {
@@ -8427,13 +8435,13 @@ export const DeleteMessageResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -8448,11 +8456,11 @@ export const DeleteMessageResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -8460,11 +8468,11 @@ export const DeleteMessageResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -8475,7 +8483,7 @@ export const DeleteMessageResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -8483,21 +8491,21 @@ export const DeleteMessageResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(DeleteMessageResponse.$type, DeleteMessageResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteMessageResponse.$type, exports.DeleteMessageResponse);
 const baseBulkDeleteMessagesRequest = {
     $type: "pylon.discord.v1.rest.BulkDeleteMessagesRequest",
     channelId: "0",
     messageIds: "0",
 };
-export const BulkDeleteMessagesRequest = {
+exports.BulkDeleteMessagesRequest = {
     $type: "pylon.discord.v1.rest.BulkDeleteMessagesRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -8507,7 +8515,7 @@ export const BulkDeleteMessagesRequest = {
         }
         writer.ldelim();
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -8515,7 +8523,7 @@ export const BulkDeleteMessagesRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseBulkDeleteMessagesRequest,
@@ -8539,7 +8547,7 @@ export const BulkDeleteMessagesRequest = {
                     }
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -8598,23 +8606,23 @@ export const BulkDeleteMessagesRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(BulkDeleteMessagesRequest.$type, BulkDeleteMessagesRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.BulkDeleteMessagesRequest.$type, exports.BulkDeleteMessagesRequest);
 const baseBulkDeleteMessagesResponse = {
     $type: "pylon.discord.v1.rest.BulkDeleteMessagesResponse",
 };
-export const BulkDeleteMessagesResponse = {
+exports.BulkDeleteMessagesResponse = {
     $type: "pylon.discord.v1.rest.BulkDeleteMessagesResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseBulkDeleteMessagesResponse,
@@ -8625,13 +8633,13 @@ export const BulkDeleteMessagesResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -8648,11 +8656,11 @@ export const BulkDeleteMessagesResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -8660,11 +8668,11 @@ export const BulkDeleteMessagesResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -8677,7 +8685,7 @@ export const BulkDeleteMessagesResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -8685,13 +8693,13 @@ export const BulkDeleteMessagesResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(BulkDeleteMessagesResponse.$type, BulkDeleteMessagesResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.BulkDeleteMessagesResponse.$type, exports.BulkDeleteMessagesResponse);
 const baseEditChannelPermissionsRequest = {
     $type: "pylon.discord.v1.rest.EditChannelPermissionsRequest",
     channelId: "0",
@@ -8700,9 +8708,9 @@ const baseEditChannelPermissionsRequest = {
     deny: "0",
     type: 0,
 };
-export const EditChannelPermissionsRequest = {
+exports.EditChannelPermissionsRequest = {
     $type: "pylon.discord.v1.rest.EditChannelPermissionsRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -8719,7 +8727,7 @@ export const EditChannelPermissionsRequest = {
             writer.uint32(40).int32(message.type);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -8727,7 +8735,7 @@ export const EditChannelPermissionsRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseEditChannelPermissionsRequest,
@@ -8751,7 +8759,7 @@ export const EditChannelPermissionsRequest = {
                     message.type = reader.int32();
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -8777,7 +8785,7 @@ export const EditChannelPermissionsRequest = {
             message.deny = String(object.deny);
         }
         if (object.type !== undefined && object.type !== null) {
-            message.type = channelData_ChannelPermissionOverwriteData_ChannelPermissionOverwriteTypeFromJSON(object.type);
+            message.type = model_1.channelData_ChannelPermissionOverwriteData_ChannelPermissionOverwriteTypeFromJSON(object.type);
         }
         if (object.auditLogReason !== undefined && object.auditLogReason !== null) {
             message.auditLogReason = String(object.auditLogReason);
@@ -8792,7 +8800,7 @@ export const EditChannelPermissionsRequest = {
         message.allow !== undefined && (obj.allow = message.allow);
         message.deny !== undefined && (obj.deny = message.deny);
         message.type !== undefined &&
-            (obj.type = channelData_ChannelPermissionOverwriteData_ChannelPermissionOverwriteTypeToJSON(message.type));
+            (obj.type = model_1.channelData_ChannelPermissionOverwriteData_ChannelPermissionOverwriteTypeToJSON(message.type));
         message.auditLogReason !== undefined &&
             (obj.auditLogReason = message.auditLogReason);
         return obj;
@@ -8822,23 +8830,23 @@ export const EditChannelPermissionsRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(EditChannelPermissionsRequest.$type, EditChannelPermissionsRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.EditChannelPermissionsRequest.$type, exports.EditChannelPermissionsRequest);
 const baseEditChannelPermissionsResponse = {
     $type: "pylon.discord.v1.rest.EditChannelPermissionsResponse",
 };
-export const EditChannelPermissionsResponse = {
+exports.EditChannelPermissionsResponse = {
     $type: "pylon.discord.v1.rest.EditChannelPermissionsResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseEditChannelPermissionsResponse,
@@ -8849,13 +8857,13 @@ export const EditChannelPermissionsResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -8872,11 +8880,11 @@ export const EditChannelPermissionsResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -8884,11 +8892,11 @@ export const EditChannelPermissionsResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -8901,7 +8909,7 @@ export const EditChannelPermissionsResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -8909,27 +8917,27 @@ export const EditChannelPermissionsResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(EditChannelPermissionsResponse.$type, EditChannelPermissionsResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.EditChannelPermissionsResponse.$type, exports.EditChannelPermissionsResponse);
 const baseGetChannelInvitesRequest = {
     $type: "pylon.discord.v1.rest.GetChannelInvitesRequest",
     channelId: "0",
 };
-export const GetChannelInvitesRequest = {
+exports.GetChannelInvitesRequest = {
     $type: "pylon.discord.v1.rest.GetChannelInvitesRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetChannelInvitesRequest,
@@ -8971,23 +8979,23 @@ export const GetChannelInvitesRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetChannelInvitesRequest.$type, GetChannelInvitesRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetChannelInvitesRequest.$type, exports.GetChannelInvitesRequest);
 const baseGetChannelInvitesResponse = {
     $type: "pylon.discord.v1.rest.GetChannelInvitesResponse",
 };
-export const GetChannelInvitesResponse = {
+exports.GetChannelInvitesResponse = {
     $type: "pylon.discord.v1.rest.GetChannelInvitesResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            GetChannelInvitesResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.GetChannelInvitesResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetChannelInvitesResponse,
@@ -8998,13 +9006,13 @@ export const GetChannelInvitesResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: GetChannelInvitesResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.GetChannelInvitesResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -9021,13 +9029,13 @@ export const GetChannelInvitesResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetChannelInvitesResponse_Data.fromJSON(object.data),
+                data: exports.GetChannelInvitesResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -9036,11 +9044,11 @@ export const GetChannelInvitesResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? GetChannelInvitesResponse_Data.toJSON(message.response?.data)
+                ? exports.GetChannelInvitesResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -9053,7 +9061,7 @@ export const GetChannelInvitesResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -9061,26 +9069,26 @@ export const GetChannelInvitesResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetChannelInvitesResponse_Data.fromPartial(object.response.data),
+                data: exports.GetChannelInvitesResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetChannelInvitesResponse.$type, GetChannelInvitesResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetChannelInvitesResponse.$type, exports.GetChannelInvitesResponse);
 const baseGetChannelInvitesResponse_Data = {
     $type: "pylon.discord.v1.rest.GetChannelInvitesResponse.Data",
 };
-export const GetChannelInvitesResponse_Data = {
+exports.GetChannelInvitesResponse_Data = {
     $type: "pylon.discord.v1.rest.GetChannelInvitesResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.invites) {
-            InviteData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.InviteData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetChannelInvitesResponse_Data,
@@ -9090,7 +9098,7 @@ export const GetChannelInvitesResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.invites.push(InviteData.decode(reader, reader.uint32()));
+                    message.invites.push(model_1.InviteData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -9106,7 +9114,7 @@ export const GetChannelInvitesResponse_Data = {
         message.invites = [];
         if (object.invites !== undefined && object.invites !== null) {
             for (const e of object.invites) {
-                message.invites.push(InviteData.fromJSON(e));
+                message.invites.push(model_1.InviteData.fromJSON(e));
             }
         }
         return message;
@@ -9114,7 +9122,7 @@ export const GetChannelInvitesResponse_Data = {
     toJSON(message) {
         const obj = {};
         if (message.invites) {
-            obj.invites = message.invites.map((e) => e ? InviteData.toJSON(e) : undefined);
+            obj.invites = message.invites.map((e) => e ? model_1.InviteData.toJSON(e) : undefined);
         }
         else {
             obj.invites = [];
@@ -9128,44 +9136,44 @@ export const GetChannelInvitesResponse_Data = {
         message.invites = [];
         if (object.invites !== undefined && object.invites !== null) {
             for (const e of object.invites) {
-                message.invites.push(InviteData.fromPartial(e));
+                message.invites.push(model_1.InviteData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetChannelInvitesResponse_Data.$type, GetChannelInvitesResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.GetChannelInvitesResponse_Data.$type, exports.GetChannelInvitesResponse_Data);
 const baseCreateChannelInviteRequest = {
     $type: "pylon.discord.v1.rest.CreateChannelInviteRequest",
     channelId: "0",
     targetUserType: 0,
 };
-export const CreateChannelInviteRequest = {
+exports.CreateChannelInviteRequest = {
     $type: "pylon.discord.v1.rest.CreateChannelInviteRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
         if (message.maxAge !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.maxAge }, writer.uint32(18).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.maxAge }, writer.uint32(18).fork()).ldelim();
         }
         if (message.maxUses !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.maxUses }, writer.uint32(26).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.maxUses }, writer.uint32(26).fork()).ldelim();
         }
         if (message.temporary !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.temporary }, writer.uint32(34).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.temporary }, writer.uint32(34).fork()).ldelim();
         }
         if (message.unique !== undefined) {
-            BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.unique }, writer.uint32(42).fork()).ldelim();
+            wrappers_1.BoolValue.encode({ $type: "google.protobuf.BoolValue", value: message.unique }, writer.uint32(42).fork()).ldelim();
         }
         if (message.targetUser !== undefined) {
-            SnowflakeValue.encode(message.targetUser, writer.uint32(50).fork()).ldelim();
+            model_1.SnowflakeValue.encode(message.targetUser, writer.uint32(50).fork()).ldelim();
         }
         if (message.targetUserType !== 0) {
             writer.uint32(56).int32(message.targetUserType);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -9173,7 +9181,7 @@ export const CreateChannelInviteRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateChannelInviteRequest,
@@ -9185,25 +9193,25 @@ export const CreateChannelInviteRequest = {
                     message.channelId = longToString(reader.fixed64());
                     break;
                 case 2:
-                    message.maxAge = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.maxAge = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 3:
-                    message.maxUses = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.maxUses = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 4:
-                    message.temporary = BoolValue.decode(reader, reader.uint32()).value;
+                    message.temporary = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 5:
-                    message.unique = BoolValue.decode(reader, reader.uint32()).value;
+                    message.unique = wrappers_1.BoolValue.decode(reader, reader.uint32()).value;
                     break;
                 case 6:
-                    message.targetUser = SnowflakeValue.decode(reader, reader.uint32());
+                    message.targetUser = model_1.SnowflakeValue.decode(reader, reader.uint32());
                     break;
                 case 7:
                     message.targetUserType = reader.int32();
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -9232,10 +9240,10 @@ export const CreateChannelInviteRequest = {
             message.unique = Boolean(object.unique);
         }
         if (object.targetUser !== undefined && object.targetUser !== null) {
-            message.targetUser = SnowflakeValue.fromJSON(object.targetUser);
+            message.targetUser = model_1.SnowflakeValue.fromJSON(object.targetUser);
         }
         if (object.targetUserType !== undefined && object.targetUserType !== null) {
-            message.targetUserType = inviteData_InviteTargetUserTypeFromJSON(object.targetUserType);
+            message.targetUserType = model_1.inviteData_InviteTargetUserTypeFromJSON(object.targetUserType);
         }
         if (object.auditLogReason !== undefined && object.auditLogReason !== null) {
             message.auditLogReason = String(object.auditLogReason);
@@ -9251,10 +9259,10 @@ export const CreateChannelInviteRequest = {
         message.unique !== undefined && (obj.unique = message.unique);
         message.targetUser !== undefined &&
             (obj.targetUser = message.targetUser
-                ? SnowflakeValue.toJSON(message.targetUser)
+                ? model_1.SnowflakeValue.toJSON(message.targetUser)
                 : undefined);
         message.targetUserType !== undefined &&
-            (obj.targetUserType = inviteData_InviteTargetUserTypeToJSON(message.targetUserType));
+            (obj.targetUserType = model_1.inviteData_InviteTargetUserTypeToJSON(message.targetUserType));
         message.auditLogReason !== undefined &&
             (obj.auditLogReason = message.auditLogReason);
         return obj;
@@ -9279,7 +9287,7 @@ export const CreateChannelInviteRequest = {
             message.unique = object.unique;
         }
         if (object.targetUser !== undefined && object.targetUser !== null) {
-            message.targetUser = SnowflakeValue.fromPartial(object.targetUser);
+            message.targetUser = model_1.SnowflakeValue.fromPartial(object.targetUser);
         }
         if (object.targetUserType !== undefined && object.targetUserType !== null) {
             message.targetUserType = object.targetUserType;
@@ -9290,23 +9298,23 @@ export const CreateChannelInviteRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(CreateChannelInviteRequest.$type, CreateChannelInviteRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateChannelInviteRequest.$type, exports.CreateChannelInviteRequest);
 const baseCreateChannelInviteResponse = {
     $type: "pylon.discord.v1.rest.CreateChannelInviteResponse",
 };
-export const CreateChannelInviteResponse = {
+exports.CreateChannelInviteResponse = {
     $type: "pylon.discord.v1.rest.CreateChannelInviteResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            CreateChannelInviteResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.CreateChannelInviteResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateChannelInviteResponse,
@@ -9317,13 +9325,13 @@ export const CreateChannelInviteResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: CreateChannelInviteResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.CreateChannelInviteResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -9340,13 +9348,13 @@ export const CreateChannelInviteResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateChannelInviteResponse_Data.fromJSON(object.data),
+                data: exports.CreateChannelInviteResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -9355,11 +9363,11 @@ export const CreateChannelInviteResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? CreateChannelInviteResponse_Data.toJSON(message.response?.data)
+                ? exports.CreateChannelInviteResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -9372,7 +9380,7 @@ export const CreateChannelInviteResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -9380,26 +9388,26 @@ export const CreateChannelInviteResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateChannelInviteResponse_Data.fromPartial(object.response.data),
+                data: exports.CreateChannelInviteResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateChannelInviteResponse.$type, CreateChannelInviteResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateChannelInviteResponse.$type, exports.CreateChannelInviteResponse);
 const baseCreateChannelInviteResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateChannelInviteResponse.Data",
 };
-export const CreateChannelInviteResponse_Data = {
+exports.CreateChannelInviteResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateChannelInviteResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.invite !== undefined) {
-            InviteData.encode(message.invite, writer.uint32(10).fork()).ldelim();
+            model_1.InviteData.encode(message.invite, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateChannelInviteResponse_Data,
@@ -9408,7 +9416,7 @@ export const CreateChannelInviteResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.invite = InviteData.decode(reader, reader.uint32());
+                    message.invite = model_1.InviteData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -9422,7 +9430,7 @@ export const CreateChannelInviteResponse_Data = {
             ...baseCreateChannelInviteResponse_Data,
         };
         if (object.invite !== undefined && object.invite !== null) {
-            message.invite = InviteData.fromJSON(object.invite);
+            message.invite = model_1.InviteData.fromJSON(object.invite);
         }
         return message;
     },
@@ -9430,7 +9438,7 @@ export const CreateChannelInviteResponse_Data = {
         const obj = {};
         message.invite !== undefined &&
             (obj.invite = message.invite
-                ? InviteData.toJSON(message.invite)
+                ? model_1.InviteData.toJSON(message.invite)
                 : undefined);
         return obj;
     },
@@ -9439,20 +9447,20 @@ export const CreateChannelInviteResponse_Data = {
             ...baseCreateChannelInviteResponse_Data,
         };
         if (object.invite !== undefined && object.invite !== null) {
-            message.invite = InviteData.fromPartial(object.invite);
+            message.invite = model_1.InviteData.fromPartial(object.invite);
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateChannelInviteResponse_Data.$type, CreateChannelInviteResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateChannelInviteResponse_Data.$type, exports.CreateChannelInviteResponse_Data);
 const baseDeleteChannelPermissionRequest = {
     $type: "pylon.discord.v1.rest.DeleteChannelPermissionRequest",
     channelId: "0",
     overwriteId: "0",
 };
-export const DeleteChannelPermissionRequest = {
+exports.DeleteChannelPermissionRequest = {
     $type: "pylon.discord.v1.rest.DeleteChannelPermissionRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -9460,7 +9468,7 @@ export const DeleteChannelPermissionRequest = {
             writer.uint32(17).fixed64(message.overwriteId);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -9468,7 +9476,7 @@ export const DeleteChannelPermissionRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteChannelPermissionRequest,
@@ -9483,7 +9491,7 @@ export const DeleteChannelPermissionRequest = {
                     message.overwriteId = longToString(reader.fixed64());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -9532,23 +9540,23 @@ export const DeleteChannelPermissionRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(DeleteChannelPermissionRequest.$type, DeleteChannelPermissionRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteChannelPermissionRequest.$type, exports.DeleteChannelPermissionRequest);
 const baseDeleteChannelPermissionResponse = {
     $type: "pylon.discord.v1.rest.DeleteChannelPermissionResponse",
 };
-export const DeleteChannelPermissionResponse = {
+exports.DeleteChannelPermissionResponse = {
     $type: "pylon.discord.v1.rest.DeleteChannelPermissionResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteChannelPermissionResponse,
@@ -9559,13 +9567,13 @@ export const DeleteChannelPermissionResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -9582,11 +9590,11 @@ export const DeleteChannelPermissionResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -9594,11 +9602,11 @@ export const DeleteChannelPermissionResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -9611,7 +9619,7 @@ export const DeleteChannelPermissionResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -9619,21 +9627,21 @@ export const DeleteChannelPermissionResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(DeleteChannelPermissionResponse.$type, DeleteChannelPermissionResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteChannelPermissionResponse.$type, exports.DeleteChannelPermissionResponse);
 const baseFollowNewsChannelRequest = {
     $type: "pylon.discord.v1.rest.FollowNewsChannelRequest",
     channelId: "0",
     webhookChannelId: "0",
 };
-export const FollowNewsChannelRequest = {
+exports.FollowNewsChannelRequest = {
     $type: "pylon.discord.v1.rest.FollowNewsChannelRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -9643,7 +9651,7 @@ export const FollowNewsChannelRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseFollowNewsChannelRequest,
@@ -9698,23 +9706,23 @@ export const FollowNewsChannelRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(FollowNewsChannelRequest.$type, FollowNewsChannelRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.FollowNewsChannelRequest.$type, exports.FollowNewsChannelRequest);
 const baseFollowNewsChannelResponse = {
     $type: "pylon.discord.v1.rest.FollowNewsChannelResponse",
 };
-export const FollowNewsChannelResponse = {
+exports.FollowNewsChannelResponse = {
     $type: "pylon.discord.v1.rest.FollowNewsChannelResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            FollowNewsChannelResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.FollowNewsChannelResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseFollowNewsChannelResponse,
@@ -9725,13 +9733,13 @@ export const FollowNewsChannelResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: FollowNewsChannelResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.FollowNewsChannelResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -9748,13 +9756,13 @@ export const FollowNewsChannelResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: FollowNewsChannelResponse_Data.fromJSON(object.data),
+                data: exports.FollowNewsChannelResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -9763,11 +9771,11 @@ export const FollowNewsChannelResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? FollowNewsChannelResponse_Data.toJSON(message.response?.data)
+                ? exports.FollowNewsChannelResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -9780,7 +9788,7 @@ export const FollowNewsChannelResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -9788,21 +9796,21 @@ export const FollowNewsChannelResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: FollowNewsChannelResponse_Data.fromPartial(object.response.data),
+                data: exports.FollowNewsChannelResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(FollowNewsChannelResponse.$type, FollowNewsChannelResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.FollowNewsChannelResponse.$type, exports.FollowNewsChannelResponse);
 const baseFollowNewsChannelResponse_Data = {
     $type: "pylon.discord.v1.rest.FollowNewsChannelResponse.Data",
     channelId: "0",
     webhookId: "0",
 };
-export const FollowNewsChannelResponse_Data = {
+exports.FollowNewsChannelResponse_Data = {
     $type: "pylon.discord.v1.rest.FollowNewsChannelResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -9812,7 +9820,7 @@ export const FollowNewsChannelResponse_Data = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseFollowNewsChannelResponse_Data,
@@ -9864,21 +9872,21 @@ export const FollowNewsChannelResponse_Data = {
         return message;
     },
 };
-messageTypeRegistry.set(FollowNewsChannelResponse_Data.$type, FollowNewsChannelResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.FollowNewsChannelResponse_Data.$type, exports.FollowNewsChannelResponse_Data);
 const baseTriggerTypingIndicatorRequest = {
     $type: "pylon.discord.v1.rest.TriggerTypingIndicatorRequest",
     channelId: "0",
 };
-export const TriggerTypingIndicatorRequest = {
+exports.TriggerTypingIndicatorRequest = {
     $type: "pylon.discord.v1.rest.TriggerTypingIndicatorRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseTriggerTypingIndicatorRequest,
@@ -9920,23 +9928,23 @@ export const TriggerTypingIndicatorRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(TriggerTypingIndicatorRequest.$type, TriggerTypingIndicatorRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.TriggerTypingIndicatorRequest.$type, exports.TriggerTypingIndicatorRequest);
 const baseTriggerTypingIndicatorResponse = {
     $type: "pylon.discord.v1.rest.TriggerTypingIndicatorResponse",
 };
-export const TriggerTypingIndicatorResponse = {
+exports.TriggerTypingIndicatorResponse = {
     $type: "pylon.discord.v1.rest.TriggerTypingIndicatorResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseTriggerTypingIndicatorResponse,
@@ -9947,13 +9955,13 @@ export const TriggerTypingIndicatorResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -9970,11 +9978,11 @@ export const TriggerTypingIndicatorResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -9982,11 +9990,11 @@ export const TriggerTypingIndicatorResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -9999,7 +10007,7 @@ export const TriggerTypingIndicatorResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -10007,27 +10015,27 @@ export const TriggerTypingIndicatorResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(TriggerTypingIndicatorResponse.$type, TriggerTypingIndicatorResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.TriggerTypingIndicatorResponse.$type, exports.TriggerTypingIndicatorResponse);
 const baseGetPinnedMessagesRequest = {
     $type: "pylon.discord.v1.rest.GetPinnedMessagesRequest",
     channelId: "0",
 };
-export const GetPinnedMessagesRequest = {
+exports.GetPinnedMessagesRequest = {
     $type: "pylon.discord.v1.rest.GetPinnedMessagesRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetPinnedMessagesRequest,
@@ -10069,23 +10077,23 @@ export const GetPinnedMessagesRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetPinnedMessagesRequest.$type, GetPinnedMessagesRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetPinnedMessagesRequest.$type, exports.GetPinnedMessagesRequest);
 const baseGetPinnedMessagesResponse = {
     $type: "pylon.discord.v1.rest.GetPinnedMessagesResponse",
 };
-export const GetPinnedMessagesResponse = {
+exports.GetPinnedMessagesResponse = {
     $type: "pylon.discord.v1.rest.GetPinnedMessagesResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            GetPinnedMessagesResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.GetPinnedMessagesResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetPinnedMessagesResponse,
@@ -10096,13 +10104,13 @@ export const GetPinnedMessagesResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: GetPinnedMessagesResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.GetPinnedMessagesResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -10119,13 +10127,13 @@ export const GetPinnedMessagesResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetPinnedMessagesResponse_Data.fromJSON(object.data),
+                data: exports.GetPinnedMessagesResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -10134,11 +10142,11 @@ export const GetPinnedMessagesResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? GetPinnedMessagesResponse_Data.toJSON(message.response?.data)
+                ? exports.GetPinnedMessagesResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -10151,7 +10159,7 @@ export const GetPinnedMessagesResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -10159,26 +10167,26 @@ export const GetPinnedMessagesResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetPinnedMessagesResponse_Data.fromPartial(object.response.data),
+                data: exports.GetPinnedMessagesResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetPinnedMessagesResponse.$type, GetPinnedMessagesResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetPinnedMessagesResponse.$type, exports.GetPinnedMessagesResponse);
 const baseGetPinnedMessagesResponse_Data = {
     $type: "pylon.discord.v1.rest.GetPinnedMessagesResponse.Data",
 };
-export const GetPinnedMessagesResponse_Data = {
+exports.GetPinnedMessagesResponse_Data = {
     $type: "pylon.discord.v1.rest.GetPinnedMessagesResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.messages) {
-            MessageData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.MessageData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetPinnedMessagesResponse_Data,
@@ -10188,7 +10196,7 @@ export const GetPinnedMessagesResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.messages.push(MessageData.decode(reader, reader.uint32()));
+                    message.messages.push(model_1.MessageData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -10204,7 +10212,7 @@ export const GetPinnedMessagesResponse_Data = {
         message.messages = [];
         if (object.messages !== undefined && object.messages !== null) {
             for (const e of object.messages) {
-                message.messages.push(MessageData.fromJSON(e));
+                message.messages.push(model_1.MessageData.fromJSON(e));
             }
         }
         return message;
@@ -10212,7 +10220,7 @@ export const GetPinnedMessagesResponse_Data = {
     toJSON(message) {
         const obj = {};
         if (message.messages) {
-            obj.messages = message.messages.map((e) => e ? MessageData.toJSON(e) : undefined);
+            obj.messages = message.messages.map((e) => e ? model_1.MessageData.toJSON(e) : undefined);
         }
         else {
             obj.messages = [];
@@ -10226,21 +10234,21 @@ export const GetPinnedMessagesResponse_Data = {
         message.messages = [];
         if (object.messages !== undefined && object.messages !== null) {
             for (const e of object.messages) {
-                message.messages.push(MessageData.fromPartial(e));
+                message.messages.push(model_1.MessageData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetPinnedMessagesResponse_Data.$type, GetPinnedMessagesResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.GetPinnedMessagesResponse_Data.$type, exports.GetPinnedMessagesResponse_Data);
 const baseAddPinnedChannelMessageRequest = {
     $type: "pylon.discord.v1.rest.AddPinnedChannelMessageRequest",
     channelId: "0",
     messageId: "0",
 };
-export const AddPinnedChannelMessageRequest = {
+exports.AddPinnedChannelMessageRequest = {
     $type: "pylon.discord.v1.rest.AddPinnedChannelMessageRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -10248,7 +10256,7 @@ export const AddPinnedChannelMessageRequest = {
             writer.uint32(17).fixed64(message.messageId);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -10256,7 +10264,7 @@ export const AddPinnedChannelMessageRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseAddPinnedChannelMessageRequest,
@@ -10271,7 +10279,7 @@ export const AddPinnedChannelMessageRequest = {
                     message.messageId = longToString(reader.fixed64());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -10319,23 +10327,23 @@ export const AddPinnedChannelMessageRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(AddPinnedChannelMessageRequest.$type, AddPinnedChannelMessageRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.AddPinnedChannelMessageRequest.$type, exports.AddPinnedChannelMessageRequest);
 const baseAddPinnedChannelMessageResponse = {
     $type: "pylon.discord.v1.rest.AddPinnedChannelMessageResponse",
 };
-export const AddPinnedChannelMessageResponse = {
+exports.AddPinnedChannelMessageResponse = {
     $type: "pylon.discord.v1.rest.AddPinnedChannelMessageResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseAddPinnedChannelMessageResponse,
@@ -10346,13 +10354,13 @@ export const AddPinnedChannelMessageResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -10369,11 +10377,11 @@ export const AddPinnedChannelMessageResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -10381,11 +10389,11 @@ export const AddPinnedChannelMessageResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -10398,7 +10406,7 @@ export const AddPinnedChannelMessageResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -10406,21 +10414,21 @@ export const AddPinnedChannelMessageResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(AddPinnedChannelMessageResponse.$type, AddPinnedChannelMessageResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.AddPinnedChannelMessageResponse.$type, exports.AddPinnedChannelMessageResponse);
 const baseDeletePinnedChannelMessageRequest = {
     $type: "pylon.discord.v1.rest.DeletePinnedChannelMessageRequest",
     channelId: "0",
     messageId: "0",
 };
-export const DeletePinnedChannelMessageRequest = {
+exports.DeletePinnedChannelMessageRequest = {
     $type: "pylon.discord.v1.rest.DeletePinnedChannelMessageRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channelId !== "0") {
             writer.uint32(9).fixed64(message.channelId);
         }
@@ -10428,7 +10436,7 @@ export const DeletePinnedChannelMessageRequest = {
             writer.uint32(17).fixed64(message.messageId);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -10436,7 +10444,7 @@ export const DeletePinnedChannelMessageRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeletePinnedChannelMessageRequest,
@@ -10451,7 +10459,7 @@ export const DeletePinnedChannelMessageRequest = {
                     message.messageId = longToString(reader.fixed64());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -10499,23 +10507,23 @@ export const DeletePinnedChannelMessageRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(DeletePinnedChannelMessageRequest.$type, DeletePinnedChannelMessageRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.DeletePinnedChannelMessageRequest.$type, exports.DeletePinnedChannelMessageRequest);
 const baseDeletePinnedChannelMessageResponse = {
     $type: "pylon.discord.v1.rest.DeletePinnedChannelMessageResponse",
 };
-export const DeletePinnedChannelMessageResponse = {
+exports.DeletePinnedChannelMessageResponse = {
     $type: "pylon.discord.v1.rest.DeletePinnedChannelMessageResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeletePinnedChannelMessageResponse,
@@ -10526,13 +10534,13 @@ export const DeletePinnedChannelMessageResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -10549,11 +10557,11 @@ export const DeletePinnedChannelMessageResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -10561,11 +10569,11 @@ export const DeletePinnedChannelMessageResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -10578,7 +10586,7 @@ export const DeletePinnedChannelMessageResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -10586,23 +10594,23 @@ export const DeletePinnedChannelMessageResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(DeletePinnedChannelMessageResponse.$type, DeletePinnedChannelMessageResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.DeletePinnedChannelMessageResponse.$type, exports.DeletePinnedChannelMessageResponse);
 const baseListGuildEmojisRequest = {
     $type: "pylon.discord.v1.rest.ListGuildEmojisRequest",
 };
-export const ListGuildEmojisRequest = {
+exports.ListGuildEmojisRequest = {
     $type: "pylon.discord.v1.rest.ListGuildEmojisRequest",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseListGuildEmojisRequest };
         while (reader.pos < end) {
@@ -10628,23 +10636,23 @@ export const ListGuildEmojisRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(ListGuildEmojisRequest.$type, ListGuildEmojisRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.ListGuildEmojisRequest.$type, exports.ListGuildEmojisRequest);
 const baseListGuildEmojisResponse = {
     $type: "pylon.discord.v1.rest.ListGuildEmojisResponse",
 };
-export const ListGuildEmojisResponse = {
+exports.ListGuildEmojisResponse = {
     $type: "pylon.discord.v1.rest.ListGuildEmojisResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            ListGuildEmojisResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.ListGuildEmojisResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseListGuildEmojisResponse,
@@ -10655,13 +10663,13 @@ export const ListGuildEmojisResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: ListGuildEmojisResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.ListGuildEmojisResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -10678,13 +10686,13 @@ export const ListGuildEmojisResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: ListGuildEmojisResponse_Data.fromJSON(object.data),
+                data: exports.ListGuildEmojisResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -10693,11 +10701,11 @@ export const ListGuildEmojisResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? ListGuildEmojisResponse_Data.toJSON(message.response?.data)
+                ? exports.ListGuildEmojisResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -10710,7 +10718,7 @@ export const ListGuildEmojisResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -10718,26 +10726,26 @@ export const ListGuildEmojisResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: ListGuildEmojisResponse_Data.fromPartial(object.response.data),
+                data: exports.ListGuildEmojisResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(ListGuildEmojisResponse.$type, ListGuildEmojisResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.ListGuildEmojisResponse.$type, exports.ListGuildEmojisResponse);
 const baseListGuildEmojisResponse_Data = {
     $type: "pylon.discord.v1.rest.ListGuildEmojisResponse.Data",
 };
-export const ListGuildEmojisResponse_Data = {
+exports.ListGuildEmojisResponse_Data = {
     $type: "pylon.discord.v1.rest.ListGuildEmojisResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.emojis) {
-            EmojiData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.EmojiData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseListGuildEmojisResponse_Data,
@@ -10747,7 +10755,7 @@ export const ListGuildEmojisResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.emojis.push(EmojiData.decode(reader, reader.uint32()));
+                    message.emojis.push(model_1.EmojiData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -10763,7 +10771,7 @@ export const ListGuildEmojisResponse_Data = {
         message.emojis = [];
         if (object.emojis !== undefined && object.emojis !== null) {
             for (const e of object.emojis) {
-                message.emojis.push(EmojiData.fromJSON(e));
+                message.emojis.push(model_1.EmojiData.fromJSON(e));
             }
         }
         return message;
@@ -10771,7 +10779,7 @@ export const ListGuildEmojisResponse_Data = {
     toJSON(message) {
         const obj = {};
         if (message.emojis) {
-            obj.emojis = message.emojis.map((e) => e ? EmojiData.toJSON(e) : undefined);
+            obj.emojis = message.emojis.map((e) => e ? model_1.EmojiData.toJSON(e) : undefined);
         }
         else {
             obj.emojis = [];
@@ -10785,27 +10793,27 @@ export const ListGuildEmojisResponse_Data = {
         message.emojis = [];
         if (object.emojis !== undefined && object.emojis !== null) {
             for (const e of object.emojis) {
-                message.emojis.push(EmojiData.fromPartial(e));
+                message.emojis.push(model_1.EmojiData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(ListGuildEmojisResponse_Data.$type, ListGuildEmojisResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.ListGuildEmojisResponse_Data.$type, exports.ListGuildEmojisResponse_Data);
 const baseGetGuildEmojiRequest = {
     $type: "pylon.discord.v1.rest.GetGuildEmojiRequest",
     emojiId: "0",
 };
-export const GetGuildEmojiRequest = {
+exports.GetGuildEmojiRequest = {
     $type: "pylon.discord.v1.rest.GetGuildEmojiRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.emojiId !== "0") {
             writer.uint32(9).fixed64(message.emojiId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetGuildEmojiRequest };
         while (reader.pos < end) {
@@ -10841,23 +10849,23 @@ export const GetGuildEmojiRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildEmojiRequest.$type, GetGuildEmojiRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildEmojiRequest.$type, exports.GetGuildEmojiRequest);
 const baseGetGuildEmojiResponse = {
     $type: "pylon.discord.v1.rest.GetGuildEmojiResponse",
 };
-export const GetGuildEmojiResponse = {
+exports.GetGuildEmojiResponse = {
     $type: "pylon.discord.v1.rest.GetGuildEmojiResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            GetGuildEmojiResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.GetGuildEmojiResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetGuildEmojiResponse };
         while (reader.pos < end) {
@@ -10866,13 +10874,13 @@ export const GetGuildEmojiResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: GetGuildEmojiResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.GetGuildEmojiResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -10887,13 +10895,13 @@ export const GetGuildEmojiResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetGuildEmojiResponse_Data.fromJSON(object.data),
+                data: exports.GetGuildEmojiResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -10902,11 +10910,11 @@ export const GetGuildEmojiResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? GetGuildEmojiResponse_Data.toJSON(message.response?.data)
+                ? exports.GetGuildEmojiResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -10917,7 +10925,7 @@ export const GetGuildEmojiResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -10925,26 +10933,26 @@ export const GetGuildEmojiResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetGuildEmojiResponse_Data.fromPartial(object.response.data),
+                data: exports.GetGuildEmojiResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildEmojiResponse.$type, GetGuildEmojiResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildEmojiResponse.$type, exports.GetGuildEmojiResponse);
 const baseGetGuildEmojiResponse_Data = {
     $type: "pylon.discord.v1.rest.GetGuildEmojiResponse.Data",
 };
-export const GetGuildEmojiResponse_Data = {
+exports.GetGuildEmojiResponse_Data = {
     $type: "pylon.discord.v1.rest.GetGuildEmojiResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.emoji !== undefined) {
-            EmojiData.encode(message.emoji, writer.uint32(10).fork()).ldelim();
+            model_1.EmojiData.encode(message.emoji, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetGuildEmojiResponse_Data,
@@ -10953,7 +10961,7 @@ export const GetGuildEmojiResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.emoji = EmojiData.decode(reader, reader.uint32());
+                    message.emoji = model_1.EmojiData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -10967,14 +10975,14 @@ export const GetGuildEmojiResponse_Data = {
             ...baseGetGuildEmojiResponse_Data,
         };
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = EmojiData.fromJSON(object.emoji);
+            message.emoji = model_1.EmojiData.fromJSON(object.emoji);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.emoji !== undefined &&
-            (obj.emoji = message.emoji ? EmojiData.toJSON(message.emoji) : undefined);
+            (obj.emoji = message.emoji ? model_1.EmojiData.toJSON(message.emoji) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -10982,30 +10990,30 @@ export const GetGuildEmojiResponse_Data = {
             ...baseGetGuildEmojiResponse_Data,
         };
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = EmojiData.fromPartial(object.emoji);
+            message.emoji = model_1.EmojiData.fromPartial(object.emoji);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetGuildEmojiResponse_Data.$type, GetGuildEmojiResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.GetGuildEmojiResponse_Data.$type, exports.GetGuildEmojiResponse_Data);
 const baseCreateGuildEmojiRequest = {
     $type: "pylon.discord.v1.rest.CreateGuildEmojiRequest",
     name: "",
 };
-export const CreateGuildEmojiRequest = {
+exports.CreateGuildEmojiRequest = {
     $type: "pylon.discord.v1.rest.CreateGuildEmojiRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.name !== "") {
             writer.uint32(10).string(message.name);
         }
         if (message.image !== undefined) {
-            BytesValue.encode({ $type: "google.protobuf.BytesValue", value: message.image }, writer.uint32(18).fork()).ldelim();
+            wrappers_1.BytesValue.encode({ $type: "google.protobuf.BytesValue", value: message.image }, writer.uint32(18).fork()).ldelim();
         }
         if (message.roles !== undefined) {
-            SnowflakeListValue.encode(message.roles, writer.uint32(26).fork()).ldelim();
+            model_1.SnowflakeListValue.encode(message.roles, writer.uint32(26).fork()).ldelim();
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -11013,7 +11021,7 @@ export const CreateGuildEmojiRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateGuildEmojiRequest,
@@ -11025,13 +11033,13 @@ export const CreateGuildEmojiRequest = {
                     message.name = reader.string();
                     break;
                 case 2:
-                    message.image = BytesValue.decode(reader, reader.uint32()).value;
+                    message.image = wrappers_1.BytesValue.decode(reader, reader.uint32()).value;
                     break;
                 case 3:
-                    message.roles = SnowflakeListValue.decode(reader, reader.uint32());
+                    message.roles = model_1.SnowflakeListValue.decode(reader, reader.uint32());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -11051,7 +11059,7 @@ export const CreateGuildEmojiRequest = {
             message.image = new Uint8Array(object.image);
         }
         if (object.roles !== undefined && object.roles !== null) {
-            message.roles = SnowflakeListValue.fromJSON(object.roles);
+            message.roles = model_1.SnowflakeListValue.fromJSON(object.roles);
         }
         if (object.auditLogReason !== undefined && object.auditLogReason !== null) {
             message.auditLogReason = String(object.auditLogReason);
@@ -11064,7 +11072,7 @@ export const CreateGuildEmojiRequest = {
         message.image !== undefined && (obj.image = message.image);
         message.roles !== undefined &&
             (obj.roles = message.roles
-                ? SnowflakeListValue.toJSON(message.roles)
+                ? model_1.SnowflakeListValue.toJSON(message.roles)
                 : undefined);
         message.auditLogReason !== undefined &&
             (obj.auditLogReason = message.auditLogReason);
@@ -11081,7 +11089,7 @@ export const CreateGuildEmojiRequest = {
             message.image = object.image;
         }
         if (object.roles !== undefined && object.roles !== null) {
-            message.roles = SnowflakeListValue.fromPartial(object.roles);
+            message.roles = model_1.SnowflakeListValue.fromPartial(object.roles);
         }
         if (object.auditLogReason !== undefined && object.auditLogReason !== null) {
             message.auditLogReason = object.auditLogReason;
@@ -11089,23 +11097,23 @@ export const CreateGuildEmojiRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(CreateGuildEmojiRequest.$type, CreateGuildEmojiRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateGuildEmojiRequest.$type, exports.CreateGuildEmojiRequest);
 const baseCreateGuildEmojiResponse = {
     $type: "pylon.discord.v1.rest.CreateGuildEmojiResponse",
 };
-export const CreateGuildEmojiResponse = {
+exports.CreateGuildEmojiResponse = {
     $type: "pylon.discord.v1.rest.CreateGuildEmojiResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            CreateGuildEmojiResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.CreateGuildEmojiResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateGuildEmojiResponse,
@@ -11116,13 +11124,13 @@ export const CreateGuildEmojiResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: CreateGuildEmojiResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.CreateGuildEmojiResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -11139,13 +11147,13 @@ export const CreateGuildEmojiResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateGuildEmojiResponse_Data.fromJSON(object.data),
+                data: exports.CreateGuildEmojiResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -11154,11 +11162,11 @@ export const CreateGuildEmojiResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? CreateGuildEmojiResponse_Data.toJSON(message.response?.data)
+                ? exports.CreateGuildEmojiResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -11171,7 +11179,7 @@ export const CreateGuildEmojiResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -11179,26 +11187,26 @@ export const CreateGuildEmojiResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateGuildEmojiResponse_Data.fromPartial(object.response.data),
+                data: exports.CreateGuildEmojiResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateGuildEmojiResponse.$type, CreateGuildEmojiResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateGuildEmojiResponse.$type, exports.CreateGuildEmojiResponse);
 const baseCreateGuildEmojiResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateGuildEmojiResponse.Data",
 };
-export const CreateGuildEmojiResponse_Data = {
+exports.CreateGuildEmojiResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateGuildEmojiResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.emoji !== undefined) {
-            EmojiData.encode(message.emoji, writer.uint32(10).fork()).ldelim();
+            model_1.EmojiData.encode(message.emoji, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseCreateGuildEmojiResponse_Data,
@@ -11207,7 +11215,7 @@ export const CreateGuildEmojiResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.emoji = EmojiData.decode(reader, reader.uint32());
+                    message.emoji = model_1.EmojiData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -11221,14 +11229,14 @@ export const CreateGuildEmojiResponse_Data = {
             ...baseCreateGuildEmojiResponse_Data,
         };
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = EmojiData.fromJSON(object.emoji);
+            message.emoji = model_1.EmojiData.fromJSON(object.emoji);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.emoji !== undefined &&
-            (obj.emoji = message.emoji ? EmojiData.toJSON(message.emoji) : undefined);
+            (obj.emoji = message.emoji ? model_1.EmojiData.toJSON(message.emoji) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -11236,30 +11244,30 @@ export const CreateGuildEmojiResponse_Data = {
             ...baseCreateGuildEmojiResponse_Data,
         };
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = EmojiData.fromPartial(object.emoji);
+            message.emoji = model_1.EmojiData.fromPartial(object.emoji);
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateGuildEmojiResponse_Data.$type, CreateGuildEmojiResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateGuildEmojiResponse_Data.$type, exports.CreateGuildEmojiResponse_Data);
 const baseModifyGuildEmojiRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildEmojiRequest",
     emojiId: "0",
 };
-export const ModifyGuildEmojiRequest = {
+exports.ModifyGuildEmojiRequest = {
     $type: "pylon.discord.v1.rest.ModifyGuildEmojiRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.emojiId !== "0") {
             writer.uint32(9).fixed64(message.emojiId);
         }
         if (message.name !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.name }, writer.uint32(18).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.name }, writer.uint32(18).fork()).ldelim();
         }
         if (message.roles !== undefined) {
-            SnowflakeListValue.encode(message.roles, writer.uint32(26).fork()).ldelim();
+            model_1.SnowflakeListValue.encode(message.roles, writer.uint32(26).fork()).ldelim();
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -11267,7 +11275,7 @@ export const ModifyGuildEmojiRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildEmojiRequest,
@@ -11279,13 +11287,13 @@ export const ModifyGuildEmojiRequest = {
                     message.emojiId = longToString(reader.fixed64());
                     break;
                 case 2:
-                    message.name = StringValue.decode(reader, reader.uint32()).value;
+                    message.name = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 3:
-                    message.roles = SnowflakeListValue.decode(reader, reader.uint32());
+                    message.roles = model_1.SnowflakeListValue.decode(reader, reader.uint32());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -11305,7 +11313,7 @@ export const ModifyGuildEmojiRequest = {
             message.name = String(object.name);
         }
         if (object.roles !== undefined && object.roles !== null) {
-            message.roles = SnowflakeListValue.fromJSON(object.roles);
+            message.roles = model_1.SnowflakeListValue.fromJSON(object.roles);
         }
         if (object.auditLogReason !== undefined && object.auditLogReason !== null) {
             message.auditLogReason = String(object.auditLogReason);
@@ -11318,7 +11326,7 @@ export const ModifyGuildEmojiRequest = {
         message.name !== undefined && (obj.name = message.name);
         message.roles !== undefined &&
             (obj.roles = message.roles
-                ? SnowflakeListValue.toJSON(message.roles)
+                ? model_1.SnowflakeListValue.toJSON(message.roles)
                 : undefined);
         message.auditLogReason !== undefined &&
             (obj.auditLogReason = message.auditLogReason);
@@ -11335,7 +11343,7 @@ export const ModifyGuildEmojiRequest = {
             message.name = object.name;
         }
         if (object.roles !== undefined && object.roles !== null) {
-            message.roles = SnowflakeListValue.fromPartial(object.roles);
+            message.roles = model_1.SnowflakeListValue.fromPartial(object.roles);
         }
         if (object.auditLogReason !== undefined && object.auditLogReason !== null) {
             message.auditLogReason = object.auditLogReason;
@@ -11343,23 +11351,23 @@ export const ModifyGuildEmojiRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildEmojiRequest.$type, ModifyGuildEmojiRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildEmojiRequest.$type, exports.ModifyGuildEmojiRequest);
 const baseModifyGuildEmojiResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildEmojiResponse",
 };
-export const ModifyGuildEmojiResponse = {
+exports.ModifyGuildEmojiResponse = {
     $type: "pylon.discord.v1.rest.ModifyGuildEmojiResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            ModifyGuildEmojiResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.ModifyGuildEmojiResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildEmojiResponse,
@@ -11370,13 +11378,13 @@ export const ModifyGuildEmojiResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: ModifyGuildEmojiResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.ModifyGuildEmojiResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -11393,13 +11401,13 @@ export const ModifyGuildEmojiResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyGuildEmojiResponse_Data.fromJSON(object.data),
+                data: exports.ModifyGuildEmojiResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -11408,11 +11416,11 @@ export const ModifyGuildEmojiResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? ModifyGuildEmojiResponse_Data.toJSON(message.response?.data)
+                ? exports.ModifyGuildEmojiResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -11425,7 +11433,7 @@ export const ModifyGuildEmojiResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -11433,26 +11441,26 @@ export const ModifyGuildEmojiResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyGuildEmojiResponse_Data.fromPartial(object.response.data),
+                data: exports.ModifyGuildEmojiResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildEmojiResponse.$type, ModifyGuildEmojiResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildEmojiResponse.$type, exports.ModifyGuildEmojiResponse);
 const baseModifyGuildEmojiResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyGuildEmojiResponse.Data",
 };
-export const ModifyGuildEmojiResponse_Data = {
+exports.ModifyGuildEmojiResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyGuildEmojiResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.emoji !== undefined) {
-            EmojiData.encode(message.emoji, writer.uint32(10).fork()).ldelim();
+            model_1.EmojiData.encode(message.emoji, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyGuildEmojiResponse_Data,
@@ -11461,7 +11469,7 @@ export const ModifyGuildEmojiResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.emoji = EmojiData.decode(reader, reader.uint32());
+                    message.emoji = model_1.EmojiData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -11475,14 +11483,14 @@ export const ModifyGuildEmojiResponse_Data = {
             ...baseModifyGuildEmojiResponse_Data,
         };
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = EmojiData.fromJSON(object.emoji);
+            message.emoji = model_1.EmojiData.fromJSON(object.emoji);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.emoji !== undefined &&
-            (obj.emoji = message.emoji ? EmojiData.toJSON(message.emoji) : undefined);
+            (obj.emoji = message.emoji ? model_1.EmojiData.toJSON(message.emoji) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -11490,24 +11498,24 @@ export const ModifyGuildEmojiResponse_Data = {
             ...baseModifyGuildEmojiResponse_Data,
         };
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = EmojiData.fromPartial(object.emoji);
+            message.emoji = model_1.EmojiData.fromPartial(object.emoji);
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyGuildEmojiResponse_Data.$type, ModifyGuildEmojiResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyGuildEmojiResponse_Data.$type, exports.ModifyGuildEmojiResponse_Data);
 const baseDeleteGuildEmojiRequest = {
     $type: "pylon.discord.v1.rest.DeleteGuildEmojiRequest",
     emojiId: "0",
 };
-export const DeleteGuildEmojiRequest = {
+exports.DeleteGuildEmojiRequest = {
     $type: "pylon.discord.v1.rest.DeleteGuildEmojiRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.emojiId !== "0") {
             writer.uint32(9).fixed64(message.emojiId);
         }
         if (message.auditLogReason !== undefined) {
-            StringValue.encode({
+            wrappers_1.StringValue.encode({
                 $type: "google.protobuf.StringValue",
                 value: message.auditLogReason,
             }, writer.uint32(802).fork()).ldelim();
@@ -11515,7 +11523,7 @@ export const DeleteGuildEmojiRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteGuildEmojiRequest,
@@ -11527,7 +11535,7 @@ export const DeleteGuildEmojiRequest = {
                     message.emojiId = longToString(reader.fixed64());
                     break;
                 case 100:
-                    message.auditLogReason = StringValue.decode(reader, reader.uint32()).value;
+                    message.auditLogReason = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -11568,23 +11576,23 @@ export const DeleteGuildEmojiRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(DeleteGuildEmojiRequest.$type, DeleteGuildEmojiRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteGuildEmojiRequest.$type, exports.DeleteGuildEmojiRequest);
 const baseDeleteGuildEmojiResponse = {
     $type: "pylon.discord.v1.rest.DeleteGuildEmojiResponse",
 };
-export const DeleteGuildEmojiResponse = {
+exports.DeleteGuildEmojiResponse = {
     $type: "pylon.discord.v1.rest.DeleteGuildEmojiResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseDeleteGuildEmojiResponse,
@@ -11595,13 +11603,13 @@ export const DeleteGuildEmojiResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -11618,11 +11626,11 @@ export const DeleteGuildEmojiResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -11630,11 +11638,11 @@ export const DeleteGuildEmojiResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -11647,7 +11655,7 @@ export const DeleteGuildEmojiResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -11655,23 +11663,23 @@ export const DeleteGuildEmojiResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(DeleteGuildEmojiResponse.$type, DeleteGuildEmojiResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.DeleteGuildEmojiResponse.$type, exports.DeleteGuildEmojiResponse);
 const baseGetCurrentUserRequest = {
     $type: "pylon.discord.v1.rest.GetCurrentUserRequest",
 };
-export const GetCurrentUserRequest = {
+exports.GetCurrentUserRequest = {
     $type: "pylon.discord.v1.rest.GetCurrentUserRequest",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetCurrentUserRequest };
         while (reader.pos < end) {
@@ -11697,23 +11705,23 @@ export const GetCurrentUserRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetCurrentUserRequest.$type, GetCurrentUserRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetCurrentUserRequest.$type, exports.GetCurrentUserRequest);
 const baseGetCurrentUserResponse = {
     $type: "pylon.discord.v1.rest.GetCurrentUserResponse",
 };
-export const GetCurrentUserResponse = {
+exports.GetCurrentUserResponse = {
     $type: "pylon.discord.v1.rest.GetCurrentUserResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            GetCurrentUserResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.GetCurrentUserResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetCurrentUserResponse };
         while (reader.pos < end) {
@@ -11722,13 +11730,13 @@ export const GetCurrentUserResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: GetCurrentUserResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.GetCurrentUserResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -11743,13 +11751,13 @@ export const GetCurrentUserResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetCurrentUserResponse_Data.fromJSON(object.data),
+                data: exports.GetCurrentUserResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -11758,11 +11766,11 @@ export const GetCurrentUserResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? GetCurrentUserResponse_Data.toJSON(message.response?.data)
+                ? exports.GetCurrentUserResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -11773,7 +11781,7 @@ export const GetCurrentUserResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -11781,26 +11789,26 @@ export const GetCurrentUserResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetCurrentUserResponse_Data.fromPartial(object.response.data),
+                data: exports.GetCurrentUserResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetCurrentUserResponse.$type, GetCurrentUserResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetCurrentUserResponse.$type, exports.GetCurrentUserResponse);
 const baseGetCurrentUserResponse_Data = {
     $type: "pylon.discord.v1.rest.GetCurrentUserResponse.Data",
 };
-export const GetCurrentUserResponse_Data = {
+exports.GetCurrentUserResponse_Data = {
     $type: "pylon.discord.v1.rest.GetCurrentUserResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.user !== undefined) {
-            UserData.encode(message.user, writer.uint32(10).fork()).ldelim();
+            model_1.UserData.encode(message.user, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetCurrentUserResponse_Data,
@@ -11809,7 +11817,7 @@ export const GetCurrentUserResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.user = UserData.decode(reader, reader.uint32());
+                    message.user = model_1.UserData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -11823,14 +11831,14 @@ export const GetCurrentUserResponse_Data = {
             ...baseGetCurrentUserResponse_Data,
         };
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromJSON(object.user);
+            message.user = model_1.UserData.fromJSON(object.user);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.user !== undefined &&
-            (obj.user = message.user ? UserData.toJSON(message.user) : undefined);
+            (obj.user = message.user ? model_1.UserData.toJSON(message.user) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -11838,26 +11846,26 @@ export const GetCurrentUserResponse_Data = {
             ...baseGetCurrentUserResponse_Data,
         };
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromPartial(object.user);
+            message.user = model_1.UserData.fromPartial(object.user);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetCurrentUserResponse_Data.$type, GetCurrentUserResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.GetCurrentUserResponse_Data.$type, exports.GetCurrentUserResponse_Data);
 const baseGetUserRequest = {
     $type: "pylon.discord.v1.rest.GetUserRequest",
     userId: "0",
 };
-export const GetUserRequest = {
+exports.GetUserRequest = {
     $type: "pylon.discord.v1.rest.GetUserRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetUserRequest };
         while (reader.pos < end) {
@@ -11893,23 +11901,23 @@ export const GetUserRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetUserRequest.$type, GetUserRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetUserRequest.$type, exports.GetUserRequest);
 const baseGetUserResponse = {
     $type: "pylon.discord.v1.rest.GetUserResponse",
 };
-export const GetUserResponse = {
+exports.GetUserResponse = {
     $type: "pylon.discord.v1.rest.GetUserResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            GetUserResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.GetUserResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetUserResponse };
         while (reader.pos < end) {
@@ -11918,13 +11926,13 @@ export const GetUserResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: GetUserResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.GetUserResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -11939,13 +11947,13 @@ export const GetUserResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetUserResponse_Data.fromJSON(object.data),
+                data: exports.GetUserResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -11954,11 +11962,11 @@ export const GetUserResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? GetUserResponse_Data.toJSON(message.response?.data)
+                ? exports.GetUserResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -11969,7 +11977,7 @@ export const GetUserResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -11977,33 +11985,33 @@ export const GetUserResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: GetUserResponse_Data.fromPartial(object.response.data),
+                data: exports.GetUserResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetUserResponse.$type, GetUserResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetUserResponse.$type, exports.GetUserResponse);
 const baseGetUserResponse_Data = {
     $type: "pylon.discord.v1.rest.GetUserResponse.Data",
 };
-export const GetUserResponse_Data = {
+exports.GetUserResponse_Data = {
     $type: "pylon.discord.v1.rest.GetUserResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.user !== undefined) {
-            UserData.encode(message.user, writer.uint32(10).fork()).ldelim();
+            model_1.UserData.encode(message.user, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetUserResponse_Data };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.user = UserData.decode(reader, reader.uint32());
+                    message.user = model_1.UserData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -12015,41 +12023,41 @@ export const GetUserResponse_Data = {
     fromJSON(object) {
         const message = { ...baseGetUserResponse_Data };
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromJSON(object.user);
+            message.user = model_1.UserData.fromJSON(object.user);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.user !== undefined &&
-            (obj.user = message.user ? UserData.toJSON(message.user) : undefined);
+            (obj.user = message.user ? model_1.UserData.toJSON(message.user) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseGetUserResponse_Data };
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromPartial(object.user);
+            message.user = model_1.UserData.fromPartial(object.user);
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetUserResponse_Data.$type, GetUserResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.GetUserResponse_Data.$type, exports.GetUserResponse_Data);
 const baseModifyCurrentUserRequest = {
     $type: "pylon.discord.v1.rest.ModifyCurrentUserRequest",
 };
-export const ModifyCurrentUserRequest = {
+exports.ModifyCurrentUserRequest = {
     $type: "pylon.discord.v1.rest.ModifyCurrentUserRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.username !== undefined) {
-            StringValue.encode({ $type: "google.protobuf.StringValue", value: message.username }, writer.uint32(10).fork()).ldelim();
+            wrappers_1.StringValue.encode({ $type: "google.protobuf.StringValue", value: message.username }, writer.uint32(10).fork()).ldelim();
         }
         if (message.avatar !== undefined) {
-            BytesValue.encode({ $type: "google.protobuf.BytesValue", value: message.avatar }, writer.uint32(18).fork()).ldelim();
+            wrappers_1.BytesValue.encode({ $type: "google.protobuf.BytesValue", value: message.avatar }, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyCurrentUserRequest,
@@ -12058,10 +12066,10 @@ export const ModifyCurrentUserRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.username = StringValue.decode(reader, reader.uint32()).value;
+                    message.username = wrappers_1.StringValue.decode(reader, reader.uint32()).value;
                     break;
                 case 2:
-                    message.avatar = BytesValue.decode(reader, reader.uint32()).value;
+                    message.avatar = wrappers_1.BytesValue.decode(reader, reader.uint32()).value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -12101,23 +12109,23 @@ export const ModifyCurrentUserRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(ModifyCurrentUserRequest.$type, ModifyCurrentUserRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyCurrentUserRequest.$type, exports.ModifyCurrentUserRequest);
 const baseModifyCurrentUserResponse = {
     $type: "pylon.discord.v1.rest.ModifyCurrentUserResponse",
 };
-export const ModifyCurrentUserResponse = {
+exports.ModifyCurrentUserResponse = {
     $type: "pylon.discord.v1.rest.ModifyCurrentUserResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            ModifyCurrentUserResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.ModifyCurrentUserResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyCurrentUserResponse,
@@ -12128,13 +12136,13 @@ export const ModifyCurrentUserResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: ModifyCurrentUserResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.ModifyCurrentUserResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -12151,13 +12159,13 @@ export const ModifyCurrentUserResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyCurrentUserResponse_Data.fromJSON(object.data),
+                data: exports.ModifyCurrentUserResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -12166,11 +12174,11 @@ export const ModifyCurrentUserResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? ModifyCurrentUserResponse_Data.toJSON(message.response?.data)
+                ? exports.ModifyCurrentUserResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -12183,7 +12191,7 @@ export const ModifyCurrentUserResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -12191,26 +12199,26 @@ export const ModifyCurrentUserResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: ModifyCurrentUserResponse_Data.fromPartial(object.response.data),
+                data: exports.ModifyCurrentUserResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyCurrentUserResponse.$type, ModifyCurrentUserResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyCurrentUserResponse.$type, exports.ModifyCurrentUserResponse);
 const baseModifyCurrentUserResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyCurrentUserResponse.Data",
 };
-export const ModifyCurrentUserResponse_Data = {
+exports.ModifyCurrentUserResponse_Data = {
     $type: "pylon.discord.v1.rest.ModifyCurrentUserResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.user !== undefined) {
-            UserData.encode(message.user, writer.uint32(10).fork()).ldelim();
+            model_1.UserData.encode(message.user, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseModifyCurrentUserResponse_Data,
@@ -12219,7 +12227,7 @@ export const ModifyCurrentUserResponse_Data = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.user = UserData.decode(reader, reader.uint32());
+                    message.user = model_1.UserData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -12233,14 +12241,14 @@ export const ModifyCurrentUserResponse_Data = {
             ...baseModifyCurrentUserResponse_Data,
         };
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromJSON(object.user);
+            message.user = model_1.UserData.fromJSON(object.user);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.user !== undefined &&
-            (obj.user = message.user ? UserData.toJSON(message.user) : undefined);
+            (obj.user = message.user ? model_1.UserData.toJSON(message.user) : undefined);
         return obj;
     },
     fromPartial(object) {
@@ -12248,22 +12256,22 @@ export const ModifyCurrentUserResponse_Data = {
             ...baseModifyCurrentUserResponse_Data,
         };
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromPartial(object.user);
+            message.user = model_1.UserData.fromPartial(object.user);
         }
         return message;
     },
 };
-messageTypeRegistry.set(ModifyCurrentUserResponse_Data.$type, ModifyCurrentUserResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.ModifyCurrentUserResponse_Data.$type, exports.ModifyCurrentUserResponse_Data);
 const baseLeaveGuildRequest = {
     $type: "pylon.discord.v1.rest.LeaveGuildRequest",
 };
-export const LeaveGuildRequest = {
+exports.LeaveGuildRequest = {
     $type: "pylon.discord.v1.rest.LeaveGuildRequest",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseLeaveGuildRequest };
         while (reader.pos < end) {
@@ -12289,23 +12297,23 @@ export const LeaveGuildRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(LeaveGuildRequest.$type, LeaveGuildRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.LeaveGuildRequest.$type, exports.LeaveGuildRequest);
 const baseLeaveGuildResponse = {
     $type: "pylon.discord.v1.rest.LeaveGuildResponse",
 };
-export const LeaveGuildResponse = {
+exports.LeaveGuildResponse = {
     $type: "pylon.discord.v1.rest.LeaveGuildResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            empty_1.Empty.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseLeaveGuildResponse };
         while (reader.pos < end) {
@@ -12314,13 +12322,13 @@ export const LeaveGuildResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: Empty.decode(reader, reader.uint32()),
+                        data: empty_1.Empty.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -12335,11 +12343,11 @@ export const LeaveGuildResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
-            message.response = { $case: "data", data: Empty.fromJSON(object.data) };
+            message.response = { $case: "data", data: empty_1.Empty.fromJSON(object.data) };
         }
         return message;
     },
@@ -12347,11 +12355,11 @@ export const LeaveGuildResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? Empty.toJSON(message.response?.data)
+                ? empty_1.Empty.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -12362,7 +12370,7 @@ export const LeaveGuildResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -12370,27 +12378,27 @@ export const LeaveGuildResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: Empty.fromPartial(object.response.data),
+                data: empty_1.Empty.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(LeaveGuildResponse.$type, LeaveGuildResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.LeaveGuildResponse.$type, exports.LeaveGuildResponse);
 const baseCreateDmRequest = {
     $type: "pylon.discord.v1.rest.CreateDmRequest",
     recipientId: "0",
 };
-export const CreateDmRequest = {
+exports.CreateDmRequest = {
     $type: "pylon.discord.v1.rest.CreateDmRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.recipientId !== "0") {
             writer.uint32(9).fixed64(message.recipientId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseCreateDmRequest };
         while (reader.pos < end) {
@@ -12427,23 +12435,23 @@ export const CreateDmRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(CreateDmRequest.$type, CreateDmRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateDmRequest.$type, exports.CreateDmRequest);
 const baseCreateDmResponse = {
     $type: "pylon.discord.v1.rest.CreateDmResponse",
 };
-export const CreateDmResponse = {
+exports.CreateDmResponse = {
     $type: "pylon.discord.v1.rest.CreateDmResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.response?.$case === "error") {
-            RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
+            exports.RestError.encode(message.response.error, writer.uint32(10).fork()).ldelim();
         }
         if (message.response?.$case === "data") {
-            CreateDmResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
+            exports.CreateDmResponse_Data.encode(message.response.data, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseCreateDmResponse };
         while (reader.pos < end) {
@@ -12452,13 +12460,13 @@ export const CreateDmResponse = {
                 case 1:
                     message.response = {
                         $case: "error",
-                        error: RestError.decode(reader, reader.uint32()),
+                        error: exports.RestError.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.response = {
                         $case: "data",
-                        data: CreateDmResponse_Data.decode(reader, reader.uint32()),
+                        data: exports.CreateDmResponse_Data.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -12473,13 +12481,13 @@ export const CreateDmResponse = {
         if (object.error !== undefined && object.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromJSON(object.error),
+                error: exports.RestError.fromJSON(object.error),
             };
         }
         if (object.data !== undefined && object.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateDmResponse_Data.fromJSON(object.data),
+                data: exports.CreateDmResponse_Data.fromJSON(object.data),
             };
         }
         return message;
@@ -12488,11 +12496,11 @@ export const CreateDmResponse = {
         const obj = {};
         message.response?.$case === "error" &&
             (obj.error = message.response?.error
-                ? RestError.toJSON(message.response?.error)
+                ? exports.RestError.toJSON(message.response?.error)
                 : undefined);
         message.response?.$case === "data" &&
             (obj.data = message.response?.data
-                ? CreateDmResponse_Data.toJSON(message.response?.data)
+                ? exports.CreateDmResponse_Data.toJSON(message.response?.data)
                 : undefined);
         return obj;
     },
@@ -12503,7 +12511,7 @@ export const CreateDmResponse = {
             object.response?.error !== null) {
             message.response = {
                 $case: "error",
-                error: RestError.fromPartial(object.response.error),
+                error: exports.RestError.fromPartial(object.response.error),
             };
         }
         if (object.response?.$case === "data" &&
@@ -12511,33 +12519,33 @@ export const CreateDmResponse = {
             object.response?.data !== null) {
             message.response = {
                 $case: "data",
-                data: CreateDmResponse_Data.fromPartial(object.response.data),
+                data: exports.CreateDmResponse_Data.fromPartial(object.response.data),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateDmResponse.$type, CreateDmResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateDmResponse.$type, exports.CreateDmResponse);
 const baseCreateDmResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateDmResponse.Data",
 };
-export const CreateDmResponse_Data = {
+exports.CreateDmResponse_Data = {
     $type: "pylon.discord.v1.rest.CreateDmResponse.Data",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.channel !== undefined) {
-            ChannelData.encode(message.channel, writer.uint32(10).fork()).ldelim();
+            model_1.ChannelData.encode(message.channel, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseCreateDmResponse_Data };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.channel = ChannelData.decode(reader, reader.uint32());
+                    message.channel = model_1.ChannelData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -12549,7 +12557,7 @@ export const CreateDmResponse_Data = {
     fromJSON(object) {
         const message = { ...baseCreateDmResponse_Data };
         if (object.channel !== undefined && object.channel !== null) {
-            message.channel = ChannelData.fromJSON(object.channel);
+            message.channel = model_1.ChannelData.fromJSON(object.channel);
         }
         return message;
     },
@@ -12557,19 +12565,19 @@ export const CreateDmResponse_Data = {
         const obj = {};
         message.channel !== undefined &&
             (obj.channel = message.channel
-                ? ChannelData.toJSON(message.channel)
+                ? model_1.ChannelData.toJSON(message.channel)
                 : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseCreateDmResponse_Data };
         if (object.channel !== undefined && object.channel !== null) {
-            message.channel = ChannelData.fromPartial(object.channel);
+            message.channel = model_1.ChannelData.fromPartial(object.channel);
         }
         return message;
     },
 };
-messageTypeRegistry.set(CreateDmResponse_Data.$type, CreateDmResponse_Data);
+typeRegistry_1.messageTypeRegistry.set(exports.CreateDmResponse_Data.$type, exports.CreateDmResponse_Data);
 var globalThis = (() => {
     if (typeof globalThis !== "undefined")
         return globalThis;
@@ -12603,7 +12611,7 @@ function base64FromBytes(arr) {
 function longToString(long) {
     return long.toString();
 }
-if (_m0.util.Long !== Long) {
-    _m0.util.Long = Long;
-    _m0.configure();
+if (minimal_1.default.util.Long !== long_1.default) {
+    minimal_1.default.util.Long = long_1.default;
+    minimal_1.default.configure();
 }
