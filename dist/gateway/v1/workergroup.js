@@ -1,16 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WorkerDrainResponse = exports.WorkerDrainRequest = exports.WorkerHeartbeatResponse = exports.WorkerHeartbeatRequest = exports.WorkerIdentifyResponse = exports.WorkerIdentifyRequest = exports.WorkerStreamServerMessage = exports.WorkerStreamClientMessage = exports.workerIdentifyResponse_IdentifyStatusToJSON = exports.workerIdentifyResponse_IdentifyStatusFromJSON = exports.WorkerIdentifyResponse_IdentifyStatus = exports.protobufPackage = void 0;
 /* eslint-disable */
-import { messageTypeRegistry } from "../../typeRegistry";
-import Long from "long";
-import _m0 from "protobufjs/minimal";
-import { EventEnvelope } from "../../discord/v1/event";
-export const protobufPackage = "pylon.gateway.v1.workergroup";
-export var WorkerIdentifyResponse_IdentifyStatus;
+const typeRegistry_1 = require("../../typeRegistry");
+const long_1 = __importDefault(require("long"));
+const minimal_1 = __importDefault(require("protobufjs/minimal"));
+const event_1 = require("../../discord/v1/event");
+exports.protobufPackage = "pylon.gateway.v1.workergroup";
+var WorkerIdentifyResponse_IdentifyStatus;
 (function (WorkerIdentifyResponse_IdentifyStatus) {
     WorkerIdentifyResponse_IdentifyStatus[WorkerIdentifyResponse_IdentifyStatus["UNKNOWN"] = 0] = "UNKNOWN";
     WorkerIdentifyResponse_IdentifyStatus[WorkerIdentifyResponse_IdentifyStatus["OK"] = 1] = "OK";
     WorkerIdentifyResponse_IdentifyStatus[WorkerIdentifyResponse_IdentifyStatus["ERROR"] = 2] = "ERROR";
-})(WorkerIdentifyResponse_IdentifyStatus || (WorkerIdentifyResponse_IdentifyStatus = {}));
-export function workerIdentifyResponse_IdentifyStatusFromJSON(object) {
+})(WorkerIdentifyResponse_IdentifyStatus = exports.WorkerIdentifyResponse_IdentifyStatus || (exports.WorkerIdentifyResponse_IdentifyStatus = {}));
+function workerIdentifyResponse_IdentifyStatusFromJSON(object) {
     switch (object) {
         case 0:
         case "UNKNOWN":
@@ -27,7 +33,8 @@ export function workerIdentifyResponse_IdentifyStatusFromJSON(object) {
                 " for enum WorkerIdentifyResponse_IdentifyStatus");
     }
 }
-export function workerIdentifyResponse_IdentifyStatusToJSON(object) {
+exports.workerIdentifyResponse_IdentifyStatusFromJSON = workerIdentifyResponse_IdentifyStatusFromJSON;
+function workerIdentifyResponse_IdentifyStatusToJSON(object) {
     switch (object) {
         case WorkerIdentifyResponse_IdentifyStatus.UNKNOWN:
             return "UNKNOWN";
@@ -39,28 +46,29 @@ export function workerIdentifyResponse_IdentifyStatusToJSON(object) {
             return "UNKNOWN";
     }
 }
+exports.workerIdentifyResponse_IdentifyStatusToJSON = workerIdentifyResponse_IdentifyStatusToJSON;
 const baseWorkerStreamClientMessage = {
     $type: "pylon.gateway.v1.workergroup.WorkerStreamClientMessage",
 };
-export const WorkerStreamClientMessage = {
+exports.WorkerStreamClientMessage = {
     $type: "pylon.gateway.v1.workergroup.WorkerStreamClientMessage",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.payload?.$case === "identifyRequest") {
-            WorkerIdentifyRequest.encode(message.payload.identifyRequest, writer.uint32(10).fork()).ldelim();
+            exports.WorkerIdentifyRequest.encode(message.payload.identifyRequest, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload?.$case === "heartbeatRequest") {
-            WorkerHeartbeatRequest.encode(message.payload.heartbeatRequest, writer.uint32(18).fork()).ldelim();
+            exports.WorkerHeartbeatRequest.encode(message.payload.heartbeatRequest, writer.uint32(18).fork()).ldelim();
         }
         if (message.payload?.$case === "heartbeatResponse") {
-            WorkerHeartbeatResponse.encode(message.payload.heartbeatResponse, writer.uint32(26).fork()).ldelim();
+            exports.WorkerHeartbeatResponse.encode(message.payload.heartbeatResponse, writer.uint32(26).fork()).ldelim();
         }
         if (message.payload?.$case === "drainRequest") {
-            WorkerDrainRequest.encode(message.payload.drainRequest, writer.uint32(34).fork()).ldelim();
+            exports.WorkerDrainRequest.encode(message.payload.drainRequest, writer.uint32(34).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseWorkerStreamClientMessage,
@@ -71,25 +79,25 @@ export const WorkerStreamClientMessage = {
                 case 1:
                     message.payload = {
                         $case: "identifyRequest",
-                        identifyRequest: WorkerIdentifyRequest.decode(reader, reader.uint32()),
+                        identifyRequest: exports.WorkerIdentifyRequest.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.payload = {
                         $case: "heartbeatRequest",
-                        heartbeatRequest: WorkerHeartbeatRequest.decode(reader, reader.uint32()),
+                        heartbeatRequest: exports.WorkerHeartbeatRequest.decode(reader, reader.uint32()),
                     };
                     break;
                 case 3:
                     message.payload = {
                         $case: "heartbeatResponse",
-                        heartbeatResponse: WorkerHeartbeatResponse.decode(reader, reader.uint32()),
+                        heartbeatResponse: exports.WorkerHeartbeatResponse.decode(reader, reader.uint32()),
                     };
                     break;
                 case 4:
                     message.payload = {
                         $case: "drainRequest",
-                        drainRequest: WorkerDrainRequest.decode(reader, reader.uint32()),
+                        drainRequest: exports.WorkerDrainRequest.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -107,27 +115,27 @@ export const WorkerStreamClientMessage = {
             object.identifyRequest !== null) {
             message.payload = {
                 $case: "identifyRequest",
-                identifyRequest: WorkerIdentifyRequest.fromJSON(object.identifyRequest),
+                identifyRequest: exports.WorkerIdentifyRequest.fromJSON(object.identifyRequest),
             };
         }
         if (object.heartbeatRequest !== undefined &&
             object.heartbeatRequest !== null) {
             message.payload = {
                 $case: "heartbeatRequest",
-                heartbeatRequest: WorkerHeartbeatRequest.fromJSON(object.heartbeatRequest),
+                heartbeatRequest: exports.WorkerHeartbeatRequest.fromJSON(object.heartbeatRequest),
             };
         }
         if (object.heartbeatResponse !== undefined &&
             object.heartbeatResponse !== null) {
             message.payload = {
                 $case: "heartbeatResponse",
-                heartbeatResponse: WorkerHeartbeatResponse.fromJSON(object.heartbeatResponse),
+                heartbeatResponse: exports.WorkerHeartbeatResponse.fromJSON(object.heartbeatResponse),
             };
         }
         if (object.drainRequest !== undefined && object.drainRequest !== null) {
             message.payload = {
                 $case: "drainRequest",
-                drainRequest: WorkerDrainRequest.fromJSON(object.drainRequest),
+                drainRequest: exports.WorkerDrainRequest.fromJSON(object.drainRequest),
             };
         }
         return message;
@@ -136,19 +144,19 @@ export const WorkerStreamClientMessage = {
         const obj = {};
         message.payload?.$case === "identifyRequest" &&
             (obj.identifyRequest = message.payload?.identifyRequest
-                ? WorkerIdentifyRequest.toJSON(message.payload?.identifyRequest)
+                ? exports.WorkerIdentifyRequest.toJSON(message.payload?.identifyRequest)
                 : undefined);
         message.payload?.$case === "heartbeatRequest" &&
             (obj.heartbeatRequest = message.payload?.heartbeatRequest
-                ? WorkerHeartbeatRequest.toJSON(message.payload?.heartbeatRequest)
+                ? exports.WorkerHeartbeatRequest.toJSON(message.payload?.heartbeatRequest)
                 : undefined);
         message.payload?.$case === "heartbeatResponse" &&
             (obj.heartbeatResponse = message.payload?.heartbeatResponse
-                ? WorkerHeartbeatResponse.toJSON(message.payload?.heartbeatResponse)
+                ? exports.WorkerHeartbeatResponse.toJSON(message.payload?.heartbeatResponse)
                 : undefined);
         message.payload?.$case === "drainRequest" &&
             (obj.drainRequest = message.payload?.drainRequest
-                ? WorkerDrainRequest.toJSON(message.payload?.drainRequest)
+                ? exports.WorkerDrainRequest.toJSON(message.payload?.drainRequest)
                 : undefined);
         return obj;
     },
@@ -161,7 +169,7 @@ export const WorkerStreamClientMessage = {
             object.payload?.identifyRequest !== null) {
             message.payload = {
                 $case: "identifyRequest",
-                identifyRequest: WorkerIdentifyRequest.fromPartial(object.payload.identifyRequest),
+                identifyRequest: exports.WorkerIdentifyRequest.fromPartial(object.payload.identifyRequest),
             };
         }
         if (object.payload?.$case === "heartbeatRequest" &&
@@ -169,7 +177,7 @@ export const WorkerStreamClientMessage = {
             object.payload?.heartbeatRequest !== null) {
             message.payload = {
                 $case: "heartbeatRequest",
-                heartbeatRequest: WorkerHeartbeatRequest.fromPartial(object.payload.heartbeatRequest),
+                heartbeatRequest: exports.WorkerHeartbeatRequest.fromPartial(object.payload.heartbeatRequest),
             };
         }
         if (object.payload?.$case === "heartbeatResponse" &&
@@ -177,7 +185,7 @@ export const WorkerStreamClientMessage = {
             object.payload?.heartbeatResponse !== null) {
             message.payload = {
                 $case: "heartbeatResponse",
-                heartbeatResponse: WorkerHeartbeatResponse.fromPartial(object.payload.heartbeatResponse),
+                heartbeatResponse: exports.WorkerHeartbeatResponse.fromPartial(object.payload.heartbeatResponse),
             };
         }
         if (object.payload?.$case === "drainRequest" &&
@@ -185,38 +193,38 @@ export const WorkerStreamClientMessage = {
             object.payload?.drainRequest !== null) {
             message.payload = {
                 $case: "drainRequest",
-                drainRequest: WorkerDrainRequest.fromPartial(object.payload.drainRequest),
+                drainRequest: exports.WorkerDrainRequest.fromPartial(object.payload.drainRequest),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(WorkerStreamClientMessage.$type, WorkerStreamClientMessage);
+typeRegistry_1.messageTypeRegistry.set(exports.WorkerStreamClientMessage.$type, exports.WorkerStreamClientMessage);
 const baseWorkerStreamServerMessage = {
     $type: "pylon.gateway.v1.workergroup.WorkerStreamServerMessage",
 };
-export const WorkerStreamServerMessage = {
+exports.WorkerStreamServerMessage = {
     $type: "pylon.gateway.v1.workergroup.WorkerStreamServerMessage",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.payload?.$case === "identifyResponse") {
-            WorkerIdentifyResponse.encode(message.payload.identifyResponse, writer.uint32(10).fork()).ldelim();
+            exports.WorkerIdentifyResponse.encode(message.payload.identifyResponse, writer.uint32(10).fork()).ldelim();
         }
         if (message.payload?.$case === "eventEnvelope") {
-            EventEnvelope.encode(message.payload.eventEnvelope, writer.uint32(18).fork()).ldelim();
+            event_1.EventEnvelope.encode(message.payload.eventEnvelope, writer.uint32(18).fork()).ldelim();
         }
         if (message.payload?.$case === "heartbeatRequest") {
-            WorkerHeartbeatRequest.encode(message.payload.heartbeatRequest, writer.uint32(26).fork()).ldelim();
+            exports.WorkerHeartbeatRequest.encode(message.payload.heartbeatRequest, writer.uint32(26).fork()).ldelim();
         }
         if (message.payload?.$case === "heartbeatResponse") {
-            WorkerHeartbeatResponse.encode(message.payload.heartbeatResponse, writer.uint32(34).fork()).ldelim();
+            exports.WorkerHeartbeatResponse.encode(message.payload.heartbeatResponse, writer.uint32(34).fork()).ldelim();
         }
         if (message.payload?.$case === "drainResponse") {
-            WorkerDrainResponse.encode(message.payload.drainResponse, writer.uint32(42).fork()).ldelim();
+            exports.WorkerDrainResponse.encode(message.payload.drainResponse, writer.uint32(42).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseWorkerStreamServerMessage,
@@ -227,31 +235,31 @@ export const WorkerStreamServerMessage = {
                 case 1:
                     message.payload = {
                         $case: "identifyResponse",
-                        identifyResponse: WorkerIdentifyResponse.decode(reader, reader.uint32()),
+                        identifyResponse: exports.WorkerIdentifyResponse.decode(reader, reader.uint32()),
                     };
                     break;
                 case 2:
                     message.payload = {
                         $case: "eventEnvelope",
-                        eventEnvelope: EventEnvelope.decode(reader, reader.uint32()),
+                        eventEnvelope: event_1.EventEnvelope.decode(reader, reader.uint32()),
                     };
                     break;
                 case 3:
                     message.payload = {
                         $case: "heartbeatRequest",
-                        heartbeatRequest: WorkerHeartbeatRequest.decode(reader, reader.uint32()),
+                        heartbeatRequest: exports.WorkerHeartbeatRequest.decode(reader, reader.uint32()),
                     };
                     break;
                 case 4:
                     message.payload = {
                         $case: "heartbeatResponse",
-                        heartbeatResponse: WorkerHeartbeatResponse.decode(reader, reader.uint32()),
+                        heartbeatResponse: exports.WorkerHeartbeatResponse.decode(reader, reader.uint32()),
                     };
                     break;
                 case 5:
                     message.payload = {
                         $case: "drainResponse",
-                        drainResponse: WorkerDrainResponse.decode(reader, reader.uint32()),
+                        drainResponse: exports.WorkerDrainResponse.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -269,33 +277,33 @@ export const WorkerStreamServerMessage = {
             object.identifyResponse !== null) {
             message.payload = {
                 $case: "identifyResponse",
-                identifyResponse: WorkerIdentifyResponse.fromJSON(object.identifyResponse),
+                identifyResponse: exports.WorkerIdentifyResponse.fromJSON(object.identifyResponse),
             };
         }
         if (object.eventEnvelope !== undefined && object.eventEnvelope !== null) {
             message.payload = {
                 $case: "eventEnvelope",
-                eventEnvelope: EventEnvelope.fromJSON(object.eventEnvelope),
+                eventEnvelope: event_1.EventEnvelope.fromJSON(object.eventEnvelope),
             };
         }
         if (object.heartbeatRequest !== undefined &&
             object.heartbeatRequest !== null) {
             message.payload = {
                 $case: "heartbeatRequest",
-                heartbeatRequest: WorkerHeartbeatRequest.fromJSON(object.heartbeatRequest),
+                heartbeatRequest: exports.WorkerHeartbeatRequest.fromJSON(object.heartbeatRequest),
             };
         }
         if (object.heartbeatResponse !== undefined &&
             object.heartbeatResponse !== null) {
             message.payload = {
                 $case: "heartbeatResponse",
-                heartbeatResponse: WorkerHeartbeatResponse.fromJSON(object.heartbeatResponse),
+                heartbeatResponse: exports.WorkerHeartbeatResponse.fromJSON(object.heartbeatResponse),
             };
         }
         if (object.drainResponse !== undefined && object.drainResponse !== null) {
             message.payload = {
                 $case: "drainResponse",
-                drainResponse: WorkerDrainResponse.fromJSON(object.drainResponse),
+                drainResponse: exports.WorkerDrainResponse.fromJSON(object.drainResponse),
             };
         }
         return message;
@@ -304,23 +312,23 @@ export const WorkerStreamServerMessage = {
         const obj = {};
         message.payload?.$case === "identifyResponse" &&
             (obj.identifyResponse = message.payload?.identifyResponse
-                ? WorkerIdentifyResponse.toJSON(message.payload?.identifyResponse)
+                ? exports.WorkerIdentifyResponse.toJSON(message.payload?.identifyResponse)
                 : undefined);
         message.payload?.$case === "eventEnvelope" &&
             (obj.eventEnvelope = message.payload?.eventEnvelope
-                ? EventEnvelope.toJSON(message.payload?.eventEnvelope)
+                ? event_1.EventEnvelope.toJSON(message.payload?.eventEnvelope)
                 : undefined);
         message.payload?.$case === "heartbeatRequest" &&
             (obj.heartbeatRequest = message.payload?.heartbeatRequest
-                ? WorkerHeartbeatRequest.toJSON(message.payload?.heartbeatRequest)
+                ? exports.WorkerHeartbeatRequest.toJSON(message.payload?.heartbeatRequest)
                 : undefined);
         message.payload?.$case === "heartbeatResponse" &&
             (obj.heartbeatResponse = message.payload?.heartbeatResponse
-                ? WorkerHeartbeatResponse.toJSON(message.payload?.heartbeatResponse)
+                ? exports.WorkerHeartbeatResponse.toJSON(message.payload?.heartbeatResponse)
                 : undefined);
         message.payload?.$case === "drainResponse" &&
             (obj.drainResponse = message.payload?.drainResponse
-                ? WorkerDrainResponse.toJSON(message.payload?.drainResponse)
+                ? exports.WorkerDrainResponse.toJSON(message.payload?.drainResponse)
                 : undefined);
         return obj;
     },
@@ -333,7 +341,7 @@ export const WorkerStreamServerMessage = {
             object.payload?.identifyResponse !== null) {
             message.payload = {
                 $case: "identifyResponse",
-                identifyResponse: WorkerIdentifyResponse.fromPartial(object.payload.identifyResponse),
+                identifyResponse: exports.WorkerIdentifyResponse.fromPartial(object.payload.identifyResponse),
             };
         }
         if (object.payload?.$case === "eventEnvelope" &&
@@ -341,7 +349,7 @@ export const WorkerStreamServerMessage = {
             object.payload?.eventEnvelope !== null) {
             message.payload = {
                 $case: "eventEnvelope",
-                eventEnvelope: EventEnvelope.fromPartial(object.payload.eventEnvelope),
+                eventEnvelope: event_1.EventEnvelope.fromPartial(object.payload.eventEnvelope),
             };
         }
         if (object.payload?.$case === "heartbeatRequest" &&
@@ -349,7 +357,7 @@ export const WorkerStreamServerMessage = {
             object.payload?.heartbeatRequest !== null) {
             message.payload = {
                 $case: "heartbeatRequest",
-                heartbeatRequest: WorkerHeartbeatRequest.fromPartial(object.payload.heartbeatRequest),
+                heartbeatRequest: exports.WorkerHeartbeatRequest.fromPartial(object.payload.heartbeatRequest),
             };
         }
         if (object.payload?.$case === "heartbeatResponse" &&
@@ -357,7 +365,7 @@ export const WorkerStreamServerMessage = {
             object.payload?.heartbeatResponse !== null) {
             message.payload = {
                 $case: "heartbeatResponse",
-                heartbeatResponse: WorkerHeartbeatResponse.fromPartial(object.payload.heartbeatResponse),
+                heartbeatResponse: exports.WorkerHeartbeatResponse.fromPartial(object.payload.heartbeatResponse),
             };
         }
         if (object.payload?.$case === "drainResponse" &&
@@ -365,22 +373,22 @@ export const WorkerStreamServerMessage = {
             object.payload?.drainResponse !== null) {
             message.payload = {
                 $case: "drainResponse",
-                drainResponse: WorkerDrainResponse.fromPartial(object.payload.drainResponse),
+                drainResponse: exports.WorkerDrainResponse.fromPartial(object.payload.drainResponse),
             };
         }
         return message;
     },
 };
-messageTypeRegistry.set(WorkerStreamServerMessage.$type, WorkerStreamServerMessage);
+typeRegistry_1.messageTypeRegistry.set(exports.WorkerStreamServerMessage.$type, exports.WorkerStreamServerMessage);
 const baseWorkerIdentifyRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerIdentifyRequest",
     authToken: "",
     consumerGroup: "",
     consumerId: "",
 };
-export const WorkerIdentifyRequest = {
+exports.WorkerIdentifyRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerIdentifyRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.authToken !== "") {
             writer.uint32(10).string(message.authToken);
         }
@@ -393,7 +401,7 @@ export const WorkerIdentifyRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseWorkerIdentifyRequest };
         while (reader.pos < end) {
@@ -450,15 +458,15 @@ export const WorkerIdentifyRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(WorkerIdentifyRequest.$type, WorkerIdentifyRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.WorkerIdentifyRequest.$type, exports.WorkerIdentifyRequest);
 const baseWorkerIdentifyResponse = {
     $type: "pylon.gateway.v1.workergroup.WorkerIdentifyResponse",
     status: 0,
     consumerId: "",
 };
-export const WorkerIdentifyResponse = {
+exports.WorkerIdentifyResponse = {
     $type: "pylon.gateway.v1.workergroup.WorkerIdentifyResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.status !== 0) {
             writer.uint32(8).int32(message.status);
         }
@@ -468,7 +476,7 @@ export const WorkerIdentifyResponse = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseWorkerIdentifyResponse };
         while (reader.pos < end) {
@@ -515,15 +523,15 @@ export const WorkerIdentifyResponse = {
         return message;
     },
 };
-messageTypeRegistry.set(WorkerIdentifyResponse.$type, WorkerIdentifyResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.WorkerIdentifyResponse.$type, exports.WorkerIdentifyResponse);
 const baseWorkerHeartbeatRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatRequest",
     lastSequence: "0",
     nonce: "",
 };
-export const WorkerHeartbeatRequest = {
+exports.WorkerHeartbeatRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.lastSequence !== "0") {
             writer.uint32(8).uint64(message.lastSequence);
         }
@@ -533,7 +541,7 @@ export const WorkerHeartbeatRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseWorkerHeartbeatRequest };
         while (reader.pos < end) {
@@ -580,21 +588,21 @@ export const WorkerHeartbeatRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(WorkerHeartbeatRequest.$type, WorkerHeartbeatRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.WorkerHeartbeatRequest.$type, exports.WorkerHeartbeatRequest);
 const baseWorkerHeartbeatResponse = {
     $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatResponse",
     nonce: "",
 };
-export const WorkerHeartbeatResponse = {
+exports.WorkerHeartbeatResponse = {
     $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.nonce !== "") {
             writer.uint32(10).string(message.nonce);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseWorkerHeartbeatResponse,
@@ -636,17 +644,17 @@ export const WorkerHeartbeatResponse = {
         return message;
     },
 };
-messageTypeRegistry.set(WorkerHeartbeatResponse.$type, WorkerHeartbeatResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.WorkerHeartbeatResponse.$type, exports.WorkerHeartbeatResponse);
 const baseWorkerDrainRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerDrainRequest",
 };
-export const WorkerDrainRequest = {
+exports.WorkerDrainRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerDrainRequest",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseWorkerDrainRequest };
         while (reader.pos < end) {
@@ -672,17 +680,17 @@ export const WorkerDrainRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(WorkerDrainRequest.$type, WorkerDrainRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.WorkerDrainRequest.$type, exports.WorkerDrainRequest);
 const baseWorkerDrainResponse = {
     $type: "pylon.gateway.v1.workergroup.WorkerDrainResponse",
 };
-export const WorkerDrainResponse = {
+exports.WorkerDrainResponse = {
     $type: "pylon.gateway.v1.workergroup.WorkerDrainResponse",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseWorkerDrainResponse };
         while (reader.pos < end) {
@@ -708,7 +716,7 @@ export const WorkerDrainResponse = {
         return message;
     },
 };
-messageTypeRegistry.set(WorkerDrainResponse.$type, WorkerDrainResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.WorkerDrainResponse.$type, exports.WorkerDrainResponse);
 var globalThis = (() => {
     if (typeof globalThis !== "undefined")
         return globalThis;
@@ -723,7 +731,7 @@ var globalThis = (() => {
 function longToString(long) {
     return long.toString();
 }
-if (_m0.util.Long !== Long) {
-    _m0.util.Long = Long;
-    _m0.configure();
+if (minimal_1.default.util.Long !== long_1.default) {
+    minimal_1.default.util.Long = long_1.default;
+    minimal_1.default.configure();
 }

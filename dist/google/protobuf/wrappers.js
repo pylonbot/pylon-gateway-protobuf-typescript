@@ -1,22 +1,28 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BytesValue = exports.StringValue = exports.BoolValue = exports.UInt32Value = exports.Int32Value = exports.UInt64Value = exports.Int64Value = exports.FloatValue = exports.DoubleValue = exports.protobufPackage = void 0;
 /* eslint-disable */
-import { messageTypeRegistry } from "../../typeRegistry";
-import Long from "long";
-import _m0 from "protobufjs/minimal";
-export const protobufPackage = "google.protobuf";
+const typeRegistry_1 = require("../../typeRegistry");
+const long_1 = __importDefault(require("long"));
+const minimal_1 = __importDefault(require("protobufjs/minimal"));
+exports.protobufPackage = "google.protobuf";
 const baseDoubleValue = {
     $type: "google.protobuf.DoubleValue",
     value: 0,
 };
-export const DoubleValue = {
+exports.DoubleValue = {
     $type: "google.protobuf.DoubleValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== 0) {
             writer.uint32(9).double(message.value);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseDoubleValue };
         while (reader.pos < end) {
@@ -52,21 +58,21 @@ export const DoubleValue = {
         return message;
     },
 };
-messageTypeRegistry.set(DoubleValue.$type, DoubleValue);
+typeRegistry_1.messageTypeRegistry.set(exports.DoubleValue.$type, exports.DoubleValue);
 const baseFloatValue = {
     $type: "google.protobuf.FloatValue",
     value: 0,
 };
-export const FloatValue = {
+exports.FloatValue = {
     $type: "google.protobuf.FloatValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== 0) {
             writer.uint32(13).float(message.value);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseFloatValue };
         while (reader.pos < end) {
@@ -102,21 +108,21 @@ export const FloatValue = {
         return message;
     },
 };
-messageTypeRegistry.set(FloatValue.$type, FloatValue);
+typeRegistry_1.messageTypeRegistry.set(exports.FloatValue.$type, exports.FloatValue);
 const baseInt64Value = {
     $type: "google.protobuf.Int64Value",
     value: "0",
 };
-export const Int64Value = {
+exports.Int64Value = {
     $type: "google.protobuf.Int64Value",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== "0") {
             writer.uint32(8).int64(message.value);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseInt64Value };
         while (reader.pos < end) {
@@ -152,21 +158,21 @@ export const Int64Value = {
         return message;
     },
 };
-messageTypeRegistry.set(Int64Value.$type, Int64Value);
+typeRegistry_1.messageTypeRegistry.set(exports.Int64Value.$type, exports.Int64Value);
 const baseUInt64Value = {
     $type: "google.protobuf.UInt64Value",
     value: "0",
 };
-export const UInt64Value = {
+exports.UInt64Value = {
     $type: "google.protobuf.UInt64Value",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== "0") {
             writer.uint32(8).uint64(message.value);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseUInt64Value };
         while (reader.pos < end) {
@@ -202,21 +208,21 @@ export const UInt64Value = {
         return message;
     },
 };
-messageTypeRegistry.set(UInt64Value.$type, UInt64Value);
+typeRegistry_1.messageTypeRegistry.set(exports.UInt64Value.$type, exports.UInt64Value);
 const baseInt32Value = {
     $type: "google.protobuf.Int32Value",
     value: 0,
 };
-export const Int32Value = {
+exports.Int32Value = {
     $type: "google.protobuf.Int32Value",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== 0) {
             writer.uint32(8).int32(message.value);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseInt32Value };
         while (reader.pos < end) {
@@ -252,21 +258,21 @@ export const Int32Value = {
         return message;
     },
 };
-messageTypeRegistry.set(Int32Value.$type, Int32Value);
+typeRegistry_1.messageTypeRegistry.set(exports.Int32Value.$type, exports.Int32Value);
 const baseUInt32Value = {
     $type: "google.protobuf.UInt32Value",
     value: 0,
 };
-export const UInt32Value = {
+exports.UInt32Value = {
     $type: "google.protobuf.UInt32Value",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== 0) {
             writer.uint32(8).uint32(message.value);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseUInt32Value };
         while (reader.pos < end) {
@@ -302,21 +308,21 @@ export const UInt32Value = {
         return message;
     },
 };
-messageTypeRegistry.set(UInt32Value.$type, UInt32Value);
+typeRegistry_1.messageTypeRegistry.set(exports.UInt32Value.$type, exports.UInt32Value);
 const baseBoolValue = {
     $type: "google.protobuf.BoolValue",
     value: false,
 };
-export const BoolValue = {
+exports.BoolValue = {
     $type: "google.protobuf.BoolValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value === true) {
             writer.uint32(8).bool(message.value);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseBoolValue };
         while (reader.pos < end) {
@@ -352,21 +358,21 @@ export const BoolValue = {
         return message;
     },
 };
-messageTypeRegistry.set(BoolValue.$type, BoolValue);
+typeRegistry_1.messageTypeRegistry.set(exports.BoolValue.$type, exports.BoolValue);
 const baseStringValue = {
     $type: "google.protobuf.StringValue",
     value: "",
 };
-export const StringValue = {
+exports.StringValue = {
     $type: "google.protobuf.StringValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value !== "") {
             writer.uint32(10).string(message.value);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseStringValue };
         while (reader.pos < end) {
@@ -402,18 +408,18 @@ export const StringValue = {
         return message;
     },
 };
-messageTypeRegistry.set(StringValue.$type, StringValue);
+typeRegistry_1.messageTypeRegistry.set(exports.StringValue.$type, exports.StringValue);
 const baseBytesValue = { $type: "google.protobuf.BytesValue" };
-export const BytesValue = {
+exports.BytesValue = {
     $type: "google.protobuf.BytesValue",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.value.length !== 0) {
             writer.uint32(10).bytes(message.value);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseBytesValue };
         message.value = new Uint8Array();
@@ -452,7 +458,7 @@ export const BytesValue = {
         return message;
     },
 };
-messageTypeRegistry.set(BytesValue.$type, BytesValue);
+typeRegistry_1.messageTypeRegistry.set(exports.BytesValue.$type, exports.BytesValue);
 var globalThis = (() => {
     if (typeof globalThis !== "undefined")
         return globalThis;
@@ -486,7 +492,7 @@ function base64FromBytes(arr) {
 function longToString(long) {
     return long.toString();
 }
-if (_m0.util.Long !== Long) {
-    _m0.util.Long = Long;
-    _m0.configure();
+if (minimal_1.default.util.Long !== long_1.default) {
+    minimal_1.default.util.Long = long_1.default;
+    minimal_1.default.configure();
 }

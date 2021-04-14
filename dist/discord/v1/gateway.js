@@ -1,11 +1,17 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GetStatsResponse = exports.GetStatsRequest = exports.FindEmojiResponse = exports.FindEmojiRequest = exports.GetUserMutualGuildsResponse = exports.GetUserMutualGuildsRequest = exports.FindUserResponse = exports.FindUserRequest = exports.UpdateStatusResponse = exports.UpdateStatusRequest_ActivityData = exports.UpdateStatusRequest = exports.UpdateVoiceStateResponse = exports.UpdateVoiceStateRequest = exports.protobufPackage = void 0;
 /* eslint-disable */
-import { messageTypeRegistry } from "../../typeRegistry";
-import Long from "long";
-import _m0 from "protobufjs/minimal";
-import { UserData, GuildData, EmojiData, presenceData_OnlineStatusFromJSON, presenceData_OnlineStatusToJSON, presenceData_PresenceActivityData_ActivityTypeFromJSON, presenceData_PresenceActivityData_ActivityTypeToJSON, } from "../../discord/v1/model";
-import { Timestamp } from "../../google/protobuf/timestamp";
-import { UInt32Value } from "../../google/protobuf/wrappers";
-export const protobufPackage = "pylon.discord.v1.gateway";
+const typeRegistry_1 = require("../../typeRegistry");
+const long_1 = __importDefault(require("long"));
+const minimal_1 = __importDefault(require("protobufjs/minimal"));
+const model_1 = require("../../discord/v1/model");
+const timestamp_1 = require("../../google/protobuf/timestamp");
+const wrappers_1 = require("../../google/protobuf/wrappers");
+exports.protobufPackage = "pylon.discord.v1.gateway";
 const baseUpdateVoiceStateRequest = {
     $type: "pylon.discord.v1.gateway.UpdateVoiceStateRequest",
     guildId: "0",
@@ -13,9 +19,9 @@ const baseUpdateVoiceStateRequest = {
     selfMute: false,
     selfDeaf: false,
 };
-export const UpdateVoiceStateRequest = {
+exports.UpdateVoiceStateRequest = {
     $type: "pylon.discord.v1.gateway.UpdateVoiceStateRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildId !== "0") {
             writer.uint32(9).fixed64(message.guildId);
         }
@@ -31,7 +37,7 @@ export const UpdateVoiceStateRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseUpdateVoiceStateRequest,
@@ -103,17 +109,17 @@ export const UpdateVoiceStateRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(UpdateVoiceStateRequest.$type, UpdateVoiceStateRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.UpdateVoiceStateRequest.$type, exports.UpdateVoiceStateRequest);
 const baseUpdateVoiceStateResponse = {
     $type: "pylon.discord.v1.gateway.UpdateVoiceStateResponse",
 };
-export const UpdateVoiceStateResponse = {
+exports.UpdateVoiceStateResponse = {
     $type: "pylon.discord.v1.gateway.UpdateVoiceStateResponse",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseUpdateVoiceStateResponse,
@@ -145,23 +151,23 @@ export const UpdateVoiceStateResponse = {
         return message;
     },
 };
-messageTypeRegistry.set(UpdateVoiceStateResponse.$type, UpdateVoiceStateResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.UpdateVoiceStateResponse.$type, exports.UpdateVoiceStateResponse);
 const baseUpdateStatusRequest = {
     $type: "pylon.discord.v1.gateway.UpdateStatusRequest",
     status: 0,
     afk: false,
 };
-export const UpdateStatusRequest = {
+exports.UpdateStatusRequest = {
     $type: "pylon.discord.v1.gateway.UpdateStatusRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.shardId !== undefined) {
-            UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.shardId }, writer.uint32(10).fork()).ldelim();
+            wrappers_1.UInt32Value.encode({ $type: "google.protobuf.UInt32Value", value: message.shardId }, writer.uint32(10).fork()).ldelim();
         }
         if (message.since !== undefined) {
-            Timestamp.encode(toTimestamp(message.since), writer.uint32(18).fork()).ldelim();
+            timestamp_1.Timestamp.encode(toTimestamp(message.since), writer.uint32(18).fork()).ldelim();
         }
         for (const v of message.activities) {
-            UpdateStatusRequest_ActivityData.encode(v, writer.uint32(26).fork()).ldelim();
+            exports.UpdateStatusRequest_ActivityData.encode(v, writer.uint32(26).fork()).ldelim();
         }
         if (message.status !== 0) {
             writer.uint32(32).int32(message.status);
@@ -172,7 +178,7 @@ export const UpdateStatusRequest = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseUpdateStatusRequest };
         message.activities = [];
@@ -180,13 +186,13 @@ export const UpdateStatusRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.shardId = UInt32Value.decode(reader, reader.uint32()).value;
+                    message.shardId = wrappers_1.UInt32Value.decode(reader, reader.uint32()).value;
                     break;
                 case 2:
-                    message.since = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+                    message.since = fromTimestamp(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
                 case 3:
-                    message.activities.push(UpdateStatusRequest_ActivityData.decode(reader, reader.uint32()));
+                    message.activities.push(exports.UpdateStatusRequest_ActivityData.decode(reader, reader.uint32()));
                     break;
                 case 4:
                     message.status = reader.int32();
@@ -212,11 +218,11 @@ export const UpdateStatusRequest = {
         }
         if (object.activities !== undefined && object.activities !== null) {
             for (const e of object.activities) {
-                message.activities.push(UpdateStatusRequest_ActivityData.fromJSON(e));
+                message.activities.push(exports.UpdateStatusRequest_ActivityData.fromJSON(e));
             }
         }
         if (object.status !== undefined && object.status !== null) {
-            message.status = presenceData_OnlineStatusFromJSON(object.status);
+            message.status = model_1.presenceData_OnlineStatusFromJSON(object.status);
         }
         if (object.afk !== undefined && object.afk !== null) {
             message.afk = Boolean(object.afk);
@@ -228,13 +234,13 @@ export const UpdateStatusRequest = {
         message.shardId !== undefined && (obj.shardId = message.shardId);
         message.since !== undefined && (obj.since = message.since.toISOString());
         if (message.activities) {
-            obj.activities = message.activities.map((e) => e ? UpdateStatusRequest_ActivityData.toJSON(e) : undefined);
+            obj.activities = message.activities.map((e) => e ? exports.UpdateStatusRequest_ActivityData.toJSON(e) : undefined);
         }
         else {
             obj.activities = [];
         }
         message.status !== undefined &&
-            (obj.status = presenceData_OnlineStatusToJSON(message.status));
+            (obj.status = model_1.presenceData_OnlineStatusToJSON(message.status));
         message.afk !== undefined && (obj.afk = message.afk);
         return obj;
     },
@@ -249,7 +255,7 @@ export const UpdateStatusRequest = {
         }
         if (object.activities !== undefined && object.activities !== null) {
             for (const e of object.activities) {
-                message.activities.push(UpdateStatusRequest_ActivityData.fromPartial(e));
+                message.activities.push(exports.UpdateStatusRequest_ActivityData.fromPartial(e));
             }
         }
         if (object.status !== undefined && object.status !== null) {
@@ -261,15 +267,15 @@ export const UpdateStatusRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(UpdateStatusRequest.$type, UpdateStatusRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.UpdateStatusRequest.$type, exports.UpdateStatusRequest);
 const baseUpdateStatusRequest_ActivityData = {
     $type: "pylon.discord.v1.gateway.UpdateStatusRequest.ActivityData",
     name: "",
     type: 0,
 };
-export const UpdateStatusRequest_ActivityData = {
+exports.UpdateStatusRequest_ActivityData = {
     $type: "pylon.discord.v1.gateway.UpdateStatusRequest.ActivityData",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.name !== "") {
             writer.uint32(10).string(message.name);
         }
@@ -279,7 +285,7 @@ export const UpdateStatusRequest_ActivityData = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseUpdateStatusRequest_ActivityData,
@@ -308,7 +314,7 @@ export const UpdateStatusRequest_ActivityData = {
             message.name = String(object.name);
         }
         if (object.type !== undefined && object.type !== null) {
-            message.type = presenceData_PresenceActivityData_ActivityTypeFromJSON(object.type);
+            message.type = model_1.presenceData_PresenceActivityData_ActivityTypeFromJSON(object.type);
         }
         return message;
     },
@@ -316,7 +322,7 @@ export const UpdateStatusRequest_ActivityData = {
         const obj = {};
         message.name !== undefined && (obj.name = message.name);
         message.type !== undefined &&
-            (obj.type = presenceData_PresenceActivityData_ActivityTypeToJSON(message.type));
+            (obj.type = model_1.presenceData_PresenceActivityData_ActivityTypeToJSON(message.type));
         return obj;
     },
     fromPartial(object) {
@@ -332,17 +338,17 @@ export const UpdateStatusRequest_ActivityData = {
         return message;
     },
 };
-messageTypeRegistry.set(UpdateStatusRequest_ActivityData.$type, UpdateStatusRequest_ActivityData);
+typeRegistry_1.messageTypeRegistry.set(exports.UpdateStatusRequest_ActivityData.$type, exports.UpdateStatusRequest_ActivityData);
 const baseUpdateStatusResponse = {
     $type: "pylon.discord.v1.gateway.UpdateStatusResponse",
 };
-export const UpdateStatusResponse = {
+exports.UpdateStatusResponse = {
     $type: "pylon.discord.v1.gateway.UpdateStatusResponse",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseUpdateStatusResponse };
         while (reader.pos < end) {
@@ -368,21 +374,21 @@ export const UpdateStatusResponse = {
         return message;
     },
 };
-messageTypeRegistry.set(UpdateStatusResponse.$type, UpdateStatusResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.UpdateStatusResponse.$type, exports.UpdateStatusResponse);
 const baseFindUserRequest = {
     $type: "pylon.discord.v1.gateway.FindUserRequest",
     userId: "0",
 };
-export const FindUserRequest = {
+exports.FindUserRequest = {
     $type: "pylon.discord.v1.gateway.FindUserRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseFindUserRequest };
         while (reader.pos < end) {
@@ -418,27 +424,27 @@ export const FindUserRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(FindUserRequest.$type, FindUserRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.FindUserRequest.$type, exports.FindUserRequest);
 const baseFindUserResponse = {
     $type: "pylon.discord.v1.gateway.FindUserResponse",
 };
-export const FindUserResponse = {
+exports.FindUserResponse = {
     $type: "pylon.discord.v1.gateway.FindUserResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.user !== undefined) {
-            UserData.encode(message.user, writer.uint32(10).fork()).ldelim();
+            model_1.UserData.encode(message.user, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseFindUserResponse };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.user = UserData.decode(reader, reader.uint32());
+                    message.user = model_1.UserData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -450,39 +456,39 @@ export const FindUserResponse = {
     fromJSON(object) {
         const message = { ...baseFindUserResponse };
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromJSON(object.user);
+            message.user = model_1.UserData.fromJSON(object.user);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.user !== undefined &&
-            (obj.user = message.user ? UserData.toJSON(message.user) : undefined);
+            (obj.user = message.user ? model_1.UserData.toJSON(message.user) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseFindUserResponse };
         if (object.user !== undefined && object.user !== null) {
-            message.user = UserData.fromPartial(object.user);
+            message.user = model_1.UserData.fromPartial(object.user);
         }
         return message;
     },
 };
-messageTypeRegistry.set(FindUserResponse.$type, FindUserResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.FindUserResponse.$type, exports.FindUserResponse);
 const baseGetUserMutualGuildsRequest = {
     $type: "pylon.discord.v1.gateway.GetUserMutualGuildsRequest",
     userId: "0",
 };
-export const GetUserMutualGuildsRequest = {
+exports.GetUserMutualGuildsRequest = {
     $type: "pylon.discord.v1.gateway.GetUserMutualGuildsRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.userId !== "0") {
             writer.uint32(9).fixed64(message.userId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetUserMutualGuildsRequest,
@@ -524,20 +530,20 @@ export const GetUserMutualGuildsRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetUserMutualGuildsRequest.$type, GetUserMutualGuildsRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetUserMutualGuildsRequest.$type, exports.GetUserMutualGuildsRequest);
 const baseGetUserMutualGuildsResponse = {
     $type: "pylon.discord.v1.gateway.GetUserMutualGuildsResponse",
 };
-export const GetUserMutualGuildsResponse = {
+exports.GetUserMutualGuildsResponse = {
     $type: "pylon.discord.v1.gateway.GetUserMutualGuildsResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         for (const v of message.guilds) {
-            GuildData.encode(v, writer.uint32(10).fork()).ldelim();
+            model_1.GuildData.encode(v, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = {
             ...baseGetUserMutualGuildsResponse,
@@ -547,7 +553,7 @@ export const GetUserMutualGuildsResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.guilds.push(GuildData.decode(reader, reader.uint32()));
+                    message.guilds.push(model_1.GuildData.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -563,7 +569,7 @@ export const GetUserMutualGuildsResponse = {
         message.guilds = [];
         if (object.guilds !== undefined && object.guilds !== null) {
             for (const e of object.guilds) {
-                message.guilds.push(GuildData.fromJSON(e));
+                message.guilds.push(model_1.GuildData.fromJSON(e));
             }
         }
         return message;
@@ -571,7 +577,7 @@ export const GetUserMutualGuildsResponse = {
     toJSON(message) {
         const obj = {};
         if (message.guilds) {
-            obj.guilds = message.guilds.map((e) => e ? GuildData.toJSON(e) : undefined);
+            obj.guilds = message.guilds.map((e) => e ? model_1.GuildData.toJSON(e) : undefined);
         }
         else {
             obj.guilds = [];
@@ -585,27 +591,27 @@ export const GetUserMutualGuildsResponse = {
         message.guilds = [];
         if (object.guilds !== undefined && object.guilds !== null) {
             for (const e of object.guilds) {
-                message.guilds.push(GuildData.fromPartial(e));
+                message.guilds.push(model_1.GuildData.fromPartial(e));
             }
         }
         return message;
     },
 };
-messageTypeRegistry.set(GetUserMutualGuildsResponse.$type, GetUserMutualGuildsResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetUserMutualGuildsResponse.$type, exports.GetUserMutualGuildsResponse);
 const baseFindEmojiRequest = {
     $type: "pylon.discord.v1.gateway.FindEmojiRequest",
     emojiId: "0",
 };
-export const FindEmojiRequest = {
+exports.FindEmojiRequest = {
     $type: "pylon.discord.v1.gateway.FindEmojiRequest",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.emojiId !== "0") {
             writer.uint32(9).fixed64(message.emojiId);
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseFindEmojiRequest };
         while (reader.pos < end) {
@@ -641,27 +647,27 @@ export const FindEmojiRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(FindEmojiRequest.$type, FindEmojiRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.FindEmojiRequest.$type, exports.FindEmojiRequest);
 const baseFindEmojiResponse = {
     $type: "pylon.discord.v1.gateway.FindEmojiResponse",
 };
-export const FindEmojiResponse = {
+exports.FindEmojiResponse = {
     $type: "pylon.discord.v1.gateway.FindEmojiResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.emoji !== undefined) {
-            EmojiData.encode(message.emoji, writer.uint32(10).fork()).ldelim();
+            model_1.EmojiData.encode(message.emoji, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseFindEmojiResponse };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.emoji = EmojiData.decode(reader, reader.uint32());
+                    message.emoji = model_1.EmojiData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -673,35 +679,35 @@ export const FindEmojiResponse = {
     fromJSON(object) {
         const message = { ...baseFindEmojiResponse };
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = EmojiData.fromJSON(object.emoji);
+            message.emoji = model_1.EmojiData.fromJSON(object.emoji);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
         message.emoji !== undefined &&
-            (obj.emoji = message.emoji ? EmojiData.toJSON(message.emoji) : undefined);
+            (obj.emoji = message.emoji ? model_1.EmojiData.toJSON(message.emoji) : undefined);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseFindEmojiResponse };
         if (object.emoji !== undefined && object.emoji !== null) {
-            message.emoji = EmojiData.fromPartial(object.emoji);
+            message.emoji = model_1.EmojiData.fromPartial(object.emoji);
         }
         return message;
     },
 };
-messageTypeRegistry.set(FindEmojiResponse.$type, FindEmojiResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.FindEmojiResponse.$type, exports.FindEmojiResponse);
 const baseGetStatsRequest = {
     $type: "pylon.discord.v1.gateway.GetStatsRequest",
 };
-export const GetStatsRequest = {
+exports.GetStatsRequest = {
     $type: "pylon.discord.v1.gateway.GetStatsRequest",
-    encode(_, writer = _m0.Writer.create()) {
+    encode(_, writer = minimal_1.default.Writer.create()) {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetStatsRequest };
         while (reader.pos < end) {
@@ -727,7 +733,7 @@ export const GetStatsRequest = {
         return message;
     },
 };
-messageTypeRegistry.set(GetStatsRequest.$type, GetStatsRequest);
+typeRegistry_1.messageTypeRegistry.set(exports.GetStatsRequest.$type, exports.GetStatsRequest);
 const baseGetStatsResponse = {
     $type: "pylon.discord.v1.gateway.GetStatsResponse",
     guildCount: "0",
@@ -736,9 +742,9 @@ const baseGetStatsResponse = {
     connectedChannels: "0",
     shardCount: 0,
 };
-export const GetStatsResponse = {
+exports.GetStatsResponse = {
     $type: "pylon.discord.v1.gateway.GetStatsResponse",
-    encode(message, writer = _m0.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.guildCount !== "0") {
             writer.uint32(8).uint64(message.guildCount);
         }
@@ -757,7 +763,7 @@ export const GetStatsResponse = {
         return writer;
     },
     decode(input, length) {
-        const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
         const message = { ...baseGetStatsResponse };
         while (reader.pos < end) {
@@ -837,7 +843,7 @@ export const GetStatsResponse = {
         return message;
     },
 };
-messageTypeRegistry.set(GetStatsResponse.$type, GetStatsResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.GetStatsResponse.$type, exports.GetStatsResponse);
 function toTimestamp(date) {
     const seconds = (date.getTime() / 1000).toString();
     const nanos = (date.getTime() % 1000) * 1000000;
@@ -856,13 +862,13 @@ function fromJsonTimestamp(o) {
         return new Date(o);
     }
     else {
-        return fromTimestamp(Timestamp.fromJSON(o));
+        return fromTimestamp(timestamp_1.Timestamp.fromJSON(o));
     }
 }
 function longToString(long) {
     return long.toString();
 }
-if (_m0.util.Long !== Long) {
-    _m0.util.Long = Long;
-    _m0.configure();
+if (minimal_1.default.util.Long !== long_1.default) {
+    minimal_1.default.util.Long = long_1.default;
+    minimal_1.default.configure();
 }
