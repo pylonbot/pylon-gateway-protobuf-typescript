@@ -3,50 +3,62 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkerDrainResponse = exports.WorkerDrainRequest = exports.WorkerHeartbeatResponse = exports.WorkerHeartbeatRequest = exports.WorkerIdentifyResponse = exports.WorkerIdentifyRequest = exports.WorkerStreamServerMessage = exports.WorkerStreamClientMessage = exports.workerIdentifyResponse_IdentifyStatusToJSON = exports.workerIdentifyResponse_IdentifyStatusFromJSON = exports.WorkerIdentifyResponse_IdentifyStatus = exports.protobufPackage = void 0;
+exports.WorkerStreamClosed = exports.WorkerDrainRequest = exports.WorkerHeartbeatResponse = exports.WorkerHeartbeatRequest = exports.WorkerIdentifyResponse = exports.WorkerIdentifyRequest = exports.WorkerStreamServerMessage = exports.WorkerStreamClientMessage = exports.workerStreamClosed_CloseReasonToJSON = exports.workerStreamClosed_CloseReasonFromJSON = exports.WorkerStreamClosed_CloseReason = exports.protobufPackage = void 0;
 /* eslint-disable */
 const typeRegistry_1 = require("../../typeRegistry");
 const long_1 = __importDefault(require("long"));
 const minimal_1 = __importDefault(require("protobufjs/minimal"));
 const event_1 = require("../../discord/v1/event");
 exports.protobufPackage = "pylon.gateway.v1.workergroup";
-var WorkerIdentifyResponse_IdentifyStatus;
-(function (WorkerIdentifyResponse_IdentifyStatus) {
-    WorkerIdentifyResponse_IdentifyStatus[WorkerIdentifyResponse_IdentifyStatus["UNKNOWN"] = 0] = "UNKNOWN";
-    WorkerIdentifyResponse_IdentifyStatus[WorkerIdentifyResponse_IdentifyStatus["OK"] = 1] = "OK";
-    WorkerIdentifyResponse_IdentifyStatus[WorkerIdentifyResponse_IdentifyStatus["ERROR"] = 2] = "ERROR";
-})(WorkerIdentifyResponse_IdentifyStatus = exports.WorkerIdentifyResponse_IdentifyStatus || (exports.WorkerIdentifyResponse_IdentifyStatus = {}));
-function workerIdentifyResponse_IdentifyStatusFromJSON(object) {
+var WorkerStreamClosed_CloseReason;
+(function (WorkerStreamClosed_CloseReason) {
+    WorkerStreamClosed_CloseReason[WorkerStreamClosed_CloseReason["UNKNOWN"] = 0] = "UNKNOWN";
+    WorkerStreamClosed_CloseReason[WorkerStreamClosed_CloseReason["HEARTBEAT_TIMEOUT"] = 1] = "HEARTBEAT_TIMEOUT";
+    WorkerStreamClosed_CloseReason[WorkerStreamClosed_CloseReason["INVALID_IDENTITY"] = 2] = "INVALID_IDENTITY";
+    WorkerStreamClosed_CloseReason[WorkerStreamClosed_CloseReason["DRAIN_COMPLETE"] = 3] = "DRAIN_COMPLETE";
+    WorkerStreamClosed_CloseReason[WorkerStreamClosed_CloseReason["REQUESTED_RECONNECT"] = 4] = "REQUESTED_RECONNECT";
+})(WorkerStreamClosed_CloseReason = exports.WorkerStreamClosed_CloseReason || (exports.WorkerStreamClosed_CloseReason = {}));
+function workerStreamClosed_CloseReasonFromJSON(object) {
     switch (object) {
         case 0:
         case "UNKNOWN":
-            return WorkerIdentifyResponse_IdentifyStatus.UNKNOWN;
+            return WorkerStreamClosed_CloseReason.UNKNOWN;
         case 1:
-        case "OK":
-            return WorkerIdentifyResponse_IdentifyStatus.OK;
+        case "HEARTBEAT_TIMEOUT":
+            return WorkerStreamClosed_CloseReason.HEARTBEAT_TIMEOUT;
         case 2:
-        case "ERROR":
-            return WorkerIdentifyResponse_IdentifyStatus.ERROR;
+        case "INVALID_IDENTITY":
+            return WorkerStreamClosed_CloseReason.INVALID_IDENTITY;
+        case 3:
+        case "DRAIN_COMPLETE":
+            return WorkerStreamClosed_CloseReason.DRAIN_COMPLETE;
+        case 4:
+        case "REQUESTED_RECONNECT":
+            return WorkerStreamClosed_CloseReason.REQUESTED_RECONNECT;
         default:
             throw new globalThis.Error("Unrecognized enum value " +
                 object +
-                " for enum WorkerIdentifyResponse_IdentifyStatus");
+                " for enum WorkerStreamClosed_CloseReason");
     }
 }
-exports.workerIdentifyResponse_IdentifyStatusFromJSON = workerIdentifyResponse_IdentifyStatusFromJSON;
-function workerIdentifyResponse_IdentifyStatusToJSON(object) {
+exports.workerStreamClosed_CloseReasonFromJSON = workerStreamClosed_CloseReasonFromJSON;
+function workerStreamClosed_CloseReasonToJSON(object) {
     switch (object) {
-        case WorkerIdentifyResponse_IdentifyStatus.UNKNOWN:
+        case WorkerStreamClosed_CloseReason.UNKNOWN:
             return "UNKNOWN";
-        case WorkerIdentifyResponse_IdentifyStatus.OK:
-            return "OK";
-        case WorkerIdentifyResponse_IdentifyStatus.ERROR:
-            return "ERROR";
+        case WorkerStreamClosed_CloseReason.HEARTBEAT_TIMEOUT:
+            return "HEARTBEAT_TIMEOUT";
+        case WorkerStreamClosed_CloseReason.INVALID_IDENTITY:
+            return "INVALID_IDENTITY";
+        case WorkerStreamClosed_CloseReason.DRAIN_COMPLETE:
+            return "DRAIN_COMPLETE";
+        case WorkerStreamClosed_CloseReason.REQUESTED_RECONNECT:
+            return "REQUESTED_RECONNECT";
         default:
             return "UNKNOWN";
     }
 }
-exports.workerIdentifyResponse_IdentifyStatusToJSON = workerIdentifyResponse_IdentifyStatusToJSON;
+exports.workerStreamClosed_CloseReasonToJSON = workerStreamClosed_CloseReasonToJSON;
 const baseWorkerStreamClientMessage = {
     $type: "pylon.gateway.v1.workergroup.WorkerStreamClientMessage",
 };
@@ -56,14 +68,11 @@ exports.WorkerStreamClientMessage = {
         if (message.payload?.$case === "identifyRequest") {
             exports.WorkerIdentifyRequest.encode(message.payload.identifyRequest, writer.uint32(10).fork()).ldelim();
         }
-        if (message.payload?.$case === "heartbeatRequest") {
-            exports.WorkerHeartbeatRequest.encode(message.payload.heartbeatRequest, writer.uint32(18).fork()).ldelim();
-        }
         if (message.payload?.$case === "heartbeatResponse") {
-            exports.WorkerHeartbeatResponse.encode(message.payload.heartbeatResponse, writer.uint32(26).fork()).ldelim();
+            exports.WorkerHeartbeatResponse.encode(message.payload.heartbeatResponse, writer.uint32(18).fork()).ldelim();
         }
         if (message.payload?.$case === "drainRequest") {
-            exports.WorkerDrainRequest.encode(message.payload.drainRequest, writer.uint32(34).fork()).ldelim();
+            exports.WorkerDrainRequest.encode(message.payload.drainRequest, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -84,17 +93,11 @@ exports.WorkerStreamClientMessage = {
                     break;
                 case 2:
                     message.payload = {
-                        $case: "heartbeatRequest",
-                        heartbeatRequest: exports.WorkerHeartbeatRequest.decode(reader, reader.uint32()),
-                    };
-                    break;
-                case 3:
-                    message.payload = {
                         $case: "heartbeatResponse",
                         heartbeatResponse: exports.WorkerHeartbeatResponse.decode(reader, reader.uint32()),
                     };
                     break;
-                case 4:
+                case 3:
                     message.payload = {
                         $case: "drainRequest",
                         drainRequest: exports.WorkerDrainRequest.decode(reader, reader.uint32()),
@@ -118,13 +121,6 @@ exports.WorkerStreamClientMessage = {
                 identifyRequest: exports.WorkerIdentifyRequest.fromJSON(object.identifyRequest),
             };
         }
-        if (object.heartbeatRequest !== undefined &&
-            object.heartbeatRequest !== null) {
-            message.payload = {
-                $case: "heartbeatRequest",
-                heartbeatRequest: exports.WorkerHeartbeatRequest.fromJSON(object.heartbeatRequest),
-            };
-        }
         if (object.heartbeatResponse !== undefined &&
             object.heartbeatResponse !== null) {
             message.payload = {
@@ -146,10 +142,6 @@ exports.WorkerStreamClientMessage = {
             (obj.identifyRequest = message.payload?.identifyRequest
                 ? exports.WorkerIdentifyRequest.toJSON(message.payload?.identifyRequest)
                 : undefined);
-        message.payload?.$case === "heartbeatRequest" &&
-            (obj.heartbeatRequest = message.payload?.heartbeatRequest
-                ? exports.WorkerHeartbeatRequest.toJSON(message.payload?.heartbeatRequest)
-                : undefined);
         message.payload?.$case === "heartbeatResponse" &&
             (obj.heartbeatResponse = message.payload?.heartbeatResponse
                 ? exports.WorkerHeartbeatResponse.toJSON(message.payload?.heartbeatResponse)
@@ -170,14 +162,6 @@ exports.WorkerStreamClientMessage = {
             message.payload = {
                 $case: "identifyRequest",
                 identifyRequest: exports.WorkerIdentifyRequest.fromPartial(object.payload.identifyRequest),
-            };
-        }
-        if (object.payload?.$case === "heartbeatRequest" &&
-            object.payload?.heartbeatRequest !== undefined &&
-            object.payload?.heartbeatRequest !== null) {
-            message.payload = {
-                $case: "heartbeatRequest",
-                heartbeatRequest: exports.WorkerHeartbeatRequest.fromPartial(object.payload.heartbeatRequest),
             };
         }
         if (object.payload?.$case === "heartbeatResponse" &&
@@ -215,11 +199,8 @@ exports.WorkerStreamServerMessage = {
         if (message.payload?.$case === "heartbeatRequest") {
             exports.WorkerHeartbeatRequest.encode(message.payload.heartbeatRequest, writer.uint32(26).fork()).ldelim();
         }
-        if (message.payload?.$case === "heartbeatResponse") {
-            exports.WorkerHeartbeatResponse.encode(message.payload.heartbeatResponse, writer.uint32(34).fork()).ldelim();
-        }
-        if (message.payload?.$case === "drainResponse") {
-            exports.WorkerDrainResponse.encode(message.payload.drainResponse, writer.uint32(42).fork()).ldelim();
+        if (message.payload?.$case === "streamClosed") {
+            exports.WorkerStreamClosed.encode(message.payload.streamClosed, writer.uint32(34).fork()).ldelim();
         }
         return writer;
     },
@@ -252,14 +233,8 @@ exports.WorkerStreamServerMessage = {
                     break;
                 case 4:
                     message.payload = {
-                        $case: "heartbeatResponse",
-                        heartbeatResponse: exports.WorkerHeartbeatResponse.decode(reader, reader.uint32()),
-                    };
-                    break;
-                case 5:
-                    message.payload = {
-                        $case: "drainResponse",
-                        drainResponse: exports.WorkerDrainResponse.decode(reader, reader.uint32()),
+                        $case: "streamClosed",
+                        streamClosed: exports.WorkerStreamClosed.decode(reader, reader.uint32()),
                     };
                     break;
                 default:
@@ -293,17 +268,10 @@ exports.WorkerStreamServerMessage = {
                 heartbeatRequest: exports.WorkerHeartbeatRequest.fromJSON(object.heartbeatRequest),
             };
         }
-        if (object.heartbeatResponse !== undefined &&
-            object.heartbeatResponse !== null) {
+        if (object.streamClosed !== undefined && object.streamClosed !== null) {
             message.payload = {
-                $case: "heartbeatResponse",
-                heartbeatResponse: exports.WorkerHeartbeatResponse.fromJSON(object.heartbeatResponse),
-            };
-        }
-        if (object.drainResponse !== undefined && object.drainResponse !== null) {
-            message.payload = {
-                $case: "drainResponse",
-                drainResponse: exports.WorkerDrainResponse.fromJSON(object.drainResponse),
+                $case: "streamClosed",
+                streamClosed: exports.WorkerStreamClosed.fromJSON(object.streamClosed),
             };
         }
         return message;
@@ -322,13 +290,9 @@ exports.WorkerStreamServerMessage = {
             (obj.heartbeatRequest = message.payload?.heartbeatRequest
                 ? exports.WorkerHeartbeatRequest.toJSON(message.payload?.heartbeatRequest)
                 : undefined);
-        message.payload?.$case === "heartbeatResponse" &&
-            (obj.heartbeatResponse = message.payload?.heartbeatResponse
-                ? exports.WorkerHeartbeatResponse.toJSON(message.payload?.heartbeatResponse)
-                : undefined);
-        message.payload?.$case === "drainResponse" &&
-            (obj.drainResponse = message.payload?.drainResponse
-                ? exports.WorkerDrainResponse.toJSON(message.payload?.drainResponse)
+        message.payload?.$case === "streamClosed" &&
+            (obj.streamClosed = message.payload?.streamClosed
+                ? exports.WorkerStreamClosed.toJSON(message.payload?.streamClosed)
                 : undefined);
         return obj;
     },
@@ -360,20 +324,12 @@ exports.WorkerStreamServerMessage = {
                 heartbeatRequest: exports.WorkerHeartbeatRequest.fromPartial(object.payload.heartbeatRequest),
             };
         }
-        if (object.payload?.$case === "heartbeatResponse" &&
-            object.payload?.heartbeatResponse !== undefined &&
-            object.payload?.heartbeatResponse !== null) {
+        if (object.payload?.$case === "streamClosed" &&
+            object.payload?.streamClosed !== undefined &&
+            object.payload?.streamClosed !== null) {
             message.payload = {
-                $case: "heartbeatResponse",
-                heartbeatResponse: exports.WorkerHeartbeatResponse.fromPartial(object.payload.heartbeatResponse),
-            };
-        }
-        if (object.payload?.$case === "drainResponse" &&
-            object.payload?.drainResponse !== undefined &&
-            object.payload?.drainResponse !== null) {
-            message.payload = {
-                $case: "drainResponse",
-                drainResponse: exports.WorkerDrainResponse.fromPartial(object.payload.drainResponse),
+                $case: "streamClosed",
+                streamClosed: exports.WorkerStreamClosed.fromPartial(object.payload.streamClosed),
             };
         }
         return message;
@@ -385,6 +341,7 @@ const baseWorkerIdentifyRequest = {
     authToken: "",
     consumerGroup: "",
     consumerId: "",
+    routerTicket: "",
 };
 exports.WorkerIdentifyRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerIdentifyRequest",
@@ -397,6 +354,9 @@ exports.WorkerIdentifyRequest = {
         }
         if (message.consumerId !== "") {
             writer.uint32(26).string(message.consumerId);
+        }
+        if (message.routerTicket !== "") {
+            writer.uint32(34).string(message.routerTicket);
         }
         return writer;
     },
@@ -416,6 +376,9 @@ exports.WorkerIdentifyRequest = {
                 case 3:
                     message.consumerId = reader.string();
                     break;
+                case 4:
+                    message.routerTicket = reader.string();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -434,6 +397,9 @@ exports.WorkerIdentifyRequest = {
         if (object.consumerId !== undefined && object.consumerId !== null) {
             message.consumerId = String(object.consumerId);
         }
+        if (object.routerTicket !== undefined && object.routerTicket !== null) {
+            message.routerTicket = String(object.routerTicket);
+        }
         return message;
     },
     toJSON(message) {
@@ -442,6 +408,8 @@ exports.WorkerIdentifyRequest = {
         message.consumerGroup !== undefined &&
             (obj.consumerGroup = message.consumerGroup);
         message.consumerId !== undefined && (obj.consumerId = message.consumerId);
+        message.routerTicket !== undefined &&
+            (obj.routerTicket = message.routerTicket);
         return obj;
     },
     fromPartial(object) {
@@ -455,23 +423,22 @@ exports.WorkerIdentifyRequest = {
         if (object.consumerId !== undefined && object.consumerId !== null) {
             message.consumerId = object.consumerId;
         }
+        if (object.routerTicket !== undefined && object.routerTicket !== null) {
+            message.routerTicket = object.routerTicket;
+        }
         return message;
     },
 };
 typeRegistry_1.messageTypeRegistry.set(exports.WorkerIdentifyRequest.$type, exports.WorkerIdentifyRequest);
 const baseWorkerIdentifyResponse = {
     $type: "pylon.gateway.v1.workergroup.WorkerIdentifyResponse",
-    status: 0,
-    consumerId: "",
+    routerTicket: "",
 };
 exports.WorkerIdentifyResponse = {
     $type: "pylon.gateway.v1.workergroup.WorkerIdentifyResponse",
     encode(message, writer = minimal_1.default.Writer.create()) {
-        if (message.status !== 0) {
-            writer.uint32(8).int32(message.status);
-        }
-        if (message.consumerId !== "") {
-            writer.uint32(18).string(message.consumerId);
+        if (message.routerTicket !== "") {
+            writer.uint32(10).string(message.routerTicket);
         }
         return writer;
     },
@@ -483,10 +450,7 @@ exports.WorkerIdentifyResponse = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.status = reader.int32();
-                    break;
-                case 2:
-                    message.consumerId = reader.string();
+                    message.routerTicket = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -497,28 +461,21 @@ exports.WorkerIdentifyResponse = {
     },
     fromJSON(object) {
         const message = { ...baseWorkerIdentifyResponse };
-        if (object.status !== undefined && object.status !== null) {
-            message.status = workerIdentifyResponse_IdentifyStatusFromJSON(object.status);
-        }
-        if (object.consumerId !== undefined && object.consumerId !== null) {
-            message.consumerId = String(object.consumerId);
+        if (object.routerTicket !== undefined && object.routerTicket !== null) {
+            message.routerTicket = String(object.routerTicket);
         }
         return message;
     },
     toJSON(message) {
         const obj = {};
-        message.status !== undefined &&
-            (obj.status = workerIdentifyResponse_IdentifyStatusToJSON(message.status));
-        message.consumerId !== undefined && (obj.consumerId = message.consumerId);
+        message.routerTicket !== undefined &&
+            (obj.routerTicket = message.routerTicket);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseWorkerIdentifyResponse };
-        if (object.status !== undefined && object.status !== null) {
-            message.status = object.status;
-        }
-        if (object.consumerId !== undefined && object.consumerId !== null) {
-            message.consumerId = object.consumerId;
+        if (object.routerTicket !== undefined && object.routerTicket !== null) {
+            message.routerTicket = object.routerTicket;
         }
         return message;
     },
@@ -526,14 +483,14 @@ exports.WorkerIdentifyResponse = {
 typeRegistry_1.messageTypeRegistry.set(exports.WorkerIdentifyResponse.$type, exports.WorkerIdentifyResponse);
 const baseWorkerHeartbeatRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatRequest",
-    lastSequence: "0",
+    sequence: "0",
     nonce: "",
 };
 exports.WorkerHeartbeatRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatRequest",
     encode(message, writer = minimal_1.default.Writer.create()) {
-        if (message.lastSequence !== "0") {
-            writer.uint32(8).uint64(message.lastSequence);
+        if (message.sequence !== "0") {
+            writer.uint32(8).uint64(message.sequence);
         }
         if (message.nonce !== "") {
             writer.uint32(18).string(message.nonce);
@@ -548,7 +505,7 @@ exports.WorkerHeartbeatRequest = {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.lastSequence = longToString(reader.uint64());
+                    message.sequence = longToString(reader.uint64());
                     break;
                 case 2:
                     message.nonce = reader.string();
@@ -562,8 +519,8 @@ exports.WorkerHeartbeatRequest = {
     },
     fromJSON(object) {
         const message = { ...baseWorkerHeartbeatRequest };
-        if (object.lastSequence !== undefined && object.lastSequence !== null) {
-            message.lastSequence = String(object.lastSequence);
+        if (object.sequence !== undefined && object.sequence !== null) {
+            message.sequence = String(object.sequence);
         }
         if (object.nonce !== undefined && object.nonce !== null) {
             message.nonce = String(object.nonce);
@@ -572,15 +529,14 @@ exports.WorkerHeartbeatRequest = {
     },
     toJSON(message) {
         const obj = {};
-        message.lastSequence !== undefined &&
-            (obj.lastSequence = message.lastSequence);
+        message.sequence !== undefined && (obj.sequence = message.sequence);
         message.nonce !== undefined && (obj.nonce = message.nonce);
         return obj;
     },
     fromPartial(object) {
         const message = { ...baseWorkerHeartbeatRequest };
-        if (object.lastSequence !== undefined && object.lastSequence !== null) {
-            message.lastSequence = object.lastSequence;
+        if (object.sequence !== undefined && object.sequence !== null) {
+            message.sequence = object.sequence;
         }
         if (object.nonce !== undefined && object.nonce !== null) {
             message.nonce = object.nonce;
@@ -647,10 +603,14 @@ exports.WorkerHeartbeatResponse = {
 typeRegistry_1.messageTypeRegistry.set(exports.WorkerHeartbeatResponse.$type, exports.WorkerHeartbeatResponse);
 const baseWorkerDrainRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerDrainRequest",
+    sequence: "0",
 };
 exports.WorkerDrainRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerDrainRequest",
-    encode(_, writer = minimal_1.default.Writer.create()) {
+    encode(message, writer = minimal_1.default.Writer.create()) {
+        if (message.sequence !== "0") {
+            writer.uint32(8).uint64(message.sequence);
+        }
         return writer;
     },
     decode(input, length) {
@@ -660,6 +620,9 @@ exports.WorkerDrainRequest = {
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
+                case 1:
+                    message.sequence = longToString(reader.uint64());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -667,35 +630,49 @@ exports.WorkerDrainRequest = {
         }
         return message;
     },
-    fromJSON(_) {
+    fromJSON(object) {
         const message = { ...baseWorkerDrainRequest };
+        if (object.sequence !== undefined && object.sequence !== null) {
+            message.sequence = String(object.sequence);
+        }
         return message;
     },
-    toJSON(_) {
+    toJSON(message) {
         const obj = {};
+        message.sequence !== undefined && (obj.sequence = message.sequence);
         return obj;
     },
-    fromPartial(_) {
+    fromPartial(object) {
         const message = { ...baseWorkerDrainRequest };
+        if (object.sequence !== undefined && object.sequence !== null) {
+            message.sequence = object.sequence;
+        }
         return message;
     },
 };
 typeRegistry_1.messageTypeRegistry.set(exports.WorkerDrainRequest.$type, exports.WorkerDrainRequest);
-const baseWorkerDrainResponse = {
-    $type: "pylon.gateway.v1.workergroup.WorkerDrainResponse",
+const baseWorkerStreamClosed = {
+    $type: "pylon.gateway.v1.workergroup.WorkerStreamClosed",
+    reason: 0,
 };
-exports.WorkerDrainResponse = {
-    $type: "pylon.gateway.v1.workergroup.WorkerDrainResponse",
-    encode(_, writer = minimal_1.default.Writer.create()) {
+exports.WorkerStreamClosed = {
+    $type: "pylon.gateway.v1.workergroup.WorkerStreamClosed",
+    encode(message, writer = minimal_1.default.Writer.create()) {
+        if (message.reason !== 0) {
+            writer.uint32(8).int32(message.reason);
+        }
         return writer;
     },
     decode(input, length) {
         const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
-        const message = { ...baseWorkerDrainResponse };
+        const message = { ...baseWorkerStreamClosed };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
+                case 1:
+                    message.reason = reader.int32();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -703,20 +680,28 @@ exports.WorkerDrainResponse = {
         }
         return message;
     },
-    fromJSON(_) {
-        const message = { ...baseWorkerDrainResponse };
+    fromJSON(object) {
+        const message = { ...baseWorkerStreamClosed };
+        if (object.reason !== undefined && object.reason !== null) {
+            message.reason = workerStreamClosed_CloseReasonFromJSON(object.reason);
+        }
         return message;
     },
-    toJSON(_) {
+    toJSON(message) {
         const obj = {};
+        message.reason !== undefined &&
+            (obj.reason = workerStreamClosed_CloseReasonToJSON(message.reason));
         return obj;
     },
-    fromPartial(_) {
-        const message = { ...baseWorkerDrainResponse };
+    fromPartial(object) {
+        const message = { ...baseWorkerStreamClosed };
+        if (object.reason !== undefined && object.reason !== null) {
+            message.reason = object.reason;
+        }
         return message;
     },
 };
-typeRegistry_1.messageTypeRegistry.set(exports.WorkerDrainResponse.$type, exports.WorkerDrainResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.WorkerStreamClosed.$type, exports.WorkerStreamClosed);
 var globalThis = (() => {
     if (typeof globalThis !== "undefined")
         return globalThis;
