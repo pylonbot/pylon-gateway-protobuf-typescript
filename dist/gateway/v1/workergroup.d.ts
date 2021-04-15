@@ -1,14 +1,12 @@
 import _m0 from "protobufjs/minimal";
 import { EventEnvelope } from "../../discord/v1/event";
 export declare const protobufPackage = "pylon.gateway.v1.workergroup";
+/** Client -> Server messages */
 export interface WorkerStreamClientMessage {
     $type: "pylon.gateway.v1.workergroup.WorkerStreamClientMessage";
     payload?: {
         $case: "identifyRequest";
         identifyRequest: WorkerIdentifyRequest;
-    } | {
-        $case: "heartbeatRequest";
-        heartbeatRequest: WorkerHeartbeatRequest;
     } | {
         $case: "heartbeatResponse";
         heartbeatResponse: WorkerHeartbeatResponse;
@@ -17,6 +15,7 @@ export interface WorkerStreamClientMessage {
         drainRequest: WorkerDrainRequest;
     };
 }
+/** Server -> Client messages */
 export interface WorkerStreamServerMessage {
     $type: "pylon.gateway.v1.workergroup.WorkerStreamServerMessage";
     payload?: {
@@ -29,46 +28,52 @@ export interface WorkerStreamServerMessage {
         $case: "heartbeatRequest";
         heartbeatRequest: WorkerHeartbeatRequest;
     } | {
-        $case: "heartbeatResponse";
-        heartbeatResponse: WorkerHeartbeatResponse;
-    } | {
-        $case: "drainResponse";
-        drainResponse: WorkerDrainResponse;
+        $case: "streamClosed";
+        streamClosed: WorkerStreamClosed;
     };
 }
+/** Identification is the first message sent */
 export interface WorkerIdentifyRequest {
     $type: "pylon.gateway.v1.workergroup.WorkerIdentifyRequest";
     authToken: string;
     consumerGroup: string;
     consumerId: string;
+    routerTicket: string;
 }
+/** Router tickets are used for robust reconnections */
 export interface WorkerIdentifyResponse {
     $type: "pylon.gateway.v1.workergroup.WorkerIdentifyResponse";
-    status: WorkerIdentifyResponse_IdentifyStatus;
-    consumerId: string;
+    routerTicket: string;
 }
-export declare enum WorkerIdentifyResponse_IdentifyStatus {
-    UNKNOWN = 0,
-    OK = 1,
-    ERROR = 2
-}
-export declare function workerIdentifyResponse_IdentifyStatusFromJSON(object: any): WorkerIdentifyResponse_IdentifyStatus;
-export declare function workerIdentifyResponse_IdentifyStatusToJSON(object: WorkerIdentifyResponse_IdentifyStatus): string;
+/** Heartbeats are used to keep check on clients and acknowledge received events */
 export interface WorkerHeartbeatRequest {
     $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatRequest";
-    lastSequence: string;
+    sequence: string;
     nonce: string;
 }
 export interface WorkerHeartbeatResponse {
     $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatResponse";
     nonce: string;
 }
+/** Clients can request to drain their connections */
 export interface WorkerDrainRequest {
     $type: "pylon.gateway.v1.workergroup.WorkerDrainRequest";
+    sequence: string;
 }
-export interface WorkerDrainResponse {
-    $type: "pylon.gateway.v1.workergroup.WorkerDrainResponse";
+/** The server may close the connection with a reason */
+export interface WorkerStreamClosed {
+    $type: "pylon.gateway.v1.workergroup.WorkerStreamClosed";
+    reason: WorkerStreamClosed_CloseReason;
 }
+export declare enum WorkerStreamClosed_CloseReason {
+    UNKNOWN = 0,
+    HEARTBEAT_TIMEOUT = 1,
+    INVALID_IDENTITY = 2,
+    DRAIN_COMPLETE = 3,
+    REQUESTED_RECONNECT = 4
+}
+export declare function workerStreamClosed_CloseReasonFromJSON(object: any): WorkerStreamClosed_CloseReason;
+export declare function workerStreamClosed_CloseReasonToJSON(object: WorkerStreamClosed_CloseReason): string;
 export declare const WorkerStreamClientMessage: {
     $type: "pylon.gateway.v1.workergroup.WorkerStreamClientMessage";
     encode(message: WorkerStreamClientMessage, writer?: _m0.Writer): _m0.Writer;
@@ -119,19 +124,19 @@ export declare const WorkerHeartbeatResponse: {
 };
 export declare const WorkerDrainRequest: {
     $type: "pylon.gateway.v1.workergroup.WorkerDrainRequest";
-    encode(_: WorkerDrainRequest, writer?: _m0.Writer): _m0.Writer;
+    encode(message: WorkerDrainRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number | undefined): WorkerDrainRequest;
-    fromJSON(_: any): WorkerDrainRequest;
-    toJSON(_: WorkerDrainRequest): unknown;
-    fromPartial(_: DeepPartial<WorkerDrainRequest>): WorkerDrainRequest;
+    fromJSON(object: any): WorkerDrainRequest;
+    toJSON(message: WorkerDrainRequest): unknown;
+    fromPartial(object: DeepPartial<WorkerDrainRequest>): WorkerDrainRequest;
 };
-export declare const WorkerDrainResponse: {
-    $type: "pylon.gateway.v1.workergroup.WorkerDrainResponse";
-    encode(_: WorkerDrainResponse, writer?: _m0.Writer): _m0.Writer;
-    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): WorkerDrainResponse;
-    fromJSON(_: any): WorkerDrainResponse;
-    toJSON(_: WorkerDrainResponse): unknown;
-    fromPartial(_: DeepPartial<WorkerDrainResponse>): WorkerDrainResponse;
+export declare const WorkerStreamClosed: {
+    $type: "pylon.gateway.v1.workergroup.WorkerStreamClosed";
+    encode(message: WorkerStreamClosed, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): WorkerStreamClosed;
+    fromJSON(object: any): WorkerStreamClosed;
+    toJSON(message: WorkerStreamClosed): unknown;
+    fromPartial(object: DeepPartial<WorkerStreamClosed>): WorkerStreamClosed;
 };
 export interface DataLoaderOptions {
     cache?: boolean;
