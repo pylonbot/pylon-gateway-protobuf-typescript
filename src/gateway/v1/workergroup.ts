@@ -11,7 +11,7 @@ export interface WorkerStreamClientMessage {
   $type: "pylon.gateway.v1.workergroup.WorkerStreamClientMessage";
   payload?:
     | { $case: "identifyRequest"; identifyRequest: WorkerIdentifyRequest }
-    | { $case: "heartbeatResponse"; heartbeatResponse: WorkerHeartbeatResponse }
+    | { $case: "heartbeatAck"; heartbeatAck: WorkerHeartbeatAck }
     | { $case: "drainRequest"; drainRequest: WorkerDrainRequest };
 }
 
@@ -43,13 +43,13 @@ export interface WorkerIdentifyResponse {
 /** Heartbeats are used to keep check on clients and acknowledge received events */
 export interface WorkerHeartbeatRequest {
   $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatRequest";
-  sequence: string;
   nonce: string;
 }
 
-export interface WorkerHeartbeatResponse {
-  $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatResponse";
+export interface WorkerHeartbeatAck {
+  $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatAck";
   nonce: string;
+  sequence: string;
 }
 
 /** Clients can request to drain their connections */
@@ -136,9 +136,9 @@ export const WorkerStreamClientMessage = {
         writer.uint32(10).fork()
       ).ldelim();
     }
-    if (message.payload?.$case === "heartbeatResponse") {
-      WorkerHeartbeatResponse.encode(
-        message.payload.heartbeatResponse,
+    if (message.payload?.$case === "heartbeatAck") {
+      WorkerHeartbeatAck.encode(
+        message.payload.heartbeatAck,
         writer.uint32(18).fork()
       ).ldelim();
     }
@@ -174,11 +174,8 @@ export const WorkerStreamClientMessage = {
           break;
         case 2:
           message.payload = {
-            $case: "heartbeatResponse",
-            heartbeatResponse: WorkerHeartbeatResponse.decode(
-              reader,
-              reader.uint32()
-            ),
+            $case: "heartbeatAck",
+            heartbeatAck: WorkerHeartbeatAck.decode(reader, reader.uint32()),
           };
           break;
         case 3:
@@ -208,15 +205,10 @@ export const WorkerStreamClientMessage = {
         identifyRequest: WorkerIdentifyRequest.fromJSON(object.identifyRequest),
       };
     }
-    if (
-      object.heartbeatResponse !== undefined &&
-      object.heartbeatResponse !== null
-    ) {
+    if (object.heartbeatAck !== undefined && object.heartbeatAck !== null) {
       message.payload = {
-        $case: "heartbeatResponse",
-        heartbeatResponse: WorkerHeartbeatResponse.fromJSON(
-          object.heartbeatResponse
-        ),
+        $case: "heartbeatAck",
+        heartbeatAck: WorkerHeartbeatAck.fromJSON(object.heartbeatAck),
       };
     }
     if (object.drainRequest !== undefined && object.drainRequest !== null) {
@@ -234,9 +226,9 @@ export const WorkerStreamClientMessage = {
       (obj.identifyRequest = message.payload?.identifyRequest
         ? WorkerIdentifyRequest.toJSON(message.payload?.identifyRequest)
         : undefined);
-    message.payload?.$case === "heartbeatResponse" &&
-      (obj.heartbeatResponse = message.payload?.heartbeatResponse
-        ? WorkerHeartbeatResponse.toJSON(message.payload?.heartbeatResponse)
+    message.payload?.$case === "heartbeatAck" &&
+      (obj.heartbeatAck = message.payload?.heartbeatAck
+        ? WorkerHeartbeatAck.toJSON(message.payload?.heartbeatAck)
         : undefined);
     message.payload?.$case === "drainRequest" &&
       (obj.drainRequest = message.payload?.drainRequest
@@ -264,14 +256,14 @@ export const WorkerStreamClientMessage = {
       };
     }
     if (
-      object.payload?.$case === "heartbeatResponse" &&
-      object.payload?.heartbeatResponse !== undefined &&
-      object.payload?.heartbeatResponse !== null
+      object.payload?.$case === "heartbeatAck" &&
+      object.payload?.heartbeatAck !== undefined &&
+      object.payload?.heartbeatAck !== null
     ) {
       message.payload = {
-        $case: "heartbeatResponse",
-        heartbeatResponse: WorkerHeartbeatResponse.fromPartial(
-          object.payload.heartbeatResponse
+        $case: "heartbeatAck",
+        heartbeatAck: WorkerHeartbeatAck.fromPartial(
+          object.payload.heartbeatAck
         ),
       };
     }
@@ -686,7 +678,6 @@ messageTypeRegistry.set(WorkerIdentifyResponse.$type, WorkerIdentifyResponse);
 
 const baseWorkerHeartbeatRequest: object = {
   $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatRequest",
-  sequence: "0",
   nonce: "",
 };
 
@@ -697,11 +688,8 @@ export const WorkerHeartbeatRequest = {
     message: WorkerHeartbeatRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.sequence !== "0") {
-      writer.uint32(8).uint64(message.sequence);
-    }
     if (message.nonce !== "") {
-      writer.uint32(18).string(message.nonce);
+      writer.uint32(10).string(message.nonce);
     }
     return writer;
   },
@@ -717,9 +705,6 @@ export const WorkerHeartbeatRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.sequence = longToString(reader.uint64() as Long);
-          break;
-        case 2:
           message.nonce = reader.string();
           break;
         default:
@@ -732,9 +717,6 @@ export const WorkerHeartbeatRequest = {
 
   fromJSON(object: any): WorkerHeartbeatRequest {
     const message = { ...baseWorkerHeartbeatRequest } as WorkerHeartbeatRequest;
-    if (object.sequence !== undefined && object.sequence !== null) {
-      message.sequence = String(object.sequence);
-    }
     if (object.nonce !== undefined && object.nonce !== null) {
       message.nonce = String(object.nonce);
     }
@@ -743,7 +725,6 @@ export const WorkerHeartbeatRequest = {
 
   toJSON(message: WorkerHeartbeatRequest): unknown {
     const obj: any = {};
-    message.sequence !== undefined && (obj.sequence = message.sequence);
     message.nonce !== undefined && (obj.nonce = message.nonce);
     return obj;
   },
@@ -752,9 +733,6 @@ export const WorkerHeartbeatRequest = {
     object: DeepPartial<WorkerHeartbeatRequest>
   ): WorkerHeartbeatRequest {
     const message = { ...baseWorkerHeartbeatRequest } as WorkerHeartbeatRequest;
-    if (object.sequence !== undefined && object.sequence !== null) {
-      message.sequence = object.sequence;
-    }
     if (object.nonce !== undefined && object.nonce !== null) {
       message.nonce = object.nonce;
     }
@@ -764,38 +742,40 @@ export const WorkerHeartbeatRequest = {
 
 messageTypeRegistry.set(WorkerHeartbeatRequest.$type, WorkerHeartbeatRequest);
 
-const baseWorkerHeartbeatResponse: object = {
-  $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatResponse",
+const baseWorkerHeartbeatAck: object = {
+  $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatAck",
   nonce: "",
+  sequence: "0",
 };
 
-export const WorkerHeartbeatResponse = {
-  $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatResponse" as const,
+export const WorkerHeartbeatAck = {
+  $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatAck" as const,
 
   encode(
-    message: WorkerHeartbeatResponse,
+    message: WorkerHeartbeatAck,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
     if (message.nonce !== "") {
       writer.uint32(10).string(message.nonce);
     }
+    if (message.sequence !== "0") {
+      writer.uint32(16).uint64(message.sequence);
+    }
     return writer;
   },
 
-  decode(
-    input: _m0.Reader | Uint8Array,
-    length?: number
-  ): WorkerHeartbeatResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): WorkerHeartbeatAck {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = {
-      ...baseWorkerHeartbeatResponse,
-    } as WorkerHeartbeatResponse;
+    const message = { ...baseWorkerHeartbeatAck } as WorkerHeartbeatAck;
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.nonce = reader.string();
+          break;
+        case 2:
+          message.sequence = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -805,36 +785,37 @@ export const WorkerHeartbeatResponse = {
     return message;
   },
 
-  fromJSON(object: any): WorkerHeartbeatResponse {
-    const message = {
-      ...baseWorkerHeartbeatResponse,
-    } as WorkerHeartbeatResponse;
+  fromJSON(object: any): WorkerHeartbeatAck {
+    const message = { ...baseWorkerHeartbeatAck } as WorkerHeartbeatAck;
     if (object.nonce !== undefined && object.nonce !== null) {
       message.nonce = String(object.nonce);
+    }
+    if (object.sequence !== undefined && object.sequence !== null) {
+      message.sequence = String(object.sequence);
     }
     return message;
   },
 
-  toJSON(message: WorkerHeartbeatResponse): unknown {
+  toJSON(message: WorkerHeartbeatAck): unknown {
     const obj: any = {};
     message.nonce !== undefined && (obj.nonce = message.nonce);
+    message.sequence !== undefined && (obj.sequence = message.sequence);
     return obj;
   },
 
-  fromPartial(
-    object: DeepPartial<WorkerHeartbeatResponse>
-  ): WorkerHeartbeatResponse {
-    const message = {
-      ...baseWorkerHeartbeatResponse,
-    } as WorkerHeartbeatResponse;
+  fromPartial(object: DeepPartial<WorkerHeartbeatAck>): WorkerHeartbeatAck {
+    const message = { ...baseWorkerHeartbeatAck } as WorkerHeartbeatAck;
     if (object.nonce !== undefined && object.nonce !== null) {
       message.nonce = object.nonce;
+    }
+    if (object.sequence !== undefined && object.sequence !== null) {
+      message.sequence = object.sequence;
     }
     return message;
   },
 };
 
-messageTypeRegistry.set(WorkerHeartbeatResponse.$type, WorkerHeartbeatResponse);
+messageTypeRegistry.set(WorkerHeartbeatAck.$type, WorkerHeartbeatAck);
 
 const baseWorkerDrainRequest: object = {
   $type: "pylon.gateway.v1.workergroup.WorkerDrainRequest",
