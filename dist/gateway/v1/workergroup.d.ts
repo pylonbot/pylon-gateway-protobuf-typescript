@@ -8,8 +8,8 @@ export interface WorkerStreamClientMessage {
         $case: "identifyRequest";
         identifyRequest: WorkerIdentifyRequest;
     } | {
-        $case: "heartbeatResponse";
-        heartbeatResponse: WorkerHeartbeatResponse;
+        $case: "heartbeatAck";
+        heartbeatAck: WorkerHeartbeatAck;
     } | {
         $case: "drainRequest";
         drainRequest: WorkerDrainRequest;
@@ -48,12 +48,12 @@ export interface WorkerIdentifyResponse {
 /** Heartbeats are used to keep check on clients and acknowledge received events */
 export interface WorkerHeartbeatRequest {
     $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatRequest";
-    sequence: string;
     nonce: string;
 }
-export interface WorkerHeartbeatResponse {
-    $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatResponse";
+export interface WorkerHeartbeatAck {
+    $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatAck";
     nonce: string;
+    sequence: string;
 }
 /** Clients can request to drain their connections */
 export interface WorkerDrainRequest {
@@ -114,13 +114,13 @@ export declare const WorkerHeartbeatRequest: {
     toJSON(message: WorkerHeartbeatRequest): unknown;
     fromPartial(object: DeepPartial<WorkerHeartbeatRequest>): WorkerHeartbeatRequest;
 };
-export declare const WorkerHeartbeatResponse: {
-    $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatResponse";
-    encode(message: WorkerHeartbeatResponse, writer?: _m0.Writer): _m0.Writer;
-    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): WorkerHeartbeatResponse;
-    fromJSON(object: any): WorkerHeartbeatResponse;
-    toJSON(message: WorkerHeartbeatResponse): unknown;
-    fromPartial(object: DeepPartial<WorkerHeartbeatResponse>): WorkerHeartbeatResponse;
+export declare const WorkerHeartbeatAck: {
+    $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatAck";
+    encode(message: WorkerHeartbeatAck, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number | undefined): WorkerHeartbeatAck;
+    fromJSON(object: any): WorkerHeartbeatAck;
+    toJSON(message: WorkerHeartbeatAck): unknown;
+    fromPartial(object: DeepPartial<WorkerHeartbeatAck>): WorkerHeartbeatAck;
 };
 export declare const WorkerDrainRequest: {
     $type: "pylon.gateway.v1.workergroup.WorkerDrainRequest";

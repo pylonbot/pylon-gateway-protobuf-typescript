@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkerStreamClosed = exports.WorkerDrainRequest = exports.WorkerHeartbeatResponse = exports.WorkerHeartbeatRequest = exports.WorkerIdentifyResponse = exports.WorkerIdentifyRequest = exports.WorkerStreamServerMessage = exports.WorkerStreamClientMessage = exports.workerStreamClosed_CloseReasonToJSON = exports.workerStreamClosed_CloseReasonFromJSON = exports.WorkerStreamClosed_CloseReason = exports.protobufPackage = void 0;
+exports.WorkerStreamClosed = exports.WorkerDrainRequest = exports.WorkerHeartbeatAck = exports.WorkerHeartbeatRequest = exports.WorkerIdentifyResponse = exports.WorkerIdentifyRequest = exports.WorkerStreamServerMessage = exports.WorkerStreamClientMessage = exports.workerStreamClosed_CloseReasonToJSON = exports.workerStreamClosed_CloseReasonFromJSON = exports.WorkerStreamClosed_CloseReason = exports.protobufPackage = void 0;
 /* eslint-disable */
 const typeRegistry_1 = require("../../typeRegistry");
 const long_1 = __importDefault(require("long"));
@@ -68,8 +68,8 @@ exports.WorkerStreamClientMessage = {
         if (message.payload?.$case === "identifyRequest") {
             exports.WorkerIdentifyRequest.encode(message.payload.identifyRequest, writer.uint32(10).fork()).ldelim();
         }
-        if (message.payload?.$case === "heartbeatResponse") {
-            exports.WorkerHeartbeatResponse.encode(message.payload.heartbeatResponse, writer.uint32(18).fork()).ldelim();
+        if (message.payload?.$case === "heartbeatAck") {
+            exports.WorkerHeartbeatAck.encode(message.payload.heartbeatAck, writer.uint32(18).fork()).ldelim();
         }
         if (message.payload?.$case === "drainRequest") {
             exports.WorkerDrainRequest.encode(message.payload.drainRequest, writer.uint32(26).fork()).ldelim();
@@ -93,8 +93,8 @@ exports.WorkerStreamClientMessage = {
                     break;
                 case 2:
                     message.payload = {
-                        $case: "heartbeatResponse",
-                        heartbeatResponse: exports.WorkerHeartbeatResponse.decode(reader, reader.uint32()),
+                        $case: "heartbeatAck",
+                        heartbeatAck: exports.WorkerHeartbeatAck.decode(reader, reader.uint32()),
                     };
                     break;
                 case 3:
@@ -121,11 +121,10 @@ exports.WorkerStreamClientMessage = {
                 identifyRequest: exports.WorkerIdentifyRequest.fromJSON(object.identifyRequest),
             };
         }
-        if (object.heartbeatResponse !== undefined &&
-            object.heartbeatResponse !== null) {
+        if (object.heartbeatAck !== undefined && object.heartbeatAck !== null) {
             message.payload = {
-                $case: "heartbeatResponse",
-                heartbeatResponse: exports.WorkerHeartbeatResponse.fromJSON(object.heartbeatResponse),
+                $case: "heartbeatAck",
+                heartbeatAck: exports.WorkerHeartbeatAck.fromJSON(object.heartbeatAck),
             };
         }
         if (object.drainRequest !== undefined && object.drainRequest !== null) {
@@ -142,9 +141,9 @@ exports.WorkerStreamClientMessage = {
             (obj.identifyRequest = message.payload?.identifyRequest
                 ? exports.WorkerIdentifyRequest.toJSON(message.payload?.identifyRequest)
                 : undefined);
-        message.payload?.$case === "heartbeatResponse" &&
-            (obj.heartbeatResponse = message.payload?.heartbeatResponse
-                ? exports.WorkerHeartbeatResponse.toJSON(message.payload?.heartbeatResponse)
+        message.payload?.$case === "heartbeatAck" &&
+            (obj.heartbeatAck = message.payload?.heartbeatAck
+                ? exports.WorkerHeartbeatAck.toJSON(message.payload?.heartbeatAck)
                 : undefined);
         message.payload?.$case === "drainRequest" &&
             (obj.drainRequest = message.payload?.drainRequest
@@ -164,12 +163,12 @@ exports.WorkerStreamClientMessage = {
                 identifyRequest: exports.WorkerIdentifyRequest.fromPartial(object.payload.identifyRequest),
             };
         }
-        if (object.payload?.$case === "heartbeatResponse" &&
-            object.payload?.heartbeatResponse !== undefined &&
-            object.payload?.heartbeatResponse !== null) {
+        if (object.payload?.$case === "heartbeatAck" &&
+            object.payload?.heartbeatAck !== undefined &&
+            object.payload?.heartbeatAck !== null) {
             message.payload = {
-                $case: "heartbeatResponse",
-                heartbeatResponse: exports.WorkerHeartbeatResponse.fromPartial(object.payload.heartbeatResponse),
+                $case: "heartbeatAck",
+                heartbeatAck: exports.WorkerHeartbeatAck.fromPartial(object.payload.heartbeatAck),
             };
         }
         if (object.payload?.$case === "drainRequest" &&
@@ -483,74 +482,10 @@ exports.WorkerIdentifyResponse = {
 typeRegistry_1.messageTypeRegistry.set(exports.WorkerIdentifyResponse.$type, exports.WorkerIdentifyResponse);
 const baseWorkerHeartbeatRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatRequest",
-    sequence: "0",
     nonce: "",
 };
 exports.WorkerHeartbeatRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatRequest",
-    encode(message, writer = minimal_1.default.Writer.create()) {
-        if (message.sequence !== "0") {
-            writer.uint32(8).uint64(message.sequence);
-        }
-        if (message.nonce !== "") {
-            writer.uint32(18).string(message.nonce);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = { ...baseWorkerHeartbeatRequest };
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.sequence = longToString(reader.uint64());
-                    break;
-                case 2:
-                    message.nonce = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        const message = { ...baseWorkerHeartbeatRequest };
-        if (object.sequence !== undefined && object.sequence !== null) {
-            message.sequence = String(object.sequence);
-        }
-        if (object.nonce !== undefined && object.nonce !== null) {
-            message.nonce = String(object.nonce);
-        }
-        return message;
-    },
-    toJSON(message) {
-        const obj = {};
-        message.sequence !== undefined && (obj.sequence = message.sequence);
-        message.nonce !== undefined && (obj.nonce = message.nonce);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = { ...baseWorkerHeartbeatRequest };
-        if (object.sequence !== undefined && object.sequence !== null) {
-            message.sequence = object.sequence;
-        }
-        if (object.nonce !== undefined && object.nonce !== null) {
-            message.nonce = object.nonce;
-        }
-        return message;
-    },
-};
-typeRegistry_1.messageTypeRegistry.set(exports.WorkerHeartbeatRequest.$type, exports.WorkerHeartbeatRequest);
-const baseWorkerHeartbeatResponse = {
-    $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatResponse",
-    nonce: "",
-};
-exports.WorkerHeartbeatResponse = {
-    $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatResponse",
     encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.nonce !== "") {
             writer.uint32(10).string(message.nonce);
@@ -560,9 +495,7 @@ exports.WorkerHeartbeatResponse = {
     decode(input, length) {
         const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
-        const message = {
-            ...baseWorkerHeartbeatResponse,
-        };
+        const message = { ...baseWorkerHeartbeatRequest };
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
@@ -577,9 +510,7 @@ exports.WorkerHeartbeatResponse = {
         return message;
     },
     fromJSON(object) {
-        const message = {
-            ...baseWorkerHeartbeatResponse,
-        };
+        const message = { ...baseWorkerHeartbeatRequest };
         if (object.nonce !== undefined && object.nonce !== null) {
             message.nonce = String(object.nonce);
         }
@@ -591,16 +522,78 @@ exports.WorkerHeartbeatResponse = {
         return obj;
     },
     fromPartial(object) {
-        const message = {
-            ...baseWorkerHeartbeatResponse,
-        };
+        const message = { ...baseWorkerHeartbeatRequest };
         if (object.nonce !== undefined && object.nonce !== null) {
             message.nonce = object.nonce;
         }
         return message;
     },
 };
-typeRegistry_1.messageTypeRegistry.set(exports.WorkerHeartbeatResponse.$type, exports.WorkerHeartbeatResponse);
+typeRegistry_1.messageTypeRegistry.set(exports.WorkerHeartbeatRequest.$type, exports.WorkerHeartbeatRequest);
+const baseWorkerHeartbeatAck = {
+    $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatAck",
+    nonce: "",
+    sequence: "0",
+};
+exports.WorkerHeartbeatAck = {
+    $type: "pylon.gateway.v1.workergroup.WorkerHeartbeatAck",
+    encode(message, writer = minimal_1.default.Writer.create()) {
+        if (message.nonce !== "") {
+            writer.uint32(10).string(message.nonce);
+        }
+        if (message.sequence !== "0") {
+            writer.uint32(16).uint64(message.sequence);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof minimal_1.default.Reader ? input : new minimal_1.default.Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = { ...baseWorkerHeartbeatAck };
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.nonce = reader.string();
+                    break;
+                case 2:
+                    message.sequence = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        const message = { ...baseWorkerHeartbeatAck };
+        if (object.nonce !== undefined && object.nonce !== null) {
+            message.nonce = String(object.nonce);
+        }
+        if (object.sequence !== undefined && object.sequence !== null) {
+            message.sequence = String(object.sequence);
+        }
+        return message;
+    },
+    toJSON(message) {
+        const obj = {};
+        message.nonce !== undefined && (obj.nonce = message.nonce);
+        message.sequence !== undefined && (obj.sequence = message.sequence);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = { ...baseWorkerHeartbeatAck };
+        if (object.nonce !== undefined && object.nonce !== null) {
+            message.nonce = object.nonce;
+        }
+        if (object.sequence !== undefined && object.sequence !== null) {
+            message.sequence = object.sequence;
+        }
+        return message;
+    },
+};
+typeRegistry_1.messageTypeRegistry.set(exports.WorkerHeartbeatAck.$type, exports.WorkerHeartbeatAck);
 const baseWorkerDrainRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerDrainRequest",
     sequence: "0",
