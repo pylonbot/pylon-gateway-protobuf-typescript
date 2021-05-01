@@ -341,6 +341,7 @@ const baseWorkerIdentifyRequest = {
     consumerGroup: "",
     consumerId: "",
     routerTicket: "",
+    lastSequence: "0",
 };
 exports.WorkerIdentifyRequest = {
     $type: "pylon.gateway.v1.workergroup.WorkerIdentifyRequest",
@@ -356,6 +357,9 @@ exports.WorkerIdentifyRequest = {
         }
         if (message.routerTicket !== "") {
             writer.uint32(34).string(message.routerTicket);
+        }
+        if (message.lastSequence !== "0") {
+            writer.uint32(40).uint64(message.lastSequence);
         }
         return writer;
     },
@@ -378,6 +382,9 @@ exports.WorkerIdentifyRequest = {
                 case 4:
                     message.routerTicket = reader.string();
                     break;
+                case 5:
+                    message.lastSequence = longToString(reader.uint64());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -399,6 +406,9 @@ exports.WorkerIdentifyRequest = {
         if (object.routerTicket !== undefined && object.routerTicket !== null) {
             message.routerTicket = String(object.routerTicket);
         }
+        if (object.lastSequence !== undefined && object.lastSequence !== null) {
+            message.lastSequence = String(object.lastSequence);
+        }
         return message;
     },
     toJSON(message) {
@@ -409,6 +419,8 @@ exports.WorkerIdentifyRequest = {
         message.consumerId !== undefined && (obj.consumerId = message.consumerId);
         message.routerTicket !== undefined &&
             (obj.routerTicket = message.routerTicket);
+        message.lastSequence !== undefined &&
+            (obj.lastSequence = message.lastSequence);
         return obj;
     },
     fromPartial(object) {
@@ -424,6 +436,9 @@ exports.WorkerIdentifyRequest = {
         }
         if (object.routerTicket !== undefined && object.routerTicket !== null) {
             message.routerTicket = object.routerTicket;
+        }
+        if (object.lastSequence !== undefined && object.lastSequence !== null) {
+            message.lastSequence = object.lastSequence;
         }
         return message;
     },

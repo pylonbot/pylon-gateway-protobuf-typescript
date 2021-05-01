@@ -32,6 +32,7 @@ export interface WorkerIdentifyRequest {
   consumerGroup: string;
   consumerId: string;
   routerTicket: string;
+  lastSequence: string;
 }
 
 /** Router tickets are used for robust reconnections */
@@ -505,6 +506,7 @@ const baseWorkerIdentifyRequest: object = {
   consumerGroup: "",
   consumerId: "",
   routerTicket: "",
+  lastSequence: "0",
 };
 
 export const WorkerIdentifyRequest = {
@@ -525,6 +527,9 @@ export const WorkerIdentifyRequest = {
     }
     if (message.routerTicket !== "") {
       writer.uint32(34).string(message.routerTicket);
+    }
+    if (message.lastSequence !== "0") {
+      writer.uint32(40).uint64(message.lastSequence);
     }
     return writer;
   },
@@ -551,6 +556,9 @@ export const WorkerIdentifyRequest = {
         case 4:
           message.routerTicket = reader.string();
           break;
+        case 5:
+          message.lastSequence = longToString(reader.uint64() as Long);
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -573,6 +581,9 @@ export const WorkerIdentifyRequest = {
     if (object.routerTicket !== undefined && object.routerTicket !== null) {
       message.routerTicket = String(object.routerTicket);
     }
+    if (object.lastSequence !== undefined && object.lastSequence !== null) {
+      message.lastSequence = String(object.lastSequence);
+    }
     return message;
   },
 
@@ -584,6 +595,8 @@ export const WorkerIdentifyRequest = {
     message.consumerId !== undefined && (obj.consumerId = message.consumerId);
     message.routerTicket !== undefined &&
       (obj.routerTicket = message.routerTicket);
+    message.lastSequence !== undefined &&
+      (obj.lastSequence = message.lastSequence);
     return obj;
   },
 
@@ -602,6 +615,9 @@ export const WorkerIdentifyRequest = {
     }
     if (object.routerTicket !== undefined && object.routerTicket !== null) {
       message.routerTicket = object.routerTicket;
+    }
+    if (object.lastSequence !== undefined && object.lastSequence !== null) {
+      message.lastSequence = object.lastSequence;
     }
     return message;
   },
