@@ -39,6 +39,7 @@ export interface WorkerIdentifyRequest {
     consumerGroup: string;
     consumerId: string;
     routerTicket: string;
+    lastSequence: string;
 }
 /** Router tickets are used for robust reconnections */
 export interface WorkerIdentifyResponse {
